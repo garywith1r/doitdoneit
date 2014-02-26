@@ -1,0 +1,50 @@
+//
+//  TaskModel.h
+//  Tasks
+//
+//  Created by Gonzalo Hardy on 2/4/14.
+//  Copyright (c) 2014 GoNXaS. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+#define DATE_FORMAT @"EEE, d MMMM"
+
+enum TaskStatus {
+    TaskStatusIncomplete = 0,
+    TaskStatusComplete,
+    TaskStatusMissed
+};
+
+enum TaskRepeatPeriod {
+    Weekly = 0,
+    Fortnightly,
+    Monthly
+};
+
+@interface TaskDTO : NSObject
+
+@property (nonatomic, strong) NSString* title;
+@property (nonatomic) NSInteger currentRepetition;
+@property (nonatomic) NSInteger repeatTimes;
+@property (nonatomic) enum TaskRepeatPeriod repeatPeriod;
+@property (nonatomic) NSInteger priorityPoints;
+
+@property (nonatomic, strong) NSString* notes;
+@property (nonatomic) enum TaskStatus status;
+@property (nonatomic) NSInteger rating;
+
+@property (nonatomic, strong) NSDate* creationDate;
+@property (nonatomic, strong) NSDate* showingDate;
+@property (nonatomic, strong) NSDate* dueDate;
+@property (nonatomic, strong) NSDate* completitionDate;
+
+@property (nonatomic) NSInteger timesDoneIt;
+@property (nonatomic) NSInteger timesMissedIt;
+
++ (TaskDTO*) taskDtoFromDictionary:(NSDictionary*)diccionary;
+- (TaskDTO*) taskWithData;
+- (NSDictionary*) convertToDictionary;
+- (double) hitRate;
+
+@end
