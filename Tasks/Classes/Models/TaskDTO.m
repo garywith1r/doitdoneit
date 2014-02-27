@@ -27,8 +27,6 @@
         self.priorityPoints = 5;
         self.status = 0;
         self.rating = 0;
-        self.timesDoneIt = 0;
-        self.timesMissedIt = 0;
         self.dueDate = [NSDate dateWithTimeInterval:DEFAULT_TIME_FOR_TASK sinceDate:[NSDate midnightToday]];
         self.creationDate = [NSDate date];
         self.showingDate = [NSDate midnightToday];
@@ -65,6 +63,62 @@
     return newTask;
 }
 
+- (void) setRepeatTimes:(NSInteger)_repeatTimes {
+    repeatTimes = _repeatTimes;
+    if (_repeatTimes <= 0) {
+        self.timesDoneIt = self.timesMissedIt = nil;
+        return;
+    }
+    
+    
+    NSMutableArray* tempHits = [NSMutableArray arrayWithCapacity:_repeatTimes];
+    int x = 0;
+    
+    for (; x < self.timesDoneIt.count; x++) {
+        [tempHits setObject:self.timesDoneIt[x] atIndexedSubscript:x];
+    }
+    
+    for (; x < _repeatTimes; x++) {
+        [tempHits setObject:[NSNumber numberWithInt:0] atIndexedSubscript:x];
+    }
+    
+    self.timesDoneIt = tempHits;
+    tempHits = nil;
+    
+    NSMutableArray* tempMiss = [NSMutableArray arrayWithCapacity:_repeatTimes];
+    x = 0;
+    
+    for (; x < self.timesMissedIt.count; x++) {
+        [tempMiss setObject:self.timesMissedIt[x] atIndexedSubscript:x];
+    }
+    
+    for (; x < _repeatTimes; x++) {
+        [tempMiss setObject:[NSNumber numberWithInt:0] atIndexedSubscript:x];
+    }
+    
+    self.timesMissedIt = tempMiss;
+    tempMiss = nil;
+}
+
+- (void) incrementDoneItBy:(int)increment {
+    int doneIt = [self.timesDoneIt[self.currentRepetition - 1] intValue] + increment;
+    [self.timesDoneIt replaceObjectAtIndex:(self.currentRepetition -1) withObject:[NSNumber numberWithInt:doneIt]];
+}
+
+- (void) incrementMissedItBy:(int)increment {
+    int missed = [self.timesMissedIt[self.currentRepetition - 1] intValue] + increment;
+    [self.timesMissedIt replaceObjectAtIndex:(self.currentRepetition -1) withObject:[NSNumber numberWithInt:missed]];
+}
+
+- (double) hitRate {
+    float doneIt = [self.timesDoneIt[self.currentRepetition - 1] floatValue];
+    float missedIt = [self.timesMissedIt[self.currentRepetition - 1] floatValue];
+    
+    return doneIt / (doneIt + missedIt) * 100;
+}
+
+
+#pragma mark - Storage Methods
 - (NSDictionary*) convertToDictionary {
     
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithCapacity:8];
@@ -90,8 +144,8 @@
     if (self.completitionDate)
         [dic setObject:self.completitionDate forKey:@"completitionDate"];
     
-    [dic setObject:[NSString stringWithFormat:@"%d",self.timesDoneIt] forKey:@"timesDoneIt"];
-    [dic setObject:[NSString stringWithFormat:@"%d",self.timesMissedIt] forKey:@"timesMissedIt"];
+    [dic setObject:[NSArray arrayWithArray:self.timesDoneIt] forKey:@"timesDoneIt"];
+    [dic setObject:[NSArray arrayWithArray:self.timesMissedIt] forKey:@"timesMissedIt"];
     
     return [NSDictionary dictionaryWithDictionary:dic];
 }
@@ -114,14 +168,10 @@
     dto.dueDate = [dicctionary objectForKey:@"dueDate"];
     dto.completitionDate = [dicctionary objectForKey:@"completitionDate"];
     
-    dto.timesDoneIt = [[dicctionary objectForKey:@"timesDoneIt"] integerValue];
-    dto.timesMissedIt = [[dicctionary objectForKey:@"timesMissedIt"] integerValue];
+    dto.timesDoneIt = [NSMutableArray arrayWithArray:[dicctionary objectForKey:@"timesDoneIt"] ];
+    dto.timesMissedIt = [NSMutableArray arrayWithArray:[dicctionary objectForKey:@"timesMissedIt"]];
     
     return dto;
-}
-
-- (double) hitRate {
-    return self.timesDoneIt / (float) (self.timesDoneIt + self.timesMissedIt) * 100;
 }
 
 @end

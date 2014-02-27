@@ -74,7 +74,7 @@
         
     }
     
-    cellView.dueDate.text = [NSString stringWithFormat:@"%@ Total %dx Hit %.1f%%",completedText, task.timesDoneIt, [task hitRate]];
+    cellView.dueDate.text = [NSString stringWithFormat:@"%@ Total %dx Hit %.1f%%",completedText, [task.timesDoneIt[task.currentRepetition - 1] intValue], [task hitRate]];
     
     
     [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];

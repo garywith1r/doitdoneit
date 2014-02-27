@@ -66,9 +66,18 @@
     if (self.task.status != TaskStatusComplete) {
         completeTaskDetailsView.hidden = YES;
         contentViewHeightConstrait.constant = contentViewHeightConstrait.constant - completeTaskDetailsView.frame.size.height;
+    } else {
+        [self setRating:self.task.rating];
+        txtNotes.text = self.task.notes;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM/dd/yy"];
+        
+        int timesDoneIt = [task.timesDoneIt[task.currentRepetition - 1] intValue];
+        int timesMissedIt = [task.timesMissedIt[task.currentRepetition - 1] intValue];
+        
+        lblInfo.text = [NSString stringWithFormat:@"Created: %@ Done: %dx\nMissed: %dx Hit: %.1f%%",[formatter stringFromDate:task.creationDate], timesDoneIt, timesMissedIt, [task hitRate]];
     }
-    [self setRating:self.task.rating];
-    txtNotes.text = self.task.notes;
     
     dueDateTemp = self.task.dueDate;
     completitionDateTemp = self.task.completitionDate;
@@ -78,10 +87,7 @@
     if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
         scrollViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd/yy"];
     
-    lblInfo.text = [NSString stringWithFormat:@"Created: %@ Done: %dx\nMissed: %dx Hit: %.1f%%",[formatter stringFromDate:task.creationDate],task.timesDoneIt, task.timesMissedIt, [task hitRate]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

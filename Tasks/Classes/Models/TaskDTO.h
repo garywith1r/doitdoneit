@@ -39,12 +39,15 @@ enum TaskRepeatPeriod {
 @property (nonatomic, strong) NSDate* dueDate;
 @property (nonatomic, strong) NSDate* completitionDate;
 
-@property (nonatomic) NSInteger timesDoneIt;
-@property (nonatomic) NSInteger timesMissedIt;
+@property (nonatomic, strong) NSMutableArray* timesDoneIt;
+@property (nonatomic, strong) NSMutableArray* timesMissedIt;
 
 + (TaskDTO*) taskDtoFromDictionary:(NSDictionary*)diccionary;
 - (TaskDTO*) taskWithData;
 - (NSDictionary*) convertToDictionary;
+
+- (void) incrementDoneItBy:(int)increment;
+- (void) incrementMissedItBy:(int)increment;
 - (double) hitRate;
 
 @end

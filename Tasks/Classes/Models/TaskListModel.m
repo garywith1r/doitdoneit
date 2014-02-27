@@ -150,36 +150,23 @@ TaskListModel* instance;
     //if two tasks were created at the same time, then are the same task
     NSMutableArray* tempArray = [[NSMutableArray alloc] initWithCapacity:[tasks count]];
     
-    for (TaskDTO* task in tasks) {
-        if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {
-            [tempArray addObject:task];
+    if ([tasks containsObject:deletingTask]) {
+        for (TaskDTO* task in tasks) {
+            if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {
+                [tempArray addObject:task];
+            }
         }
+        
+        [tasks removeObjectsInArray:tempArray];
+        
+        toDoTasks = nil;
+        [self storeTasksData];
+        
+    } else if ([completedTasks containsObject:deletingTask]) {
+        [completedTasks removeObject:deletingTask];
+        doneTasks = nil;
+        [self storeCompletedTasksData];
     }
-    
-    [tasks removeObjectsInArray:tempArray];
-    
-    for (TaskDTO* task in completedTasks) {
-        if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {
-            [tempArray addObject:task];
-        }
-    }
-    
-    [completedTasks removeObjectsInArray:tempArray];
-    
-    for (TaskDTO* task in missedTasks) {
-        if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {
-            [tempArray addObject:task];
-        }
-    }
-    
-    [missedTasks removeObjectsInArray:tempArray];
-    
-    toDoTasks = nil;
-    doneTasks = nil;
-    [self storeTasksData];
-    [self storeCompletedTasksData];
-    [self storeMissedTasksData];
-    
 }
 
 - (TaskDTO*) taskAtIndex:(int)index {
@@ -187,7 +174,8 @@ TaskListModel* instance;
 }
 
 - (void) completeTask:(TaskDTO*) task {
-    task.timesDoneIt++;
+    [task incrementDoneItBy:1];
+
     self.totalCompletedTasks++;
     
     task.status = TaskStatusComplete;
@@ -206,7 +194,7 @@ TaskListModel* instance;
 }
 
 - (void) missTask:(TaskDTO*) task {
-    task.timesMissedIt++;
+    [task incrementMissedItBy:1];
     self.totalMissedTasks++;
     [tasks removeObject:task];
     
@@ -278,16 +266,18 @@ TaskListModel* instance;
         for (TaskDTO* task in tempArray) {
             //for each task, we'll add as missed the remaining repetitions and create the new task.
             
-            task.timesMissedIt += task.repeatTimes - task.currentRepetition + 1;//+1 becouse he didn't complete the current repetition.
+            [task incrementMissedItBy:task.repeatTimes - task.currentRepetition + 1];//+1 becouse he didn't complete the current repetition.
             self.totalMissedTasks += task.repeatTimes - task.currentRepetition + 1;
             task.currentRepetition = task.repeatTimes; //he missed all.
+            
             [tasks removeObject:task];
             TaskDTO* newTask = [self createNextTaskTo:task];
             
             //check if the next task due date hasn't passed yet. Miss as many tasks ad necesary
             while ([self hasMissedIt:newTask]) {
                 [missedTasks addObject:newTask];
-                newTask.timesMissedIt += newTask.repeatTimes - newTask.currentRepetition + 1;
+                
+                [newTask incrementMissedItBy:newTask.repeatTimes - newTask.currentRepetition + 1];
                 self.totalMissedTasks += newTask.repeatTimes - newTask.currentRepetition + 1;
                 newTask = [self createNextTaskTo:newTask];
             }
