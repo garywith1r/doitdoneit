@@ -92,7 +92,7 @@
                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
-                            <action selector="ratingButtonPressed:" destination="qJE-jB-QdH" eventType="touchDragInside" id="VoU-pR-zKA"/>
+                            <action selector="ratingButtonPressed:" destination="qJE-jB-QdH" eventType="touchUpInside" id="4mV-cw-qLo"/>
                         </connections>
                     </button>
                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6At-yb-R2I">

@@ -21,6 +21,11 @@
 
 @implementation CompleteTaskViewCell
 
+- (void) resetContent {
+    [self setRating:0];
+    txtNotes.text = @"";
+}
+
 - (IBAction) ratingButtonPressed:(UIButton*) sender {
     [self setRating:sender.tag];
 }
@@ -40,14 +45,16 @@
 
 - (IBAction) skipTask {
     [[TaskListModel sharedInstance] missTask:self.task];
+    if ([self.delegate respondsToSelector:@selector(shouldDisposeTheCellForTask:)])
+        [self.delegate shouldDisposeTheCellForTask:self.task];
 }
 
 - (IBAction) completeTask {
     self.task.rating = ratingTemp;
     self.task.notes = txtNotes.text;
-    [self completeTask];
-    if ([self.delegate respondsToSelector:@selector(shouldDisposeTheCell)])
-        [self.delegate shouldDisposeTheCell];
+    [[TaskListModel sharedInstance] completeTask:self.task];
+    if ([self.delegate respondsToSelector:@selector(shouldDisposeTheCellForTask:)])
+        [self.delegate shouldDisposeTheCellForTask:self.task];
 }
 
 - (IBAction) shareOnFacebook {

@@ -9,18 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "TaskDTO.h"
 
+#define COMPLETE_TASK_VIEW_CELL_HEIGHT 175
+
 @protocol CompleteTaskDelegate <NSObject>
 
 @optional
 - (void) noteTextDidStartEditing;
 - (void) noteTextDidEndEditing;
-- (void) shouldDisposeTheCell;
+- (void) shouldDisposeTheCellForTask:(TaskDTO*)task;
 
 @end
 
 @interface CompleteTaskViewCell : UITableViewCell
 
+- (void) resetContent;
+
 @property (nonatomic, weak) NSObject <CompleteTaskDelegate>* delegate;
-@property (nonatomic, weak) TaskDTO* task;
+@property (nonatomic, strong) TaskDTO* task;
 
 @end
