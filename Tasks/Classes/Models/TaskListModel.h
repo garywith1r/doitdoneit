@@ -24,9 +24,14 @@
 - (void) deleteTask:(TaskDTO*) task;
 - (void) completeTask:(TaskDTO*) task;
 - (void) completeTaskAtIndex:(int) index;
+- (void) missTask:(TaskDTO*) task;
 
 - (NSArray*) getToDoTasks;
 - (void) forceRecalculateTasks;
 - (NSArray*) getDoneTasks;
 - (void) evaluateMissedTasks;
+
+
+- (void) shareTaskOnFacebook:(TaskDTO*)task;
+- (void) shareTaskOnTwitter:(TaskDTO*)task;
 @end

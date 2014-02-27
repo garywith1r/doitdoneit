@@ -44,6 +44,10 @@
 		5CC1E9EF18BD3B240018955E /* Edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EC18BD3B240018955E /* Edit@2x.png */; };
 		5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2178718BCEB7100C8FA34 /* DoItTaskListViewController.m */; };
 		5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */; };
+		5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */; };
+		5CDB774518BEB556000A4C04 /* CompleteTaskViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */; };
+		5CDB774818BEBE7F000A4C04 /* FacebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774618BEBE7F000A4C04 /* FacebookIcon.png */; };
+		5CDB774918BEBE7F000A4C04 /* TwitterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774718BEBE7F000A4C04 /* TwitterIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +111,12 @@
 		5CC2178718BCEB7100C8FA34 /* DoItTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoItTaskListViewController.m; sourceTree = "<group>"; };
 		5CC2178918BCEEB700C8FA34 /* DoneItTasksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneItTasksListViewController.h; sourceTree = "<group>"; };
 		5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneItTasksListViewController.m; sourceTree = "<group>"; };
+		5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteTaskViewCell.h; sourceTree = "<group>"; };
+		5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteTaskViewCell.m; sourceTree = "<group>"; };
+		5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompleteTaskViewCell.xib; sourceTree = "<group>"; };
+		5CDB774618BEBE7F000A4C04 /* FacebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookIcon.png; sourceTree = "<group>"; };
+		5CDB774718BEBE7F000A4C04 /* TwitterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterIcon.png; sourceTree = "<group>"; };
+		5CDB774A18BEBEC2000A4C04 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/ViewControllers/Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +207,7 @@
 			children = (
 				5C9B63C018A1632B0091C1D2 /* Models */,
 				5C9B63C118A1632B0091C1D2 /* ViewControllers */,
+				5CDB774A18BEBEC2000A4C04 /* Constants.h */,
 				5C9B638018A14A350091C1D2 /* AppDelegate.h */,
 				5C9B638118A14A350091C1D2 /* AppDelegate.m */,
 				5C2652D818BBA461007F8A0C /* 3rd Party */,
@@ -231,6 +242,8 @@
 		5C9B63AA18A151C90091C1D2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5CDB774618BEBE7F000A4C04 /* FacebookIcon.png */,
+				5CDB774718BEBE7F000A4C04 /* TwitterIcon.png */,
 				5C30E53A18BC5F450083FF23 /* Star_Yellow.png */,
 				5C30E53B18BC5F450083FF23 /* Copy.png */,
 				5CC1E9EA18BD3B240018955E /* Copy@2x.png */,
@@ -275,6 +288,9 @@
 				5C9B63C918A1632B0091C1D2 /* TaskViewController.m */,
 				5C9B63D618A17AAC0091C1D2 /* TasksViewCell.h */,
 				5C9B63D718A17AAC0091C1D2 /* TasksViewCell.m */,
+				5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */,
+				5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */,
+				5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */,
 				5C9B63D918A192BA0091C1D2 /* CompleteTaskViewController.h */,
 				5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */,
 			);
@@ -343,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDB774518BEB556000A4C04 /* CompleteTaskViewCell.xib in Resources */,
 				5C30E54018BC5F450083FF23 /* Star_Yellow.png in Resources */,
 				5C30E54318BC5F450083FF23 /* Calendar.png in Resources */,
 				5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */,
@@ -350,9 +367,11 @@
 				5C9B638518A14A350091C1D2 /* Main_iPhone.storyboard in Resources */,
 				5C9B637C18A14A350091C1D2 /* InfoPlist.strings in Resources */,
 				5C30E54218BC5F450083FF23 /* Delete.png in Resources */,
+				5CDB774918BEBE7F000A4C04 /* TwitterIcon.png in Resources */,
 				5C9B63AF18A151C90091C1D2 /* Mark_higlighted.gif in Resources */,
 				5CC1E9EF18BD3B240018955E /* Edit@2x.png in Resources */,
 				5C30E54418BC5F450083FF23 /* Edit.png in Resources */,
+				5CDB774818BEBE7F000A4C04 /* FacebookIcon.png in Resources */,
 				5C05EA1618BB0C3E00BE92F4 /* Default-568h@2x.png in Resources */,
 				5C30E54518BC5F450083FF23 /* Star_Gray.png in Resources */,
 				5C9B63B018A151C90091C1D2 /* Mark_selected.gif in Resources */,
@@ -372,6 +391,7 @@
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
+				5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */,
 				5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */,
 				5C2652F418BBF5FD007F8A0C /* SWUtilityButtonView.m in Sources */,
 				5C2652EF18BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m in Sources */,

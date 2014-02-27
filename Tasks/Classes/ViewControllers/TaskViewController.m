@@ -10,11 +10,10 @@
 #import "SelectDateViewController.h"
 #import "TaskListModel.h"
 #import "DeviceDetector.h"
+#import "Constants.h"
 
 #define SELECT_DATE_SEGUE @"SelectDatesSegue"
-#define TASK_TITLE_MAX_CHARACTERS 140
-#define TASK_NOTE_MAX_CHARACTERS 100
-#define KEYBOARD_SIZE (216 - 49) // keyboard height - tabbar height
+
 
 @interface TaskViewController () <SelectDateDelegate, UITextFieldDelegate> {
     IBOutlet UITextField* txtTitle;
@@ -31,9 +30,6 @@
     
     IBOutlet NSLayoutConstraint* scrollViewHeightConstrait;
     IBOutlet NSLayoutConstraint* contentViewHeightConstrait;
-    IBOutlet NSLayoutConstraint* contentViewBottmSeparationConstrait;
-    
-    IBOutlet UIScrollView* scrollView;
     
     BOOL selectingDueDate;
     BOOL keyboardIsUp;
@@ -66,12 +62,10 @@
     sldTaskPoints.value = self.task.priorityPoints;
     
     
-    CGSize size = scrollView.contentSize;
     
     if (self.task.status != TaskStatusComplete) {
         completeTaskDetailsView.hidden = YES;
         contentViewHeightConstrait.constant = contentViewHeightConstrait.constant - completeTaskDetailsView.frame.size.height;
-        size = scrollView.contentSize;
     }
     [self setRating:self.task.rating];
     txtNotes.text = self.task.notes;
