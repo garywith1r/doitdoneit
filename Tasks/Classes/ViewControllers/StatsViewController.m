@@ -110,21 +110,24 @@
 }
 
 - (NSString*) getMessageToShareForIndex:(int)index {
+    
+    StatsModel* stats = [StatsModel sharedInstance];
+    
     switch (index) {
         case 0:
-            return @"";
+            return [NSString stringWithFormat:@"I've completed %d tasks today, and won %d Points\nHit Rate %.1f",stats.todayCompleted,stats.todayPoints, stats.todayHitRate];;
             break;
         case 1:
-            return @"";
+            return [NSString stringWithFormat:@"I've completed %d tasks yesterday, won win %d Points\nHit Rate %.1f",stats.yesterdayCompleted,stats.yesterdayPoints, stats.yesterdayHitRate];;
             break;
         case 2:
-            return @"";
+            return [NSString stringWithFormat:@"I've completed %d tasks this week, won win %d Points\nHit Rate %.1f",stats.thisWeekCompleted,stats.thisWeekPoints, stats.thisWeekHitRate];;
             break;
         case 3:
-            return @"";
+            return [NSString stringWithFormat:@"I've completed %d tasks last week, won win %d Points\nHit Rate %.1f",stats.lastWeekCompleted,stats.lastWeekPoints, stats.lastWeekHitRate];;
             break;
         case 4:
-            return @"";
+            return [NSString stringWithFormat:@"I've completed %d tasks overall, won win %d Points\nHit Rate %.1f",stats.totalCompleted,stats.totalPoints, stats.totalHitRate];;
             break;
             
         default:
