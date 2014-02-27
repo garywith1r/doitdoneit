@@ -11,14 +11,20 @@
 #import "TasksViewCell.h"
 #import "SWTableViewCell.h"
 #import "CompleteTaskViewCell.h"
+#import "DeviceDetector.h"
+#import "Constants.h"
 
 #define COMPLETE_TASK_CELL_IDENTIFIER @"CompleteTaskCell"
 
 @interface DoItTaskListViewController () <CompleteTaskDelegate> {
+    IBOutlet NSLayoutConstraint* tableViewHeightConstrait;
+    BOOL keyboardIsUp;
     BOOL showingCompleteTaskCell;
     int completedTaskIndex;
     
     CompleteTaskViewCell* completeTaskCell;
+    
+    
 }
 
 @end
@@ -29,6 +35,11 @@
     completedTaskIndex = -1;
     [super viewDidLoad];
     [table registerNib:[UINib nibWithNibName:@"CompleteTaskViewCell" bundle:nil] forCellReuseIdentifier:COMPLETE_TASK_CELL_IDENTIFIER];
+    
+    tableViewHeightConstrait.constant = self.view.frame.size.height;
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
+        tableViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
 }
 
 - (void) reloadContentData {
@@ -56,6 +67,8 @@
         [table insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
         
         [table reloadData];
+        
+        [self performSelector:@selector(scrollTableViewToCompleteViewCell) withObject:nil afterDelay:0.1];
         
     }
     
@@ -144,11 +157,28 @@
 #pragma mark - CompleteTaskDelegate Methods
 
 - (void) noteTextDidStartEditing {
+    if (!keyboardIsUp) {
+        [UIView beginAnimations:Nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant - KEYBOARD_SIZE;
+        [UIView commitAnimations];
+        [self performSelector:@selector(scrollTableViewToCompleteViewCell) withObject:nil afterDelay:0.1];
+        keyboardIsUp = YES;
+    }
+}
 
+- (void) scrollTableViewToCompleteViewCell {
+    [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:completedTaskIndex+1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void) noteTextDidEndEditing {
-
+    if (keyboardIsUp) {
+        [UIView beginAnimations:Nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant + KEYBOARD_SIZE;
+        [UIView commitAnimations];
+        keyboardIsUp = NO;
+    }
 }
 
 - (void) shouldDisposeTheCellForTask:(TaskDTO*)task {

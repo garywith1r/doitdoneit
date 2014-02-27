@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zLI-k4-CHa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zLI-k4-CHa">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -212,6 +212,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="4tG-Kc-NLd"/>
+                                    <constraint firstAttribute="height" constant="568" id="ygq-C2-4hQ"/>
+                                </constraints>
                                 <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="OIp-jW-5u4"/>
@@ -221,10 +225,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oDI-yT-Ggr" secondAttribute="trailing" id="H5P-5R-Z7m"/>
-                            <constraint firstItem="oDI-yT-Ggr" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="MXh-oG-sfM"/>
-                            <constraint firstAttribute="bottom" secondItem="oDI-yT-Ggr" secondAttribute="bottom" id="Xgu-bH-Vld"/>
-                            <constraint firstItem="oDI-yT-Ggr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="a7Q-iC-Wec"/>
+                            <constraint firstItem="oDI-yT-Ggr" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Meh-Xr-xtM"/>
+                            <constraint firstItem="oDI-yT-Ggr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="eFB-1k-Okj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Do It" id="p1x-Nt-DdS">
@@ -236,6 +238,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="oDI-yT-Ggr" id="Z6g-N4-bpz"/>
+                        <outlet property="tableViewHeightConstrait" destination="ygq-C2-4hQ" id="38a-LA-YvV"/>
                         <segue destination="oME-Fa-l65" kind="push" identifier="ViewTaskSegue" id="1AM-Om-xeG"/>
                     </connections>
                 </viewController>
