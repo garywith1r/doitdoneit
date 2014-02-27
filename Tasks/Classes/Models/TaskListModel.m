@@ -322,15 +322,4 @@ TaskListModel* instance;
     
     return newTask;
 }
-
-#pragma mark - Sharing Methods
-
-- (void)shareTaskOnFacebook:(TaskDTO *)task {
-
-}
-
-- (void) shareTaskOnTwitter:(TaskDTO *)task {
-
-}
-
 @end

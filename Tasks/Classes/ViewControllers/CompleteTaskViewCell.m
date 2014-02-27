@@ -9,6 +9,7 @@
 #import "CompleteTaskViewCell.h"
 #import "TaskListModel.h"
 #import "Constants.h"
+#import "MediaModel.h"
 
 @interface CompleteTaskViewCell () {
     IBOutletCollection(UIButton) NSArray* ratingButtons;
@@ -58,11 +59,11 @@
 }
 
 - (IBAction) shareOnFacebook {
-    [[TaskListModel sharedInstance] shareTaskOnFacebook:self.task];
+    [MediaModel postMessageToFacebook:[NSString stringWithFormat:@"I Just completed %@",self.task.title]];
 }
 
 - (IBAction) shareOnTwitter {
-    [[TaskListModel sharedInstance] shareTaskOnTwitter:self.task];
+    [MediaModel postMessageToTwitter:[NSString stringWithFormat:@"I Just completed %@",self.task.title]];
 }
 
 #pragma mark - UITextField Methods
