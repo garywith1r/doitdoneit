@@ -11,6 +11,7 @@
 #import "TaskListModel.h"
 #import "DeviceDetector.h"
 #import "Constants.h"
+#import "StatsModel.h"
 
 #define SELECT_DATE_SEGUE @"SelectDatesSegue"
 
@@ -132,10 +133,13 @@
     self.task.completitionDate = completitionDateTemp;
     self.task.rating = ratingTemp;
     
-    if (self.isNewTask)
+    if (self.isNewTask) {
         [[TaskListModel sharedInstance] addTask:self.task];
-    else
+    } else {
         [[TaskListModel sharedInstance] forceRecalculateTasks];
+        if (self.task.status == TaskStatusComplete)
+            [[StatsModel sharedInstance] recalculateVolatileStats];
+    }
     
     [self.navigationController popViewControllerAnimated:YES];
     

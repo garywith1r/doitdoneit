@@ -57,11 +57,21 @@
 // Return midnight tomorrow.
 + (NSDate *)midnightTomorrow;
 
+// Return midnight yesterday.
++ (NSDate *)midnightYesterday;
+
 // Returns a date that is exactly 1 day after the specified date. Does *not* 
 // zero out the time components. For example, if the specified date is 
 // April 15 2012 10:00 AM, the return value will be April 16 2012 10:00 AM.
 + (NSDate *)oneDayAfter:(NSDate *)date;
 + (NSDate *)oneDayBefore:(NSDate *)date;
+
+
+// Returns midnight of the first day of the current, previous or next Weeks.
++ (NSDate* )firstDayOfWeekFromDate:(NSDate*)date;
++ (NSDate*) firstDayOfLastWeek;
++ (NSDate*) firstDayOfCurrentWeek;
++ (NSDate*) firstDayOfNextWeek;
 
 // Returns midnight of the first day of the current, previous or next Month.
 // Note: firstDayOfNextMonth returns midnight of the first day of next month,

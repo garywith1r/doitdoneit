@@ -12,9 +12,6 @@
 
 @interface TaskListModel : NSObject
 
-@property (nonatomic) NSInteger totalMissedTasks;
-@property (nonatomic) NSInteger totalCompletedTasks;
-
 + (TaskListModel*) sharedInstance;
 
 - (void) storeTasksData;

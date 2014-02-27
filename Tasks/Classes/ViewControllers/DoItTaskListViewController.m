@@ -62,6 +62,7 @@
         showingCompleteTaskCell = NO;
         [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
         completedTaskIndex = -1;
+        sender.selected = NO;
     } else {
     
         if (showingCompleteTaskCell) {

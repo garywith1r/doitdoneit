@@ -51,6 +51,10 @@
 		5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB774E18BF05B7000A4C04 /* MediaModel.m */; };
 		5CDB775118BF0758000A4C04 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDB775018BF0758000A4C04 /* Accounts.framework */; };
 		5CDB775318BF075D000A4C04 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDB775218BF075D000A4C04 /* Social.framework */; };
+		5CDB775618BF0DC5000A4C04 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB775518BF0DC5000A4C04 /* StatsViewController.m */; };
+		5CDB775918BF0F79000A4C04 /* FacebookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB775718BF0F79000A4C04 /* FacebookIcon@2x.png */; };
+		5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */; };
+		5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB775C18BF1191000A4C04 /* StatsModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +128,12 @@
 		5CDB774E18BF05B7000A4C04 /* MediaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaModel.m; sourceTree = "<group>"; };
 		5CDB775018BF0758000A4C04 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5CDB775218BF075D000A4C04 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5CDB775418BF0DC5000A4C04 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
+		5CDB775518BF0DC5000A4C04 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
+		5CDB775718BF0F79000A4C04 /* FacebookIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FacebookIcon@2x.png"; sourceTree = "<group>"; };
+		5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TwitterIcon@2x.png"; sourceTree = "<group>"; };
+		5CDB775B18BF1191000A4C04 /* StatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsModel.h; sourceTree = "<group>"; };
+		5CDB775C18BF1191000A4C04 /* StatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				5CDB774618BEBE7F000A4C04 /* FacebookIcon.png */,
+				5CDB775718BF0F79000A4C04 /* FacebookIcon@2x.png */,
 				5CDB774718BEBE7F000A4C04 /* TwitterIcon.png */,
+				5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */,
 				5C30E53A18BC5F450083FF23 /* Star_Yellow.png */,
 				5C30E53B18BC5F450083FF23 /* Copy.png */,
 				5CC1E9EA18BD3B240018955E /* Copy@2x.png */,
@@ -281,6 +293,8 @@
 				5C9B63D218A1635C0091C1D2 /* TaskListModel.m */,
 				5CDB774D18BF05B7000A4C04 /* MediaModel.h */,
 				5CDB774E18BF05B7000A4C04 /* MediaModel.m */,
+				5CDB775B18BF1191000A4C04 /* StatsModel.h */,
+				5CDB775C18BF1191000A4C04 /* StatsModel.m */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -306,6 +320,8 @@
 				5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */,
 				5C9B63D918A192BA0091C1D2 /* CompleteTaskViewController.h */,
 				5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */,
+				5CDB775418BF0DC5000A4C04 /* StatsViewController.h */,
+				5CDB775518BF0DC5000A4C04 /* StatsViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -374,6 +390,8 @@
 			files = (
 				5CDB774518BEB556000A4C04 /* CompleteTaskViewCell.xib in Resources */,
 				5C30E54018BC5F450083FF23 /* Star_Yellow.png in Resources */,
+				5CDB775918BF0F79000A4C04 /* FacebookIcon@2x.png in Resources */,
+				5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */,
 				5C30E54318BC5F450083FF23 /* Calendar.png in Resources */,
 				5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */,
 				5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */,
@@ -400,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */,
 				5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
@@ -414,6 +433,7 @@
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,
 				5C2652F318BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				5C9B63CD18A1632B0091C1D2 /* TaskViewController.m in Sources */,
+				5CDB775618BF0DC5000A4C04 /* StatsViewController.m in Sources */,
 				5C9B63D318A1635C0091C1D2 /* TaskListModel.m in Sources */,
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,

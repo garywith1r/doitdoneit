@@ -9,3 +9,5 @@
 #define TASK_TITLE_MAX_CHARACTERS 140
 #define TASK_NOTE_MAX_CHARACTERS 100
 #define KEYBOARD_SIZE (216 - 49) // keyboard height - tabbar height
+
+#define ONE_DAY 86400

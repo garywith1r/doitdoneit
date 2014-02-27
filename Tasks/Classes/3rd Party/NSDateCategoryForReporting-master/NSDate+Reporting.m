@@ -73,6 +73,11 @@
     return [self oneDayAfter:midnightToday];
 }
 
++ (NSDate *)midnightYesterday {
+    NSDate *midnightToday = [self midnightToday];
+    return [self oneDayBefore:midnightToday];
+}
+
 + (NSDate *)oneDayAfter:(NSDate *)date {
 	NSDateComponents *oneDayComponent = [[NSDateComponents alloc] init];
 	[oneDayComponent setDay:1];
@@ -91,6 +96,49 @@
 	return [gregorianCalendar dateByAddingComponents:oneDayComponent
                                               toDate:date
                                              options:0];
+}
+
++ (NSDate* )firstDayOfWeekFromDate:(NSDate*)date {
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:date];
+    NSInteger day = [components day];
+    NSInteger weekday = [components weekday];
+    
+    [components setDay:(day - weekday + 1)];
+    
+    return [gregorian dateFromComponents:components];
+}
+
++ (NSDate*) firstDayOfCurrentWeek {
+    return [self firstDayOfWeekFromDate:[NSDate date]];
+}
+
++ (NSDate*) firstDayOfLastWeek {
+    NSDate* date = [self firstDayOfCurrentWeek];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit) fromDate:date];
+    NSInteger day = [components day];
+    
+    [components setDay:(day - 7)];
+    
+    return [gregorian dateFromComponents:components];
+}
+
++ (NSDate*) firstDayOfNextWeek {
+    NSDate* date = [self firstDayOfCurrentWeek];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit) fromDate:date];
+    NSInteger day = [components day];
+    
+    [components setDay:(day + 7)];
+    
+    return [gregorian dateFromComponents:components];
 }
 
 + (NSDate *)firstDayOfCurrentMonth {

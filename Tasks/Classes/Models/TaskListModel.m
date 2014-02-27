@@ -8,6 +8,8 @@
 
 #import "TaskListModel.h"
 #import "NSDate+Reporting.h"
+#import "StatsModel.h"
+#import "Constants.h"
 
 #define TASKS_ARRAY_KEY @"tasksList"
 #define COMPLETED_TASKS_ARRAY_KEY @"completedTasksList"
@@ -25,7 +27,6 @@
 @end
 
 @implementation TaskListModel
-@synthesize totalMissedTasks, totalCompletedTasks;
 
 TaskListModel* instance;
 
@@ -176,7 +177,7 @@ TaskListModel* instance;
 - (void) completeTask:(TaskDTO*) task {
     [task incrementDoneItBy:1];
 
-    self.totalCompletedTasks++;
+    [[StatsModel sharedInstance] contabilizeCompletedTask:task];
     
     task.status = TaskStatusComplete;
     task.completitionDate = [NSDate date];
@@ -195,7 +196,7 @@ TaskListModel* instance;
 
 - (void) missTask:(TaskDTO*) task {
     [task incrementMissedItBy:1];
-    self.totalMissedTasks++;
+    [[StatsModel sharedInstance] contabilizeMissedTask:task];
     [tasks removeObject:task];
     
     //create the task for the next repetition of the completed Task
@@ -267,7 +268,7 @@ TaskListModel* instance;
             //for each task, we'll add as missed the remaining repetitions and create the new task.
             
             [task incrementMissedItBy:(int)task.repeatTimes - (int)task.currentRepetition + 1];//+1 becouse he didn't complete the current repetition.
-            self.totalMissedTasks += task.repeatTimes - task.currentRepetition + 1;
+            [[StatsModel sharedInstance] contabilizeMissedTask:task];
             task.currentRepetition = task.repeatTimes; //he missed all.
             
             [tasks removeObject:task];
@@ -278,7 +279,8 @@ TaskListModel* instance;
                 [missedTasks addObject:newTask];
                 
                 [newTask incrementMissedItBy:(int)newTask.repeatTimes - (int)newTask.currentRepetition + 1];
-                self.totalMissedTasks += newTask.repeatTimes - newTask.currentRepetition + 1;
+                [[StatsModel sharedInstance] contabilizeMissedTask:newTask];
+                
                 newTask = [self createNextTaskTo:newTask];
             }
             
@@ -306,12 +308,12 @@ TaskListModel* instance;
         
         if (newTask.repeatPeriod == Weekly) {
             //86400 = 1 day in seconds
-            newTask.showingDate = [NSDate dateWithTimeInterval:86400 sinceDate:task.dueDate];
+            newTask.showingDate = [NSDate dateWithTimeInterval:ONE_DAY sinceDate:task.dueDate];
             // 604800 = 7 days in seconds
             newTask.dueDate = [NSDate dateWithTimeInterval:604800 sinceDate:task.dueDate];
         } else if (newTask.repeatPeriod == Fortnightly) {
             //86400 = 1 day in seconds
-            newTask.showingDate = [NSDate dateWithTimeInterval:86400 sinceDate:task.dueDate];
+            newTask.showingDate = [NSDate dateWithTimeInterval:ONE_DAY sinceDate:task.dueDate];
             //1209600 = 14 days in seconds
             newTask.dueDate = [NSDate dateWithTimeInterval:1209600 sinceDate:task.dueDate];
         } else if (newTask.repeatPeriod == Monthly) {

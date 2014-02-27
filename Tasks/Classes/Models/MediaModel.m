@@ -48,7 +48,8 @@
             
         }];
     } else {
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Please log in into your Facebook account on Settings to use this function" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
     }
 }
 
@@ -79,7 +80,8 @@
         
     }];
     } else {
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Please log in into your Twitter account on Settings to use this function" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
     }
 }
 
