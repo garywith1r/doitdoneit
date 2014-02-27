@@ -46,6 +46,15 @@
     contentDataArray = [[TaskListModel sharedInstance] getToDoTasks];
 }
 
+- (void) deleteTaskOnMarkedPosition {
+    if (showingCompleteTaskCell && (tagToDeleteIndex == completedTaskIndex)) {
+        showingCompleteTaskCell = NO;
+        [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+        completedTaskIndex = -1;
+    }
+    [super deleteTaskOnMarkedPosition];
+}
+
 - (void)markTaskAsDone:(UIButton*)sender {
     
     if (sender.tag == completedTaskIndex) {

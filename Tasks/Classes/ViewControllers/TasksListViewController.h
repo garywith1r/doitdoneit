@@ -15,7 +15,7 @@
     int tagToDeleteIndex;
 }
 
-
+- (void) deleteTaskOnMarkedPosition;
 - (NSAttributedString*) stringWithBoldPart:(NSString*)boldPart andNormalPart:(NSString*)normalPart;
 
 @end
