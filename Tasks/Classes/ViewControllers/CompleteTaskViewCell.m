@@ -27,7 +27,7 @@
 }
 
 - (IBAction) ratingButtonPressed:(UIButton*) sender {
-    [self setRating:sender.tag];
+    [self setRating:(int)sender.tag];
 }
 
 - (void) setRating:(int)rating {

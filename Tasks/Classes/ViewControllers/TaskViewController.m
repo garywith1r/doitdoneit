@@ -57,7 +57,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     txtTitle.text = self.task.title;
-    txtRepeatTimes.text = [NSString stringWithFormat:@"%d",self.task.repeatTimes];
+    txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
     sgmRepeatInterval.selectedSegmentIndex = self.task.repeatPeriod;
     sldTaskPoints.value = self.task.priorityPoints;
     
@@ -67,7 +67,7 @@
         completeTaskDetailsView.hidden = YES;
         contentViewHeightConstrait.constant = contentViewHeightConstrait.constant - completeTaskDetailsView.frame.size.height;
     } else {
-        [self setRating:self.task.rating];
+        [self setRating:(int)self.task.rating];
         txtNotes.text = self.task.notes;
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -152,7 +152,7 @@
 }
 
 - (IBAction) ratingButtonPressed:(UIButton*) sender {
-    [self setRating:sender.tag];
+    [self setRating:(int)sender.tag];
 }
 
 - (void) setRating:(int)rating {

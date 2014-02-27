@@ -38,7 +38,7 @@
     NSString* titleBoldPart = @"";
     
     if (task.repeatTimes != 1) {
-        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", task.currentRepetition, task.repeatTimes];
+        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
     }
     
     cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];

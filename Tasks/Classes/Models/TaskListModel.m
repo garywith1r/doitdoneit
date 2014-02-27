@@ -266,7 +266,7 @@ TaskListModel* instance;
         for (TaskDTO* task in tempArray) {
             //for each task, we'll add as missed the remaining repetitions and create the new task.
             
-            [task incrementMissedItBy:task.repeatTimes - task.currentRepetition + 1];//+1 becouse he didn't complete the current repetition.
+            [task incrementMissedItBy:(int)task.repeatTimes - (int)task.currentRepetition + 1];//+1 becouse he didn't complete the current repetition.
             self.totalMissedTasks += task.repeatTimes - task.currentRepetition + 1;
             task.currentRepetition = task.repeatTimes; //he missed all.
             
@@ -277,7 +277,7 @@ TaskListModel* instance;
             while ([self hasMissedIt:newTask]) {
                 [missedTasks addObject:newTask];
                 
-                [newTask incrementMissedItBy:newTask.repeatTimes - newTask.currentRepetition + 1];
+                [newTask incrementMissedItBy:(int)newTask.repeatTimes - (int)newTask.currentRepetition + 1];
                 self.totalMissedTasks += newTask.repeatTimes - newTask.currentRepetition + 1;
                 newTask = [self createNextTaskTo:newTask];
             }

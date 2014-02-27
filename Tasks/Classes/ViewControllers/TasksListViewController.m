@@ -16,8 +16,9 @@
 
 
 #define CANT_UPCOMING_TASKS_TO_SHOW 4
+#define DELETE_TASK_ALERT_TAG 125
 
-@interface TasksListViewController () <SWTableViewCellDelegate> {
+@interface TasksListViewController () <SWTableViewCellDelegate, UIAlertViewDelegate> {
     NSArray* arrayToShow;
     NSString* titleToShow;
     
@@ -57,6 +58,13 @@
 }
 
 - (void) reloadContentData {}
+
+- (void) deleteTaskOnMarkedPosition {
+    [[TaskListModel sharedInstance] deleteTask:contentDataArray[tagToDeleteIndex]];
+    [self reloadContentData];
+    [table reloadData];
+    tagToDeleteIndex = -1;
+}
 
 
 #pragma mark - UITableView Methods
@@ -126,9 +134,10 @@
         }
         case 2: // delete
         {
-            [[TaskListModel sharedInstance] deleteTask:contentDataArray[cell.tag]];
-            [self reloadContentData];
-            [table reloadData];
+            tagToDeleteIndex = (int)cell.tag;
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Are you sure you want to completely delete this task?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            alert.tag = DELETE_TASK_ALERT_TAG;
+            [alert show];
             break;
         }
         default:
@@ -157,6 +166,16 @@
     [attrString endEditing];
     
     return attrString;
+}
+
+#pragma mark - UIAlertViewDelegate Methods 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == DELETE_TASK_ALERT_TAG) {
+        if (buttonIndex == 1) {
+            [self deleteTaskOnMarkedPosition];
+        }
+    }
 }
 
 

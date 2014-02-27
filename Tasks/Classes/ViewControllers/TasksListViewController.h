@@ -11,6 +11,8 @@
 @interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSArray* contentDataArray;
     IBOutlet UITableView* table;
+    
+    int tagToDeleteIndex;
 }
 
 

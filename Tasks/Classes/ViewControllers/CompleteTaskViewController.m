@@ -49,7 +49,7 @@
     goodQualityButton.alpha = averageQualityButton.alpha = badQualityButton.alpha = 0.5;
     sender.alpha =1;
     
-    workQuality = sender.tag;
+    workQuality = (int)sender.tag;
 }
 
 - (IBAction)save {

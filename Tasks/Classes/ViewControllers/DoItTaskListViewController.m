@@ -62,7 +62,7 @@
         
         
         showingCompleteTaskCell = YES;
-        completedTaskIndex = sender.tag;
+        completedTaskIndex = (int)sender.tag;
         
         [table insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
         
@@ -91,7 +91,7 @@
     NSString* titleBoldPart = @"";
     
     if (task.repeatTimes != 1) {
-        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", task.currentRepetition, task.repeatTimes];
+        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
     }
     
     cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];
@@ -113,7 +113,7 @@
 #pragma mark - UITableView Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int numberOfRows = [super tableView:tableView numberOfRowsInSection:section];
+    int numberOfRows = (int)[super tableView:tableView numberOfRowsInSection:section];
     
     return numberOfRows + showingCompleteTaskCell;
 }

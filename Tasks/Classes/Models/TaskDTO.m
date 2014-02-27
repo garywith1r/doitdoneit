@@ -125,16 +125,16 @@
     if (self.title)
         [dic setObject:self.title forKey:@"title"];
     
-    [dic setObject:[NSString stringWithFormat:@"%d",self.currentRepetition] forKey:@"currentRepetition"];
-    [dic setObject:[NSString stringWithFormat:@"%d",self.repeatTimes] forKey:@"repeatTimes"];
-    [dic setObject:[NSString stringWithFormat:@"%d",self.repeatPeriod] forKey:@"repeatPeriod"];
-    [dic setObject:[NSString stringWithFormat:@"%d",self.priorityPoints] forKey:@"priorityPoints"];
+    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.currentRepetition] forKey:@"currentRepetition"];
+    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatTimes] forKey:@"repeatTimes"];
+    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatPeriod] forKey:@"repeatPeriod"];
+    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.priorityPoints] forKey:@"priorityPoints"];
 
     
     if (self.notes)
         [dic setObject:self.notes forKey:@"notes"];
-    [dic setObject:[NSString stringWithFormat:@"%d",self.status] forKey:@"status"];
-    [dic setObject:[NSString stringWithFormat:@"%d",self.rating] forKey:@"rating"];
+    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.status] forKey:@"status"];
+    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.rating] forKey:@"rating"];
 
     
     
