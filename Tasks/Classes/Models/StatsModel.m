@@ -130,13 +130,13 @@ StatsModel* statsInstance;
             } else
                 
             //check if it was completed this week
-            if (([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfCurrentWeek]] > 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfNextWeek]] < 0)) {
+            if (([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfCurrentWeek]] >= 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfNextWeek]] < 0)) {
                 thisWeekCompleted++;
                 thisWeekPoints += task.priorityPoints;
             } else
                 
             //check if it was completed on previous week
-            if (([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfLastWeek]] > 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfCurrentWeek]] < 0)) {
+            if (([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfLastWeek]] >= 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfCurrentWeek]] < 0)) {
                 lastWeekCompleted++;
                 lastWeekPoints += task.priorityPoints;
             }
@@ -250,7 +250,7 @@ StatsModel* statsInstance;
 - (void) evaluateDay {
     if (today && ([today timeIntervalSinceDate:[NSDate midnightToday]] != 0)) {
         
-        if ([today timeIntervalSinceDate:[NSDate midnightYesterday]] <= ONE_DAY) {
+        if ([[NSDate midnightToday] timeIntervalSinceDate:today] <= ONE_DAY) {
             //has passed one day, so today is yesterday.
             yesterdayCompleted = todayCompleted;
             yesterdayMissed = todayMissed;
@@ -307,6 +307,9 @@ StatsModel* statsInstance;
         [userDefaults synchronize];
     } else if (!today) {
         today = [NSDate midnightToday];
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:today forKey:@"storedToday"];
+        [userDefaults synchronize];
     }
     
     

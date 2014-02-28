@@ -297,7 +297,10 @@ TaskListModel* instance;
             while ([self hasMissedIt:newTask]) {
                 newTask.completitionDate = [NSDate date];
                 [missedTasks addObject:newTask];
-                [[StatsModel sharedInstance] contabilizeMissedTask:task];
+                
+                newTask.completitionDate = [NSDate date];
+                newTask.status = TaskStatusMissed;
+                
                 
                 [newTask incrementMissedItBy:1];
                 [[StatsModel sharedInstance] contabilizeMissedTask:newTask];
