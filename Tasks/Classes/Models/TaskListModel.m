@@ -151,6 +151,8 @@ TaskListModel* instance;
     //if two tasks were created at the same time, then are the same task
     NSMutableArray* tempArray = [[NSMutableArray alloc] initWithCapacity:[tasks count]];
     
+    [[StatsModel sharedInstance] contabilizeDeletedTask:deletingTask];
+    
     if ([tasks containsObject:deletingTask]) {
         for (TaskDTO* task in tasks) {
             if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {

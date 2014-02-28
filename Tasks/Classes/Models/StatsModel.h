@@ -40,8 +40,11 @@
 + (StatsModel*) sharedInstance;
 
 - (void) contabilizeCompletedTask:(TaskDTO*) task;
+- (void) contabilizeMissedTask:(TaskDTO*) task;
+- (void) contabilizeDeletedTask:(TaskDTO*) task;
+
 - (void) recalculateVolatileStats;
 
-- (void) contabilizeMissedTask:(TaskDTO*) task;
+
 
 @end

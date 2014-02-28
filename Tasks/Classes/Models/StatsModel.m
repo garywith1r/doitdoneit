@@ -87,6 +87,16 @@ StatsModel* statsInstance;
     [userDefaults synchronize];
 }
 
+- (void) contabilizeDeletedTask:(TaskDTO*) task {
+    if (task.status == TaskStatusComplete) {
+        totalCompleted--;
+        totalPoints -= task.priorityPoints;
+        [self recalculateVolatileStats];
+    } else if (task.status == TaskStatusMissed) {
+        totalMissed --;
+    }
+}
+
 - (void) recalculateVolatileStats {
     
     todayCompleted = todayPoints = 0;
@@ -193,25 +203,25 @@ StatsModel* statsInstance;
     
     today = [userDefaults objectForKey:@"storedToday"];
     
-    todayCompleted = [userDefaults integerForKey:@"todayCompleted"];
-    todayMissed = [userDefaults integerForKey:@"todayMissed"];
-    todayPoints = [userDefaults integerForKey:@"todayPoints"];
+    todayCompleted = (int)[userDefaults integerForKey:@"todayCompleted"];
+    todayMissed = (int)[userDefaults integerForKey:@"todayMissed"];
+    todayPoints = (int)[userDefaults integerForKey:@"todayPoints"];
     
-    yesterdayCompleted = [userDefaults integerForKey:@"yesterdayCompleted"];
-    yesterdayMissed = [userDefaults integerForKey:@"yesterdayMissed"];
-    yesterdayPoints = [userDefaults integerForKey:@"yesterdayPoints"];
+    yesterdayCompleted = (int)[userDefaults integerForKey:@"yesterdayCompleted"];
+    yesterdayMissed = (int)[userDefaults integerForKey:@"yesterdayMissed"];
+    yesterdayPoints = (int)[userDefaults integerForKey:@"yesterdayPoints"];
     
-    thisWeekCompleted = [userDefaults integerForKey:@"thisWeekCompleted"];
-    thisWeekMissed = [userDefaults integerForKey:@"thisWeekMissed"];
-    thisWeekPoints = [userDefaults integerForKey:@"thisWeekPoints"];
+    thisWeekCompleted = (int)[userDefaults integerForKey:@"thisWeekCompleted"];
+    thisWeekMissed = (int)[userDefaults integerForKey:@"thisWeekMissed"];
+    thisWeekPoints = (int)[userDefaults integerForKey:@"thisWeekPoints"];
     
-    lastWeekCompleted = [userDefaults integerForKey:@"lastWeekCompleted"];
-    lastWeekMissed = [userDefaults integerForKey:@"lastWeekMissed"];
-    lastWeekPoints = [userDefaults integerForKey:@"lastWeekPoints"];
+    lastWeekCompleted = (int)[userDefaults integerForKey:@"lastWeekCompleted"];
+    lastWeekMissed = (int)[userDefaults integerForKey:@"lastWeekMissed"];
+    lastWeekPoints = (int)[userDefaults integerForKey:@"lastWeekPoints"];
     
-    totalCompleted = [userDefaults integerForKey:@"totalCompleted"];
-    totalMissed = [userDefaults integerForKey:@"totalMissed"];
-    totalPoints = [userDefaults integerForKey:@"totalPoints"];
+    totalCompleted = (int)[userDefaults integerForKey:@"totalCompleted"];
+    totalMissed = (int)[userDefaults integerForKey:@"totalMissed"];
+    totalPoints = (int)[userDefaults integerForKey:@"totalPoints"];
     
     [userDefaults synchronize];
 }
