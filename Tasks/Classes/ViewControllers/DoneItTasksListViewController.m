@@ -45,36 +45,36 @@
     
     int timeSinceCompletition = ceil([[NSDate date] timeIntervalSinceDate:task.completitionDate] /60.0);
     
-    NSString* completedText;
+    NSString* timeSinceText = (task.status == TaskStatusComplete)?@"Done":@"Missed";
     
     if (timeSinceCompletition < 2)
-        completedText = @"Done a few moments ago.";
+        timeSinceText = [timeSinceText stringByAppendingString:@" a few moments ago."];
     
     else if (timeSinceCompletition < 60)
-        completedText = [NSString stringWithFormat:@"Done %d mins ago.", timeSinceCompletition];
+        timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@" %d mins ago.", timeSinceCompletition]];
     
     else {
         timeSinceCompletition = ceil(timeSinceCompletition / 60.0);
         
         if (timeSinceCompletition == 1)
-            completedText = @"Done an hour ago.";
+            timeSinceText = [timeSinceText stringByAppendingString:@" an hour ago."];
         
         else if (timeSinceCompletition < 24)
-            completedText = [NSString stringWithFormat:@"Done %d hours ago.",timeSinceCompletition];
+            timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@" %d hours ago.",timeSinceCompletition]];
         
         else {
             timeSinceCompletition = ceil(timeSinceCompletition / 24.0);
             
             if (timeSinceCompletition == 1)
-                completedText = @"Done yesterday.";
+                timeSinceText = [timeSinceText stringByAppendingString:@" yesterday."];
             
             else
-                completedText = [NSString stringWithFormat:@"Done %d days ago.",timeSinceCompletition];
+                timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@" %d days ago.",timeSinceCompletition]];
         }
         
     }
     
-    cellView.dueDate.text = [NSString stringWithFormat:@"%@ Total %dx Hit %.1f%%",completedText, [task.timesDoneIt[task.currentRepetition - 1] intValue], [task hitRate]];
+    cellView.dueDate.text = [NSString stringWithFormat:@"%@ Total %dx Hit %.1f%%",timeSinceText, [task.timesDoneIt[task.currentRepetition - 1] intValue], [task hitRate]];
     
     
     [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];

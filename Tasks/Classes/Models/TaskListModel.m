@@ -169,6 +169,10 @@ TaskListModel* instance;
         [completedTasks removeObject:deletingTask];
         doneTasks = nil;
         [self storeCompletedTasksData];
+    } else if ([missedTasks containsObject:deletingTask]) {
+        [missedTasks removeObject:deletingTask];
+        doneTasks = nil;
+        [self storeCompletedTasksData];
     }
 }
 
@@ -200,6 +204,7 @@ TaskListModel* instance;
     [task incrementMissedItBy:1];
     [[StatsModel sharedInstance] contabilizeMissedTask:task];
     [tasks removeObject:task];
+    [missedTasks addObject:task];
     
     //create the task for the next repetition of the completed Task
     
@@ -208,6 +213,7 @@ TaskListModel* instance;
     
     [self storeTasksData];
     toDoTasks = nil;
+    doneTasks = nil;
 }
 
 - (void) completeTaskAtIndex:(int) index {
@@ -247,7 +253,10 @@ TaskListModel* instance;
     if (doneTasks)
         return doneTasks;
     
-    doneTasks = [self sortTaskArraysByCompletitionDate:completedTasks];
+    NSMutableArray* tempArray = [NSMutableArray arrayWithArray:completedTasks];
+    [tempArray addObjectsFromArray:missedTasks];
+    
+    doneTasks = [self sortTaskArraysByCompletitionDate:tempArray];
     
     return doneTasks;
 }
@@ -267,20 +276,23 @@ TaskListModel* instance;
     
     if (hasChanges) {
         for (TaskDTO* task in tempArray) {
-            //for each task, we'll add as missed the remaining repetitions and create the new task.
             
-            [task incrementMissedItBy:(int)task.repeatTimes - (int)task.currentRepetition + 1];//+1 becouse he didn't complete the current repetition.
+            //count the mised task, remove from tasks array and add it ot missed array
+            [task incrementMissedItBy:1];
             [[StatsModel sharedInstance] contabilizeMissedTask:task];
-            task.currentRepetition = task.repeatTimes; //he missed all.
             
             [tasks removeObject:task];
+            [missedTasks addObject:task];
+            
+            //for each task, we'll add as missed the remaining repetitions and create the new task.
             TaskDTO* newTask = [self createNextTaskTo:task];
             
-            //check if the next task due date hasn't passed yet. Miss as many tasks ad necesary
+            //check if the next task due date hasn't passed yet. Miss as many tasks as necesary
             while ([self hasMissedIt:newTask]) {
                 [missedTasks addObject:newTask];
+                [[StatsModel sharedInstance] contabilizeMissedTask:task];
                 
-                [newTask incrementMissedItBy:(int)newTask.repeatTimes - (int)newTask.currentRepetition + 1];
+                [newTask incrementMissedItBy:1];
                 [[StatsModel sharedInstance] contabilizeMissedTask:newTask];
                 
                 newTask = [self createNextTaskTo:newTask];
@@ -289,8 +301,9 @@ TaskListModel* instance;
             [self addTask:newTask];
         }
         //sort and store missing's task array.
-        [missedTasks addObjectsFromArray:tempArray];
         missedTasks = [self sortTaskArraysByShowingDate:missedTasks];
+        
+        //store changes
         [self storeMissedTasksData];
         [self storeTasksData];
     }
