@@ -151,8 +151,6 @@ TaskListModel* instance;
     //if two tasks were created at the same time, then are the same task
     NSMutableArray* tempArray = [[NSMutableArray alloc] initWithCapacity:[tasks count]];
     
-    [[StatsModel sharedInstance] contabilizeDeletedTask:deletingTask];
-    
     if ([tasks containsObject:deletingTask]) {
         for (TaskDTO* task in tasks) {
             if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {
@@ -174,6 +172,8 @@ TaskListModel* instance;
         doneTasks = nil;
         [self storeCompletedTasksData];
     }
+    
+    [[StatsModel sharedInstance] contabilizeDeletedTask:deletingTask];
 }
 
 - (TaskDTO*) taskAtIndex:(int)index {
@@ -206,6 +206,9 @@ TaskListModel* instance;
     [tasks removeObject:task];
     [missedTasks addObject:task];
     
+    
+    task.completitionDate = [NSDate date];
+    task.status = TaskStatusMissed;
     //create the task for the next repetition of the completed Task
     
     
@@ -281,6 +284,9 @@ TaskListModel* instance;
             [task incrementMissedItBy:1];
             [[StatsModel sharedInstance] contabilizeMissedTask:task];
             
+            task.completitionDate = [NSDate date];
+            task.status = TaskStatusMissed;
+            
             [tasks removeObject:task];
             [missedTasks addObject:task];
             
@@ -289,6 +295,7 @@ TaskListModel* instance;
             
             //check if the next task due date hasn't passed yet. Miss as many tasks as necesary
             while ([self hasMissedIt:newTask]) {
+                newTask.completitionDate = [NSDate date];
                 [missedTasks addObject:newTask];
                 [[StatsModel sharedInstance] contabilizeMissedTask:task];
                 
