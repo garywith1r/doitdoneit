@@ -288,89 +288,96 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uty-lP-swI">
-                                                <rect key="frame" x="6" y="16" width="57" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1QC-Tz-2jI">
-                                                <rect key="frame" x="79" y="12" width="213" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                <connections>
-                                                    <action selector="textEditingBegun" destination="oME-Fa-l65" eventType="editingDidBegin" id="Crf-79-Wf9"/>
-                                                    <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEnd" id="HcG-8K-TDM"/>
-                                                    <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEndOnExit" id="vdS-po-vdp"/>
-                                                    <outlet property="delegate" destination="oME-Fa-l65" id="AFT-vI-ODe"/>
-                                                </connections>
-                                            </textField>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repeat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKA-Tw-fdy">
-                                                <rect key="frame" x="6" y="85" width="57" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OQ-Ap-n8V">
-                                                <rect key="frame" x="6" y="169" width="57" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do It By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt1-Ac-N06">
-                                                <rect key="frame" x="6" y="224" width="57" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun, 2 March" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUH-QA-ame">
-                                                <rect key="frame" x="79" y="224" width="178" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Times Per" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wg7-KW-7ZF">
-                                                <rect key="frame" x="181" y="72" width="91" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zvo-ga-jbm">
-                                                <rect key="frame" x="79" y="112" width="213" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <segments>
-                                                    <segment title="Week"/>
-                                                    <segment title="Fortnight" width="86"/>
-                                                    <segment title="Month"/>
-                                                </segments>
-                                            </segmentedControl>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHX-NF-r5H">
-                                                <rect key="frame" x="98" y="68" width="72" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                                <connections>
-                                                    <action selector="textEditingBegun" destination="oME-Fa-l65" eventType="editingDidBegin" id="KuZ-0H-QSh"/>
-                                                    <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEnd" id="NXt-XV-DMG"/>
-                                                    <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEndOnExit" id="vN3-wZ-Zyd"/>
-                                                </connections>
-                                            </textField>
-                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qzj-d0-bjR">
-                                                <rect key="frame" x="77" y="163" width="217" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </slider>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEC-iv-OaY">
-                                                <rect key="frame" x="252" y="210" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Calendar.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="changeDueDate" destination="oME-Fa-l65" eventType="touchUpInside" id="szX-7W-aUy"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Dn-MB-pa2" userLabel="Create Tasks Info View">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="266"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJQ-3v-Bs6">
+                                                        <rect key="frame" x="6" y="16" width="57" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyb-je-EmI">
+                                                        <rect key="frame" x="79" y="12" width="213" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <connections>
+                                                            <action selector="textEditingBegun" destination="oME-Fa-l65" eventType="editingDidBegin" id="9jO-mt-y1a"/>
+                                                            <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEnd" id="9UW-VU-Ffd"/>
+                                                            <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEndOnExit" id="ydO-Fz-CQp"/>
+                                                            <outlet property="delegate" destination="oME-Fa-l65" id="9Mz-2U-lso"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repeat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09t-ho-XqT">
+                                                        <rect key="frame" x="6" y="85" width="57" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMm-Hj-Gqv">
+                                                        <rect key="frame" x="6" y="169" width="57" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do It By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKD-Vk-ZFF">
+                                                        <rect key="frame" x="6" y="224" width="57" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun, 2 March" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKd-1F-mbH">
+                                                        <rect key="frame" x="79" y="224" width="178" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Times Per" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAt-xf-x1S">
+                                                        <rect key="frame" x="181" y="72" width="91" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KNO-j7-uvI">
+                                                        <rect key="frame" x="79" y="112" width="213" height="29"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <segments>
+                                                            <segment title="Week"/>
+                                                            <segment title="Fortnight" width="86"/>
+                                                            <segment title="Month"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tl3-pF-nNM">
+                                                        <rect key="frame" x="98" y="68" width="72" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                        <connections>
+                                                            <action selector="textEditingBegun" destination="oME-Fa-l65" eventType="editingDidBegin" id="nO2-7v-22x"/>
+                                                            <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEndOnExit" id="TNs-tz-uKD"/>
+                                                            <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEnd" id="oVw-Rf-elF"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="YAq-Am-u9l">
+                                                        <rect key="frame" x="77" y="163" width="217" height="34"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </slider>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yd3-7F-7bg">
+                                                        <rect key="frame" x="252" y="210" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="Calendar.png">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="changeDueDate" destination="oME-Fa-l65" eventType="touchUpInside" id="3Q9-qn-qzf"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="720-VA-e4s" userLabel="Complete Tasks Info View">
                                                 <rect key="frame" x="0.0" y="266" width="320" height="174"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -539,14 +546,15 @@ Second Line</string>
                         <outlet property="completeTaskDetailsView" destination="720-VA-e4s" id="TVd-fa-fMF"/>
                         <outlet property="contentViewHeightConstrait" destination="f6a-dP-a9E" id="hxD-NW-7uO"/>
                         <outlet property="doneDate" destination="6tu-wZ-3xY" id="J6x-P8-cgT"/>
-                        <outlet property="dueDate" destination="tUH-QA-ame" id="Bgc-ux-YBE"/>
+                        <outlet property="dueDate" destination="xKd-1F-mbH" id="f0z-8j-UaB"/>
                         <outlet property="lblInfo" destination="5iA-Jw-OPB" id="WfZ-37-Zmc"/>
+                        <outlet property="newTaskDetailsView" destination="1Dn-MB-pa2" id="YvQ-ek-O4j"/>
                         <outlet property="scrollViewHeightConstrait" destination="DUJ-te-baN" id="RxF-Oj-J4x"/>
-                        <outlet property="sgmRepeatInterval" destination="Zvo-ga-jbm" id="J55-70-AGs"/>
-                        <outlet property="sldTaskPoints" destination="qzj-d0-bjR" id="W9P-24-hFm"/>
+                        <outlet property="sgmRepeatInterval" destination="KNO-j7-uvI" id="wr2-BI-kcm"/>
+                        <outlet property="sldTaskPoints" destination="YAq-Am-u9l" id="jwS-ac-bqD"/>
                         <outlet property="txtNotes" destination="dbt-bK-DgK" id="qZD-mo-qG1"/>
-                        <outlet property="txtRepeatTimes" destination="YHX-NF-r5H" id="ZE7-GV-zTU"/>
-                        <outlet property="txtTitle" destination="1QC-Tz-2jI" id="Hag-r5-cA8"/>
+                        <outlet property="txtRepeatTimes" destination="Tl3-pF-nNM" id="l5j-xi-2i7"/>
+                        <outlet property="txtTitle" destination="dyb-je-EmI" id="8P7-Hz-Leo"/>
                         <outlet property="view" destination="ls4-Pn-Adp" id="s2T-no-GCC"/>
                         <outletCollection property="ratingButtons" destination="y2E-ps-XD1" id="UGd-Nk-iXh"/>
                         <outletCollection property="ratingButtons" destination="v9o-gM-8BT" id="NGa-PW-Ngf"/>
@@ -795,6 +803,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cKK-Ef-6db"/>
+        <segue reference="1AM-Om-xeG"/>
     </inferredMetricsTieBreakers>
 </document>

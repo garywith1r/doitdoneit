@@ -17,6 +17,7 @@
 
 
 @interface TaskViewController () <SelectDateDelegate, UITextFieldDelegate> {
+    IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UITextField* txtRepeatTimes;
     IBOutlet UISegmentedControl* sgmRepeatInterval;
@@ -68,6 +69,8 @@
         completeTaskDetailsView.hidden = YES;
         contentViewHeightConstrait.constant = contentViewHeightConstrait.constant - completeTaskDetailsView.frame.size.height;
     } else {
+        newTaskDetailsView.userInteractionEnabled = NO;
+        
         [self setRating:(int)self.task.rating];
         txtNotes.text = self.task.notes;
         
