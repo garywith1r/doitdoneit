@@ -206,7 +206,11 @@
     completedTaskIndex = -1;
     table.userInteractionEnabled = NO;
     [table performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
-    [table performSelector:@selector(setUserInteractionEnabled:) withObject:[NSNumber numberWithBool:YES] afterDelay:0.35];
+    [self performSelector:@selector(restoreTable) withObject:[NSNumber numberWithBool:YES] afterDelay:0.35];
+}
+
+- (void) restoreTable {
+    table.userInteractionEnabled = YES;
 }
 
 @end
