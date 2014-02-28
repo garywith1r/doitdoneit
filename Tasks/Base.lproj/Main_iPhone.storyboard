@@ -299,6 +299,13 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdU-LF-sSv">
+                                                        <rect key="frame" x="86" y="10" width="223" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyb-je-EmI">
                                                         <rect key="frame" x="79" y="12" width="213" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -350,6 +357,13 @@
                                                             <segment title="Month"/>
                                                         </segments>
                                                     </segmentedControl>
+                                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LN-jB-fpH">
+                                                        <rect key="frame" x="106" y="72" width="64" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tl3-pF-nNM">
                                                         <rect key="frame" x="98" y="68" width="72" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -548,6 +562,8 @@ Second Line</string>
                         <outlet property="doneDate" destination="6tu-wZ-3xY" id="J6x-P8-cgT"/>
                         <outlet property="dueDate" destination="xKd-1F-mbH" id="f0z-8j-UaB"/>
                         <outlet property="lblInfo" destination="5iA-Jw-OPB" id="WfZ-37-Zmc"/>
+                        <outlet property="lblRepeatTimes" destination="8LN-jB-fpH" id="VJn-ae-AOQ"/>
+                        <outlet property="lblTitle" destination="QdU-LF-sSv" id="Etl-oc-Rqp"/>
                         <outlet property="newTaskDetailsView" destination="1Dn-MB-pa2" id="YvQ-ek-O4j"/>
                         <outlet property="scrollViewHeightConstrait" destination="DUJ-te-baN" id="RxF-Oj-J4x"/>
                         <outlet property="sgmRepeatInterval" destination="KNO-j7-uvI" id="wr2-BI-kcm"/>

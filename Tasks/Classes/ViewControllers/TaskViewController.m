@@ -20,6 +20,8 @@
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UITextField* txtRepeatTimes;
+    IBOutlet UILabel* lblTitle;
+    IBOutlet UILabel* lblRepeatTimes;
     IBOutlet UISegmentedControl* sgmRepeatInterval;
     IBOutlet UISlider* sldTaskPoints;
     IBOutlet UILabel* dueDate;
@@ -58,8 +60,9 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    txtTitle.text = self.task.title;
-    txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
+    lblTitle.text = txtTitle.text = self.task.title;
+    
+    lblRepeatTimes.text = txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
     sgmRepeatInterval.selectedSegmentIndex = self.task.repeatPeriod;
     sldTaskPoints.value = self.task.priorityPoints;
     
@@ -70,6 +73,9 @@
         contentViewHeightConstrait.constant = contentViewHeightConstrait.constant - completeTaskDetailsView.frame.size.height;
     } else {
         newTaskDetailsView.userInteractionEnabled = NO;
+        
+        txtTitle.hidden = txtRepeatTimes.hidden = YES;
+        lblTitle.hidden = lblRepeatTimes.hidden = NO;
         
         [self setRating:(int)self.task.rating];
         txtNotes.text = self.task.notes;
