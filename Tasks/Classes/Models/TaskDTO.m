@@ -24,7 +24,7 @@
         self.currentRepetition = 1;
         self.repeatTimes = 1;
         self.repeatPeriod = 0;
-        self.priorityPoints = 5;
+        self.priorityPoints = 1;
         self.status = 0;
         self.rating = 0;
         self.dueDate = [NSDate dateWithTimeInterval:DEFAULT_TIME_FOR_TASK sinceDate:[NSDate midnightToday]];

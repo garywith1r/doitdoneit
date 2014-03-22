@@ -32,6 +32,7 @@
     IBOutlet UILabel* lblRepeatTimes;
     IBOutlet UISegmentedControl* sgmRepeatInterval;
     IBOutlet UISlider* sldTaskPoints;
+    IBOutlet UILabel* lblTaskPoints;
     IBOutlet UILabel* dueDate;
     IBOutlet UIButton* btnImage;
     
@@ -77,6 +78,7 @@
     lblRepeatTimes.text = txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
     sgmRepeatInterval.selectedSegmentIndex = self.task.repeatPeriod;
     sldTaskPoints.value = self.task.priorityPoints;
+    [self sliderHasChanged:sldTaskPoints];
     
     
     
@@ -130,6 +132,10 @@
     
 }
 
+- (IBAction) sliderHasChanged :(id)sender {
+    lblTaskPoints.text = [NSString stringWithFormat:@"%ld",lroundf(sldTaskPoints.value)];
+}
+
 - (IBAction) saveButtonPressed {
     
     if ([txtTitle.text isEqualToString:@""]) {
@@ -146,7 +152,7 @@
     self.task.repeatTimes = [txtRepeatTimes.text intValue];
     
     self.task.repeatPeriod = sgmRepeatInterval.selectedSegmentIndex;
-    self.task.priorityPoints = sldTaskPoints.value;
+    self.task.priorityPoints = lroundf(sldTaskPoints.value);
     
     self.task.notes = txtNotes.text;
     
@@ -348,9 +354,13 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    _imagePickerController = nil;
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    [popoverController dismissPopoverAnimated:YES];
+    
+    if (popoverController) {
+        [popoverController dismissPopoverAnimated:YES];
+        popoverController = nil;
+    } else {
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 

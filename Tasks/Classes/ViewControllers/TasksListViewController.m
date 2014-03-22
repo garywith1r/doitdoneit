@@ -13,7 +13,7 @@
 #import "SWTableViewCell.h"
 #import "TaskListModel.h"
 #import "DeviceDetector.h"
-
+#import <MediaPlayer/MediaPlayer.h>
 
 #define CANT_UPCOMING_TASKS_TO_SHOW 4
 #define DELETE_TASK_ALERT_TAG 125
@@ -25,6 +25,8 @@
     
     TaskDTO* taskToShow;
     BOOL taskToShowIsNewCopy;
+    
+    MPMoviePlayerController* playerViewController;
 }
 
 @end
@@ -77,34 +79,34 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
     
-
+    
     SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     
     if (cell == nil) {
         NSMutableArray *leftUtilityButtons = [NSMutableArray new];
         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-
+        
         [rightUtilityButtons sw_addUtilityButtonWithColor:
          [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:0.0]
-                                                    icon:[UIImage imageNamed:@"Copy.png"] tag:indexPath.row];
+                                                     icon:[UIImage imageNamed:@"Copy.png"] tag:indexPath.row];
         [rightUtilityButtons sw_addUtilityButtonWithColor:
          [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:0.0]
-                                                    icon:[UIImage imageNamed:@"Edit.png"] tag:indexPath.row];
+                                                     icon:[UIImage imageNamed:@"Edit.png"] tag:indexPath.row];
         [rightUtilityButtons sw_addUtilityButtonWithColor:
          [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:0.0]
-                                                    icon:[UIImage imageNamed:@"Delete.png"] tag:indexPath.row];
+                                                     icon:[UIImage imageNamed:@"Delete.png"] tag:indexPath.row];
         
-    
+        
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier
                                   containingTableView:tableView // For row height and selection
                                    leftUtilityButtons:leftUtilityButtons
                                   rightUtilityButtons:rightUtilityButtons];
-
+        
         cell.delegate = self;
     }
-
+    
     //we'll use the tag to identify the task by it's index.
     
     [self setCellViewForCell:cell atIndexPath:indexPath];
@@ -168,7 +170,19 @@
     return attrString;
 }
 
-#pragma mark - UIAlertViewDelegate Methods 
+- (void) playVideo:(NSString*) url {
+    if (!playerViewController)
+        playerViewController = [[MPMoviePlayerController alloc] init];
+    
+    playerViewController.contentURL = [NSURL URLWithString:url];
+    playerViewController.view.frame = CGRectMake(0, 0, 500, 500);
+    playerViewController.fullscreen = YES;
+    
+    [self.view addSubview:playerViewController.view];
+    [playerViewController play];
+}
+
+#pragma mark - UIAlertViewDelegate Methods
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == DELETE_TASK_ALERT_TAG) {

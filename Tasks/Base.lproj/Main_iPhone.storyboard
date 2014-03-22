@@ -376,9 +376,12 @@
                                                             <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEnd" id="oVw-Rf-elF"/>
                                                         </connections>
                                                     </textField>
-                                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="YAq-Am-u9l">
-                                                        <rect key="frame" x="77" y="242" width="217" height="31"/>
+                                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="YAq-Am-u9l">
+                                                        <rect key="frame" x="77" y="242" width="173" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="sliderHasChanged:" destination="oME-Fa-l65" eventType="valueChanged" id="QHe-Pi-XmW"/>
+                                                        </connections>
                                                     </slider>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yd3-7F-7bg">
                                                         <rect key="frame" x="252" y="289" width="50" height="50"/>
@@ -410,8 +413,8 @@ Video</string>
                                                             <action selector="updatePicture:" destination="oME-Fa-l65" eventType="touchUpInside" id="89V-Ym-5XT"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gam-MK-ehR">
-                                                        <rect key="frame" x="254" y="80" width="46" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gam-MK-ehR">
+                                                        <rect key="frame" x="262" y="80" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <state key="normal" title="Clear">
@@ -419,6 +422,12 @@ Video</string>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                     </button>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7G-j4-NTt">
+                                                        <rect key="frame" x="258" y="246" width="34" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
@@ -594,6 +603,7 @@ Second Line</string>
                         <outlet property="dueDate" destination="xKd-1F-mbH" id="f0z-8j-UaB"/>
                         <outlet property="lblInfo" destination="5iA-Jw-OPB" id="WfZ-37-Zmc"/>
                         <outlet property="lblRepeatTimes" destination="8LN-jB-fpH" id="VJn-ae-AOQ"/>
+                        <outlet property="lblTaskPoints" destination="K7G-j4-NTt" id="wU7-Nx-S40"/>
                         <outlet property="lblTitle" destination="QdU-LF-sSv" id="Etl-oc-Rqp"/>
                         <outlet property="newTaskDetailsView" destination="1Dn-MB-pa2" id="YvQ-ek-O4j"/>
                         <outlet property="scrollViewHeightConstrait" destination="DUJ-te-baN" id="RxF-Oj-J4x"/>
