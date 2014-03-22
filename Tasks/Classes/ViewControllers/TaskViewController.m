@@ -12,11 +12,19 @@
 #import "DeviceDetector.h"
 #import "Constants.h"
 #import "StatsModel.h"
+#import <MobileCoreServices/UTCoreTypes.h>
+#import <MediaPlayer/MediaPlayer.h>
+
+#import <AVFoundation/AVAsset.h>
+#import <AVFoundation/AVAssetImageGenerator.h>
+
+
 
 #define SELECT_DATE_SEGUE @"SelectDatesSegue"
+#define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 
-@interface TaskViewController () <SelectDateDelegate, UITextFieldDelegate> {
+@interface TaskViewController () <SelectDateDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UITextField* txtRepeatTimes;
@@ -25,6 +33,7 @@
     IBOutlet UISegmentedControl* sgmRepeatInterval;
     IBOutlet UISlider* sldTaskPoints;
     IBOutlet UILabel* dueDate;
+    IBOutlet UIButton* btnImage;
     
     IBOutlet UIView* completeTaskDetailsView;
     IBOutletCollection(UIButton) NSArray* ratingButtons;
@@ -41,6 +50,9 @@
     NSDate* dueDateTemp;
     NSDate* completitionDateTemp;
     NSInteger ratingTemp;
+    
+    UIPopoverController* popoverController;
+    UIImagePickerController *_imagePickerController;
 }
 @end
 
@@ -225,6 +237,121 @@
     }
 }
 
+- (IBAction) updatePicture:(UIButton *)sender {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        // open a dialog with two custom buttons
+        UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                 delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:NSLocalizedString(@"Take Photo", nil),
+                                      NSLocalizedString(@"Choose Existing Photo", nil), nil];
+        
+        actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+        
+        if (IPAD)
+            [actionSheet showInView:self.view];
+        else
+            [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+        
+    } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+        [self actionSheet:nil clickedButtonAtIndex:1];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:NSLocalizedString(@"Your device doesn't have camera", nil)
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+#pragma mark - ActionSheet Delegate
+//Takes the actionSheet's action when the user press "Photo"
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    _imagePickerController = [UIImagePickerController new];
+    _imagePickerController.delegate = self;
+    
+	if (buttonIndex == 0){ //Camara
+		_imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:_imagePickerController animated:YES completion:^{}];
+	} else if(buttonIndex == 1){ //Existing Photo
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            
+            _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            _imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie,kUTTypeImage, nil];
+            
+            UIViewController *containerController = [[UIViewController alloc] init];
+            containerController.contentSizeForViewInPopover = CGSizeMake(768, 1000);
+            
+            [containerController.view addSubview:_imagePickerController.view];
+            
+            if (IPAD) {
+                Class cls = NSClassFromString(@"UIPopoverController");
+                if (cls != nil) {
+                    popoverController = [[UIPopoverController alloc] initWithContentViewController:containerController];
+                    
+                    [popoverController presentPopoverFromRect:CGRectMake(0, 0, 250, 300) inView:self.view permittedArrowDirections:4 animated:YES];
+                    
+                    
+                    [_imagePickerController.view setFrame:containerController.view.frame];
+                }
+            } else
+                [self presentViewController:_imagePickerController animated:YES completion:^{}];
+        }
+	}
+}
+
+
+#pragma mark - UIImagePickerControllerDelegate
+-(void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
+    
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    
+    UIImage* thumbImage;
+    
+    if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeMovie, 0)
+        == kCFCompareEqualTo)
+    {
+        
+
+        NSURL* url = [info objectForKey:UIImagePickerControllerMediaURL];
+        
+        
+        //get thumbnail image
+        MPMoviePlayerController *theMovie = [[MPMoviePlayerController alloc] initWithContentURL:url];
+        theMovie.view.frame = self.view.bounds;
+        theMovie.controlStyle = MPMovieControlStyleNone;
+        theMovie.shouldAutoplay=NO;
+        thumbImage = [theMovie thumbnailImageAtTime:0 timeOption:MPMovieTimeOptionExact];
+
+        task.videoUrl = [url absoluteString];
+        
+    } else {
+        thumbImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    }
+    
+    
+    if (thumbImage) {
+        [btnImage setTitle:@"" forState:UIControlStateNormal];
+        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [btnImage setImage:thumbImage forState:UIControlStateNormal];
+        
+        task.thumbImage = thumbImage;
+    }
+    
+    
+    //close picker and popover;
+    [self imagePickerControllerDidCancel:picker];
+    
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    _imagePickerController = nil;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [popoverController dismissPopoverAnimated:YES];
+}
 
 
 @end

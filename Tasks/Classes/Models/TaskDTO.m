@@ -30,6 +30,8 @@
         self.dueDate = [NSDate dateWithTimeInterval:DEFAULT_TIME_FOR_TASK sinceDate:[NSDate midnightToday]];
         self.creationDate = [NSDate date];
         self.showingDate = [NSDate midnightToday];
+        self.thumbImage = nil;
+        self.videoUrl = @"";
     }
     return self;
 }
@@ -42,6 +44,8 @@
     newTask.repeatTimes = self.repeatTimes;
     newTask.repeatPeriod = self.repeatPeriod;
     newTask.priorityPoints = self.priorityPoints;
+    newTask.thumbImage = self.thumbImage;
+    newTask.videoUrl = self.videoUrl;
     newTask.creationDate = self.creationDate;
     newTask.showingDate = self.showingDate;
     newTask.dueDate = self.dueDate;
@@ -59,6 +63,8 @@
     newTask.repeatTimes = self.repeatTimes;
     newTask.repeatPeriod = self.repeatPeriod;
     newTask.priorityPoints = self.priorityPoints;
+    newTask.thumbImage = self.thumbImage;
+    newTask.videoUrl = self.videoUrl;
     
     return newTask;
 }
@@ -129,6 +135,11 @@
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatTimes] forKey:@"repeatTimes"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatPeriod] forKey:@"repeatPeriod"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.priorityPoints] forKey:@"priorityPoints"];
+    
+    if (self.thumbImage)
+        [dic setObject:self.thumbImage forKey:@"thumb"];
+    if (self.videoUrl)
+        [dic setObject:self.videoUrl forKey:@"videoUrl"];
 
     
     if (self.notes)
@@ -152,12 +163,34 @@
 
 + (TaskDTO*) taskDtoFromDictionary:(NSDictionary*)dicctionary {
     TaskDTO* dto = [[TaskDTO alloc] init];
-
-    dto.title = [dicctionary objectForKey:@"title"];
+    
+    NSString* tempString;
+    UIImage* tempImage;
+    
+    tempString = [dicctionary objectForKey:@"title"];
+    if (tempString)
+        dto.title = tempString;
+    else
+        dto.title = @"";
+    
     dto.currentRepetition = [[dicctionary objectForKey:@"currentRepetition"] integerValue];
     dto.repeatTimes = [[dicctionary objectForKey:@"repeatTimes"] integerValue];
     dto.repeatPeriod = [[dicctionary objectForKey:@"repeatPeriod"] integerValue];
     dto.priorityPoints = [[dicctionary objectForKey:@"priorityPoints"] integerValue];
+    
+    tempImage = [dicctionary objectForKey:@"thumb"];
+    if (tempString)
+        dto.thumbImage = tempImage;
+    else
+        dto.thumbImage = nil;
+    
+    tempString = [dicctionary objectForKey:@"videoUrl"];
+    if (tempString)
+        dto.videoUrl = tempString;
+    else
+        dto.videoUrl = @"";
+    
+    
     
     dto.notes = [dicctionary objectForKey:@"notes"];
     dto.status = [[dicctionary objectForKey:@"status"] integerValue];

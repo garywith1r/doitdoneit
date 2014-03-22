@@ -29,6 +29,8 @@ enum TaskRepeatPeriod {
 @property (nonatomic) NSInteger repeatTimes;
 @property (nonatomic) enum TaskRepeatPeriod repeatPeriod;
 @property (nonatomic) NSInteger priorityPoints;
+@property (nonatomic, strong) UIImage* thumbImage;
+@property (nonatomic, strong) NSString* videoUrl;
 
 @property (nonatomic, strong) NSString* notes;
 @property (nonatomic) enum TaskStatus status;
