@@ -165,20 +165,23 @@
     if ([@"" isEqualToString:task.videoUrl]) {
         //it's an image
     } else {
-        [self playVideo:task.videoUrl];
+        [self playVideo:task.videoUrl fromButton:sender];
     }
         
 }
 
-- (void) playVideo:(NSString*) path {
+- (void) playVideo:(NSString*) path fromButton:(UIButton*)sender{
     if (!playerViewController)
         playerViewController = [[MPMoviePlayerController alloc] init];
     
     
-    playerViewController.contentURL = [NSURL fileURLWithPath:path isDirectory:NO];
-    playerViewController.view.frame = THUMBNAIL_FRAME;
+    CGRect frame = sender.frame;
+    frame.size = CGSizeZero;
     
-    [self.view addSubview:playerViewController.view];
+    playerViewController.contentURL = [NSURL fileURLWithPath:path isDirectory:NO];
+    playerViewController.view.frame = frame;
+    
+    [sender addSubview:playerViewController.view];
     playerViewController.fullscreen = YES;
     [playerViewController play];
 }
