@@ -71,55 +71,40 @@
 
 #pragma mark - UITableView Methods
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == selectedRow) {
+        return EXPANDED_ROW_HEIGHT;
+    } else {
+        return NORMAL_ROW_HEIGHT;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [contentDataArray count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
-    
-    
-    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    
-    if (cell == nil) {
-        NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-        NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-        
-        [rightUtilityButtons sw_addUtilityButtonWithColor:
-         [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:0.0]
-                                                     icon:[UIImage imageNamed:@"Copy.png"] tag:indexPath.row];
-        [rightUtilityButtons sw_addUtilityButtonWithColor:
-         [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:0.0]
-                                                     icon:[UIImage imageNamed:@"Edit.png"] tag:indexPath.row];
-        [rightUtilityButtons sw_addUtilityButtonWithColor:
-         [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:0.0]
-                                                     icon:[UIImage imageNamed:@"Delete.png"] tag:indexPath.row];
-        
-        
-        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:cellIdentifier
-                                  containingTableView:tableView // For row height and selection
-                                   leftUtilityButtons:leftUtilityButtons
-                                  rightUtilityButtons:rightUtilityButtons];
-        
-        cell.delegate = self;
-    }
-    
-    //we'll use the tag to identify the task by it's index.
-    
-    [self setCellViewForCell:cell atIndexPath:indexPath];
-    cell.tag = indexPath.row;
-    
-    
-    return cell;
-    
+//    static NSString *cellIdentifier = @"Cell";
+//    
+//    
+//    
+//    
+//    //we'll use the tag to identify the task by it's index.
+//    
+////    [self setCellViewForCell:cell atIndexPath:indexPath];
+//    cell.tag = indexPath.row;
+//    
+//    
+//    return cell;
+    return nil;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TaskDTO* dto = [contentDataArray objectAtIndex:indexPath.row];
-    [self playVideo:dto.videoUrl];
+    selectedRow = indexPath.row;
+    [tableView beginUpdates];
+    [tableView endUpdates];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {}

@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#define NORMAL_ROW_HEIGHT 60.0
+#define EXPANDED_ROW_HEIGHT 313.0
+
+
 @interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSArray* contentDataArray;
     IBOutlet UITableView* table;
     
     int tagToDeleteIndex;
+    int selectedRow;
 }
 
 - (void) deleteTaskOnMarkedPosition;

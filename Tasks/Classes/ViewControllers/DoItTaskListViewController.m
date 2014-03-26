@@ -84,84 +84,78 @@
     
 }
 
-- (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    TaskDTO* task = contentDataArray[indexPath.row];
-    
-    TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
-    
-    CGRect frame = cellView.view.frame;
-    frame.size = CGSizeMake(table.frame.size.width, table.rowHeight);
-    frame.origin = CGPointZero;
-    cellView.view.frame = frame;
-    
-    [cell setContentView:cellView.view];
-    
-    cellView.doneButton.tag = indexPath.row;
-    
-    NSString* titleBoldPart = @"";
-    
-    if (task.repeatTimes != 1) {
-        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
-    }
-    
-    cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];
-    
-    int remainingDays = ceil([task.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);
-    
-    if (remainingDays == 1)
-        cellView.dueDate.text = @"1 day left";
-    else
-        cellView.dueDate.text = [NSString stringWithFormat:@"%d days left",remainingDays];
-    
-    
-    [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-    [cellView.doneButton addTarget:self action:@selector(markTaskAsDone:) forControlEvents:UIControlEventTouchUpInside];
-    
-    cellView.doneButton.selected = indexPath.row == completedTaskIndex;
-}
+//- (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+//    TaskDTO* task = contentDataArray[indexPath.row];
+//    
+//    TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
+//    
+//    CGRect frame = cellView.view.frame;
+//    frame.size = CGSizeMake(table.frame.size.width, table.rowHeight);
+//    frame.origin = CGPointZero;
+//    cellView.view.frame = frame;
+//    
+//    [cell setContentView:cellView.view];
+//    
+//    cellView.doneButton.tag = indexPath.row;
+//    
+//    NSString* titleBoldPart = @"";
+//    
+//    if (task.repeatTimes != 1) {
+//        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
+//    }
+//    
+//    cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];
+//    
+//    int remainingDays = ceil([task.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);
+//    
+//    if (remainingDays == 1)
+//        cellView.dueDate.text = @"1 day left";
+//    else
+//        cellView.dueDate.text = [NSString stringWithFormat:@"%d days left",remainingDays];
+//    
+//    
+//    [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+//    [cellView.doneButton addTarget:self action:@selector(markTaskAsDone:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    cellView.doneButton.selected = indexPath.row == completedTaskIndex;
+//}
 
 #pragma mark - UITableView Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int numberOfRows = (int)[super tableView:tableView numberOfRowsInSection:section];
+    NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section];
     
     return numberOfRows + showingCompleteTaskCell;
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if  (showingCompleteTaskCell && (indexPath.row == completedTaskIndex + 1))
-         return COMPLETE_TASK_VIEW_CELL_HEIGHT;
-    else
-        return tableView.rowHeight;
-}
+//- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if  (showingCompleteTaskCell && (indexPath.row == completedTaskIndex + 1))
+//         return COMPLETE_TASK_VIEW_CELL_HEIGHT;
+//    else
+//        return tableView.rowHeight;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (showingCompleteTaskCell) {
-
-        if (indexPath.row == completedTaskIndex + 1) { //here should appear the complete task cell
-            
-            static NSString *CellIdentifier = COMPLETE_TASK_CELL_IDENTIFIER;
-            completeTaskCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (!completeTaskCell)
-                completeTaskCell = [[CompleteTaskViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            
-            [completeTaskCell resetContent];
-            completeTaskCell.task = [contentDataArray objectAtIndex:indexPath.row - 1];
-            completeTaskCell.delegate = self;
-            
-            return completeTaskCell;
-            
-        } else if (indexPath.row <= completedTaskIndex) {
-            return [super tableView:tableView cellForRowAtIndexPath:indexPath];
-            
-        } else { //indexPath.row > completedTaskIndex + 1
-           return [super tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
-        }
-    } else {
-        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    TaskDTO* dto = [contentDataArray objectAtIndex:indexPath.row];
+    
+    TasksViewCell *cell = (TasksViewCell*)[tableView dequeueReusableCellWithIdentifier:@"DoItTaskListCell"];
+    
+    [cell.thumbImageButton setImage:dto.thumbImage forState:UIControlStateNormal];
+    cell.lblTitle.text = dto.title;
+    
+    int remainingDays = ceil([dto.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);
+    
+    if (remainingDays == 1)
+        cell.lblDueDate.text = @"1 day left";
+    else
+        cell.lblDueDate.text = [NSString stringWithFormat:@"%d days left",remainingDays];
+    
+    
+    if (dto.repeatTimes != 1) {
+        cell.lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)dto.currentRepetition, (int)dto.repeatTimes];
     }
     
-    return nil;
+    return cell;
 }
 
 #pragma mark - CompleteTaskDelegate Methods
