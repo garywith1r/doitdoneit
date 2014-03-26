@@ -77,7 +77,7 @@
     
     lblRepeatTimes.text = txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
     sgmRepeatInterval.selectedSegmentIndex = self.task.repeatPeriod;
-    sldTaskPoints.value = self.task.priorityPoints;
+    sldTaskPoints.value = self.task.taskPoints;
     [self sliderHasChanged:sldTaskPoints];
     
     
@@ -152,7 +152,7 @@
     self.task.repeatTimes = [txtRepeatTimes.text intValue];
     
     self.task.repeatPeriod = (int)sgmRepeatInterval.selectedSegmentIndex;
-    self.task.priorityPoints = lroundf(sldTaskPoints.value);
+    self.task.taskPoints = lroundf(sldTaskPoints.value);
     
     self.task.notes = txtNotes.text;
     
@@ -339,6 +339,7 @@
         
     } else {
         thumbImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        task.videoUrl = @""; //setting the url as empty implies that the thumb is an image and not a video.
     }
     
     

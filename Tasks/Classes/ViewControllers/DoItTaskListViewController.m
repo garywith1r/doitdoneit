@@ -155,6 +155,24 @@
         cell.lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)dto.currentRepetition, (int)dto.repeatTimes];
     }
     
+    int timesDoneIt = [dto.timesDoneIt[dto.currentRepetition - 1] intValue];
+    int timesMissedIt = [dto.timesMissedIt[dto.currentRepetition - 1] intValue];
+    
+    cell.lblStats.text = [NSString stringWithFormat:@"Points: %d Done: %d\nMissed: %d Hit: %.2f", dto.taskPoints, timesDoneIt, timesMissedIt, dto.hitRate];
+    
+    cell.lblDescription.attributedText = dto.description;
+    
+    
+    
+    
+    cell.doneButton.tag = indexPath.row;
+    [cell.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [cell.doneButton addTarget:self action:@selector(markTaskAsDone:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cell.thumbImageButton.tag = indexPath.row;
+    [cell.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [cell.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 

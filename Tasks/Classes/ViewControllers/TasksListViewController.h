@@ -11,6 +11,8 @@
 #define NORMAL_ROW_HEIGHT 60.0
 #define EXPANDED_ROW_HEIGHT 313.0
 
+#define THUMBNAIL_FRAME CGRectMake (7,5,0,0)
+
 
 @interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSArray* contentDataArray;
@@ -22,5 +24,10 @@
 
 - (void) deleteTaskOnMarkedPosition;
 - (NSAttributedString*) stringWithBoldPart:(NSString*)boldPart andNormalPart:(NSString*)normalPart;
+
+
+
+- (void) thumbnailTapped:(UIButton*)sender;
+
 
 @end

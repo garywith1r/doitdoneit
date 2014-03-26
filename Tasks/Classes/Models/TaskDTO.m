@@ -13,7 +13,7 @@
 
 @implementation TaskDTO
 
-@synthesize title, currentRepetition, repeatTimes, repeatPeriod, priorityPoints;
+@synthesize title, currentRepetition, repeatTimes, repeatPeriod, taskPoints, description;
 @synthesize notes, status, rating;
 @synthesize creationDate, showingDate, dueDate, completitionDate;
 @synthesize timesDoneIt, timesMissedIt;
@@ -24,7 +24,7 @@
         self.currentRepetition = 1;
         self.repeatTimes = 1;
         self.repeatPeriod = 0;
-        self.priorityPoints = 1;
+        self.taskPoints = 1;
         self.status = 0;
         self.rating = 0;
         self.dueDate = [NSDate dateWithTimeInterval:DEFAULT_TIME_FOR_TASK sinceDate:[NSDate midnightToday]];
@@ -32,6 +32,7 @@
         self.showingDate = [NSDate midnightToday];
         self.thumbImage = nil;
         self.videoUrl = nil;
+        self.description = nil;
     }
     return self;
 }
@@ -43,9 +44,10 @@
     newTask.currentRepetition = self.currentRepetition;
     newTask.repeatTimes = self.repeatTimes;
     newTask.repeatPeriod = self.repeatPeriod;
-    newTask.priorityPoints = self.priorityPoints;
+    newTask.taskPoints = self.taskPoints;
     newTask.thumbImage = self.thumbImage;
     newTask.videoUrl = self.videoUrl;
+    newTask.description = self.description;
     newTask.creationDate = self.creationDate;
     newTask.showingDate = self.showingDate;
     newTask.dueDate = self.dueDate;
@@ -62,9 +64,15 @@
     newTask.title = self.title;
     newTask.repeatTimes = self.repeatTimes;
     newTask.repeatPeriod = self.repeatPeriod;
-    newTask.priorityPoints = self.priorityPoints;
+    newTask.taskPoints = self.taskPoints;
     newTask.thumbImage = self.thumbImage;
-    newTask.videoUrl = self.videoUrl;
+    newTask.description = self.description;
+    
+    if (self.videoUrl) {
+        //save video to app's directory.
+        NSData *videoData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:self.videoUrl isDirectory:NO]];
+        [[NSFileManager defaultManager] createFileAtPath:newTask.videoUrl contents:videoData attributes:nil];
+    }
     
     return newTask;
 }
@@ -120,7 +128,10 @@
     float doneIt = [self.timesDoneIt[self.currentRepetition - 1] floatValue];
     float missedIt = [self.timesMissedIt[self.currentRepetition - 1] floatValue];
     
-    return doneIt / (doneIt + missedIt) * 100;
+    if (doneIt + missedIt)
+        return doneIt / (doneIt + missedIt) * 100;
+    
+    return 0;
 }
 
 
@@ -134,7 +145,7 @@
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.currentRepetition] forKey:@"currentRepetition"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatTimes] forKey:@"repeatTimes"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatPeriod] forKey:@"repeatPeriod"];
-    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.priorityPoints] forKey:@"priorityPoints"];
+    [dic setObject:[NSString stringWithFormat:@"%d",(int)self.taskPoints] forKey:@"priorityPoints"];
     
     if (self.thumbImage)
         [dic setObject:UIImagePNGRepresentation(self.thumbImage) forKey:@"thumb"];
@@ -176,7 +187,7 @@
     dto.currentRepetition = [[dicctionary objectForKey:@"currentRepetition"] integerValue];
     dto.repeatTimes = [[dicctionary objectForKey:@"repeatTimes"] integerValue];
     dto.repeatPeriod = [[dicctionary objectForKey:@"repeatPeriod"] intValue];
-    dto.priorityPoints = [[dicctionary objectForKey:@"priorityPoints"] integerValue];
+    dto.taskPoints = [[dicctionary objectForKey:@"priorityPoints"] integerValue];
     
     tempImage = [dicctionary objectForKey:@"thumb"];
     if (tempString)

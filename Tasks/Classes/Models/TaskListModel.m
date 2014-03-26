@@ -112,9 +112,9 @@ TaskListModel* instance;
         NSComparisonResult comparisonResult = [first compare:second];
         
         if (comparisonResult == NSOrderedSame) {
-            if ([a priorityPoints] < [b priorityPoints]) {
+            if ([a taskPoints] < [b taskPoints]) {
                 return NSOrderedDescending;
-            } else if ([a priorityPoints] > [b priorityPoints]) {
+            } else if ([a taskPoints] > [b taskPoints]) {
                 return NSOrderedAscending;
             } else {
                 return [[a title] compare:[b title]];

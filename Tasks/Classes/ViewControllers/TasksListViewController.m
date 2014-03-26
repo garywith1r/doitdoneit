@@ -160,16 +160,26 @@
     return attrString;
 }
 
-- (void) playVideo:(NSString*) url {
+- (void) thumbnailTapped:(UIButton*)sender {
+    TaskDTO* task = [contentDataArray objectAtIndex:sender.tag];
+    if ([@"" isEqualToString:task.videoUrl]) {
+        //it's an image
+    } else {
+        [self playVideo:task.videoUrl];
+    }
+        
+}
+
+- (void) playVideo:(NSString*) path {
     if (!playerViewController)
         playerViewController = [[MPMoviePlayerController alloc] init];
     
     
-    playerViewController.contentURL = [NSURL fileURLWithPath:url isDirectory:NO];;
-    playerViewController.view.frame = CGRectMake(0, 0, 500, 500);
-    playerViewController.fullscreen = YES;
+    playerViewController.contentURL = [NSURL fileURLWithPath:path isDirectory:NO];
+    playerViewController.view.frame = THUMBNAIL_FRAME;
     
     [self.view addSubview:playerViewController.view];
+    playerViewController.fullscreen = YES;
     [playerViewController play];
 }
 

@@ -70,11 +70,11 @@ StatsModel* statsInstance;
 
 - (void) contabilizeCompletedTask:(TaskDTO*) task {
     todayCompleted++;
-    todayPoints += task.priorityPoints;
+    todayPoints += task.taskPoints;
     thisWeekCompleted++;
-    thisWeekPoints += task.priorityPoints;
+    thisWeekPoints += task.taskPoints;
     totalCompleted++;
-    totalPoints += task.priorityPoints;
+    totalPoints += task.taskPoints;
     
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setInteger:todayCompleted forKey:@"todayCompleted"];
@@ -90,7 +90,7 @@ StatsModel* statsInstance;
 - (void) contabilizeDeletedTask:(TaskDTO*) task {
     if (task.status == TaskStatusComplete) {
         totalCompleted--;
-        totalPoints -= task.priorityPoints;
+        totalPoints -= task.taskPoints;
     } else if (task.status == TaskStatusMissed) {
         totalMissed --;
     }
@@ -116,29 +116,29 @@ StatsModel* statsInstance;
             //check if it was completed today
             if (([task.completitionDate timeIntervalSinceDate:today] > 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate midnightTomorrow]] < 0)) {
                 todayCompleted++;
-                todayPoints += task.priorityPoints;
+                todayPoints += task.taskPoints;
                 thisWeekCompleted++;
-                thisWeekPoints += task.priorityPoints;
+                thisWeekPoints += task.taskPoints;
             } else
                 
             //check if it was completed yesterday
             if (([task.completitionDate timeIntervalSinceDate:[NSDate oneDayBefore:today]] > 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate midnightToday]] < 0)) {
                 yesterdayCompleted++;
-                yesterdayPoints += task.priorityPoints;
+                yesterdayPoints += task.taskPoints;
                 thisWeekCompleted++;
-                thisWeekPoints += task.priorityPoints;
+                thisWeekPoints += task.taskPoints;
             } else
                 
             //check if it was completed this week
             if (([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfCurrentWeek]] >= 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfNextWeek]] < 0)) {
                 thisWeekCompleted++;
-                thisWeekPoints += task.priorityPoints;
+                thisWeekPoints += task.taskPoints;
             } else
                 
             //check if it was completed on previous week
             if (([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfLastWeek]] >= 0) && ([task.completitionDate timeIntervalSinceDate:[NSDate firstDayOfCurrentWeek]] < 0)) {
                 lastWeekCompleted++;
-                lastWeekPoints += task.priorityPoints;
+                lastWeekPoints += task.taskPoints;
             }
             
         }
