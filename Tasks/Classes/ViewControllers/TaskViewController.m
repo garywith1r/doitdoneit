@@ -151,7 +151,7 @@
     self.task.title = txtTitle.text;
     self.task.repeatTimes = [txtRepeatTimes.text intValue];
     
-    self.task.repeatPeriod = sgmRepeatInterval.selectedSegmentIndex;
+    self.task.repeatPeriod = (int)sgmRepeatInterval.selectedSegmentIndex;
     self.task.priorityPoints = lroundf(sldTaskPoints.value);
     
     self.task.notes = txtNotes.text;
@@ -276,6 +276,7 @@
 //Takes the actionSheet's action when the user press "Photo"
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     _imagePickerController = [UIImagePickerController new];
+    _imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie,kUTTypeImage, nil];
     _imagePickerController.delegate = self;
     
 	if (buttonIndex == 0){ //Camara
@@ -285,7 +286,7 @@
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             
             _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            _imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie,kUTTypeImage, nil];
+            
             
             UIViewController *containerController = [[UIViewController alloc] init];
             containerController.contentSizeForViewInPopover = CGSizeMake(768, 1000);
@@ -330,8 +331,11 @@
         theMovie.controlStyle = MPMovieControlStyleNone;
         theMovie.shouldAutoplay=NO;
         thumbImage = [theMovie thumbnailImageAtTime:0 timeOption:MPMovieTimeOptionExact];
-
-        task.videoUrl = [url absoluteString];
+        
+        
+        //save video to app's directory.
+        NSData *videoData = [NSData dataWithContentsOfURL:url];
+        [[NSFileManager defaultManager] createFileAtPath:task.videoUrl contents:videoData attributes:nil];
         
     } else {
         thumbImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];

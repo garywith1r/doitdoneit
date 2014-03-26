@@ -117,6 +117,11 @@
     
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TaskDTO* dto = [contentDataArray objectAtIndex:indexPath.row];
+    [self playVideo:dto.videoUrl];
+}
+
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {}
 
 #pragma mark - SWTableViewDelegate
@@ -174,7 +179,8 @@
     if (!playerViewController)
         playerViewController = [[MPMoviePlayerController alloc] init];
     
-    playerViewController.contentURL = [NSURL URLWithString:url];
+    
+    playerViewController.contentURL = [NSURL fileURLWithPath:url isDirectory:NO];;
     playerViewController.view.frame = CGRectMake(0, 0, 500, 500);
     playerViewController.fullscreen = YES;
     

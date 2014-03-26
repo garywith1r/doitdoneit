@@ -31,7 +31,7 @@
         self.creationDate = [NSDate date];
         self.showingDate = [NSDate midnightToday];
         self.thumbImage = nil;
-        self.videoUrl = @"";
+        self.videoUrl = nil;
     }
     return self;
 }
@@ -137,7 +137,7 @@
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.priorityPoints] forKey:@"priorityPoints"];
     
     if (self.thumbImage)
-        [dic setObject:self.thumbImage forKey:@"thumb"];
+        [dic setObject:UIImagePNGRepresentation(self.thumbImage) forKey:@"thumb"];
     if (self.videoUrl)
         [dic setObject:self.videoUrl forKey:@"videoUrl"];
 
@@ -165,7 +165,7 @@
     TaskDTO* dto = [[TaskDTO alloc] init];
     
     NSString* tempString;
-    UIImage* tempImage;
+    NSData* tempImage;
     
     tempString = [dicctionary objectForKey:@"title"];
     if (tempString)
@@ -175,12 +175,12 @@
     
     dto.currentRepetition = [[dicctionary objectForKey:@"currentRepetition"] integerValue];
     dto.repeatTimes = [[dicctionary objectForKey:@"repeatTimes"] integerValue];
-    dto.repeatPeriod = [[dicctionary objectForKey:@"repeatPeriod"] integerValue];
+    dto.repeatPeriod = [[dicctionary objectForKey:@"repeatPeriod"] intValue];
     dto.priorityPoints = [[dicctionary objectForKey:@"priorityPoints"] integerValue];
     
     tempImage = [dicctionary objectForKey:@"thumb"];
     if (tempString)
-        dto.thumbImage = tempImage;
+        dto.thumbImage = [UIImage imageWithData:tempImage];
     else
         dto.thumbImage = nil;
     
@@ -188,12 +188,12 @@
     if (tempString)
         dto.videoUrl = tempString;
     else
-        dto.videoUrl = @"";
+        dto.videoUrl = nil;
     
     
     
     dto.notes = [dicctionary objectForKey:@"notes"];
-    dto.status = [[dicctionary objectForKey:@"status"] integerValue];
+    dto.status = [[dicctionary objectForKey:@"status"] intValue];
     dto.rating = [[dicctionary objectForKey:@"rating"] integerValue];
     
     dto.creationDate = [dicctionary objectForKey:@"creationDate"];
@@ -206,5 +206,23 @@
     
     return dto;
 }
+
+
+- (NSString*) videoUrl {
+    if (_videoUrl)
+        return _videoUrl;
+    
+    NSString* filePath = @"";
+    
+    do {
+        NSString* completeFileName = [NSString stringWithFormat:@"%u.MOV",arc4random()];
+        filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:completeFileName];
+    } while ([[NSFileManager defaultManager] fileExistsAtPath:filePath]);
+    
+    self.videoUrl = filePath;
+    return filePath;
+}
+
+
 
 @end
