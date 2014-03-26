@@ -19,7 +19,7 @@
     IBOutlet UITableView* table;
     
     int tagToDeleteIndex;
-    int selectedRow;
+    NSInteger selectedRow;
 }
 
 - (void) deleteTaskOnMarkedPosition;

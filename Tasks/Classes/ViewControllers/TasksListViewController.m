@@ -14,11 +14,12 @@
 #import "TaskListModel.h"
 #import "DeviceDetector.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "ZoomImageViewController.h"
 
 #define CANT_UPCOMING_TASKS_TO_SHOW 4
 #define DELETE_TASK_ALERT_TAG 125
 
-@interface TasksListViewController () <SWTableViewCellDelegate, UIAlertViewDelegate> {
+@interface TasksListViewController () <SWTableViewCellDelegate, UIAlertViewDelegate, ZoomImageDelegate> {
     NSArray* arrayToShow;
     NSString* titleToShow;
     
@@ -27,6 +28,7 @@
     BOOL taskToShowIsNewCopy;
     
     MPMoviePlayerController* playerViewController;
+    ZoomImageViewController* zoomImageController;
 }
 
 @end
@@ -164,10 +166,22 @@
     TaskDTO* task = [contentDataArray objectAtIndex:sender.tag];
     if ([@"" isEqualToString:task.videoUrl]) {
         //it's an image
+        [self zoomImage:task.thumbImage fromButton:sender];
     } else {
         [self playVideo:task.videoUrl fromButton:sender];
     }
         
+}
+
+- (void) zoomImage:(UIImage*)image fromButton:(UIButton*)sender {
+    CGRect frame = [self.view convertRect:sender.frame fromView:table];
+    BOOL isThereAnExpandedRow = (selectedRow < sender.tag);
+    frame.origin.y = frame.origin.y + (sender.tag - isThereAnExpandedRow) * NORMAL_ROW_HEIGHT + isThereAnExpandedRow * EXPANDED_ROW_HEIGHT;
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
+        frame.origin.y = frame.origin.y + self.navigationController.navigationBar.frame.size.height;
+    
+    zoomImageController = [ZoomImageViewController expandImage:image fromFrame:frame delegate:self];
 }
 
 - (void) playVideo:(NSString*) path fromButton:(UIButton*)sender{
@@ -184,6 +198,12 @@
     [sender addSubview:playerViewController.view];
     playerViewController.fullscreen = YES;
     [playerViewController play];
+}
+
+#pragma mark - ZoomImageDelegate Methods
+- (void) didExitFullScreen {
+    [zoomImageController.view removeFromSuperview];
+    zoomImageController = nil;
 }
 
 #pragma mark - UIAlertViewDelegate Methods

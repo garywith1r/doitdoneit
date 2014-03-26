@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C05EA1618BB0C3E00BE92F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */; };
+		5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C238D1818E3369A008F764F /* ZoomImageViewController.m */; };
 		5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652DC18BBA461007F8A0C /* NSDate+Reporting.m */; };
 		5C2652EF18BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652E318BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m */; };
 		5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652E518BBF5FD007F8A0C /* SWCellScrollView.m */; };
@@ -59,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5C238D1718E3369A008F764F /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageViewController.h; sourceTree = "<group>"; };
+		5C238D1818E3369A008F764F /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageViewController.m; sourceTree = "<group>"; };
 		5C2652DB18BBA461007F8A0C /* NSDate+Reporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Reporting.h"; sourceTree = "<group>"; };
 		5C2652DC18BBA461007F8A0C /* NSDate+Reporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Reporting.m"; sourceTree = "<group>"; };
 		5C2652E218BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
@@ -315,13 +318,15 @@
 				5C9B63C918A1632B0091C1D2 /* TaskViewController.m */,
 				5C9B63D618A17AAC0091C1D2 /* TasksViewCell.h */,
 				5C9B63D718A17AAC0091C1D2 /* TasksViewCell.m */,
-				5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */,
 				5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */,
+				5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */,
 				5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */,
 				5C9B63D918A192BA0091C1D2 /* CompleteTaskViewController.h */,
 				5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */,
 				5CDB775418BF0DC5000A4C04 /* StatsViewController.h */,
 				5CDB775518BF0DC5000A4C04 /* StatsViewController.m */,
+				5C238D1718E3369A008F764F /* ZoomImageViewController.h */,
+				5C238D1818E3369A008F764F /* ZoomImageViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -421,6 +426,7 @@
 				5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */,
 				5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
+				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
