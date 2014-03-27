@@ -58,6 +58,9 @@
 }
 
 - (IBAction) save {
+    if (!self.textWithLinks)
+        self.textWithLinks = detailsTextView.attributedText.mutableCopy;
+    
     if ([delegate respondsToSelector:@selector(hasSavedText:)])
         [delegate hasSavedText:self.textWithLinks];
     
@@ -89,6 +92,7 @@
     if (matches.count) {
         
         DAAttributedStringFormatter* formatter = [[DAAttributedStringFormatter alloc] init];
+        formatter.colors = @[[UIColor blackColor], [UIColor blueColor]];
         
         //Iterate through the matches and highlight them
         for (NSTextCheckingResult *match in matches)
@@ -106,8 +110,8 @@
             [attrText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:matchRange];
             [attrText addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:1] range:matchRange];
             
-            [text insertString:@"%l%u%b" atIndex:matchRange.location+matchRange.length];
-            [text insertString:@"%B%1U%L" atIndex:matchRange.location];
+            [text insertString:@"%1c%l%u%b" atIndex:matchRange.location+matchRange.length];
+            [text insertString:@"%B%1U%L%1C" atIndex:matchRange.location];
             
         }
         
@@ -117,14 +121,16 @@
         detailsTextView.attributedText = attrText;
         detailsTextView.selectedRange = range;
         
-        _textWithLinks = [formatter formatString:text].mutableCopy;
+        NSMutableAttributedString* tempString = [formatter formatString:text].mutableCopy;
 
-        [_textWithLinks beginEditing];
-        [_textWithLinks addAttribute:(id)kCTFontAttributeName
+        [tempString beginEditing];
+        [tempString addAttribute:(id)kCTFontAttributeName
                             value:detailsTextView.font
-                            range:NSMakeRange(0, _textWithLinks.length-1)];
+                            range:NSMakeRange(0, tempString.length)];
         
         [_textWithLinks endEditing];
+        
+        self.textWithLinks = tempString;
         
         
     }

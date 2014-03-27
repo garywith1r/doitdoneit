@@ -471,12 +471,6 @@ Missed:     Hit:</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qou-Ii-xpf">
-                                                        <rect key="frame" x="79" y="346" width="178" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Times Per" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAt-xf-x1S">
                                                         <rect key="frame" x="181" y="151" width="91" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -569,9 +563,14 @@ Video</string>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="jSK-Vy-bff" kind="push" id="Ols-AQ-gYD"/>
+                                                            <segue destination="jSK-Vy-bff" kind="push" identifier="EditDetailsSegue" id="Ols-AQ-gYD"/>
                                                         </connections>
                                                     </button>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0o-2m-iqr" customClass="DAAttributedLabel">
+                                                        <rect key="frame" x="71" y="340" width="201" height="33"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
@@ -745,6 +744,7 @@ Second Line</string>
                         <outlet property="contentViewHeightConstrait" destination="f6a-dP-a9E" id="hxD-NW-7uO"/>
                         <outlet property="doneDate" destination="6tu-wZ-3xY" id="J6x-P8-cgT"/>
                         <outlet property="dueDate" destination="xKd-1F-mbH" id="f0z-8j-UaB"/>
+                        <outlet property="lblDetails" destination="H0o-2m-iqr" id="bg2-Ok-KtP"/>
                         <outlet property="lblInfo" destination="5iA-Jw-OPB" id="WfZ-37-Zmc"/>
                         <outlet property="lblRepeatTimes" destination="8LN-jB-fpH" id="VJn-ae-AOQ"/>
                         <outlet property="lblTaskPoints" destination="K7G-j4-NTt" id="wU7-Nx-S40"/>

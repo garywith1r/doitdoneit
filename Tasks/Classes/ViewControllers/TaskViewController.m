@@ -15,6 +15,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "EditDetailsViewController.h"
+#import "DAAttributedLabel.h"
 
 #import <AVFoundation/AVAsset.h>
 #import <AVFoundation/AVAssetImageGenerator.h>
@@ -26,7 +27,7 @@
 #define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 
-@interface TaskViewController () <SelectDateDelegate, EditDetailsDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface TaskViewController () <SelectDateDelegate, EditDetailsDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UITextField* txtRepeatTimes;
@@ -37,6 +38,7 @@
     IBOutlet UILabel* lblTaskPoints;
     IBOutlet UILabel* dueDate;
     IBOutlet UIButton* btnImage;
+    IBOutlet DAAttributedLabel* lblDetails;
     
     IBOutlet UIView* completeTaskDetailsView;
     IBOutletCollection(UIButton) NSArray* ratingButtons;
@@ -79,6 +81,8 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     lblTitle.text = txtTitle.text = self.task.title;
+    lblDetails.delegate = self;
+    lblDetails.text = self.task.details;
     
     lblRepeatTimes.text = txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
     sgmRepeatInterval.selectedSegmentIndex = self.task.repeatPeriod;
@@ -377,6 +381,12 @@
 #pragma mark - EditDetailsDelegate Methods
 - (void) hasSavedText:(NSAttributedString*) detailsText {
     task.details = detailsText;
+    lblDetails.text = detailsText;
+}
+
+- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
+{
+	NSLog(@"pressed on link");
 }
 
 
