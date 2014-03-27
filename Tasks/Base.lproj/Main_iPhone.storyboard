@@ -218,7 +218,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-L2-ggs">
-                                <rect key="frame" x="20" y="64" width="46" height="30"/>
+                                <rect key="frame" x="71" y="68" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Bullet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -227,18 +227,8 @@
                                     <action selector="bulletButtonPressed" destination="jSK-Vy-bff" eventType="touchUpInside" id="XMq-xM-Df5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxx-mX-wSL">
-                                <rect key="frame" x="98" y="64" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hiperlink">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="hiperlinkButtonPressed" destination="jSK-Vy-bff" eventType="touchUpInside" id="uX0-lG-EMQ"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inh-Q2-j8i">
-                                <rect key="frame" x="10" y="94" width="301" height="243"/>
+                                <rect key="frame" x="10" y="96" width="301" height="243"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -250,11 +240,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NKC-M4-2qy"/>
+                    <navigationItem key="navigationItem" id="NKC-M4-2qy">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="UcR-xN-RPz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bulletButton" destination="W3f-L2-ggs" id="1QS-M2-zF2"/>
                         <outlet property="detailsTextView" destination="inh-Q2-j8i" id="juE-5I-UmY"/>
-                        <outlet property="hiperlinkButton" destination="Kxx-mX-wSL" id="1dc-qP-DQ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zi0-EQ-RJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
