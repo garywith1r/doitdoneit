@@ -241,7 +241,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="NKC-M4-2qy">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="UcR-xN-RPz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="UcR-xN-RPz">
+                            <connections>
+                                <action selector="save" destination="jSK-Vy-bff" id="Ouf-t9-xTf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bulletButton" destination="W3f-L2-ggs" id="1QS-M2-zF2"/>

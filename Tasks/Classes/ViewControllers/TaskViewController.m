@@ -14,6 +14,7 @@
 #import "StatsModel.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "EditDetailsViewController.h"
 
 #import <AVFoundation/AVAsset.h>
 #import <AVFoundation/AVAssetImageGenerator.h>
@@ -21,10 +22,11 @@
 
 
 #define SELECT_DATE_SEGUE @"SelectDatesSegue"
+#define EDIT_DETAILS_SEGUE @"EditDetailsSegue"
 #define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 
-@interface TaskViewController () <SelectDateDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface TaskViewController () <SelectDateDelegate, EditDetailsDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UITextField* txtRepeatTimes;
@@ -68,6 +70,9 @@
             editController.startDate = dueDateTemp;
         else
             editController.startDate = completitionDateTemp;
+    } else if ([segue.identifier isEqualToString:EDIT_DETAILS_SEGUE]) {
+        EditDetailsViewController* editController = (EditDetailsViewController*) [segue destinationViewController];
+        editController.delegate = self;
     }
 }
 
@@ -366,6 +371,12 @@
     } else {
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+
+#pragma mark - EditDetailsDelegate Methods
+- (void) hasSavedText:(NSAttributedString*) detailsText {
+    task.details = detailsText;
 }
 
 

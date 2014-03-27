@@ -57,6 +57,11 @@
 		5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */; };
 		5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB775C18BF1191000A4C04 /* StatsModel.m */; };
 		5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */; };
+		5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817918E4ACAB0032B6CE /* DAAttributedLabel.m */; };
+		5CE4818218E4ACAB0032B6CE /* DAAttributedStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817B18E4ACAB0032B6CE /* DAAttributedStringFormatter.m */; };
+		5CE4818318E4ACAB0032B6CE /* DABoxesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817D18E4ACAB0032B6CE /* DABoxesLayer.m */; };
+		5CE4818418E4ACAB0032B6CE /* DAFontSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817F18E4ACAB0032B6CE /* DAFontSet.m */; };
+		5CE4818518E4ACAB0032B6CE /* DAFontSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CE4818018E4ACAB0032B6CE /* DAFontSet.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +145,15 @@
 		5CDB775C18BF1191000A4C04 /* StatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsModel.m; sourceTree = "<group>"; };
 		5CE4817418E4916D0032B6CE /* EditDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDetailsViewController.h; sourceTree = "<group>"; };
 		5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDetailsViewController.m; sourceTree = "<group>"; };
+		5CE4817818E4ACAB0032B6CE /* DAAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAttributedLabel.h; sourceTree = "<group>"; };
+		5CE4817918E4ACAB0032B6CE /* DAAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAttributedLabel.m; sourceTree = "<group>"; };
+		5CE4817A18E4ACAB0032B6CE /* DAAttributedStringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAttributedStringFormatter.h; sourceTree = "<group>"; };
+		5CE4817B18E4ACAB0032B6CE /* DAAttributedStringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAttributedStringFormatter.m; sourceTree = "<group>"; };
+		5CE4817C18E4ACAB0032B6CE /* DABoxesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DABoxesLayer.h; sourceTree = "<group>"; };
+		5CE4817D18E4ACAB0032B6CE /* DABoxesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DABoxesLayer.m; sourceTree = "<group>"; };
+		5CE4817E18E4ACAB0032B6CE /* DAFontSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFontSet.h; sourceTree = "<group>"; };
+		5CE4817F18E4ACAB0032B6CE /* DAFontSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAFontSet.m; sourceTree = "<group>"; };
+		5CE4818018E4ACAB0032B6CE /* DAFontSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DAFontSet.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +175,7 @@
 		5C2652D818BBA461007F8A0C /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				5CE4817718E4ACAB0032B6CE /* DAAttributedStringUtils */,
 				5CC1E9E618BD379C0018955E /* DeviceDetector */,
 				5C2652D918BBA461007F8A0C /* NSDateCategoryForReporting-master */,
 				5C2652E118BBF5FD007F8A0C /* SWTableViewCell */,
@@ -346,6 +361,22 @@
 			path = DeviceDetector;
 			sourceTree = "<group>";
 		};
+		5CE4817718E4ACAB0032B6CE /* DAAttributedStringUtils */ = {
+			isa = PBXGroup;
+			children = (
+				5CE4817818E4ACAB0032B6CE /* DAAttributedLabel.h */,
+				5CE4817918E4ACAB0032B6CE /* DAAttributedLabel.m */,
+				5CE4817A18E4ACAB0032B6CE /* DAAttributedStringFormatter.h */,
+				5CE4817B18E4ACAB0032B6CE /* DAAttributedStringFormatter.m */,
+				5CE4817C18E4ACAB0032B6CE /* DABoxesLayer.h */,
+				5CE4817D18E4ACAB0032B6CE /* DABoxesLayer.m */,
+				5CE4817E18E4ACAB0032B6CE /* DAFontSet.h */,
+				5CE4817F18E4ACAB0032B6CE /* DAFontSet.m */,
+				5CE4818018E4ACAB0032B6CE /* DAFontSet.plist */,
+			);
+			path = DAAttributedStringUtils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -409,6 +440,7 @@
 				5C9B637C18A14A350091C1D2 /* InfoPlist.strings in Resources */,
 				5C30E54218BC5F450083FF23 /* Delete.png in Resources */,
 				5CDB774918BEBE7F000A4C04 /* TwitterIcon.png in Resources */,
+				5CE4818518E4ACAB0032B6CE /* DAFontSet.plist in Resources */,
 				5C9B63AF18A151C90091C1D2 /* Mark_higlighted.gif in Resources */,
 				5CC1E9EF18BD3B240018955E /* Edit@2x.png in Resources */,
 				5C30E54418BC5F450083FF23 /* Edit.png in Resources */,
@@ -433,12 +465,14 @@
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
 				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
+				5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
 				5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
 				5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */,
 				5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */,
 				5C2652F418BBF5FD007F8A0C /* SWUtilityButtonView.m in Sources */,
+				5CE4818318E4ACAB0032B6CE /* DABoxesLayer.m in Sources */,
 				5C2652EF18BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */,
 				5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */,
@@ -447,12 +481,14 @@
 				5C9B63CD18A1632B0091C1D2 /* TaskViewController.m in Sources */,
 				5CDB775618BF0DC5000A4C04 /* StatsViewController.m in Sources */,
 				5C9B63D318A1635C0091C1D2 /* TaskListModel.m in Sources */,
+				5CE4818418E4ACAB0032B6CE /* DAFontSet.m in Sources */,
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
 				5C9B63CB18A1632B0091C1D2 /* SelectDateViewController.m in Sources */,
+				5CE4818218E4ACAB0032B6CE /* DAAttributedStringFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

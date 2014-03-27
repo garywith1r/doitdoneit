@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol EditDetailsDelegate <NSObject>
+@optional
+- (void) hasSavedText:(NSAttributedString*) detailsText;
+
+@end
+
 @interface EditDetailsViewController : UIViewController
+
+@property (nonatomic, weak) NSObject <EditDetailsDelegate>* delegate;
+@property (nonatomic, strong) NSMutableAttributedString* textWithLinks;
 
 @end

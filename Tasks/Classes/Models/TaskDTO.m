@@ -13,7 +13,7 @@
 
 @implementation TaskDTO
 
-@synthesize title, currentRepetition, repeatTimes, repeatPeriod, taskPoints, description;
+@synthesize title, currentRepetition, repeatTimes, repeatPeriod, taskPoints, details;
 @synthesize notes, status, rating;
 @synthesize creationDate, showingDate, dueDate, completitionDate;
 @synthesize timesDoneIt, timesMissedIt;
@@ -32,7 +32,7 @@
         self.showingDate = [NSDate midnightToday];
         self.thumbImage = nil;
         self.videoUrl = nil;
-        self.description = nil;
+        self.details = nil;
     }
     return self;
 }
@@ -47,7 +47,7 @@
     newTask.taskPoints = self.taskPoints;
     newTask.thumbImage = self.thumbImage;
     newTask.videoUrl = self.videoUrl;
-    newTask.description = self.description;
+    newTask.details = self.details;
     newTask.creationDate = self.creationDate;
     newTask.showingDate = self.showingDate;
     newTask.dueDate = self.dueDate;
@@ -66,7 +66,7 @@
     newTask.repeatPeriod = self.repeatPeriod;
     newTask.taskPoints = self.taskPoints;
     newTask.thumbImage = self.thumbImage;
-    newTask.description = self.description;
+    newTask.details = self.details;
     
     if (self.videoUrl) {
         //save video to app's directory.
@@ -146,7 +146,8 @@
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatTimes] forKey:@"repeatTimes"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatPeriod] forKey:@"repeatPeriod"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.taskPoints] forKey:@"priorityPoints"];
-    
+    if (self.details)
+        [dic setObject:self.details forKey:@"details"];
     if (self.thumbImage)
         [dic setObject:UIImagePNGRepresentation(self.thumbImage) forKey:@"thumb"];
     if (self.videoUrl)
@@ -176,6 +177,7 @@
     TaskDTO* dto = [[TaskDTO alloc] init];
     
     NSString* tempString;
+    NSAttributedString* tempAttrString;
     NSData* tempImage;
     
     tempString = [dicctionary objectForKey:@"title"];
@@ -188,6 +190,13 @@
     dto.repeatTimes = [[dicctionary objectForKey:@"repeatTimes"] integerValue];
     dto.repeatPeriod = [[dicctionary objectForKey:@"repeatPeriod"] intValue];
     dto.taskPoints = [[dicctionary objectForKey:@"priorityPoints"] integerValue];
+    
+    
+    tempAttrString = [dicctionary objectForKey:@"details"];
+    if (tempAttrString)
+        dto.details = tempAttrString;
+    else
+        dto.details = [[NSAttributedString alloc] initWithString:@""];
     
     tempImage = [dicctionary objectForKey:@"thumb"];
     if (tempString)

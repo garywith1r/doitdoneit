@@ -160,7 +160,7 @@
     
     cell.lblStats.text = [NSString stringWithFormat:@"Points: %d Done: %d\nMissed: %d Hit: %.2f", dto.taskPoints, timesDoneIt, timesMissedIt, dto.hitRate];
     
-    cell.lblDescription.attributedText = dto.description;
+    cell.lblDescription.attributedText = dto.details;
     
     
     
