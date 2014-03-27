@@ -56,6 +56,7 @@
 		5CDB775918BF0F79000A4C04 /* FacebookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB775718BF0F79000A4C04 /* FacebookIcon@2x.png */; };
 		5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */; };
 		5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB775C18BF1191000A4C04 /* StatsModel.m */; };
+		5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,8 @@
 		5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TwitterIcon@2x.png"; sourceTree = "<group>"; };
 		5CDB775B18BF1191000A4C04 /* StatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsModel.h; sourceTree = "<group>"; };
 		5CDB775C18BF1191000A4C04 /* StatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsModel.m; sourceTree = "<group>"; };
+		5CE4817418E4916D0032B6CE /* EditDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDetailsViewController.h; sourceTree = "<group>"; };
+		5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +330,8 @@
 				5CDB775518BF0DC5000A4C04 /* StatsViewController.m */,
 				5C238D1718E3369A008F764F /* ZoomImageViewController.h */,
 				5C238D1818E3369A008F764F /* ZoomImageViewController.m */,
+				5CE4817418E4916D0032B6CE /* EditDetailsViewController.h */,
+				5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -429,6 +434,7 @@
 				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
+				5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
 				5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */,
 				5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */,

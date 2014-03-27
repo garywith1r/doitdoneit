@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugy-UJ-M6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="1480"/>
+            <point key="canvasLocation" x="-401" y="2210"/>
         </scene>
         <!--Done It Tasks List View Controller - Done It-->
         <scene sceneID="aHu-NR-HNw">
@@ -204,6 +204,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLi-9V-18A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="100" y="704"/>
+        </scene>
+        <!--Edit Details View Controller-->
+        <scene sceneID="wD7-kN-I30">
+            <objects>
+                <viewController id="jSK-Vy-bff" customClass="EditDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FKc-kP-V8Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="rlr-CR-qI4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ir0-dn-1xQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-L2-ggs">
+                                <rect key="frame" x="20" y="64" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Bullet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bulletButtonPressed" destination="jSK-Vy-bff" eventType="touchUpInside" id="XMq-xM-Df5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxx-mX-wSL">
+                                <rect key="frame" x="98" y="64" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Hiperlink">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hiperlinkButtonPressed" destination="jSK-Vy-bff" eventType="touchUpInside" id="uX0-lG-EMQ"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inh-Q2-j8i">
+                                <rect key="frame" x="10" y="94" width="301" height="243"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jSK-Vy-bff" id="CpZ-Ma-BEF"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NKC-M4-2qy"/>
+                    <connections>
+                        <outlet property="bulletButton" destination="W3f-L2-ggs" id="1QS-M2-zF2"/>
+                        <outlet property="detailsTextView" destination="inh-Q2-j8i" id="juE-5I-UmY"/>
+                        <outlet property="hiperlinkButton" destination="Kxx-mX-wSL" id="1dc-qP-DQ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zi0-EQ-RJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="473"/>
         </scene>
         <!--Do It Task List View Controller - Do It-->
         <scene sceneID="ufC-wZ-h7g">
@@ -357,11 +413,11 @@ Missed:     Hit:</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-8n-GPo">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="521"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="569"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Dn-MB-pa2" userLabel="Create Tasks Info View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="339"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="395"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJQ-3v-Bs6">
@@ -408,8 +464,20 @@ Missed:     Hit:</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueS-TB-Wae">
+                                                        <rect key="frame" x="6" y="346" width="57" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun, 2 March" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKd-1F-mbH">
                                                         <rect key="frame" x="79" y="303" width="178" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qou-Ii-xpf">
+                                                        <rect key="frame" x="79" y="346" width="178" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <nil key="highlightedColor"/>
@@ -499,11 +567,21 @@ Video</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbj-qz-b2l">
+                                                        <rect key="frame" x="262" y="342" width="46" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title=">">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="jSK-Vy-bff" kind="push" id="Ols-AQ-gYD"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="720-VA-e4s" userLabel="Complete Tasks Info View">
-                                                <rect key="frame" x="0.0" y="347" width="320" height="174"/>
+                                                <rect key="frame" x="0.0" y="395" width="320" height="174"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaG-Ea-HbY">
@@ -638,7 +716,7 @@ Second Line</string>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="M9h-a5-tZS"/>
-                                            <constraint firstAttribute="height" constant="521" id="f6a-dP-a9E"/>
+                                            <constraint firstAttribute="height" constant="569" id="f6a-dP-a9E"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -647,7 +725,7 @@ Second Line</string>
                                     <constraint firstItem="JZ0-8n-GPo" firstAttribute="leading" secondItem="ohd-Nc-VI2" secondAttribute="leading" id="QDr-If-agy"/>
                                     <constraint firstAttribute="trailing" secondItem="JZ0-8n-GPo" secondAttribute="trailing" id="mPX-iT-6JD"/>
                                     <constraint firstItem="JZ0-8n-GPo" firstAttribute="top" secondItem="ohd-Nc-VI2" secondAttribute="top" id="srr-nf-IVO"/>
-                                    <constraint firstAttribute="bottom" secondItem="JZ0-8n-GPo" secondAttribute="bottom" priority="404" constant="47" id="wIl-da-IVt"/>
+                                    <constraint firstAttribute="bottom" secondItem="JZ0-8n-GPo" secondAttribute="bottom" priority="404" constant="-1" id="wIl-da-IVt"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -802,7 +880,7 @@ Second Line</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9y-hi-N0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133" y="1590"/>
+            <point key="canvasLocation" x="-11" y="2210"/>
         </scene>
         <!--Select Date View Controller-->
         <scene sceneID="hus-Wf-3Qh">
@@ -863,7 +941,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPW-sw-0BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="35"/>
+            <point key="canvasLocation" x="1206" y="-233"/>
         </scene>
     </scenes>
     <resources>
