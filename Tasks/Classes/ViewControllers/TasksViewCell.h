@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TasksViewCell : UITableViewCell
+@interface TasksViewCell : UIViewController
 
 @property (nonatomic, strong) IBOutlet UILabel* lblTitle;
 @property (nonatomic, strong) IBOutlet UILabel* lblStats;

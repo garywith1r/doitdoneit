@@ -84,49 +84,54 @@
     
 }
 
-//- (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-//    TaskDTO* task = contentDataArray[indexPath.row];
-//    
-//    TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
-//    
-//    CGRect frame = cellView.view.frame;
-//    frame.size = CGSizeMake(table.frame.size.width, table.rowHeight);
-//    frame.origin = CGPointZero;
-//    cellView.view.frame = frame;
-//    
-//    [cell setContentView:cellView.view];
-//    
-//    cellView.doneButton.tag = indexPath.row;
-//    
-//    NSString* titleBoldPart = @"";
-//    
-//    if (task.repeatTimes != 1) {
-//        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
-//    }
-//    
-//    cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];
-//    
-//    int remainingDays = ceil([task.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);
-//    
-//    if (remainingDays == 1)
-//        cellView.dueDate.text = @"1 day left";
-//    else
-//        cellView.dueDate.text = [NSString stringWithFormat:@"%d days left",remainingDays];
-//    
-//    
-//    [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-//    [cellView.doneButton addTarget:self action:@selector(markTaskAsDone:) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    cellView.doneButton.selected = indexPath.row == completedTaskIndex;
-//}
+- (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    TaskDTO* task = contentDataArray[indexPath.row];
+    
+    TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
+    
+    [cell setContentView:cellView.view];
+    
+    NSString* titleBoldPart = @"";
+    
+    if (task.repeatTimes != 1) {
+        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
+    }
+    
+    cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];
+    
+    [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];
+    
+    
+    if (task.repeatTimes != 1) {
+        cellView.lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
+    }
+    
+    
+    int remainingDays = ceil([task.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);
+    
+    if (remainingDays == 1)
+        cellView.lblDueDate.text = @"1 day left";
+    else
+        cellView.lblDueDate.text = [NSString stringWithFormat:@"%d days left",remainingDays];
+    
+    int timesDoneIt = [task.timesDoneIt[task.currentRepetition - 1] intValue];
+    int timesMissedIt = [task.timesMissedIt[task.currentRepetition - 1] intValue];
+    
+    cellView.lblStats.text = [NSString stringWithFormat:@"Points: %d Done: %d\nMissed: %d Hit: %.2f", task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
+    
+    cellView.lblDescription.attributedText = task.detailsTextWithLinks;
+    
+    
+    cellView.doneButton.tag = indexPath.row;
+    [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [cellView.doneButton addTarget:self action:@selector(markTaskAsDone:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cellView.thumbImageButton.tag = indexPath.row;
+    [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
 
 #pragma mark - UITableView Methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger numberOfRows = [super tableView:tableView numberOfRowsInSection:section];
-    
-    return numberOfRows + showingCompleteTaskCell;
-}
 
 //- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    if  (showingCompleteTaskCell && (indexPath.row == completedTaskIndex + 1))
@@ -134,47 +139,6 @@
 //    else
 //        return tableView.rowHeight;
 //}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TaskDTO* dto = [contentDataArray objectAtIndex:indexPath.row];
-    
-    TasksViewCell *cell = (TasksViewCell*)[tableView dequeueReusableCellWithIdentifier:@"DoItTaskListCell"];
-    
-    [cell.thumbImageButton setImage:dto.thumbImage forState:UIControlStateNormal];
-    cell.lblTitle.text = dto.title;
-    
-    int remainingDays = ceil([dto.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);
-    
-    if (remainingDays == 1)
-        cell.lblDueDate.text = @"1 day left";
-    else
-        cell.lblDueDate.text = [NSString stringWithFormat:@"%d days left",remainingDays];
-    
-    
-    if (dto.repeatTimes != 1) {
-        cell.lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)dto.currentRepetition, (int)dto.repeatTimes];
-    }
-    
-    int timesDoneIt = [dto.timesDoneIt[dto.currentRepetition - 1] intValue];
-    int timesMissedIt = [dto.timesMissedIt[dto.currentRepetition - 1] intValue];
-    
-    cell.lblStats.text = [NSString stringWithFormat:@"Points: %d Done: %d\nMissed: %d Hit: %.2f", dto.taskPoints, timesDoneIt, timesMissedIt, dto.hitRate];
-    
-    cell.lblDescription.attributedText = dto.detailsTextWithLinks;
-    
-    
-    
-    
-    cell.doneButton.tag = indexPath.row;
-    [cell.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-    [cell.doneButton addTarget:self action:@selector(markTaskAsDone:) forControlEvents:UIControlEventTouchUpInside];
-    
-    cell.thumbImageButton.tag = indexPath.row;
-    [cell.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-    [cell.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
-    return cell;
-}
 
 #pragma mark - CompleteTaskDelegate Methods
 
