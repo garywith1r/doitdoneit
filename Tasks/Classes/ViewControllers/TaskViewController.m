@@ -27,7 +27,7 @@
 #define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 
-@interface TaskViewController () <SelectDateDelegate, EditDetailsDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface TaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UITextField* txtRepeatTimes;
@@ -74,7 +74,7 @@
             editController.startDate = completitionDateTemp;
     } else if ([segue.identifier isEqualToString:EDIT_DETAILS_SEGUE]) {
         EditDetailsViewController* editController = (EditDetailsViewController*) [segue destinationViewController];
-        editController.delegate = self;
+        editController.dto = task;
     }
 }
 
@@ -82,7 +82,6 @@
     [super viewDidLoad];
     lblTitle.text = txtTitle.text = self.task.title;
     lblDetails.delegate = self;
-    lblDetails.text = self.task.details;
     
     lblRepeatTimes.text = txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
     sgmRepeatInterval.selectedSegmentIndex = self.task.repeatPeriod;
@@ -138,6 +137,8 @@
     if (self.task.completitionDate) {
         doneDate.text = [formatter stringFromDate:completitionDateTemp];
     }
+    
+    lblDetails.text = self.task.detailsTextWithLinks;
     
 }
 
@@ -378,15 +379,14 @@
 }
 
 
-#pragma mark - EditDetailsDelegate Methods
-- (void) hasSavedText:(NSAttributedString*) detailsText {
-    task.details = detailsText;
-    lblDetails.text = detailsText;
-}
-
+#pragma mark - DAAttributedLabelDelegate Methods
 - (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
 {
-	NSLog(@"pressed on link");
+    
+    NSURL* url = [NSURL URLWithString:task.detailsLinksArray[linkNum]];
+    
+	if([[UIApplication sharedApplication] canOpenURL:url])
+       [[UIApplication sharedApplication] openURL:url];
 }
 
 

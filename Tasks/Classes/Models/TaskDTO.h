@@ -31,7 +31,10 @@ enum TaskRepeatPeriod {
 @property (nonatomic) NSInteger taskPoints;
 @property (nonatomic, strong) UIImage* thumbImage;
 @property (nonatomic, strong) NSString* videoUrl;
-@property (nonatomic, strong) NSAttributedString* details;
+
+@property (nonatomic, strong) NSAttributedString* detailsTextPlain;
+@property (nonatomic, strong) NSAttributedString* detailsTextWithLinks;
+@property (nonatomic, strong) NSArray* detailsLinksArray;
 
 @property (nonatomic, strong) NSString* notes;
 @property (nonatomic) enum TaskStatus status;

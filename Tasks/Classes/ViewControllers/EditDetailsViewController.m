@@ -17,17 +17,20 @@
 
 #define BULLET_CODE @"\u25CF "
 //regex from http://stackoverflow.com/questions/4390556/extract-url-from-string
-#define HIPERLINKS_REGEX @"(?i)\\b((?:[a-z][\\w-]+:(?:/{1,3}|[a-z0-9%])|(www)?\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?«»“”‘’]))"
+#define HIPERLINKS_REGEX @"(?i)\\b((?:[a-z][\\w-]+:(?:/{1,3}|[a-z0-9%])|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?«»“”‘’]))"
 
 @interface EditDetailsViewController () <UITextViewDelegate> {
     IBOutlet UITextView* detailsTextView;
     IBOutlet UIButton* bulletButton;
+    
+    NSMutableAttributedString* textWithLinks;
+    NSMutableArray* linksOnText;
 }
 
 @end
 
 @implementation EditDetailsViewController
-@synthesize delegate;
+@synthesize dto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,6 +46,14 @@
     [super viewDidLoad];
     
     [detailsTextView becomeFirstResponder];
+    
+    if (dto.detailsLinksArray)
+        linksOnText = [[NSMutableArray alloc] initWithArray:dto.detailsLinksArray];
+    else
+        linksOnText = [[NSMutableArray alloc] init];
+    
+    detailsTextView.attributedText = dto.detailsTextPlain;
+    textWithLinks = dto.detailsTextWithLinks.mutableCopy;
 }
 
 - (IBAction) bulletButtonPressed {
@@ -58,11 +69,12 @@
 }
 
 - (IBAction) save {
-    if (!self.textWithLinks)
-        self.textWithLinks = detailsTextView.attributedText.mutableCopy;
+    if (!textWithLinks)
+        textWithLinks = detailsTextView.attributedText.mutableCopy;
     
-    if ([delegate respondsToSelector:@selector(hasSavedText:)])
-        [delegate hasSavedText:self.textWithLinks];
+    dto.detailsTextPlain = detailsTextView.attributedText;
+    dto.detailsTextWithLinks = textWithLinks;
+    dto.detailsLinksArray = [NSArray arrayWithArray:linksOnText];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -89,29 +101,38 @@
     
     NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
     
+    [linksOnText removeAllObjects];
+    
     if (matches.count) {
         
         DAAttributedStringFormatter* formatter = [[DAAttributedStringFormatter alloc] init];
         formatter.colors = @[[UIColor blackColor], [UIColor blueColor]];
         
         //Iterate through the matches and highlight them
-        for (NSTextCheckingResult *match in matches)
+        for (int x = 0; x < matches.count; x++)
         {
-            NSRange matchRange = match.range;
+            NSRange matchRange = ((NSTextCheckingResult*)matches[x]).range;
             
-            NSRange lastSpacelocation = [[text substringToIndex:match.range.location] rangeOfString:@" " options:NSBackwardsSearch];
-            
-            if (lastSpacelocation.location != NSNotFound) {
-                matchRange = NSMakeRange(lastSpacelocation.location + 1, matchRange.location - lastSpacelocation.location - 1 + matchRange.length);
-            } else {
-                matchRange = NSMakeRange(0, matchRange.location + matchRange.length);
-            }
             
             [attrText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:matchRange];
             [attrText addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:1] range:matchRange];
             
+            
+            //have to fix the location because we're adding text for each link. 18 is the amount of characters added per link.
+            matchRange.location = matchRange.location + 18*x;
+            
+            [linksOnText addObject: [text substringWithRange:matchRange]];
+            
+//            NSRange lastSpacelocation = [[text substringToIndex:match.range.location] rangeOfString:@" " options:NSBackwardsSearch];
+//            
+//            if (lastSpacelocation.location != NSNotFound) {
+//                matchRange = NSMakeRange(lastSpacelocation.location + 1, matchRange.location - lastSpacelocation.location - 1 + matchRange.length);
+//            } else {
+//                matchRange = NSMakeRange(0, matchRange.location + matchRange.length);
+//            }
+            
             [text insertString:@"%1c%l%u%b" atIndex:matchRange.location+matchRange.length];
-            [text insertString:@"%B%1U%L%1C" atIndex:matchRange.location];
+            [text insertString:@"%B%U%L%1C" atIndex:matchRange.location];
             
         }
         
@@ -121,17 +142,14 @@
         detailsTextView.attributedText = attrText;
         detailsTextView.selectedRange = range;
         
-        NSMutableAttributedString* tempString = [formatter formatString:text].mutableCopy;
+        textWithLinks = [formatter formatString:text].mutableCopy;
 
-        [tempString beginEditing];
-        [tempString addAttribute:(id)kCTFontAttributeName
+        [textWithLinks beginEditing];
+        [textWithLinks addAttribute:(id)kCTFontAttributeName
                             value:detailsTextView.font
-                            range:NSMakeRange(0, tempString.length)];
+                            range:NSMakeRange(0, textWithLinks.length)];
         
-        [_textWithLinks endEditing];
-        
-        self.textWithLinks = tempString;
-        
+        [textWithLinks endEditing];
         
     }
 }

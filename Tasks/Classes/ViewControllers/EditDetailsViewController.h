@@ -7,16 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol EditDetailsDelegate <NSObject>
-@optional
-- (void) hasSavedText:(NSAttributedString*) detailsText;
-
-@end
+#import "TaskDTO.h"
 
 @interface EditDetailsViewController : UIViewController
 
-@property (nonatomic, weak) NSObject <EditDetailsDelegate>* delegate;
-@property (nonatomic, strong) NSMutableAttributedString* textWithLinks;
+@property (nonatomic, strong) TaskDTO* dto;
 
 @end
