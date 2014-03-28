@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DAAttributedLabel.h"
 
 @interface TasksViewCell : UIViewController
 
 @property (nonatomic, strong) IBOutlet UILabel* lblTitle;
 @property (nonatomic, strong) IBOutlet UILabel* lblStats;
 @property (nonatomic, strong) IBOutlet UILabel* lblDueDate;
-@property (nonatomic, strong) IBOutlet UILabel* lblDescription;
 @property (nonatomic, strong) IBOutlet UILabel* lblRepeatTimes;
 @property (nonatomic, strong) IBOutlet UIButton* doneButton;
 @property (nonatomic, strong) IBOutlet UIButton* thumbImageButton;
 @property (nonatomic, strong) IBOutlet UIButton* settingsButton;
+@property (nonatomic, strong) IBOutlet DAAttributedLabel* lblDescription;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionHeightConstrait;
 
 
 @property (nonatomic) BOOL todayCell;

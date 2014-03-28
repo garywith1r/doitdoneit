@@ -88,7 +88,11 @@
     sldTaskPoints.value = self.task.taskPoints;
     [self sliderHasChanged:sldTaskPoints];
     
-    
+    if (task.thumbImage) {
+        [btnImage setTitle:@"" forState:UIControlStateNormal];
+        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [btnImage setImage:task.thumbImage forState:UIControlStateNormal];
+    }
     
     if (self.task.status == TaskStatusIncomplete) {
         completeTaskDetailsView.hidden = YES;

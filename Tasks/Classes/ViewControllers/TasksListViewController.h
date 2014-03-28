@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define NORMAL_ROW_HEIGHT 60.0
-#define EXPANDED_ROW_HEIGHT 313.0
+#define EXPANDED_ROW_HEIGHT 220.0
 
 #define THUMBNAIL_FRAME CGRectMake (7,5,0,0)
 

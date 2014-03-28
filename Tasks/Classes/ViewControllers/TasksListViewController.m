@@ -74,7 +74,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == selectedRow) {
-        return EXPANDED_ROW_HEIGHT;
+        return [self getExpandedCellHeightForTask:contentDataArray[indexPath.row]];
     } else {
         return NORMAL_ROW_HEIGHT;
     }
@@ -115,7 +115,7 @@
         cell.delegate = self;
     }
     
-    cell.height = EXPANDED_ROW_HEIGHT;
+    cell.height = [self getExpandedCellHeightForTask:contentDataArray[indexPath.row]];
     cell.clipsToBounds = YES;
     
     //we'll use the tag to identify the task by it's index.
@@ -134,6 +134,8 @@
 }
 
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {}
+
+- (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task { return EXPANDED_ROW_HEIGHT; }
 
 #pragma mark - SWTableViewDelegate
 

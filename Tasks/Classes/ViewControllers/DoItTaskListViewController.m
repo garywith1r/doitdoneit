@@ -13,11 +13,13 @@
 #import "CompleteTaskViewCell.h"
 #import "DeviceDetector.h"
 #import "Constants.h"
+#import "DAAttributedLabel.h"
+
 
 #define COMPLETE_TASK_CELL_IDENTIFIER @"CompleteTaskCell"
 
 @interface DoItTaskListViewController () <CompleteTaskDelegate> {
-    IBOutlet NSLayoutConstraint* tableViewHeightConstrait;
+//    IBOutlet NSLayoutConstraint* tableViewHeightConstrait;
     BOOL keyboardIsUp;
     BOOL showingCompleteTaskCell;
     int completedTaskIndex;
@@ -31,16 +33,16 @@
 
 @implementation DoItTaskListViewController
 
-- (void) viewDidLoad {
-    completedTaskIndex = -1;
-    [super viewDidLoad];
-    [table registerNib:[UINib nibWithNibName:@"CompleteTaskViewCell" bundle:nil] forCellReuseIdentifier:COMPLETE_TASK_CELL_IDENTIFIER];
-    
-    tableViewHeightConstrait.constant = self.view.frame.size.height;
-    
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
-        tableViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
-}
+//- (void) viewDidLoad {
+//    completedTaskIndex = -1;
+//    [super viewDidLoad];
+//    [table registerNib:[UINib nibWithNibName:@"CompleteTaskViewCell" bundle:nil] forCellReuseIdentifier:COMPLETE_TASK_CELL_IDENTIFIER];
+//    
+//    tableViewHeightConstrait.constant = self.view.frame.size.height;
+//    
+//    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
+//        tableViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
+//}
 
 - (void) reloadContentData {
     contentDataArray = [[TaskListModel sharedInstance] getToDoTasks];
@@ -99,6 +101,7 @@
     
     cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];
     
+    cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];
     
     
@@ -119,8 +122,8 @@
     
     cellView.lblStats.text = [NSString stringWithFormat:@"Points: %d Done: %d\nMissed: %d Hit: %.2f", task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
     
-    cellView.lblDescription.attributedText = task.detailsTextWithLinks;
-    
+    cellView.lblDescription.text = task.detailsTextWithLinks;
+    cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];
     
     cellView.doneButton.tag = indexPath.row;
     [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
@@ -131,14 +134,17 @@
     [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-#pragma mark - UITableView Methods
-
-//- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if  (showingCompleteTaskCell && (indexPath.row == completedTaskIndex + 1))
-//         return COMPLETE_TASK_VIEW_CELL_HEIGHT;
-//    else
-//        return tableView.rowHeight;
-//}
+- (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task {
+    CGFloat labelsHeight = 0;
+    
+    if (task.detailsTextWithLinks && ![@"" isEqualToString:task.detailsTextWithLinks.string]) {
+        DAAttributedLabel* attributedLabel = [[DAAttributedLabel alloc] initWithFrame:self.view.frame];
+        attributedLabel.text = task.detailsTextWithLinks;
+        labelsHeight = [attributedLabel getPreferredHeight];
+    }
+    
+    return EXPANDED_ROW_HEIGHT + labelsHeight;
+}
 
 #pragma mark - CompleteTaskDelegate Methods
 
@@ -146,7 +152,7 @@
     if (!keyboardIsUp) {
         [UIView beginAnimations:Nil context:nil];
         [UIView setAnimationDuration:0.3];
-        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant - KEYBOARD_SIZE;
+//        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant - KEYBOARD_SIZE;
         [UIView commitAnimations];
         [self performSelector:@selector(scrollTableViewToCompleteViewCell) withObject:nil afterDelay:0.1];
         keyboardIsUp = YES;
@@ -161,7 +167,7 @@
     if (keyboardIsUp) {
         [UIView beginAnimations:Nil context:nil];
         [UIView setAnimationDuration:0.3];
-        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant + KEYBOARD_SIZE;
+//        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant + KEYBOARD_SIZE;
         [UIView commitAnimations];
         keyboardIsUp = NO;
     }

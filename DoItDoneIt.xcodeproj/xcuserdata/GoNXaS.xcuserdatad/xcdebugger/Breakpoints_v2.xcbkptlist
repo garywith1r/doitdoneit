@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tasks/Classes/ViewControllers/TaskViewController.m"
-            timestampString = "417669852.139103"
+            timestampString = "417679314.424667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "-label:didSelectLink:"
             landmarkType = "5">
          </BreakpointContent>
