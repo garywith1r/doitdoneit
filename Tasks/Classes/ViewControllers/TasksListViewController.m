@@ -15,10 +15,11 @@
 #import "DeviceDetector.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "ZoomImageViewController.h"
+#import "DAAttributedLabel.h"
 
 #define DELETE_TASK_ALERT_TAG 125
 
-@interface TasksListViewController () <SWTableViewCellDelegate, UIAlertViewDelegate, ZoomImageDelegate> {
+@interface TasksListViewController () <SWTableViewCellDelegate, UIAlertViewDelegate, ZoomImageDelegate, DAAttributedLabelDelegate> {
     NSArray* arrayToShow;
     NSString* titleToShow;
     
@@ -242,5 +243,14 @@
     }
 }
 
+#pragma mark - DAAttributedLabelDelegate Methods
+- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
+{
+    
+    NSURL* url = [NSURL URLWithString:((TaskDTO*)contentDataArray[selectedRow]).detailsLinksArray[linkNum]];
+    
+	if([[UIApplication sharedApplication] canOpenURL:url])
+        [[UIApplication sharedApplication] openURL:url];
+}
 
 @end

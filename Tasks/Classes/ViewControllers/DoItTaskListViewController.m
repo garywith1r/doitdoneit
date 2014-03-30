@@ -124,6 +124,7 @@
     
     cellView.lblDescription.text = task.detailsText;
     cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];
+    cellView.lblDescription.delegate = self;
     
     cellView.doneButton.tag = indexPath.row;
     [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
