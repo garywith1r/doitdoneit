@@ -142,7 +142,7 @@
         doneDate.text = [formatter stringFromDate:completitionDateTemp];
     }
     
-    lblDetails.text = self.task.detailsTextWithLinks;
+    lblDetails.text = self.task.detailsText;
     
 }
 
@@ -180,6 +180,7 @@
         [[TaskListModel sharedInstance] forceRecalculateTasks];
         if (self.task.status == TaskStatusComplete)
             [[StatsModel sharedInstance] recalculateVolatileStats];
+        [[TaskListModel sharedInstance] storeTasksData];
     }
     
     [self.navigationController popViewControllerAnimated:YES];

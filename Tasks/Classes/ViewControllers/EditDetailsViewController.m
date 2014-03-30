@@ -23,7 +23,6 @@
     IBOutlet UITextView* detailsTextView;
     IBOutlet UIButton* bulletButton;
     
-    NSMutableAttributedString* textWithLinks;
     NSMutableArray* linksOnText;
 }
 
@@ -52,8 +51,7 @@
     else
         linksOnText = [[NSMutableArray alloc] init];
     
-    detailsTextView.attributedText = dto.detailsTextPlain;
-    textWithLinks = dto.detailsTextWithLinks.mutableCopy;
+    detailsTextView.attributedText = dto.detailsText;
 }
 
 - (IBAction) bulletButtonPressed {
@@ -69,11 +67,8 @@
 }
 
 - (IBAction) save {
-    if (!textWithLinks)
-        textWithLinks = detailsTextView.attributedText.mutableCopy;
     
-    dto.detailsTextPlain = detailsTextView.attributedText;
-    dto.detailsTextWithLinks = textWithLinks;
+    dto.detailsText = detailsTextView.attributedText;
     dto.detailsLinksArray = [NSArray arrayWithArray:linksOnText];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -86,14 +81,6 @@
     NSRange range = detailsTextView.selectedRange;
     
     NSMutableString* text = [[NSMutableString alloc] initWithString:detailsTextView.text];
-    
-    NSMutableAttributedString* attrText = [[NSMutableAttributedString alloc] initWithString:detailsTextView.text];
-    
-    [attrText beginEditing];
-    
-    [attrText addAttribute:(id)kCTFontAttributeName
-                     value:detailsTextView.font
-                     range:NSMakeRange(0, text.length)];
     
     NSError* error;
     
@@ -109,47 +96,58 @@
         formatter.colors = @[[UIColor blackColor], [UIColor blueColor]];
         
         //Iterate through the matches and highlight them
+        NSMutableArray* attributesArray = [[NSMutableArray alloc] initWithCapacity:matches.count * 2];
         for (int x = 0; x < matches.count; x++)
         {
             NSRange matchRange = ((NSTextCheckingResult*)matches[x]).range;
             
+            NSNumber* location = [NSNumber numberWithInt:matchRange.location];
+            NSNumber* lenght = [NSNumber numberWithInt:matchRange.length];
             
-            [attrText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:matchRange];
-            [attrText addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:1] range:matchRange];
+            /* we'll add attributes to both texts at the end, because the mutable attributed string returned by the DAAttributedStringFormatter can't be stored with colour / underline attributes, so we'll use the standar ones.
+             */
+            [attributesArray addObject:@{@"attribute":NSForegroundColorAttributeName,@"value":[UIColor blueColor],@"location":location,@"length":lenght}];
+            [attributesArray addObject:@{@"attribute":NSUnderlineStyleAttributeName,@"value":[NSNumber numberWithInt:1],@"location":location,@"length":lenght}];
             
             
-            //have to fix the location because we're adding text for each link. 18 is the amount of characters added per link.
-            matchRange.location = matchRange.location + 18*x;
+            //have to fix the location because we're adding text for each link. 8 is the amount of characters added per link.
+            matchRange.location = matchRange.location + 8*x;
             
             [linksOnText addObject: [text substringWithRange:matchRange]];
             
-//            NSRange lastSpacelocation = [[text substringToIndex:match.range.location] rangeOfString:@" " options:NSBackwardsSearch];
-//            
-//            if (lastSpacelocation.location != NSNotFound) {
-//                matchRange = NSMakeRange(lastSpacelocation.location + 1, matchRange.location - lastSpacelocation.location - 1 + matchRange.length);
-//            } else {
-//                matchRange = NSMakeRange(0, matchRange.location + matchRange.length);
-//            }
-            
-            [text insertString:@"%1c%l%u%b" atIndex:matchRange.location+matchRange.length];
-            [text insertString:@"%B%U%L%1C" atIndex:matchRange.location];
+            [text insertString:@"%l%b" atIndex:matchRange.location+matchRange.length];
+            [text insertString:@"%B%L" atIndex:matchRange.location];
+
             
         }
         
         
+        
+        
+        NSMutableAttributedString* attrText = [formatter formatString:text].mutableCopy;
+        
+
+        [attrText beginEditing];
+        
+        [attrText addAttribute:(id)kCTFontAttributeName
+                         value:detailsTextView.font
+                         range:NSMakeRange(0, attrText.length)];
+        
+        //add attributes to the links
+        for (NSDictionary* attributeDicc in attributesArray) {
+            
+            [attrText addAttribute:[attributeDicc objectForKey:@"attribute"]
+                             value:[attributeDicc objectForKey:@"value"]
+                             range:NSMakeRange([[attributeDicc objectForKey:@"location"] intValue], [[attributeDicc objectForKey:@"length"] intValue])];
+        }
+        
+        
+        
         [attrText endEditing];
+        
         
         detailsTextView.attributedText = attrText;
         detailsTextView.selectedRange = range;
-        
-        textWithLinks = [formatter formatString:text].mutableCopy;
-
-        [textWithLinks beginEditing];
-        [textWithLinks addAttribute:(id)kCTFontAttributeName
-                            value:detailsTextView.font
-                            range:NSMakeRange(0, textWithLinks.length)];
-        
-        [textWithLinks endEditing];
         
     }
 }

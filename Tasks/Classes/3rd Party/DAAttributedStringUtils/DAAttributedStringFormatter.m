@@ -320,10 +320,10 @@ NSString* const DABackgroundColorAttributeName = @"DABackgroundColorAttributeNam
 			}
 		}
 	}
-	[self addFontAttr:attrs mcn:mcn font:curFont fontArs:curFontArs];
-	[self addUnderlineAttr:attrs mcn:mcn underline:curUnderline underlineArs:curUnderlineArs];
-	[self addColorAttr:attrs mcn:mcn color:curColor colorArs:curColorArs];
-	[self addBgColorAttr:attrs mcn:mcn bgColor:curBgColor bgColorArs:curBgColorArs];
+//	[self addFontAttr:attrs mcn:mcn font:curFont fontArs:curFontArs];
+//	[self addUnderlineAttr:attrs mcn:mcn underline:curUnderline underlineArs:curUnderlineArs];
+//	[self addColorAttr:attrs mcn:mcn color:curColor colorArs:curColorArs];
+//	[self addBgColorAttr:attrs mcn:mcn bgColor:curBgColor bgColorArs:curBgColorArs];
 
 	NSMutableAttributedString* attrStr;
 	if ([[[UIDevice currentDevice] systemVersion] integerValue] < 6) {
@@ -335,12 +335,12 @@ NSString* const DABackgroundColorAttributeName = @"DABackgroundColorAttributeNam
 		};
 		attrStr = [[NSMutableAttributedString alloc] initWithString:mformat attributes:attrsDict];
 	} else {
-		NSDictionary* attrsDict = @{
-			NSFontAttributeName: font,
-			NSForegroundColorAttributeName: (id)defaultColor.CGColor,
-			NSBackgroundColorAttributeName: (id)defaultBackgroundColor.CGColor
-		};
-		attrStr = [[NSMutableAttributedString alloc] initWithString:mformat attributes:attrsDict];
+//		NSDictionary* attrsDict = @{
+//			NSFontAttributeName: font,
+//			NSForegroundColorAttributeName: (id)defaultColor.CGColor,
+//			NSBackgroundColorAttributeName: (id)defaultBackgroundColor.CGColor
+//		};
+		attrStr = [[NSMutableAttributedString alloc] initWithString:mformat];
 	}
 	for (NSArray* attr in attrs) {
 		NSDictionary* attrDict = [attr objectAtIndex:0];

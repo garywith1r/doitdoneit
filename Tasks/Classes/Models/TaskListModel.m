@@ -70,6 +70,12 @@ TaskListModel* instance;
     [self saveTasksArray:missedTasks withKey:MISSED_TASKS_ARRAY_KEY];
 }
 
+- (void) storeData {
+    [self storeTasksData];
+    [self storeCompletedTasksData];
+    [self storeMissedTasksData];
+}
+
 - (void) saveTasksArray:(NSArray*)array withKey:(NSString*) key {
     
     NSMutableArray* storeArray = [NSMutableArray arrayWithCapacity:array.count];

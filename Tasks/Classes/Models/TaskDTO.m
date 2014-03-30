@@ -14,7 +14,7 @@
 @implementation TaskDTO
 
 @synthesize title, currentRepetition, repeatTimes, repeatPeriod, taskPoints;
-@synthesize detailsTextPlain, detailsTextWithLinks, detailsLinksArray;
+@synthesize detailsText, detailsLinksArray;
 @synthesize notes, status, rating;
 @synthesize creationDate, showingDate, dueDate, completitionDate;
 @synthesize timesDoneIt, timesMissedIt;
@@ -33,8 +33,7 @@
         self.showingDate = [NSDate midnightToday];
         self.thumbImage = nil;
         self.videoUrl = nil;
-        self.detailsTextPlain = nil;
-        self.detailsTextWithLinks = nil;
+        self.detailsText = nil;
         self.detailsLinksArray = nil;
     }
     return self;
@@ -50,8 +49,7 @@
     newTask.taskPoints = self.taskPoints;
     newTask.thumbImage = self.thumbImage;
     newTask.videoUrl = self.videoUrl;
-    newTask.detailsTextPlain = self.detailsTextPlain;
-    newTask.detailsTextWithLinks = self.detailsTextWithLinks;
+    newTask.detailsText = self.detailsText;
     newTask.detailsLinksArray = self.detailsLinksArray;
     newTask.creationDate = self.creationDate;
     newTask.showingDate = self.showingDate;
@@ -71,8 +69,7 @@
     newTask.repeatPeriod = self.repeatPeriod;
     newTask.taskPoints = self.taskPoints;
     newTask.thumbImage = self.thumbImage;
-    newTask.detailsTextPlain = self.detailsTextPlain;
-    newTask.detailsTextWithLinks = self.detailsTextWithLinks;
+    newTask.detailsText = self.detailsText;
     newTask.detailsLinksArray = self.detailsLinksArray;
     
     
@@ -159,12 +156,10 @@
     if (self.videoUrl)
         [dic setObject:self.videoUrl forKey:@"videoUrl"];
     
-    if (self.detailsTextPlain)
-        [dic setObject:self.detailsTextPlain forKey:@"plainDetails"];
-    
-    if (self.detailsTextWithLinks)
-        [dic setObject:self.detailsTextWithLinks forKey:@"detailsWithLinks"];
-    
+    if (self.detailsText) {
+        NSData *detailsData = [NSKeyedArchiver archivedDataWithRootObject:self.detailsText];
+        [dic setObject:detailsData forKey:@"detailsWithLinks"];
+    }
     if (self.detailsLinksArray)
         [dic setObject:self.detailsLinksArray forKey:@"detailsLinks"];
 
@@ -192,8 +187,7 @@
     TaskDTO* dto = [[TaskDTO alloc] init];
     
     NSString* tempString;
-    NSAttributedString* tempAttrString;
-    NSData* tempImage;
+    NSData* tempData;
     NSArray* tempArray;
     
     tempString = [dicctionary objectForKey:@"title"];
@@ -207,9 +201,9 @@
     dto.repeatPeriod = [[dicctionary objectForKey:@"repeatPeriod"] intValue];
     dto.taskPoints = [[dicctionary objectForKey:@"priorityPoints"] integerValue];
     
-    tempImage = [dicctionary objectForKey:@"thumb"];
+    tempData = [dicctionary objectForKey:@"thumb"];
     if (tempString)
-        dto.thumbImage = [UIImage imageWithData:tempImage];
+        dto.thumbImage = [UIImage imageWithData:tempData];
     else
         dto.thumbImage = nil;
     
@@ -218,16 +212,12 @@
         dto.videoUrl = tempString;
     else
         dto.videoUrl = nil;
+
     
     
-    tempAttrString = [dicctionary objectForKey:@"plainDetails"];
-    if (tempAttrString)
-        dto.detailsTextPlain = tempAttrString;
-    
-    
-    tempAttrString = [dicctionary objectForKey:@"detailsWithLinks"];
-    if (tempAttrString)
-        dto.detailsTextWithLinks = tempAttrString;
+    tempData = [dicctionary objectForKey:@"detailsWithLinks"];
+    if (tempData)
+        dto.detailsText = [NSKeyedUnarchiver unarchiveObjectWithData:tempData];
 
     
     tempArray = [dicctionary objectForKey:@"detailsLinks"];
