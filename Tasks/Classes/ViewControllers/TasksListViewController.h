@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DAAttributedLabel.h"
+
 
 #define NORMAL_ROW_HEIGHT 60.0
 #define EXPANDED_ROW_HEIGHT 220.0
@@ -14,7 +16,8 @@
 #define THUMBNAIL_FRAME CGRectMake (7,5,0,0)
 
 
-@interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+
+@interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DAAttributedLabelDelegate> {
     NSArray* contentDataArray;
     IBOutlet UITableView* table;
     

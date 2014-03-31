@@ -14,6 +14,7 @@
 #import "DeviceDetector.h"
 #import "Constants.h"
 #import "DAAttributedLabel.h"
+#import "SVWebViewController.h"
 
 
 #define COMPLETE_TASK_CELL_IDENTIFIER @"CompleteTaskCell"

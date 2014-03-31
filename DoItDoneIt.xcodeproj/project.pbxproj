@@ -45,6 +45,19 @@
 		5CC1E9EF18BD3B240018955E /* Edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EC18BD3B240018955E /* Edit@2x.png */; };
 		5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2178718BCEB7100C8FA34 /* DoItTaskListViewController.m */; };
 		5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */; };
+		5CD882ED18E9840D003DD93F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882CF18E9840D003DD93F /* SVWebViewController.strings */; };
+		5CD882EE18E9840D003DD93F /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD882D818E9840D003DD93F /* SVModalWebViewController.m */; };
+		5CD882EF18E9840D003DD93F /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882D918E9840D003DD93F /* SVWebViewController.bundle */; };
+		5CD882F018E9840D003DD93F /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD882DB18E9840D003DD93F /* SVWebViewController.m */; };
+		5CD882F118E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882DE18E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad.png */; };
+		5CD882F218E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882DF18E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad@2x.png */; };
+		5CD882F318E9840D003DD93F /* SVWebViewControllerActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD882E118E9840D003DD93F /* SVWebViewControllerActivityChrome.m */; };
+		5CD882F418E9840D003DD93F /* SVWebViewControllerActivityChrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882E218E9840D003DD93F /* SVWebViewControllerActivityChrome@2x.png */; };
+		5CD882F518E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882E418E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad.png */; };
+		5CD882F618E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882E518E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad@2x.png */; };
+		5CD882F718E9840D003DD93F /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD882E718E9840D003DD93F /* SVWebViewControllerActivitySafari.m */; };
+		5CD882F818E9840D003DD93F /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD882E818E9840D003DD93F /* SVWebViewControllerActivitySafari@2x.png */; };
+		5CD882F918E9840D003DD93F /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD882EA18E9840D003DD93F /* SVWebViewControllerActivity.m */; };
 		5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */; };
 		5CDB774518BEB556000A4C04 /* CompleteTaskViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */; };
 		5CDB774818BEBE7F000A4C04 /* FacebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774618BEBE7F000A4C04 /* FacebookIcon.png */; };
@@ -127,6 +140,32 @@
 		5CC2178718BCEB7100C8FA34 /* DoItTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoItTaskListViewController.m; sourceTree = "<group>"; };
 		5CC2178918BCEEB700C8FA34 /* DoneItTasksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneItTasksListViewController.h; sourceTree = "<group>"; };
 		5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneItTasksListViewController.m; sourceTree = "<group>"; };
+		5CD882D018E9840D003DD93F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		5CD882D118E9840D003DD93F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		5CD882D218E9840D003DD93F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		5CD882D318E9840D003DD93F /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
+		5CD882D418E9840D003DD93F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		5CD882D518E9840D003DD93F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		5CD882D618E9840D003DD93F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
+		5CD882D718E9840D003DD93F /* SVModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVModalWebViewController.h; sourceTree = "<group>"; };
+		5CD882D818E9840D003DD93F /* SVModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVModalWebViewController.m; sourceTree = "<group>"; };
+		5CD882D918E9840D003DD93F /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
+		5CD882DA18E9840D003DD93F /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
+		5CD882DB18E9840D003DD93F /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
+		5CD882DE18E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome-iPad.png"; sourceTree = "<group>"; };
+		5CD882DF18E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome-iPad@2x.png"; sourceTree = "<group>"; };
+		5CD882E018E9840D003DD93F /* SVWebViewControllerActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivityChrome.h; sourceTree = "<group>"; };
+		5CD882E118E9840D003DD93F /* SVWebViewControllerActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivityChrome.m; sourceTree = "<group>"; };
+		5CD882E218E9840D003DD93F /* SVWebViewControllerActivityChrome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivityChrome@2x.png"; sourceTree = "<group>"; };
+		5CD882E418E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari-iPad.png"; sourceTree = "<group>"; };
+		5CD882E518E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari-iPad@2x.png"; sourceTree = "<group>"; };
+		5CD882E618E9840D003DD93F /* SVWebViewControllerActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivitySafari.h; sourceTree = "<group>"; };
+		5CD882E718E9840D003DD93F /* SVWebViewControllerActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivitySafari.m; sourceTree = "<group>"; };
+		5CD882E818E9840D003DD93F /* SVWebViewControllerActivitySafari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SVWebViewControllerActivitySafari@2x.png"; sourceTree = "<group>"; };
+		5CD882E918E9840D003DD93F /* SVWebViewControllerActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewControllerActivity.h; sourceTree = "<group>"; };
+		5CD882EA18E9840D003DD93F /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
+		5CD882EB18E9840D003DD93F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
+		5CD882EC18E9840D003DD93F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteTaskViewCell.h; sourceTree = "<group>"; };
 		5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteTaskViewCell.m; sourceTree = "<group>"; };
 		5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompleteTaskViewCell.xib; sourceTree = "<group>"; };
@@ -178,6 +217,7 @@
 				5CE4817718E4ACAB0032B6CE /* DAAttributedStringUtils */,
 				5CC1E9E618BD379C0018955E /* DeviceDetector */,
 				5C2652D918BBA461007F8A0C /* NSDateCategoryForReporting-master */,
+				5CD882CE18E9840D003DD93F /* SVWebViewController */,
 				5C2652E118BBF5FD007F8A0C /* SWTableViewCell */,
 			);
 			name = "3rd Party";
@@ -361,6 +401,55 @@
 			path = DeviceDetector;
 			sourceTree = "<group>";
 		};
+		5CD882CE18E9840D003DD93F /* SVWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5CD882CF18E9840D003DD93F /* SVWebViewController.strings */,
+				5CD882D718E9840D003DD93F /* SVModalWebViewController.h */,
+				5CD882D818E9840D003DD93F /* SVModalWebViewController.m */,
+				5CD882D918E9840D003DD93F /* SVWebViewController.bundle */,
+				5CD882DA18E9840D003DD93F /* SVWebViewController.h */,
+				5CD882DB18E9840D003DD93F /* SVWebViewController.m */,
+				5CD882DC18E9840D003DD93F /* UIActivities */,
+			);
+			path = SVWebViewController;
+			sourceTree = "<group>";
+		};
+		5CD882DC18E9840D003DD93F /* UIActivities */ = {
+			isa = PBXGroup;
+			children = (
+				5CD882DD18E9840D003DD93F /* Chrome */,
+				5CD882E318E9840D003DD93F /* Safari */,
+				5CD882E918E9840D003DD93F /* SVWebViewControllerActivity.h */,
+				5CD882EA18E9840D003DD93F /* SVWebViewControllerActivity.m */,
+			);
+			path = UIActivities;
+			sourceTree = "<group>";
+		};
+		5CD882DD18E9840D003DD93F /* Chrome */ = {
+			isa = PBXGroup;
+			children = (
+				5CD882DE18E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad.png */,
+				5CD882DF18E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad@2x.png */,
+				5CD882E018E9840D003DD93F /* SVWebViewControllerActivityChrome.h */,
+				5CD882E118E9840D003DD93F /* SVWebViewControllerActivityChrome.m */,
+				5CD882E218E9840D003DD93F /* SVWebViewControllerActivityChrome@2x.png */,
+			);
+			path = Chrome;
+			sourceTree = "<group>";
+		};
+		5CD882E318E9840D003DD93F /* Safari */ = {
+			isa = PBXGroup;
+			children = (
+				5CD882E418E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad.png */,
+				5CD882E518E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad@2x.png */,
+				5CD882E618E9840D003DD93F /* SVWebViewControllerActivitySafari.h */,
+				5CD882E718E9840D003DD93F /* SVWebViewControllerActivitySafari.m */,
+				5CD882E818E9840D003DD93F /* SVWebViewControllerActivitySafari@2x.png */,
+			);
+			path = Safari;
+			sourceTree = "<group>";
+		};
 		5CE4817718E4ACAB0032B6CE /* DAAttributedStringUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +502,14 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
+				de,
+				"es-ES",
+				es,
+				fr,
+				ja,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 5C9B636518A14A350091C1D2;
 			productRefGroup = 5C9B636F18A14A350091C1D2 /* Products */;
@@ -431,20 +528,28 @@
 			files = (
 				5CDB774518BEB556000A4C04 /* CompleteTaskViewCell.xib in Resources */,
 				5C30E54018BC5F450083FF23 /* Star_Yellow.png in Resources */,
+				5CD882F618E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
+				5CD882EF18E9840D003DD93F /* SVWebViewController.bundle in Resources */,
 				5CDB775918BF0F79000A4C04 /* FacebookIcon@2x.png in Resources */,
 				5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */,
 				5C30E54318BC5F450083FF23 /* Calendar.png in Resources */,
 				5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */,
 				5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */,
+				5CD882F518E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				5C9B638518A14A350091C1D2 /* Main_iPhone.storyboard in Resources */,
+				5CD882F118E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				5C9B637C18A14A350091C1D2 /* InfoPlist.strings in Resources */,
 				5C30E54218BC5F450083FF23 /* Delete.png in Resources */,
 				5CDB774918BEBE7F000A4C04 /* TwitterIcon.png in Resources */,
 				5CE4818518E4ACAB0032B6CE /* DAFontSet.plist in Resources */,
 				5C9B63AF18A151C90091C1D2 /* Mark_higlighted.gif in Resources */,
+				5CD882F218E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				5CC1E9EF18BD3B240018955E /* Edit@2x.png in Resources */,
+				5CD882F818E9840D003DD93F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				5C30E54418BC5F450083FF23 /* Edit.png in Resources */,
+				5CD882ED18E9840D003DD93F /* SVWebViewController.strings in Resources */,
 				5CDB774818BEBE7F000A4C04 /* FacebookIcon.png in Resources */,
+				5CD882F418E9840D003DD93F /* SVWebViewControllerActivityChrome@2x.png in Resources */,
 				5C05EA1618BB0C3E00BE92F4 /* Default-568h@2x.png in Resources */,
 				5C30E54518BC5F450083FF23 /* Star_Gray.png in Resources */,
 				5C9B63B018A151C90091C1D2 /* Mark_selected.gif in Resources */,
@@ -461,15 +566,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */,
+				5CD882F018E9840D003DD93F /* SVWebViewController.m in Sources */,
 				5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
 				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
 				5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */,
+				5CD882F318E9840D003DD93F /* SVWebViewControllerActivityChrome.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
 				5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
+				5CD882F718E9840D003DD93F /* SVWebViewControllerActivitySafari.m in Sources */,
 				5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */,
+				5CD882F918E9840D003DD93F /* SVWebViewControllerActivity.m in Sources */,
 				5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */,
 				5C2652F418BBF5FD007F8A0C /* SWUtilityButtonView.m in Sources */,
 				5CE4818318E4ACAB0032B6CE /* DABoxesLayer.m in Sources */,
@@ -488,6 +597,7 @@
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
 				5C9B63CB18A1632B0091C1D2 /* SelectDateViewController.m in Sources */,
+				5CD882EE18E9840D003DD93F /* SVModalWebViewController.m in Sources */,
 				5CE4818218E4ACAB0032B6CE /* DAAttributedStringFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +620,22 @@
 			);
 			name = Main_iPhone.storyboard;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		5CD882CF18E9840D003DD93F /* SVWebViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CD882D018E9840D003DD93F /* da */,
+				5CD882D118E9840D003DD93F /* de */,
+				5CD882D218E9840D003DD93F /* en */,
+				5CD882D318E9840D003DD93F /* es-ES */,
+				5CD882D418E9840D003DD93F /* es */,
+				5CD882D518E9840D003DD93F /* fr */,
+				5CD882D618E9840D003DD93F /* ja */,
+				5CD882EB18E9840D003DD93F /* zh-Hans */,
+				5CD882EC18E9840D003DD93F /* zh-Hant */,
+			);
+			name = SVWebViewController.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

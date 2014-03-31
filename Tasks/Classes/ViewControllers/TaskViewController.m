@@ -12,13 +12,12 @@
 #import "DeviceDetector.h"
 #import "Constants.h"
 #import "StatsModel.h"
-#import <MobileCoreServices/UTCoreTypes.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import "EditDetailsViewController.h"
 #import "DAAttributedLabel.h"
+#import "SVWebViewController.h"
 
-#import <AVFoundation/AVAsset.h>
-#import <AVFoundation/AVAssetImageGenerator.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 
 
@@ -387,11 +386,17 @@
 #pragma mark - DAAttributedLabelDelegate Methods
 - (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
 {
+    NSString* url = task.detailsLinksArray[linkNum];
     
-    NSURL* url = [NSURL URLWithString:task.detailsLinksArray[linkNum]];
+    NSRange prefixRange = [url rangeOfString:@"http"
+                                     options:(NSAnchoredSearch | NSCaseInsensitiveSearch)];
     
-	if([[UIApplication sharedApplication] canOpenURL:url])
-       [[UIApplication sharedApplication] openURL:url];
+    if (prefixRange.location == NSNotFound) {
+        url = [@"http://" stringByAppendingString:url];
+    }
+    
+	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:url];
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 

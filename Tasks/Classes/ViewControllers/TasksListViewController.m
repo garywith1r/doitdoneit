@@ -15,11 +15,12 @@
 #import "DeviceDetector.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "ZoomImageViewController.h"
-#import "DAAttributedLabel.h"
+#import "SVWebViewController.h"
+
 
 #define DELETE_TASK_ALERT_TAG 125
 
-@interface TasksListViewController () <SWTableViewCellDelegate, UIAlertViewDelegate, ZoomImageDelegate, DAAttributedLabelDelegate> {
+@interface TasksListViewController () <SWTableViewCellDelegate, UIAlertViewDelegate, ZoomImageDelegate> {
     NSArray* arrayToShow;
     NSString* titleToShow;
     
@@ -246,11 +247,17 @@
 #pragma mark - DAAttributedLabelDelegate Methods
 - (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
 {
+    NSString* url = ((TaskDTO*)contentDataArray[selectedRow]).detailsLinksArray[linkNum];
     
-    NSURL* url = [NSURL URLWithString:((TaskDTO*)contentDataArray[selectedRow]).detailsLinksArray[linkNum]];
+    NSRange prefixRange = [url rangeOfString:@"http"
+                options:(NSAnchoredSearch | NSCaseInsensitiveSearch)];
     
-	if([[UIApplication sharedApplication] canOpenURL:url])
-        [[UIApplication sharedApplication] openURL:url];
+    if (prefixRange.location == NSNotFound) {
+        url = [@"http://" stringByAppendingString:url];
+    }
+    
+	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:url];
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 @end
