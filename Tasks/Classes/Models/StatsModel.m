@@ -23,6 +23,7 @@
 @synthesize thisWeekCompleted, thisWeekMissed, thisWeekPoints;
 @synthesize lastWeekCompleted, lastWeekMissed, lastWeekPoints;
 @synthesize totalCompleted, totalMissed, totalPoints;
+@synthesize bestDailyHitRate, bestDailyDay, bestWeeklyHitRate, bestWeeklyDay, bestMontlyHitRate, bestMontlyDay;
 
 StatsModel* statsInstance;
 
@@ -244,21 +245,37 @@ StatsModel* statsInstance;
     totalMissed = (int)[userDefaults integerForKey:@"totalMissed"];
     totalPoints = (int)[userDefaults integerForKey:@"totalPoints"];
     
+    
+    bestDailyHitRate = [userDefaults floatForKey:@"bestDaily"];
+    bestDailyDay = [userDefaults objectForKey:@"bestDailyDay"];
+    bestWeeklyHitRate = [userDefaults floatForKey:@"bestWeekly"];
+    bestWeeklyDay = [userDefaults objectForKey:@"bestWeeklyDay"];
+    bestMontlyHitRate = [userDefaults floatForKey:@"bestMontly"];
+    bestMontlyDay = [userDefaults objectForKey:@"bestMontlyDay"];
     [userDefaults synchronize];
 }
 
 - (void) evaluateDay {
     if (today && ([today timeIntervalSinceDate:[NSDate midnightToday]] != 0)) {
         
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+        
         if ([[NSDate midnightToday] timeIntervalSinceDate:today] <= ONE_DAY) {
             //has passed one day, so today is yesterday.
             yesterdayCompleted = todayCompleted;
             yesterdayMissed = todayMissed;
             yesterdayPoints = todayPoints;
-            
         } else {
             //has passed more than a day.
             yesterdayCompleted = yesterdayMissed = yesterdayPoints = 0;
+        }
+        
+        CGFloat todayHitrate = todayCompleted / (float) (todayCompleted + todayMissed);
+        if (bestDailyHitRate < todayHitrate) {
+            bestDailyHitRate = todayHitrate;
+            bestDailyDay = today;
+            [userDefaults setFloat:bestDailyHitRate forKey:@"bestDaily"];
+            [userDefaults setObject:today forKey:@"bestDailyDay"];
         }
         todayCompleted = todayPoints = todayMissed = 0;
         
@@ -275,12 +292,21 @@ StatsModel* statsInstance;
                 //more than a week has passed
                 lastWeekCompleted = lastWeekMissed = lastWeekPoints = 0;
             }
+            
+            CGFloat weeklyHitrate = thisWeekCompleted / (float) (thisWeekCompleted + thisWeekMissed);
+            if (bestWeeklyHitRate < weeklyHitrate) {
+                bestWeeklyHitRate = weeklyHitrate;
+                bestWeeklyDay = today;
+                [userDefaults setFloat:bestWeeklyHitRate forKey:@"bestDaily"];
+                [userDefaults setObject:bestWeeklyDay forKey:@"bestDailyDay"];
+            }
+            
             thisWeekPoints = thisWeekCompleted = thisWeekMissed = 0;
         }
         
         today = [NSDate midnightToday];
         
-        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+        
         
         [userDefaults setObject:today forKey:@"storedToday"];
         

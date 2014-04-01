@@ -37,6 +37,14 @@
 @property (nonatomic, readonly) float lastWeekHitRate;
 @property (nonatomic, readonly) float totalHitRate;
 
+
+@property (nonatomic, readonly) CGFloat bestDailyHitRate;
+@property (nonatomic, readonly) NSDate* bestDailyDay;
+@property (nonatomic, readonly) CGFloat bestWeeklyHitRate;
+@property (nonatomic, readonly) NSDate* bestWeeklyDay;
+@property (nonatomic, readonly) CGFloat bestMontlyHitRate;
+@property (nonatomic, readonly) NSDate* bestMontlyDay;
+
 + (StatsModel*) sharedInstance;
 
 - (void) contabilizeCompletedTask:(TaskDTO*) task;
