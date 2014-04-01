@@ -36,6 +36,7 @@
 
 @implementation TasksListViewController
 
+
 - (void) viewDidLoad {
     selectedRow = -1;
     if (SYSTEM_VERSION_LESS_THAN(@"7.0"))

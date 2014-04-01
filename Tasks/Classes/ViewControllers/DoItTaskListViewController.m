@@ -21,7 +21,6 @@
 #define COMPLETE_TASK_SEGUE @"CompleteTaskSegue"
 
 @interface DoItTaskListViewController () <CompleteTaskDelegate> {
-//    IBOutlet NSLayoutConstraint* tableViewHeightConstrait;
     BOOL keyboardIsUp;
     BOOL showingCompleteTaskCell;
     int completedTaskIndex;
@@ -34,17 +33,6 @@
 @end
 
 @implementation DoItTaskListViewController
-
-//- (void) viewDidLoad {
-//    completedTaskIndex = -1;
-//    [super viewDidLoad];
-//    [table registerNib:[UINib nibWithNibName:@"CompleteTaskViewCell" bundle:nil] forCellReuseIdentifier:COMPLETE_TASK_CELL_IDENTIFIER];
-//    
-//    tableViewHeightConstrait.constant = self.view.frame.size.height;
-//    
-//    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
-//        tableViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
-//}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
@@ -68,34 +56,7 @@
 }
 
 - (void)markTaskAsDone:(UIButton*)sender {
-    
     [self performSegueWithIdentifier:COMPLETE_TASK_SEGUE sender: self];
-    
-//    if (sender.tag == completedTaskIndex) {
-//        //if the user taps again on the selected button, close the "completed task view"
-//        showingCompleteTaskCell = NO;
-//        [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
-//        completedTaskIndex = -1;
-//        sender.selected = NO;
-//    } else {
-//    
-//        if (showingCompleteTaskCell) {
-//            showingCompleteTaskCell = NO;
-//            [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
-//        }
-//        
-//        
-//        showingCompleteTaskCell = YES;
-//        completedTaskIndex = (int)sender.tag;
-//        
-//        [table insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
-//        
-//        [table reloadData];
-//        
-//        [self performSelector:@selector(scrollTableViewToCompleteViewCell) withObject:nil afterDelay:0.1];
-//        
-//    }
-    
 }
 
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -105,13 +66,13 @@
     
     [cell setContentView:cellView.view];
     
-    NSString* titleBoldPart = @"";
-    
     if (task.repeatTimes != 1) {
-        titleBoldPart = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
+        cellView.lblDueDate.text = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
+    } else {
+        cellView.lblDueDate.text = @"";
     }
     
-    cellView.lblTitle.attributedText = [self stringWithBoldPart:titleBoldPart andNormalPart:task.title];
+    cellView.lblTitle.text = task.title;
     
     cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];

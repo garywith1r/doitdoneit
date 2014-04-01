@@ -14,13 +14,13 @@
 #import "TaskListModel.h"
 #import "Constants.h"
 #import "DAAttributedLabel.h"
+#import "DeviceDetector.h"
 
 @interface CompleteTaskViewController () <DAAttributedLabelDelegate>{
     IBOutlet UILabel* lblTitle;
     IBOutlet UILabel* lblStats;
     IBOutlet UILabel* lblDueDate;
     IBOutlet UILabel* lblRepeatTimes;
-    IBOutlet UIButton* doneButton;
     IBOutlet UIButton* thumbImageButton;
     IBOutlet DAAttributedLabel* lblDescription;
     
@@ -48,15 +48,21 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    scrollViewHeightConstrait.constant = [[UIScreen mainScreen] applicationFrame].size.height;
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
+        scrollViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
+    
     lblTitle.text = self.task.title;
-    lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)self.task.currentRepetition, (int)self.task.repeatTimes];
     
     thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [thumbImageButton setImage:self.task.thumbImage forState:UIControlStateNormal];
     
     
     if (self.task.repeatTimes != 1) {
-        lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)self.task.currentRepetition, (int)self.task.repeatTimes];
+        lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d", (int)self.task.currentRepetition, (int)self.task.repeatTimes];
+    } else {
+        lblRepeatTimes.text = @"";
     }
     
     
@@ -115,6 +121,7 @@
     self.task.rating = ratingTemp;
     self.task.notes = txtNotes.text;
     [[TaskListModel sharedInstance] completeTask:self.task];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction) shareOnFacebook {

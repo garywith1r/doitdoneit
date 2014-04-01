@@ -679,7 +679,6 @@ Second Line</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="completeTask" destination="vUr-RC-gJ1" eventType="touchUpInside" id="z7M-0G-wIm"/>
-                                                    <action selector="save" destination="vUr-RC-gJ1" eventType="touchUpInside" id="KBC-ef-XNW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37S-dZ-xf7" userLabel="Button - Thumb Image">
@@ -948,7 +947,6 @@ Missed:     Hit:</string>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentView" destination="GZL-VF-HfA" id="auh-zH-dMn"/>
-                        <outlet property="doneButton" destination="JWb-eh-oPd" id="gu0-wd-hbG"/>
                         <outlet property="lblDescription" destination="Sky-bj-aa6" id="3fe-84-LCN"/>
                         <outlet property="lblDescriptionHeightConstrait" destination="Z34-sM-Vdq" id="qDM-D9-ICZ"/>
                         <outlet property="lblDueDate" destination="5BZ-p7-dqG" id="Ihf-zr-3ok"/>
