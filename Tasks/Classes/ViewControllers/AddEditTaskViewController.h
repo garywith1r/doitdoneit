@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TaskDTO.h"
 
-@interface TaskViewController : UIViewController
+@interface AddEditTaskViewController : UIViewController
 
 @property (nonatomic, strong) TaskDTO* task;
 @property (nonatomic) BOOL isNewTask;

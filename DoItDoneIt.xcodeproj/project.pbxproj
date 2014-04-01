@@ -34,7 +34,7 @@
 		5C9B63B018A151C90091C1D2 /* Mark_selected.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5C9B63AD18A151C90091C1D2 /* Mark_selected.gif */; };
 		5C9B63CB18A1632B0091C1D2 /* SelectDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63C518A1632B0091C1D2 /* SelectDateViewController.m */; };
 		5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63C718A1632B0091C1D2 /* TasksListViewController.m */; };
-		5C9B63CD18A1632B0091C1D2 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63C918A1632B0091C1D2 /* TaskViewController.m */; };
+		5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63C918A1632B0091C1D2 /* AddEditTaskViewController.m */; };
 		5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63CF18A163420091C1D2 /* TaskDTO.m */; };
 		5C9B63D318A1635C0091C1D2 /* TaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63D218A1635C0091C1D2 /* TaskListModel.m */; };
 		5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63D718A17AAC0091C1D2 /* TasksViewCell.m */; };
@@ -121,8 +121,8 @@
 		5C9B63C518A1632B0091C1D2 /* SelectDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDateViewController.m; sourceTree = "<group>"; };
 		5C9B63C618A1632B0091C1D2 /* TasksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksListViewController.h; sourceTree = "<group>"; };
 		5C9B63C718A1632B0091C1D2 /* TasksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksListViewController.m; sourceTree = "<group>"; };
-		5C9B63C818A1632B0091C1D2 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
-		5C9B63C918A1632B0091C1D2 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		5C9B63C818A1632B0091C1D2 /* AddEditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditTaskViewController.h; sourceTree = "<group>"; };
+		5C9B63C918A1632B0091C1D2 /* AddEditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditTaskViewController.m; sourceTree = "<group>"; };
 		5C9B63CE18A163420091C1D2 /* TaskDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDTO.h; sourceTree = "<group>"; };
 		5C9B63CF18A163420091C1D2 /* TaskDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDTO.m; sourceTree = "<group>"; };
 		5C9B63D118A1635C0091C1D2 /* TaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListModel.h; sourceTree = "<group>"; };
@@ -372,8 +372,6 @@
 				5CC2178718BCEB7100C8FA34 /* DoItTaskListViewController.m */,
 				5CC2178918BCEEB700C8FA34 /* DoneItTasksListViewController.h */,
 				5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */,
-				5C9B63C818A1632B0091C1D2 /* TaskViewController.h */,
-				5C9B63C918A1632B0091C1D2 /* TaskViewController.m */,
 				5C9B63D618A17AAC0091C1D2 /* TasksViewCell.h */,
 				5C9B63D718A17AAC0091C1D2 /* TasksViewCell.m */,
 				5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */,
@@ -381,12 +379,14 @@
 				5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */,
 				5C9B63D918A192BA0091C1D2 /* CompleteTaskViewController.h */,
 				5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */,
+				5C9B63C818A1632B0091C1D2 /* AddEditTaskViewController.h */,
+				5C9B63C918A1632B0091C1D2 /* AddEditTaskViewController.m */,
+				5CE4817418E4916D0032B6CE /* EditDetailsViewController.h */,
+				5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */,
 				5CDB775418BF0DC5000A4C04 /* StatsViewController.h */,
 				5CDB775518BF0DC5000A4C04 /* StatsViewController.m */,
 				5C238D1718E3369A008F764F /* ZoomImageViewController.h */,
 				5C238D1818E3369A008F764F /* ZoomImageViewController.m */,
-				5CE4817418E4916D0032B6CE /* EditDetailsViewController.h */,
-				5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -587,7 +587,7 @@
 				5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */,
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,
 				5C2652F318BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
-				5C9B63CD18A1632B0091C1D2 /* TaskViewController.m in Sources */,
+				5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */,
 				5CDB775618BF0DC5000A4C04 /* StatsViewController.m in Sources */,
 				5C9B63D318A1635C0091C1D2 /* TaskListModel.m in Sources */,
 				5CE4818418E4ACAB0032B6CE /* DAFontSet.m in Sources */,

@@ -51,6 +51,8 @@ enum TaskRepeatPeriod {
 - (TaskDTO*) taskWithData;
 - (NSDictionary*) convertToDictionary;
 
+- (NSString*) forceVideoUrl;
+
 - (void) incrementDoneItBy:(int)increment;
 - (void) incrementMissedItBy:(int)increment;
 - (double) hitRate;

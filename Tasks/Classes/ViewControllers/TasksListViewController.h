@@ -11,7 +11,7 @@
 
 
 #define NORMAL_ROW_HEIGHT 60.0
-#define EXPANDED_ROW_HEIGHT 220.0
+#define EXPANDED_ROW_HEIGHT 168.0
 
 #define THUMBNAIL_FRAME CGRectMake (7,5,0,0)
 
@@ -31,6 +31,10 @@
 
 
 - (void) thumbnailTapped:(UIButton*)sender;
+- (void) hideSelectedRow:(UIButton*)sender;
+
+- (void) showTaskAtRow:(NSInteger)row;
+
 
 
 @end

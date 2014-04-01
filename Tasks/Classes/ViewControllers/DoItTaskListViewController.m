@@ -15,9 +15,10 @@
 #import "Constants.h"
 #import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
+#import "CompleteTaskViewController.h"
 
 
-#define COMPLETE_TASK_CELL_IDENTIFIER @"CompleteTaskCell"
+#define COMPLETE_TASK_SEGUE @"CompleteTaskSegue"
 
 @interface DoItTaskListViewController () <CompleteTaskDelegate> {
 //    IBOutlet NSLayoutConstraint* tableViewHeightConstrait;
@@ -45,6 +46,14 @@
 //        tableViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
 //}
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    if ([segue.identifier isEqualToString:COMPLETE_TASK_SEGUE]) {
+        CompleteTaskViewController* vc = segue.destinationViewController;
+        vc.task = contentDataArray[selectedRow];
+    }
+}
+
 - (void) reloadContentData {
     contentDataArray = [[TaskListModel sharedInstance] getToDoTasks];
 }
@@ -59,6 +68,8 @@
 }
 
 - (void)markTaskAsDone:(UIButton*)sender {
+    
+    [self performSegueWithIdentifier:COMPLETE_TASK_SEGUE sender: self];
     
 //    if (sender.tag == completedTaskIndex) {
 //        //if the user taps again on the selected button, close the "completed task view"
@@ -134,6 +145,11 @@
     cellView.thumbImageButton.tag = indexPath.row;
     [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cellView.hideCellButton.tag = indexPath.row;
+    [cellView.hideCellButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [cellView.hideCellButton addTarget:self action:@selector(hideSelectedRow:) forControlEvents:UIControlEventTouchUpInside];
+    cellView.hideCellButton.enabled = NO;
 }
 
 - (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task {

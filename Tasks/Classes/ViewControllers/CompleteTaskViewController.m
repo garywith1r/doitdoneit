@@ -1,6 +1,6 @@
 //
 //  CompleteTaskViewController.m
-//  Tasks
+//  self.tasks
 //
 //  Created by Gonzalo Hardy on 2/4/14.
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
@@ -8,68 +8,170 @@
 
 #import "CompleteTaskViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "DAAttributedLabel.h"
+#import "SVWebViewController.h"
+#import "MediaModel.h"
+#import "TaskListModel.h"
+#import "Constants.h"
+#import "DAAttributedLabel.h"
 
-@interface CompleteTaskViewController () {
-    IBOutlet UITextView* textView;
+@interface CompleteTaskViewController () <DAAttributedLabelDelegate>{
+    IBOutlet UILabel* lblTitle;
+    IBOutlet UILabel* lblStats;
+    IBOutlet UILabel* lblDueDate;
+    IBOutlet UILabel* lblRepeatTimes;
+    IBOutlet UIButton* doneButton;
+    IBOutlet UIButton* thumbImageButton;
+    IBOutlet DAAttributedLabel* lblDescription;
     
-    IBOutlet UIButton* goodQualityButton;
-    IBOutlet UIButton* averageQualityButton;
-    IBOutlet UIButton* badQualityButton;
+    IBOutletCollection(UIButton) NSArray* ratingButtons;
+    IBOutlet UITextField* txtNotes;
     
-    int workQuality;
+    IBOutlet NSLayoutConstraint* lblDescriptionHeightConstrait;
+    IBOutlet NSLayoutConstraint* scrollViewBottomSpaceConstrait;
+    IBOutlet NSLayoutConstraint* scrollViewHeightConstrait;
+    
+    IBOutlet UIView* contentView;
+    IBOutlet UIScrollView* scrollView;
+    
+    CGFloat scrollViewBottomSpaceConstantOriginalValue;
+    
+    
+    NSInteger ratingTemp;
+    BOOL textIsUp;
 }
 
 @end
 
 @implementation CompleteTaskViewController
 
-+ (void)showInParentView:(UIViewController *)parent forTask:(TaskDTO *)task {
-    CompleteTaskViewController *completeTaskController = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"CompleteTaskScreen"];
-    
-    [parent addChildViewController:completeTaskController];
-    [parent.view addSubview:completeTaskController.view];
-    
-    completeTaskController.view.alpha = 0;
-    [UIView beginAnimations:NULL context:nil];
-    [UIView setAnimationDuration:0.3];
-    completeTaskController.view.alpha = 1;
-    [UIView commitAnimations];
-    
-    completeTaskController.task = task;
-}
-
 - (void) viewDidLoad {
     [super viewDidLoad];
-    textView.layer.cornerRadius = 5;
-    textView.layer.masksToBounds = YES;
-}
-
-
-- (IBAction) setWorkQuality:(UIButton*)sender {
-    goodQualityButton.alpha = averageQualityButton.alpha = badQualityButton.alpha = 0.5;
-    sender.alpha =1;
     
-    workQuality = (int)sender.tag;
+    lblTitle.text = self.task.title;
+    lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)self.task.currentRepetition, (int)self.task.repeatTimes];
+    
+    thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [thumbImageButton setImage:self.task.thumbImage forState:UIControlStateNormal];
+    
+    
+    if (self.task.repeatTimes != 1) {
+        lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)self.task.currentRepetition, (int)self.task.repeatTimes];
+    }
+    
+    
+    int remainingDays = ceil([self.task.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);
+    
+    if (remainingDays == 1)
+        lblDueDate.text = @"1 day left";
+    else
+        lblDueDate.text = [NSString stringWithFormat:@"%d days left",remainingDays];
+    
+    int timesDoneIt = [self.task.timesDoneIt[self.task.currentRepetition - 1] intValue];
+    int timesMissedIt = [self.task.timesMissedIt[self.task.currentRepetition - 1] intValue];
+    
+    lblStats.text = [NSString stringWithFormat:@"Points: %d Done: %d\nMissed: %d Hit: %.2f", self.task.taskPoints, timesDoneIt, timesMissedIt, self.task.hitRate];
+    
+    lblDescription.text = self.task.detailsText;
+    lblDescriptionHeightConstrait.constant = [lblDescription getPreferredHeight];
+    lblDescription.delegate = self;
+    
+    [contentView layoutIfNeeded];
+    
+    NSLog(@"%f",scrollView.frame.size.height);
+    NSLog(@"%f",contentView.frame.size.height);
+    
+    CGFloat heightDifference = scrollViewHeightConstrait.constant - contentView.frame.size.height;
+    
+    if (heightDifference < 0)
+        heightDifference = 0;
+    
+    scrollViewBottomSpaceConstrait.constant = scrollViewBottomSpaceConstantOriginalValue = heightDifference;
 }
 
-- (IBAction)save {
-    self.task.notes = textView.text;
-    [self close];
+
+- (IBAction) ratingButtonPressed:(UIButton*) sender {
+    [self setRating:(int)sender.tag];
 }
 
-- (IBAction)close {
-    self.view.alpha = 1;
-    [UIView beginAnimations:NULL context:nil];
-    [UIView setAnimationDuration:0.3];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
-    self.view.alpha = 0;
-    [UIView commitAnimations];
+- (void) setRating:(int)rating {
+    int x = 0;
+    for (; x < rating; x++) {
+        [[ratingButtons objectAtIndex:x] setSelected:YES];
+    }
+    
+    for (; x < ratingButtons.count; x++) {
+        [[ratingButtons objectAtIndex:x] setSelected:NO];
+    }
+    
+    ratingTemp = rating;
 }
 
-- (void) animationDidStop {
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
+- (IBAction) skipTask {
+    [[TaskListModel sharedInstance] missTask:self.task];
 }
+
+- (IBAction) completeTask {
+    self.task.rating = ratingTemp;
+    self.task.notes = txtNotes.text;
+    [[TaskListModel sharedInstance] completeTask:self.task];
+}
+
+- (IBAction) shareOnFacebook {
+    [MediaModel postMessageToFacebook:[NSString stringWithFormat:@"I Just completed %@",self.task.title]];
+}
+
+- (IBAction) shareOnTwitter {
+    [MediaModel postMessageToTwitter:[NSString stringWithFormat:@"I Just completed %@",self.task.title]];
+}
+
+#pragma mark - UITextField Methods
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString* newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    return newText.length <= TASK_NOTE_MAX_CHARACTERS;
+}
+
+
+- (IBAction) textDidStartEditing {
+    if (!textIsUp) {
+        textIsUp = YES;
+        scrollViewHeightConstrait.constant = scrollViewHeightConstrait.constant - KEYBOARD_SIZE;
+        
+        
+        CGFloat heightDifference = scrollViewHeightConstrait.constant - contentView.frame.size.height;
+        if (heightDifference < 0)
+            heightDifference = 0;
+        
+        scrollViewBottomSpaceConstrait.constant = heightDifference;
+    }
+}
+
+
+
+- (IBAction) textDidEndEditing {
+    if (textIsUp) {
+        textIsUp = NO;
+        scrollViewBottomSpaceConstrait.constant = scrollViewBottomSpaceConstantOriginalValue;
+        scrollViewHeightConstrait.constant = scrollViewHeightConstrait.constant + KEYBOARD_SIZE;
+    }
+}
+
+#pragma mark - DAAttributedLabelDelegate Methods
+- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
+{
+    NSString* url = self.task.detailsLinksArray[linkNum];
+    
+    NSRange prefixRange = [url rangeOfString:@"http"
+                                     options:(NSAnchoredSearch | NSCaseInsensitiveSearch)];
+    
+    if (prefixRange.location == NSNotFound) {
+        url = [@"http://" stringByAppendingString:url];
+    }
+    
+	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:url];
+    [self.navigationController pushViewController:webViewController animated:YES];
+}
+
 
 @end

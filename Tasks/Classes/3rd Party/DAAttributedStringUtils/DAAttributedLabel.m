@@ -181,7 +181,7 @@
 		NSAttributedString* str = textLayer.string;
 		preferredSize = [self boundsForWidth:self.bounds.size.width withAttributedString:str];
 	}
-	return preferredSize.height;
+	return preferredSize.height + 10;
 }
 
 - (void) layoutSubviews

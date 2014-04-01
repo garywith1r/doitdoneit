@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import "TaskViewController.h"
+#import "AddEditTaskViewController.h"
 #import "SelectDateViewController.h"
 #import "TaskListModel.h"
 #import "DeviceDetector.h"
@@ -15,6 +15,7 @@
 #import "EditDetailsViewController.h"
 #import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
+
 
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <MediaPlayer/MediaPlayer.h>
@@ -26,7 +27,7 @@
 #define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 
-@interface TaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UITextField* txtRepeatTimes;
@@ -60,7 +61,7 @@
 }
 @end
 
-@implementation TaskViewController
+@implementation AddEditTaskViewController
 @synthesize task;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -79,6 +80,12 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    if (!self.task) {
+        self.task = [[TaskDTO alloc] init];
+        self.isNewTask = YES;
+    }
+    
     lblTitle.text = txtTitle.text = self.task.title;
     lblDetails.delegate = self;
     
@@ -349,11 +356,17 @@
         
         //save video to app's directory.
         NSData *videoData = [NSData dataWithContentsOfURL:url];
-        [[NSFileManager defaultManager] createFileAtPath:task.videoUrl contents:videoData attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[task forceVideoUrl] contents:videoData attributes:nil];
         
     } else {
         thumbImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        task.videoUrl = @""; //setting the url as empty implies that the thumb is an image and not a video.
+#warning delete video
+        //if there's a videoUrl, then there's a video stored.
+        if (task.videoUrl) {
+            
+        }
+        
+        task.videoUrl = nil;
     }
     
     

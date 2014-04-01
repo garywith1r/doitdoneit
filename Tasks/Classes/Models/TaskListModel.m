@@ -157,6 +157,8 @@ TaskListModel* instance;
     //if two tasks were created at the same time, then are the same task
     NSMutableArray* tempArray = [[NSMutableArray alloc] initWithCapacity:[tasks count]];
     
+#warning delete video
+    
     if ([tasks containsObject:deletingTask]) {
         for (TaskDTO* task in tasks) {
             if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {

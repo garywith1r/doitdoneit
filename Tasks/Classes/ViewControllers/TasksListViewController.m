@@ -9,7 +9,7 @@
 #import "TasksListViewController.h"
 #import "TasksViewCell.h"
 #import "CompleteTaskViewController.h"
-#import "TaskViewController.h"
+#import "AddEditTaskViewController.h"
 #import "SWTableViewCell.h"
 #import "TaskListModel.h"
 #import "DeviceDetector.h"
@@ -37,6 +37,7 @@
 @implementation TasksListViewController
 
 - (void) viewDidLoad {
+    selectedRow = -1;
     if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
@@ -50,15 +51,11 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ViewTaskSegue"]) {
-        TaskViewController* taskController = (TaskViewController*) [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"EditTaskSegue"]) {
+        AddEditTaskViewController* taskController = (AddEditTaskViewController*) [segue destinationViewController];
         taskController.task = taskToShow;
         taskController.isNewTask = taskToShowIsNewCopy;
         taskToShowIsNewCopy = NO;
-    } else if ([segue.identifier isEqualToString:@"NewTaskSegue"]) {
-        TaskViewController* taskController = (TaskViewController*) [segue destinationViewController];
-        taskController.task = [[TaskDTO alloc] init];
-        taskController.isNewTask = YES;
     }
 }
 
@@ -71,6 +68,18 @@
     tagToDeleteIndex = -1;
 }
 
+- (void) showTaskAtRow:(NSInteger)row {
+    selectedRow = row;
+    
+    [table beginUpdates];
+    [table endUpdates];
+    [table deselectRowAtIndexPath:[NSIndexPath indexPathForItem:row inSection:0] animated:YES];
+}
+
+- (void) hideSelectedRow:(UIButton*)sender {
+    if (selectedRow == sender.tag)
+        [self showTaskAtRow:-1];
+}
 
 #pragma mark - UITableView Methods
 
@@ -129,10 +138,7 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    selectedRow = indexPath.row;
-    [tableView beginUpdates];
-    [tableView endUpdates];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self showTaskAtRow:indexPath.row];
 }
 
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {}
@@ -146,12 +152,12 @@
         case 0: // copy
             taskToShow = [[contentDataArray objectAtIndex:cell.tag] taskWithData];
             taskToShowIsNewCopy = YES;
-            [self performSegueWithIdentifier:@"ViewTaskSegue" sender:nil];
+            [self performSegueWithIdentifier:@"EditTaskSegue" sender:nil];
             break;
         case 1: // Edit
         {
             taskToShow = [contentDataArray objectAtIndex:cell.tag];
-            [self performSegueWithIdentifier:@"ViewTaskSegue" sender:nil];
+            [self performSegueWithIdentifier:@"EditTaskSegue" sender:nil];
             break;
         }
         case 2: // delete
@@ -192,13 +198,12 @@
 
 - (void) thumbnailTapped:(UIButton*)sender {
     TaskDTO* task = [contentDataArray objectAtIndex:sender.tag];
-    if ([@"" isEqualToString:task.videoUrl]) {
+    if (task.videoUrl) {
+        [self playVideo:task.videoUrl fromButton:sender];
+    } else {
         //it's an image
         [self zoomImage:task.thumbImage fromButton:sender];
-    } else {
-        [self playVideo:task.videoUrl fromButton:sender];
     }
-        
 }
 
 - (void) zoomImage:(UIImage*)image fromButton:(UIButton*)sender {

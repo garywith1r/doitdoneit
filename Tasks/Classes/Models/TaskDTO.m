@@ -242,7 +242,7 @@
 }
 
 
-- (NSString*) videoUrl {
+-(NSString*) forceVideoUrl {
     if (_videoUrl)
         return _videoUrl;
     

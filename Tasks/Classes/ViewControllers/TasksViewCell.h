@@ -17,7 +17,7 @@
 @property (nonatomic, strong) IBOutlet UILabel* lblRepeatTimes;
 @property (nonatomic, strong) IBOutlet UIButton* doneButton;
 @property (nonatomic, strong) IBOutlet UIButton* thumbImageButton;
-@property (nonatomic, strong) IBOutlet UIButton* settingsButton;
+@property (nonatomic, strong) IBOutlet UIButton* hideCellButton;
 @property (nonatomic, strong) IBOutlet DAAttributedLabel* lblDescription;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionHeightConstrait;
 

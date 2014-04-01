@@ -13,6 +13,5 @@
 
 @property (nonatomic, strong) TaskDTO* task;
 
-+ (void) showInParentView:(UIViewController*)parent forTask:(TaskDTO*)task;
 
 @end

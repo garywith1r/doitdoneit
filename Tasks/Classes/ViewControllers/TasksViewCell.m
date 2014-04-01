@@ -10,7 +10,7 @@
 
 @implementation TasksViewCell
 @synthesize lblTitle, lblStats, lblRepeatTimes, lblDescription, lblDueDate;
-@synthesize doneButton, thumbImageButton, settingsButton;
+@synthesize doneButton, thumbImageButton, hideCellButton;
 
 
 @end
