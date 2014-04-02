@@ -27,6 +27,10 @@
 @property (nonatomic, readonly) int lastWeekMissed;
 @property (nonatomic, readonly) int lastWeekPoints;
 
+@property (nonatomic, readonly) int thisMonthCompleted;
+@property (nonatomic, readonly) int thisMonthMissed;
+@property (nonatomic, readonly) int thisMonthPoints;
+
 @property (nonatomic, readonly) int totalCompleted;
 @property (nonatomic, readonly) int totalMissed;
 @property (nonatomic, readonly) int totalPoints;
@@ -38,11 +42,11 @@
 @property (nonatomic, readonly) float totalHitRate;
 
 
-@property (nonatomic, readonly) CGFloat bestDailyHitRate;
+@property (nonatomic, readonly) CGFloat bestDailyCompletedTasksAmount;
 @property (nonatomic, readonly) NSDate* bestDailyDay;
-@property (nonatomic, readonly) CGFloat bestWeeklyHitRate;
+@property (nonatomic, readonly) CGFloat bestWeeklyCompletedTasksAmount;
 @property (nonatomic, readonly) NSDate* bestWeeklyDay;
-@property (nonatomic, readonly) CGFloat bestMontlyHitRate;
+@property (nonatomic, readonly) CGFloat bestMontlyCompletedTaskAmount;
 @property (nonatomic, readonly) NSDate* bestMontlyDay;
 
 + (StatsModel*) sharedInstance;

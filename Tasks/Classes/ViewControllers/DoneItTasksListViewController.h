@@ -10,4 +10,6 @@
 
 @interface DoneItTasksListViewController : TasksListViewController
 
+@property (nonatomic, weak) UINavigationController* navController;
+
 @end

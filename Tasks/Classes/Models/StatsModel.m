@@ -22,8 +22,9 @@
 @synthesize yesterdayCompleted, yesterdayMissed, yesterdayPoints;
 @synthesize thisWeekCompleted, thisWeekMissed, thisWeekPoints;
 @synthesize lastWeekCompleted, lastWeekMissed, lastWeekPoints;
+@synthesize thisMonthCompleted, thisMonthMissed, thisMonthPoints;
 @synthesize totalCompleted, totalMissed, totalPoints;
-@synthesize bestDailyHitRate, bestDailyDay, bestWeeklyHitRate, bestWeeklyDay, bestMontlyHitRate, bestMontlyDay;
+@synthesize bestDailyCompletedTasksAmount, bestDailyDay, bestWeeklyCompletedTasksAmount, bestWeeklyDay, bestMontlyCompletedTaskAmount, bestMontlyDay;
 
 StatsModel* statsInstance;
 
@@ -74,6 +75,8 @@ StatsModel* statsInstance;
     todayPoints += task.taskPoints;
     thisWeekCompleted++;
     thisWeekPoints += task.taskPoints;
+    thisMonthCompleted ++;
+    thisMonthPoints += task.taskPoints;
     totalCompleted++;
     totalPoints += task.taskPoints;
     
@@ -82,6 +85,8 @@ StatsModel* statsInstance;
     [userDefaults setInteger:todayPoints forKey:@"todayPoints"];
     [userDefaults setInteger:thisWeekCompleted forKey:@"thisWeekCompleted"];
     [userDefaults setInteger:thisWeekPoints forKey:@"thisWeekPoints"];
+    [userDefaults setInteger:thisMonthCompleted forKey:@"thisMonthCompleted"];
+    [userDefaults setInteger:thisMonthPoints forKey:@"thisMonthPoints"];
     [userDefaults setInteger:totalCompleted forKey:@"totalCompleted"];
     [userDefaults setInteger:totalPoints forKey:@"totalPoints"];
     
@@ -204,6 +209,16 @@ StatsModel* statsInstance;
     //check if it was missed on previous week
     if (([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfLastWeek]] > 0) && ([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfCurrentWeek]] < 0)) {
         lastWeekMissed ++;
+    } else
+    
+    //check if it was missed on this month
+    if ([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfCurrentMonth]] > 0) {
+        thisMonthMissed ++;
+    } else
+        
+    //check if it was missed on previous month
+    if (([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfPreviousMonth]] > 0) && ([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfCurrentMonth]] < 0)) {
+//        thisMonthMissed ++;
     }
     
     
@@ -213,8 +228,8 @@ StatsModel* statsInstance;
         [userDefaults setInteger:yesterdayMissed forKey:@"yesterdayMissed"];
         [userDefaults setInteger:thisWeekMissed forKey:@"thisWeekMissed"];
         [userDefaults setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
+        [userDefaults setInteger:thisMonthMissed forKey:@"thisMonthMissed"];
         [userDefaults setInteger:totalMissed forKey:@"totalMissed"];
-        
         
         [userDefaults synchronize];
     }
@@ -246,11 +261,11 @@ StatsModel* statsInstance;
     totalPoints = (int)[userDefaults integerForKey:@"totalPoints"];
     
     
-    bestDailyHitRate = [userDefaults floatForKey:@"bestDaily"];
+    bestDailyCompletedTasksAmount = [userDefaults floatForKey:@"bestDaily"];
     bestDailyDay = [userDefaults objectForKey:@"bestDailyDay"];
-    bestWeeklyHitRate = [userDefaults floatForKey:@"bestWeekly"];
+    bestWeeklyCompletedTasksAmount = [userDefaults floatForKey:@"bestWeekly"];
     bestWeeklyDay = [userDefaults objectForKey:@"bestWeeklyDay"];
-    bestMontlyHitRate = [userDefaults floatForKey:@"bestMontly"];
+    bestMontlyCompletedTaskAmount = [userDefaults floatForKey:@"bestMontly"];
     bestMontlyDay = [userDefaults objectForKey:@"bestMontlyDay"];
     [userDefaults synchronize];
 }
@@ -270,11 +285,10 @@ StatsModel* statsInstance;
             yesterdayCompleted = yesterdayMissed = yesterdayPoints = 0;
         }
         
-        CGFloat todayHitrate = todayCompleted / (float) (todayCompleted + todayMissed);
-        if (bestDailyHitRate < todayHitrate) {
-            bestDailyHitRate = todayHitrate;
+        if (bestDailyCompletedTasksAmount < todayCompleted) {
+            bestDailyCompletedTasksAmount = todayCompleted;
             bestDailyDay = today;
-            [userDefaults setFloat:bestDailyHitRate forKey:@"bestDaily"];
+            [userDefaults setFloat:todayCompleted forKey:@"bestDaily"];
             [userDefaults setObject:today forKey:@"bestDailyDay"];
         }
         todayCompleted = todayPoints = todayMissed = 0;
@@ -293,15 +307,26 @@ StatsModel* statsInstance;
                 lastWeekCompleted = lastWeekMissed = lastWeekPoints = 0;
             }
             
-            CGFloat weeklyHitrate = thisWeekCompleted / (float) (thisWeekCompleted + thisWeekMissed);
-            if (bestWeeklyHitRate < weeklyHitrate) {
-                bestWeeklyHitRate = weeklyHitrate;
+            if (bestWeeklyCompletedTasksAmount < thisWeekCompleted) {
+                bestWeeklyCompletedTasksAmount = thisWeekCompleted;
                 bestWeeklyDay = today;
-                [userDefaults setFloat:bestWeeklyHitRate forKey:@"bestDaily"];
+                [userDefaults setFloat:bestWeeklyCompletedTasksAmount forKey:@"bestDaily"];
                 [userDefaults setObject:bestWeeklyDay forKey:@"bestDailyDay"];
             }
             
             thisWeekPoints = thisWeekCompleted = thisWeekMissed = 0;
+        }
+        
+        if ([[NSDate firstDayOfMonthFromDay:today] timeIntervalSinceDate:[NSDate firstDayOfCurrentMonth]] == 0) {
+            //we're on the same month.
+        } else {
+            if (bestMontlyCompletedTaskAmount < thisMonthCompleted) {
+                bestWeeklyCompletedTasksAmount = thisWeekCompleted;
+                bestWeeklyDay = today;
+                [userDefaults setFloat:bestWeeklyCompletedTasksAmount forKey:@"bestDaily"];
+                [userDefaults setObject:bestWeeklyDay forKey:@"bestDailyDay"];
+            }
+            thisMonthPoints = thisMonthCompleted = thisMonthMissed = 0;
         }
         
         today = [NSDate midnightToday];
