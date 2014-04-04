@@ -54,6 +54,7 @@
     if (!doneItTaskListViewController) {
         doneItTaskListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DoneItViewController"];
         doneItTaskListViewController.view.frame = contentView.bounds;
+        [self addChildViewController:doneItTaskListViewController];
     }
     
     [contentView addSubview:doneItTaskListViewController.view];
@@ -62,7 +63,7 @@
 - (void) showAwards {
     if (statsViewController)
         [statsViewController.view removeFromSuperview];
-    if (doneItTaskListViewController)
+    if (doneItTaskListViewController) {
         [doneItTaskListViewController.view removeFromSuperview];
     
     if (!awardsViewController) {

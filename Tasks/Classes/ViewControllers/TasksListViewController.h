@@ -25,6 +25,8 @@
     NSInteger selectedRow;
 }
 
+@property (nonatomic, weak) UINavigationController* navController;
+
 - (void) deleteTaskOnMarkedPosition;
 - (NSAttributedString*) stringWithBoldPart:(NSString*)boldPart andNormalPart:(NSString*)normalPart;
 
