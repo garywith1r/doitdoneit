@@ -146,7 +146,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6J-da-ysh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="236" y="1588"/>
+            <point key="canvasLocation" x="671" y="812"/>
+        </scene>
+        <!--Awards View Controller - Stats-->
+        <scene sceneID="9Rv-iu-Ykj">
+            <objects>
+                <viewController storyboardIdentifier="AwardsViewController" id="Rbp-AC-itX" customClass="AwardsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I7p-Zu-HRw"/>
+                        <viewControllerLayoutGuide type="bottom" id="eH2-ij-suv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KOa-7l-0aP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3fz-cU-3np">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Rbp-AC-itX" id="Uc9-UF-g4R"/>
+                                    <outlet property="delegate" destination="Rbp-AC-itX" id="dWR-i0-iIO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Stats" id="oto-vT-5pJ"/>
+                    <navigationItem key="navigationItem" title="Stats" id="g5T-ve-Em0"/>
+                    <connections>
+                        <outlet property="table" destination="3fz-cU-3np" id="hUE-a6-K27"/>
+                        <outlet property="view" destination="KOa-7l-0aP" id="gsd-Q5-4pl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m56-Go-bw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061" y="812"/>
         </scene>
         <!--Zoom Image View Controller-->
         <scene sceneID="MhY-XI-x4I">
@@ -224,7 +259,7 @@
                     <connections>
                         <outlet property="table" destination="izw-ZK-l8u" id="01J-tG-WzJ"/>
                         <outlet property="view" destination="szM-Ln-xca" id="YoU-0n-puq"/>
-                        <segue destination="oME-Fa-l65" kind="push" identifier="ViewTaskSegue" id="Rd5-v8-kFa"/>
+                        <segue destination="oME-Fa-l65" kind="push" identifier="EditTaskSegue" id="Rd5-v8-kFa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLi-9V-18A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1210,7 +1245,7 @@ Missed:     Hit:</string>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf0-SF-UN9">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf0-SF-UN9">
                                         <rect key="frame" x="7" y="93" width="73" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -1456,6 +1491,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cKK-Ef-6db"/>
+        <segue reference="Rd5-v8-kFa"/>
     </inferredMetricsTieBreakers>
 </document>

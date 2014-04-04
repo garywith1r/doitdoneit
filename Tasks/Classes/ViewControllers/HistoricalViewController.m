@@ -9,13 +9,14 @@
 #import "HistoricalViewController.h"
 #import "DoneItTasksListViewController.h"
 #import "StatsViewController.h"
+#import "AwardsViewController.h"
 
 @interface HistoricalViewController () {
     IBOutlet UIView* contentView;
     
     DoneItTasksListViewController* doneItTaskListViewController;
     StatsViewController* statsViewController;
-    UIViewController* awardsViewController;
+    AwardsViewController* awardsViewController;
 }
 
 @end
@@ -64,8 +65,12 @@
     if (doneItTaskListViewController)
         [doneItTaskListViewController.view removeFromSuperview];
     
-//    if (!doneItTaskListViewController)
-//        doneItTaskListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DoneItViewController"];
+    if (!awardsViewController) {
+        awardsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AwardsViewController"];
+        awardsViewController.view.frame = contentView.bounds;
+    }
+    
+    [contentView addSubview:awardsViewController.view];
 }
 
 - (void) showStats {

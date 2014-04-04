@@ -34,10 +34,23 @@
     
     [cell setContentView:cellView.view];
     
+    [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    
+    if (task.thumbImage) {
+        cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];
+        cellView.thumbImageButton.tag = indexPath.row;
+        [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    
+    
     cellView.doneButton.tag = indexPath.row;
     
     if (task.repeatTimes != 1) {
         cellView.lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d", (int)task.currentRepetition, (int)task.repeatTimes];
+    } else {
+        cellView.lblRepeatTimes.text = @"";
     }
     
     cellView.lblTitle.text = task.title;

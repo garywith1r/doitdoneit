@@ -13,6 +13,10 @@
 
 @interface StatsModel () {
     NSDate* today;
+    
+    CGFloat bestDailyCompletedTasksAmount;
+    CGFloat bestWeeklyCompletedTasksAmount;
+    CGFloat bestMontlyCompletedTaskAmount;
 }
 
 @end
@@ -24,7 +28,7 @@
 @synthesize lastWeekCompleted, lastWeekMissed, lastWeekPoints;
 @synthesize thisMonthCompleted, thisMonthMissed, thisMonthPoints;
 @synthesize totalCompleted, totalMissed, totalPoints;
-@synthesize bestDailyCompletedTasksAmount, bestDailyDay, bestWeeklyCompletedTasksAmount, bestWeeklyDay, bestMontlyCompletedTaskAmount, bestMontlyDay;
+@synthesize bestHitRate, bestConsecutiveDays, consecutiveDays, awards;
 
 StatsModel* statsInstance;
 
@@ -90,7 +94,49 @@ StatsModel* statsInstance;
     [userDefaults setInteger:totalCompleted forKey:@"totalCompleted"];
     [userDefaults setInteger:totalPoints forKey:@"totalPoints"];
     
+    
+    
+    NSDate* lastCompleteTaskDay = [userDefaults objectForKey:@"lastCompleteTaskDay"];
+    
+    //AWARD
+    if ([today timeIntervalSinceDate:lastCompleteTaskDay] != 0 ) {
+        if ([today timeIntervalSinceDate:lastCompleteTaskDay] == ONE_DAY) {
+            consecutiveDays ++;
+            if (consecutiveDays > bestConsecutiveDays) {
+                bestConsecutiveDays = consecutiveDays;
+                [userDefaults setInteger:bestConsecutiveDays forKey:@"bestConsecutiveDays"];
+                
+                NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:bestConsecutiveDays],
+                                      @"type":[NSNumber numberWithInteger:ConsecutiveDaysAward],
+                                      @"day":[NSDate midnightToday]};
+                
+                [self addAward:dic];
+                
+            }
+        } else {
+            consecutiveDays = 0;
+        }
+        
+        [userDefaults setInteger:consecutiveDays forKey:@"consecutiveDays"];
+        [userDefaults setObject:today forKey:@"lastCompleteTaskDay"];
+        
+    }
+    
+    //AWARD
+    CGFloat hitrate = totalCompleted / (CGFloat) (totalCompleted + totalMissed);
+    if (hitrate > bestHitRate) {
+        bestHitRate = hitrate;
+        [userDefaults setFloat:bestHitRate forKey:@"bestHitRate"];
+        
+        NSDictionary* dic = @{@"amount":[NSNumber numberWithFloat:bestHitRate],
+                              @"type":[NSNumber numberWithInteger:HighestHitRateAward],
+                              @"day":[NSDate midnightToday]};
+        
+        [self addAward:dic];
+    }
+    
     [userDefaults synchronize];
+    
 }
 
 - (void) contabilizeDeletedTask:(TaskDTO*) task {
@@ -102,6 +148,21 @@ StatsModel* statsInstance;
     }
     
     [self recalculateVolatileStats];
+    
+    //AWARD
+    CGFloat hitrate = totalCompleted / (CGFloat) (totalCompleted + totalMissed);
+    if (hitrate > bestHitRate) {
+        bestHitRate = hitrate;
+        
+        NSDictionary* dic = @{@"amount":[NSNumber numberWithFloat:bestHitRate],
+                              @"type":[NSNumber numberWithInteger:HighestHitRateAward],
+                              @"day":[NSDate midnightToday]};
+        
+        [self addAward:dic];
+        
+        [[NSUserDefaults standardUserDefaults] setFloat:bestHitRate forKey:@"bestHitRate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void) recalculateVolatileStats {
@@ -178,7 +239,6 @@ StatsModel* statsInstance;
 }
 
 - (void) contabilizeMissedTask:(TaskDTO *)task storingData:(BOOL)save {
-   
     
     if ([task.dueDate timeIntervalSinceDate:[NSDate midnightToday]] > 0) {
         //task skiped, so it's today.
@@ -240,33 +300,32 @@ StatsModel* statsInstance;
     
     today = [userDefaults objectForKey:@"storedToday"];
     
-    todayCompleted = (int)[userDefaults integerForKey:@"todayCompleted"];
-    todayMissed = (int)[userDefaults integerForKey:@"todayMissed"];
-    todayPoints = (int)[userDefaults integerForKey:@"todayPoints"];
+    todayCompleted = [userDefaults integerForKey:@"todayCompleted"];
+    todayMissed = [userDefaults integerForKey:@"todayMissed"];
+    todayPoints = [userDefaults integerForKey:@"todayPoints"];
     
-    yesterdayCompleted = (int)[userDefaults integerForKey:@"yesterdayCompleted"];
-    yesterdayMissed = (int)[userDefaults integerForKey:@"yesterdayMissed"];
-    yesterdayPoints = (int)[userDefaults integerForKey:@"yesterdayPoints"];
+    yesterdayCompleted = [userDefaults integerForKey:@"yesterdayCompleted"];
+    yesterdayMissed = [userDefaults integerForKey:@"yesterdayMissed"];
+    yesterdayPoints = [userDefaults integerForKey:@"yesterdayPoints"];
     
-    thisWeekCompleted = (int)[userDefaults integerForKey:@"thisWeekCompleted"];
-    thisWeekMissed = (int)[userDefaults integerForKey:@"thisWeekMissed"];
-    thisWeekPoints = (int)[userDefaults integerForKey:@"thisWeekPoints"];
+    thisWeekCompleted = [userDefaults integerForKey:@"thisWeekCompleted"];
+    thisWeekMissed = [userDefaults integerForKey:@"thisWeekMissed"];
+    thisWeekPoints = [userDefaults integerForKey:@"thisWeekPoints"];
     
-    lastWeekCompleted = (int)[userDefaults integerForKey:@"lastWeekCompleted"];
-    lastWeekMissed = (int)[userDefaults integerForKey:@"lastWeekMissed"];
-    lastWeekPoints = (int)[userDefaults integerForKey:@"lastWeekPoints"];
+    lastWeekCompleted = [userDefaults integerForKey:@"lastWeekCompleted"];
+    lastWeekMissed = [userDefaults integerForKey:@"lastWeekMissed"];
+    lastWeekPoints = [userDefaults integerForKey:@"lastWeekPoints"];
     
-    totalCompleted = (int)[userDefaults integerForKey:@"totalCompleted"];
-    totalMissed = (int)[userDefaults integerForKey:@"totalMissed"];
-    totalPoints = (int)[userDefaults integerForKey:@"totalPoints"];
+    totalCompleted = [userDefaults integerForKey:@"totalCompleted"];
+    totalMissed = [userDefaults integerForKey:@"totalMissed"];
+    totalPoints = [userDefaults integerForKey:@"totalPoints"];
     
     
     bestDailyCompletedTasksAmount = [userDefaults floatForKey:@"bestDaily"];
-    bestDailyDay = [userDefaults objectForKey:@"bestDailyDay"];
     bestWeeklyCompletedTasksAmount = [userDefaults floatForKey:@"bestWeekly"];
-    bestWeeklyDay = [userDefaults objectForKey:@"bestWeeklyDay"];
     bestMontlyCompletedTaskAmount = [userDefaults floatForKey:@"bestMontly"];
-    bestMontlyDay = [userDefaults objectForKey:@"bestMontlyDay"];
+    
+    awards = [userDefaults objectForKey:@"AwardsArray"];
     [userDefaults synchronize];
 }
 
@@ -285,11 +344,19 @@ StatsModel* statsInstance;
             yesterdayCompleted = yesterdayMissed = yesterdayPoints = 0;
         }
         
+        //AWARD
         if (bestDailyCompletedTasksAmount < todayCompleted) {
+            NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:todayCompleted],
+                                  @"type":[NSNumber numberWithInteger:HighestDailyPointsAward],
+                                  @"day":[NSDate midnightToday]};
+            
+            [self addAward:dic];
+            
             bestDailyCompletedTasksAmount = todayCompleted;
-            bestDailyDay = today;
             [userDefaults setFloat:todayCompleted forKey:@"bestDaily"];
-            [userDefaults setObject:today forKey:@"bestDailyDay"];
+            
+            
+            
         }
         todayCompleted = todayPoints = todayMissed = 0;
         
@@ -307,11 +374,16 @@ StatsModel* statsInstance;
                 lastWeekCompleted = lastWeekMissed = lastWeekPoints = 0;
             }
             
+            //AWARD 
             if (bestWeeklyCompletedTasksAmount < thisWeekCompleted) {
+                NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:thisWeekCompleted],
+                                      @"type":[NSNumber numberWithInteger:HighestWeeklyPointsAward],
+                                      @"day":[NSDate midnightToday]};
+                
+                [self addAward:dic];
+                
                 bestWeeklyCompletedTasksAmount = thisWeekCompleted;
-                bestWeeklyDay = today;
                 [userDefaults setFloat:bestWeeklyCompletedTasksAmount forKey:@"bestDaily"];
-                [userDefaults setObject:bestWeeklyDay forKey:@"bestDailyDay"];
             }
             
             thisWeekPoints = thisWeekCompleted = thisWeekMissed = 0;
@@ -320,18 +392,21 @@ StatsModel* statsInstance;
         if ([[NSDate firstDayOfMonthFromDay:today] timeIntervalSinceDate:[NSDate firstDayOfCurrentMonth]] == 0) {
             //we're on the same month.
         } else {
+            //AWARD
             if (bestMontlyCompletedTaskAmount < thisMonthCompleted) {
-                bestWeeklyCompletedTasksAmount = thisWeekCompleted;
-                bestWeeklyDay = today;
-                [userDefaults setFloat:bestWeeklyCompletedTasksAmount forKey:@"bestDaily"];
-                [userDefaults setObject:bestWeeklyDay forKey:@"bestDailyDay"];
+                NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:bestMontlyCompletedTaskAmount],
+                                      @"type":[NSNumber numberWithInteger:HighestMonthlyPointsAward],
+                                      @"day":[NSDate midnightToday]};
+                [self addAward:dic];
+                
+                bestMontlyCompletedTaskAmount = thisMonthCompleted;
+                [userDefaults setFloat:bestMontlyCompletedTaskAmount forKey:@"bestDaily"];
             }
             thisMonthPoints = thisMonthCompleted = thisMonthMissed = 0;
         }
         
         today = [NSDate midnightToday];
-        
-        
+    
         
         [userDefaults setObject:today forKey:@"storedToday"];
         
@@ -363,7 +438,26 @@ StatsModel* statsInstance;
         [userDefaults synchronize];
     }
     
+}
+
+
+
+- (void) addAward:(NSDictionary*)awardDic {
+    NSMutableArray* tempArray = [[NSMutableArray alloc] initWithCapacity:awards.count];
     
+    enum AwardType type = [[awardDic objectForKey:@"type"] integerValue];
+    
+    for (NSDictionary* award in awards) {
+        if ([[award objectForKey:@"type"] integerValue] != type)
+             [tempArray addObject:award];
+    }
+    
+    [tempArray insertObject:awardDic atIndex:0];
+    
+    self.awards = [NSArray arrayWithArray:tempArray];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:awards forKey:@"AwardsArray"];
+             
 }
 
 @end

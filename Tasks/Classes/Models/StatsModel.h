@@ -9,45 +9,51 @@
 #import <Foundation/Foundation.h>
 #import "TaskDTO.h"
 
+enum AwardType {
+    ConsecutiveDaysAward = 0,
+    HighestHitRateAward,
+    HighestDailyPointsAward,
+    HighestWeeklyPointsAward,
+    HighestMonthlyPointsAward
+};
+
 @interface StatsModel : NSObject
 
-@property (nonatomic, readonly) int todayCompleted;
-@property (nonatomic, readonly) int todayMissed;
-@property (nonatomic, readonly) int todayPoints;
+@property (nonatomic, readonly) NSInteger todayCompleted;
+@property (nonatomic, readonly) NSInteger todayMissed;
+@property (nonatomic, readonly) NSInteger todayPoints;
 
-@property (nonatomic, readonly) int yesterdayCompleted;
-@property (nonatomic, readonly) int yesterdayMissed;
-@property (nonatomic, readonly) int yesterdayPoints;
+@property (nonatomic, readonly) NSInteger yesterdayCompleted;
+@property (nonatomic, readonly) NSInteger yesterdayMissed;
+@property (nonatomic, readonly) NSInteger yesterdayPoints;
 
-@property (nonatomic, readonly) int thisWeekCompleted;
-@property (nonatomic, readonly) int thisWeekMissed;
-@property (nonatomic, readonly) int thisWeekPoints;
+@property (nonatomic, readonly) NSInteger thisWeekCompleted;
+@property (nonatomic, readonly) NSInteger thisWeekMissed;
+@property (nonatomic, readonly) NSInteger thisWeekPoints;
 
-@property (nonatomic, readonly) int lastWeekCompleted;
-@property (nonatomic, readonly) int lastWeekMissed;
-@property (nonatomic, readonly) int lastWeekPoints;
+@property (nonatomic, readonly) NSInteger lastWeekCompleted;
+@property (nonatomic, readonly) NSInteger lastWeekMissed;
+@property (nonatomic, readonly) NSInteger lastWeekPoints;
 
-@property (nonatomic, readonly) int thisMonthCompleted;
-@property (nonatomic, readonly) int thisMonthMissed;
-@property (nonatomic, readonly) int thisMonthPoints;
+@property (nonatomic, readonly) NSInteger thisMonthCompleted;
+@property (nonatomic, readonly) NSInteger thisMonthMissed;
+@property (nonatomic, readonly) NSInteger thisMonthPoints;
 
-@property (nonatomic, readonly) int totalCompleted;
-@property (nonatomic, readonly) int totalMissed;
-@property (nonatomic, readonly) int totalPoints;
+@property (nonatomic, readonly) NSInteger totalCompleted;
+@property (nonatomic, readonly) NSInteger totalMissed;
+@property (nonatomic, readonly) NSInteger totalPoints;
 
-@property (nonatomic, readonly) float todayHitRate;
-@property (nonatomic, readonly) float yesterdayHitRate;
-@property (nonatomic, readonly) float thisWeekHitRate;
-@property (nonatomic, readonly) float lastWeekHitRate;
-@property (nonatomic, readonly) float totalHitRate;
+@property (nonatomic, readonly) CGFloat todayHitRate;
+@property (nonatomic, readonly) CGFloat yesterdayHitRate;
+@property (nonatomic, readonly) CGFloat thisWeekHitRate;
+@property (nonatomic, readonly) CGFloat lastWeekHitRate;
+@property (nonatomic, readonly) CGFloat totalHitRate;
 
 
-@property (nonatomic, readonly) CGFloat bestDailyCompletedTasksAmount;
-@property (nonatomic, readonly) NSDate* bestDailyDay;
-@property (nonatomic, readonly) CGFloat bestWeeklyCompletedTasksAmount;
-@property (nonatomic, readonly) NSDate* bestWeeklyDay;
-@property (nonatomic, readonly) CGFloat bestMontlyCompletedTaskAmount;
-@property (nonatomic, readonly) NSDate* bestMontlyDay;
+@property (nonatomic, readonly) CGFloat bestHitRate;
+@property (nonatomic, readonly) NSInteger consecutiveDays;
+@property (nonatomic, readonly) NSInteger bestConsecutiveDays;
+@property (nonatomic, strong) NSArray* awards;
 
 + (StatsModel*) sharedInstance;
 

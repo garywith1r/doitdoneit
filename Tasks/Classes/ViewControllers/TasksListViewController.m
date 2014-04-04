@@ -241,7 +241,6 @@
 }
 
 #pragma mark - UIAlertViewDelegate Methods
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == DELETE_TASK_ALERT_TAG) {
         if (buttonIndex == 1) {
