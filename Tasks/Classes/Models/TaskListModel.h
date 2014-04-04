@@ -15,6 +15,7 @@
 + (TaskListModel*) sharedInstance;
 
 - (void) storeTasksData;
+- (void) storeData;
 
 - (TaskDTO*) taskAtIndex:(int)index;
 - (void) addTask:(TaskDTO*) task;

@@ -195,13 +195,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PRw-CA-wkV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PRw-CA-wkV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5c-cp-lnx">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5c-cp-lnx">
                                 <rect key="frame" x="20" y="20" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="12s-5b-xVK"/>
+                                    <constraint firstAttribute="width" constant="46" id="OsK-gd-poX"/>
+                                </constraints>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -212,6 +216,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="PRw-CA-wkV" firstAttribute="top" secondItem="HtD-0V-4ZM" secondAttribute="top" id="1FH-eu-y7e"/>
+                            <constraint firstAttribute="trailing" secondItem="PRw-CA-wkV" secondAttribute="trailing" id="Adg-kS-eHy"/>
+                            <constraint firstAttribute="bottom" secondItem="PRw-CA-wkV" secondAttribute="bottom" id="F3Y-Gu-SlQ"/>
+                            <constraint firstItem="B5c-cp-lnx" firstAttribute="leading" secondItem="HtD-0V-4ZM" secondAttribute="leading" constant="20" id="Xmb-fZ-jAx"/>
+                            <constraint firstItem="B5c-cp-lnx" firstAttribute="top" secondItem="HtD-0V-4ZM" secondAttribute="top" constant="20" id="i62-eX-hmp"/>
+                            <constraint firstItem="PRw-CA-wkV" firstAttribute="leading" secondItem="HtD-0V-4ZM" secondAttribute="leading" id="xeV-Lp-vT7"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="B5c-cp-lnx" id="kWD-9H-neC"/>
@@ -517,6 +529,9 @@ Video</string>
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="clearPicture" destination="oME-Fa-l65" eventType="touchUpInside" id="zZw-en-uJC"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7G-j4-NTt">
                                                         <rect key="frame" x="258" y="246" width="34" height="21"/>
@@ -1234,13 +1249,9 @@ Missed:     Hit:</string>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="212" translatesAutoresizingMaskIntoConstraints="NO" id="hPC-py-fHZ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="212" translatesAutoresizingMaskIntoConstraints="NO" id="hPC-py-fHZ">
                                         <rect key="frame" x="88" y="124" width="212" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="212" id="Dm5-ro-dNZ"/>
-                                            <constraint firstAttribute="height" constant="46" id="x3l-8X-wtD"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1268,11 +1279,11 @@ Missed:     Hit:</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4q-ij-lef">
-                                        <rect key="frame" x="199" y="-2" width="117" height="21"/>
+                                        <rect key="frame" x="143" y="0.0" width="177" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="9rh-pF-CZQ"/>
-                                            <constraint firstAttribute="width" constant="117" id="zad-hJ-cjV"/>
+                                            <constraint firstAttribute="width" constant="177" id="zad-hJ-cjV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.29435483870000001" alpha="1" colorSpace="calibratedWhite"/>
@@ -1341,19 +1352,17 @@ Missed:     Hit:</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="hPC-py-fHZ" firstAttribute="leading" secondItem="2gj-b2-kcO" secondAttribute="trailing" constant="8" symbolic="YES" id="1Gw-KX-Kls"/>
                                     <constraint firstItem="dBl-bk-iOx" firstAttribute="top" secondItem="fVK-fg-IA5" secondAttribute="top" constant="20" id="4dX-n6-Xdz"/>
                                     <constraint firstItem="dBl-bk-iOx" firstAttribute="leading" secondItem="fVK-fg-IA5" secondAttribute="leading" constant="88" id="J1g-TG-iVT"/>
                                     <constraint firstItem="Qf0-SF-UN9" firstAttribute="top" secondItem="JfM-04-HMh" secondAttribute="bottom" constant="15" id="M4f-Wk-SLc"/>
                                     <constraint firstItem="JfM-04-HMh" firstAttribute="leading" secondItem="fVK-fg-IA5" secondAttribute="leading" constant="7" id="SOV-9f-Eqv"/>
-                                    <constraint firstItem="h4q-ij-lef" firstAttribute="top" secondItem="fVK-fg-IA5" secondAttribute="top" constant="-2" id="SQs-Zb-QsS"/>
+                                    <constraint firstItem="h4q-ij-lef" firstAttribute="top" secondItem="fVK-fg-IA5" secondAttribute="top" id="SQs-Zb-QsS"/>
                                     <constraint firstItem="2gj-b2-kcO" firstAttribute="leading" secondItem="fVK-fg-IA5" secondAttribute="leading" constant="7" id="WX5-4M-2Zg"/>
                                     <constraint firstItem="JfM-04-HMh" firstAttribute="top" secondItem="fVK-fg-IA5" secondAttribute="top" constant="5" id="cBU-Mi-6WK"/>
                                     <constraint firstItem="2gj-b2-kcO" firstAttribute="top" secondItem="Qf0-SF-UN9" secondAttribute="bottom" constant="22" id="fIX-Cf-C4M"/>
-                                    <constraint firstAttribute="bottom" secondItem="hPC-py-fHZ" secondAttribute="bottom" constant="10" id="g2E-Vu-pZ6"/>
                                     <constraint firstItem="U3i-qp-q7t" firstAttribute="top" secondItem="fVK-fg-IA5" secondAttribute="top" constant="2" id="lct-7r-ZE8"/>
                                     <constraint firstItem="U3i-qp-q7t" firstAttribute="leading" secondItem="fVK-fg-IA5" secondAttribute="leading" constant="88" id="ods-E6-SEe"/>
-                                    <constraint firstItem="h4q-ij-lef" firstAttribute="leading" secondItem="fVK-fg-IA5" secondAttribute="leading" constant="199" id="t2S-4s-jd4"/>
+                                    <constraint firstItem="h4q-ij-lef" firstAttribute="leading" secondItem="fVK-fg-IA5" secondAttribute="leading" constant="143" id="t2S-4s-jd4"/>
                                     <constraint firstItem="Qf0-SF-UN9" firstAttribute="leading" secondItem="fVK-fg-IA5" secondAttribute="leading" constant="7" id="wLx-SZ-mXv"/>
                                 </constraints>
                             </view>

@@ -25,6 +25,7 @@
     
     ZoomImageViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"ZoomImageViewController"];
     vc.delegate = delegate;
+    vc.view.clipsToBounds = YES;
     
     UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
     [mainWindow addSubview:vc.view];

@@ -20,6 +20,8 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     CGFloat additionalRightPadding;
     
     dispatch_once_t onceToken;
+    
+    UIView* contentView;
 }
 
 @property (nonatomic, strong) SWUtilityButtonView *scrollViewButtonViewLeft;
@@ -203,7 +205,13 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
 }
 
 - (void) setContentView:(UIView*)view {
-    [self.scrollViewContentView addSubview:view];
+    if (contentView)
+        [contentView removeFromSuperview];
+    
+    contentView = view;
+    
+    [self.scrollViewContentView addSubview:contentView];
+    
 }
 
 #pragma mark Selection

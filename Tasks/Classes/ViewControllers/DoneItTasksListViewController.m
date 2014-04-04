@@ -27,11 +27,6 @@
     
     TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoneItTasksViewCell"];
     
-//    CGRect frame = cellView.view.frame;
-//    frame.size = CGSizeMake(table.frame.size.width, table.rowHeight);
-//    frame.origin = CGPointZero;
-//    cellView.view.frame = frame;
-    
     [cell setContentView:cellView.view];
     
     [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
@@ -42,8 +37,6 @@
         cellView.thumbImageButton.tag = indexPath.row;
         [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
-    
-    
     
     cellView.doneButton.tag = indexPath.row;
     
@@ -88,6 +81,10 @@
     
     cellView.lblDueDate.text = timeSinceText;
     cellView.lblNote.text = task.notes;
+    
+    cellView.thumbImageButton.tag = indexPath.row;
+    [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     int x = 0;
     

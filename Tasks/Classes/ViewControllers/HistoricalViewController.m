@@ -63,7 +63,7 @@
 - (void) showAwards {
     if (statsViewController)
         [statsViewController.view removeFromSuperview];
-    if (doneItTaskListViewController) {
+    if (doneItTaskListViewController)
         [doneItTaskListViewController.view removeFromSuperview];
     
     if (!awardsViewController) {

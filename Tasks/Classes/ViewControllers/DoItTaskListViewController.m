@@ -67,20 +67,15 @@
     [cell setContentView:cellView.view];
     
     if (task.repeatTimes != 1) {
-        cellView.lblDueDate.text = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
+        cellView.lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
     } else {
-        cellView.lblDueDate.text = @"";
+        cellView.lblRepeatTimes.text = @"";
     }
     
     cellView.lblTitle.text = task.title;
     
     cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];
-    
-    
-    if (task.repeatTimes != 1) {
-        cellView.lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d:", (int)task.currentRepetition, (int)task.repeatTimes];
-    }
     
     
     int remainingDays = ceil([task.dueDate timeIntervalSinceDate:[NSDate date]] /60.0 /60.0 /24.0);

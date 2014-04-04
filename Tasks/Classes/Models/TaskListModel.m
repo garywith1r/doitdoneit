@@ -223,6 +223,7 @@ TaskListModel* instance;
     [self addTask:[self createNextTaskTo:task]];
     
     [self storeTasksData];
+    [self storeMissedTasksData];
     toDoTasks = nil;
     doneTasks = nil;
 }

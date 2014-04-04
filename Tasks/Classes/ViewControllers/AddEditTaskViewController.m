@@ -186,7 +186,7 @@
         [[TaskListModel sharedInstance] forceRecalculateTasks];
         if (self.task.status == TaskStatusComplete)
             [[StatsModel sharedInstance] recalculateVolatileStats];
-        [[TaskListModel sharedInstance] storeTasksData];
+        [[TaskListModel sharedInstance] storeData];
     }
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -291,6 +291,15 @@
                                                   otherButtonTitles:nil];
         [alertView show];
     }
+}
+
+- (IBAction) clearPicture {
+    [btnImage setImage:nil forState:UIControlStateNormal];
+    task.thumbImage = nil;
+#warning delete viedeo
+    task.videoUrl = nil;
+    
+    [btnImage setTitle:@"Import" forState:UIControlStateNormal];
 }
 
 #pragma mark - ActionSheet Delegate
