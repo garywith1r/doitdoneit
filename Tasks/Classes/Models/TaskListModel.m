@@ -293,7 +293,7 @@ TaskListModel* instance;
             [task incrementMissedItBy:1];
             [[StatsModel sharedInstance] contabilizeMissedTask:task];
             
-            task.completitionDate = [NSDate date];
+            task.completitionDate = task.dueDate;
             task.status = TaskStatusMissed;
             
             [tasks removeObject:task];
@@ -304,12 +304,9 @@ TaskListModel* instance;
             
             //check if the next task due date hasn't passed yet. Miss as many tasks as necesary
             while ([self hasMissedIt:newTask]) {
-                newTask.completitionDate = [NSDate date];
-                [missedTasks addObject:newTask];
-                
-                newTask.completitionDate = [NSDate date];
+                newTask.completitionDate = newTask.dueDate;
                 newTask.status = TaskStatusMissed;
-                
+                [missedTasks addObject:newTask];
                 
                 [newTask incrementMissedItBy:1];
                 [[StatsModel sharedInstance] contabilizeMissedTask:newTask];
