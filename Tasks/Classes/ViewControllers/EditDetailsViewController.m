@@ -101,8 +101,8 @@
         {
             NSRange matchRange = ((NSTextCheckingResult*)matches[x]).range;
             
-            NSNumber* location = [NSNumber numberWithInt:matchRange.location];
-            NSNumber* lenght = [NSNumber numberWithInt:matchRange.length];
+            NSNumber* location = [NSNumber numberWithInteger:matchRange.location];
+            NSNumber* lenght = [NSNumber numberWithInteger:matchRange.length];
             
             /* we'll add attributes to both texts at the end, because the mutable attributed string returned by the DAAttributedStringFormatter can't be stored with colour / underline attributes, so we'll use the standar ones.
              */

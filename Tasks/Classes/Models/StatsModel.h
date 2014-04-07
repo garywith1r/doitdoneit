@@ -49,8 +49,6 @@ enum AwardType {
 @property (nonatomic, readonly) CGFloat lastWeekHitRate;
 @property (nonatomic, readonly) CGFloat totalHitRate;
 
-
-@property (nonatomic, readonly) CGFloat bestHitRate;
 @property (nonatomic, readonly) NSInteger consecutiveDays;
 @property (nonatomic, readonly) NSInteger bestConsecutiveDays;
 @property (nonatomic, strong) NSArray* awards;

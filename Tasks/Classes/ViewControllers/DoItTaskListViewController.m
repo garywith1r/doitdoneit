@@ -88,7 +88,7 @@
     int timesDoneIt = [task.timesDoneIt[task.currentRepetition - 1] intValue];
     int timesMissedIt = [task.timesMissedIt[task.currentRepetition - 1] intValue];
     
-    cellView.lblStats.text = [NSString stringWithFormat:@"Points: %d Done: %d\nMissed: %d Hit: %.2f", task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
+    cellView.lblStats.text = [NSString stringWithFormat:@"Points: %ld Done: %d\nMissed: %d Hit: %.2f", (long)task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
     
     cellView.lblDescription.text = task.detailsText;
     cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];

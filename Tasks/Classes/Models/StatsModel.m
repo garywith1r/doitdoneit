@@ -28,7 +28,7 @@
 @synthesize lastWeekCompleted, lastWeekMissed, lastWeekPoints;
 @synthesize thisMonthCompleted, thisMonthMissed, thisMonthPoints;
 @synthesize totalCompleted, totalMissed, totalPoints;
-@synthesize bestHitRate, bestConsecutiveDays, consecutiveDays, awards;
+@synthesize bestConsecutiveDays, consecutiveDays, awards;
 
 StatsModel* statsInstance;
 
@@ -49,27 +49,27 @@ StatsModel* statsInstance;
     return self;
 }
 
-- (float) todayHitRate {
+- (CGFloat) todayHitRate {
     if (todayCompleted + todayMissed == 0) return 0;
     return todayCompleted / (float)(todayCompleted + todayMissed) * 100;
 }
 
-- (float) yesterdayHitRate {
+- (CGFloat) yesterdayHitRate {
     if (yesterdayCompleted + yesterdayMissed == 0) return 0;
     return yesterdayCompleted / (float)(yesterdayCompleted + yesterdayMissed) * 100;
 }
 
-- (float) thisWeekHitRate {
+- (CGFloat) thisWeekHitRate {
     if (thisWeekCompleted + thisWeekMissed == 0) return 0;
     return thisWeekCompleted / (float)(thisWeekCompleted + thisWeekMissed) * 100;
 }
 
-- (float) lastWeekHitRate {
+- (CGFloat) lastWeekHitRate {
     if (lastWeekCompleted + lastWeekMissed == 0) return 0;
     return lastWeekCompleted / (float)(lastWeekCompleted + lastWeekMissed) * 100;
 }
 
-- (float) totalHitRate {
+- (CGFloat) totalHitRate {
     if (totalCompleted + totalMissed == 0) return 0;
     return totalCompleted / (float)(totalCompleted + totalMissed) * 100;
 }
@@ -122,19 +122,6 @@ StatsModel* statsInstance;
         
     }
     
-    //AWARD
-    CGFloat hitrate = totalCompleted / (CGFloat) (totalCompleted + totalMissed);
-    if (hitrate > bestHitRate) {
-        bestHitRate = hitrate;
-        [userDefaults setFloat:bestHitRate forKey:@"bestHitRate"];
-        
-        NSDictionary* dic = @{@"amount":[NSNumber numberWithFloat:bestHitRate],
-                              @"type":[NSNumber numberWithInteger:HighestHitRateAward],
-                              @"day":[NSDate midnightToday]};
-        
-        [self addAward:dic];
-    }
-    
     [userDefaults synchronize];
     
 }
@@ -148,21 +135,6 @@ StatsModel* statsInstance;
     }
     
     [self recalculateVolatileStats];
-    
-    //AWARD
-    CGFloat hitrate = totalCompleted / (CGFloat) (totalCompleted + totalMissed);
-    if (hitrate > bestHitRate) {
-        bestHitRate = hitrate;
-        
-        NSDictionary* dic = @{@"amount":[NSNumber numberWithFloat:bestHitRate],
-                              @"type":[NSNumber numberWithInteger:HighestHitRateAward],
-                              @"day":[NSDate midnightToday]};
-        
-        [self addAward:dic];
-        
-        [[NSUserDefaults standardUserDefaults] setFloat:bestHitRate forKey:@"bestHitRate"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
 }
 
 - (void) recalculateVolatileStats {
@@ -445,7 +417,7 @@ StatsModel* statsInstance;
 - (void) addAward:(NSDictionary*)awardDic {
     NSMutableArray* tempArray = [[NSMutableArray alloc] initWithCapacity:awards.count];
     
-    enum AwardType type = [[awardDic objectForKey:@"type"] integerValue];
+    enum AwardType type = [[awardDic objectForKey:@"type"] intValue];
     
     for (NSDictionary* award in awards) {
         if ([[award objectForKey:@"type"] integerValue] != type)

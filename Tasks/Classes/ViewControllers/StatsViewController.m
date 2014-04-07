@@ -70,19 +70,19 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Today %d, Points %d\nHit Rate %.1f%%",stats.todayCompleted,stats.todayPoints, stats.todayHitRate];
+            cell.textLabel.text = [NSString stringWithFormat:@"Completed Today %ld, Points %ld\nHit Rate %.1f%%",(long)stats.todayCompleted,(long)stats.todayPoints, stats.todayHitRate];
             break;
         case 1:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Yesterday %d, Points %d\nHit Rate %.1f%%",stats.yesterdayCompleted,stats.yesterdayPoints, stats.yesterdayHitRate];
+            cell.textLabel.text = [NSString stringWithFormat:@"Completed Yesterday %ld, Points %ld\nHit Rate %.1f%%",(long)stats.yesterdayCompleted,(long)stats.yesterdayPoints, stats.yesterdayHitRate];
             break;
         case 2:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed This Week %d, Points %d\nHit Rate %.1f%%",stats.thisWeekCompleted,stats.thisWeekPoints, stats.thisWeekHitRate];
+            cell.textLabel.text = [NSString stringWithFormat:@"Completed This Week %ld, Points %ld\nHit Rate %.1f%%",(long)stats.thisWeekCompleted,(long)stats.thisWeekPoints, stats.thisWeekHitRate];
             break;
         case 3:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Last Week %d, Points %d\nHit Rate %.1f%%",stats.lastWeekCompleted,stats.lastWeekPoints, stats.lastWeekHitRate];
+            cell.textLabel.text = [NSString stringWithFormat:@"Completed Last Week %ld, Points %ld\nHit Rate %.1f%%",(long)stats.lastWeekCompleted,(long)stats.lastWeekPoints, stats.lastWeekHitRate];
             break;
         case 4:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Overall %d, Points %d\nHit Rate %.1f%%",stats.totalCompleted,stats.totalPoints, stats.totalHitRate];
+            cell.textLabel.text = [NSString stringWithFormat:@"Completed Overall %ld, Points %ld\nHit Rate %.1f%%",(long)stats.totalCompleted,(long)stats.totalPoints, stats.totalHitRate];
             break;
             
         default:
@@ -115,19 +115,19 @@
     
     switch (index) {
         case 0:
-            return [NSString stringWithFormat:@"I've completed %d tasks today, and won %d Points\nHit Rate %.1f%%",stats.todayCompleted,stats.todayPoints, stats.todayHitRate];;
+            return [NSString stringWithFormat:@"I've completed %ld tasks today, and won %ld Points\nHit Rate %.1f%%",(long)stats.todayCompleted,(long)stats.todayPoints, stats.todayHitRate];;
             break;
         case 1:
-            return [NSString stringWithFormat:@"I've completed %d tasks yesterday, won win %d Points\nHit Rate %.1f%%",stats.yesterdayCompleted,stats.yesterdayPoints, stats.yesterdayHitRate];;
+            return [NSString stringWithFormat:@"I've completed %ld tasks yesterday, won win %ld Points\nHit Rate %.1f%%",(long)stats.yesterdayCompleted,(long)stats.yesterdayPoints, stats.yesterdayHitRate];;
             break;
         case 2:
-            return [NSString stringWithFormat:@"I've completed %d tasks this week, won win %d Points\nHit Rate %.1f%%",stats.thisWeekCompleted,stats.thisWeekPoints, stats.thisWeekHitRate];;
+            return [NSString stringWithFormat:@"I've completed %ld tasks this week, won win %ld Points\nHit Rate %.1f%%",(long)stats.thisWeekCompleted,(long)stats.thisWeekPoints, stats.thisWeekHitRate];;
             break;
         case 3:
-            return [NSString stringWithFormat:@"I've completed %d tasks last week, won win %d Points\nHit Rate %.1f%%",stats.lastWeekCompleted,stats.lastWeekPoints, stats.lastWeekHitRate];;
+            return [NSString stringWithFormat:@"I've completed %ld tasks last week, won win %ld Points\nHit Rate %.1f%%",(long)stats.lastWeekCompleted,(long)stats.lastWeekPoints, stats.lastWeekHitRate];;
             break;
         case 4:
-            return [NSString stringWithFormat:@"I've completed %d tasks overall, won win %d Points\nHit Rate %.1f%%",stats.totalCompleted,stats.totalPoints, stats.totalHitRate];;
+            return [NSString stringWithFormat:@"I've completed %ld tasks overall, won win %ld Points\nHit Rate %.1f%%",(long)stats.totalCompleted,(long)stats.totalPoints, stats.totalHitRate];;
             break;
             
         default:
