@@ -180,6 +180,15 @@ StatsModel* statsInstance;
                 lastWeekPoints += task.taskPoints;
             }
             
+            //check if it was missed on this month
+            if ([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfCurrentMonth]] > 0) {
+                thisMonthCompleted ++;
+            } else
+            //check if it was missed on previous month
+            if (([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfPreviousMonth]] > 0) && ([task.dueDate timeIntervalSinceDate:[NSDate firstDayOfCurrentMonth]] < 0)) {
+                    //        thisMonthMissed ++;
+            }
+            
         }
         
     }
@@ -288,6 +297,10 @@ StatsModel* statsInstance;
     lastWeekMissed = [userDefaults integerForKey:@"lastWeekMissed"];
     lastWeekPoints = [userDefaults integerForKey:@"lastWeekPoints"];
     
+    thisMonthCompleted = [userDefaults integerForKey:@"thisMonthCompleted"];
+    thisMonthMissed = [userDefaults integerForKey:@"thisMonthMissed"];
+    thisMonthPoints = [userDefaults integerForKey:@"thisMonthPoints"];
+    
     totalCompleted = [userDefaults integerForKey:@"totalCompleted"];
     totalMissed = [userDefaults integerForKey:@"totalMissed"];
     totalPoints = [userDefaults integerForKey:@"totalPoints"];
@@ -366,13 +379,15 @@ StatsModel* statsInstance;
         } else {
             //AWARD
             if (bestMontlyCompletedTaskAmount < thisMonthCompleted) {
+                bestMontlyCompletedTaskAmount = thisMonthCompleted;
+                
                 NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:bestMontlyCompletedTaskAmount],
                                       @"type":[NSNumber numberWithInteger:HighestMonthlyPointsAward],
                                       @"day":[NSDate midnightToday]};
                 [self addAward:dic];
                 
-                bestMontlyCompletedTaskAmount = thisMonthCompleted;
-                [userDefaults setFloat:bestMontlyCompletedTaskAmount forKey:@"bestDaily"];
+                
+                [userDefaults setFloat:bestMontlyCompletedTaskAmount forKey:@"bestMontly"];
             }
             thisMonthPoints = thisMonthCompleted = thisMonthMissed = 0;
         }
@@ -397,6 +412,10 @@ StatsModel* statsInstance;
         [userDefaults setInteger:lastWeekCompleted forKey:@"lastWeekCompleted"];
         [userDefaults setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
         [userDefaults setInteger:lastWeekPoints forKey:@"lastWeekPoints"];
+        
+        [userDefaults setInteger:thisMonthCompleted forKey:@"thisMonthCompleted"];
+        [userDefaults setInteger:thisMonthMissed forKey:@"thisMonthMissed"];
+        [userDefaults setInteger:thisMonthPoints forKey:@"thisMonthPoints"];
         
         [userDefaults setInteger:totalCompleted forKey:@"totalCompleted"];
         [userDefaults setInteger:totalMissed forKey:@"totalMissed"];
