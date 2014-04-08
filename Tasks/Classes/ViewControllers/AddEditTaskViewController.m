@@ -24,7 +24,7 @@
 
 #define SELECT_DATE_SEGUE @"SelectDatesSegue"
 #define EDIT_DETAILS_SEGUE @"EditDetailsSegue"
-#define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 
 
 @interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {

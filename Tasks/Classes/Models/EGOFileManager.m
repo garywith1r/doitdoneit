@@ -55,10 +55,16 @@
 + (NSString*) storeData:(NSData*)data {
     if (data) {
         NSString* path = [EGOFileManager getAvailablePath];
-        [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:nil];
+        [self storeData:data onPath:path];
         return path;
     } else {
         return nil;
+    }
+}
+
++ (void) storeData:(NSData*)data onPath:(NSString*)path {
+    if (data) {
+        [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:nil];
     }
 }
 

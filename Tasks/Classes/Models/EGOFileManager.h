@@ -15,6 +15,7 @@
 
 + (NSString*) storeImage:(UIImage*)image;
 + (NSString*) storeData:(NSData*)data;
++ (void) storeData:(NSData*)data onPath:(NSString*)path;
 
 + (NSString*) getAvailablePath;
 + (void) deleteContentAtPath:(NSString*)path;

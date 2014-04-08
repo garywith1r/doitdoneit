@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5C05EA1618BB0C3E00BE92F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */; };
+		5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */; };
+		5C105C0618F3C1C2002C2A3F /* AddEditUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0518F3C1C2002C2A3F /* AddEditUserViewController.m */; };
+		5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0818F3C53D002C2A3F /* UsersModel.m */; };
 		5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C238D1818E3369A008F764F /* ZoomImageViewController.m */; };
 		5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652DC18BBA461007F8A0C /* NSDate+Reporting.m */; };
 		5C2652EF18BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652E318BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m */; };
@@ -84,6 +87,12 @@
 
 /* Begin PBXFileReference section */
 		5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectionViewController.h; sourceTree = "<group>"; };
+		5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectionViewController.m; sourceTree = "<group>"; };
+		5C105C0418F3C1C2002C2A3F /* AddEditUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditUserViewController.h; sourceTree = "<group>"; };
+		5C105C0518F3C1C2002C2A3F /* AddEditUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditUserViewController.m; sourceTree = "<group>"; };
+		5C105C0718F3C53D002C2A3F /* UsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersModel.h; sourceTree = "<group>"; };
+		5C105C0818F3C53D002C2A3F /* UsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersModel.m; sourceTree = "<group>"; };
 		5C238D1718E3369A008F764F /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageViewController.h; sourceTree = "<group>"; };
 		5C238D1818E3369A008F764F /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageViewController.m; sourceTree = "<group>"; };
 		5C2652DB18BBA461007F8A0C /* NSDate+Reporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Reporting.h"; sourceTree = "<group>"; };
@@ -225,6 +234,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C105C0018F3C173002C2A3F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */,
+				5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */,
+				5C105C0418F3C1C2002C2A3F /* AddEditUserViewController.h */,
+				5C105C0518F3C1C2002C2A3F /* AddEditUserViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		5C2652D818BBA461007F8A0C /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +403,8 @@
 				5CDB775C18BF1191000A4C04 /* StatsModel.m */,
 				5C559B7C18F3819D0092AAE3 /* EGOFileManager.h */,
 				5C559B7D18F3819D0092AAE3 /* EGOFileManager.m */,
+				5C105C0718F3C53D002C2A3F /* UsersModel.h */,
+				5C105C0818F3C53D002C2A3F /* UsersModel.m */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -391,6 +413,7 @@
 		5C9B63C118A1632B0091C1D2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C105C0018F3C173002C2A3F /* Settings */,
 				5C9B63C418A1632B0091C1D2 /* SelectDateViewController.h */,
 				5C9B63C518A1632B0091C1D2 /* SelectDateViewController.m */,
 				5C9B63C618A1632B0091C1D2 /* TasksListViewController.h */,
@@ -600,6 +623,7 @@
 				5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */,
 				5CD882F018E9840D003DD93F /* SVWebViewController.m in Sources */,
 				5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */,
+				5C105C0618F3C1C2002C2A3F /* AddEditUserViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
 				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
@@ -620,6 +644,7 @@
 				5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */,
 				5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */,
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,
+				5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */,
 				5C2652F318BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */,
 				5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */,
@@ -629,6 +654,7 @@
 				5CE4818418E4ACAB0032B6CE /* DAFontSet.m in Sources */,
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,
+				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,

@@ -11,3 +11,5 @@
 #define KEYBOARD_SIZE (216 - 49) // keyboard height - tabbar height
 
 #define ONE_DAY 86400
+
+#define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
