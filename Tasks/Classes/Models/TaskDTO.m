@@ -8,8 +8,16 @@
 
 #import "TaskDTO.h"
 #import "NSDate+Reporting.h"
+#import "EGOFileManager.h"
+#import "TaskListModel.h"
 
 #define DEFAULT_TIME_FOR_TASK 604800 //one week
+
+@interface TaskDTO () {
+    UIImage* thumb;
+}
+
+@end
 
 @implementation TaskDTO
 
@@ -47,7 +55,7 @@
     newTask.repeatTimes = self.repeatTimes;
     newTask.repeatPeriod = self.repeatPeriod;
     newTask.taskPoints = self.taskPoints;
-    newTask.thumbImage = self.thumbImage;
+    newTask.thumbImagePath = self.thumbImagePath;
     newTask.videoUrl = self.videoUrl;
     newTask.detailsText = self.detailsText;
     newTask.detailsLinksArray = self.detailsLinksArray;
@@ -151,8 +159,8 @@
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatTimes] forKey:@"repeatTimes"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.repeatPeriod] forKey:@"repeatPeriod"];
     [dic setObject:[NSString stringWithFormat:@"%d",(int)self.taskPoints] forKey:@"priorityPoints"];
-    if (self.thumbImage)
-        [dic setObject:UIImagePNGRepresentation(self.thumbImage) forKey:@"thumb"];
+    if (self.thumbImagePath)
+        [dic setObject:self.thumbImagePath forKey:@"imagePath"];
     if (self.videoUrl)
         [dic setObject:self.videoUrl forKey:@"videoUrl"];
     
@@ -201,11 +209,11 @@
     dto.repeatPeriod = [[dicctionary objectForKey:@"repeatPeriod"] intValue];
     dto.taskPoints = [[dicctionary objectForKey:@"priorityPoints"] integerValue];
     
-    tempData = [dicctionary objectForKey:@"thumb"];
+    tempString = [dicctionary objectForKey:@"imagePath"];
     if (tempString)
-        dto.thumbImage = [UIImage imageWithData:tempData];
+        dto.thumbImagePath = tempString;
     else
-        dto.thumbImage = nil;
+        dto.thumbImagePath = nil;
     
     tempString = [dicctionary objectForKey:@"videoUrl"];
     if (tempString)
@@ -257,6 +265,38 @@
     return filePath;
 }
 
+
+
+
+- (UIImage*) thumbImage {
+    if (thumb)
+        return thumb;
+    
+    thumb = [EGOFileManager getImageFromPath:self.thumbImagePath];
+    
+    return thumb;
+}
+
+- (void) setThumbImage:(UIImage *)thumbImage {
+    
+    NSString* oldPath = self.thumbImagePath;
+    thumb = thumbImage;
+    if (thumbImage)
+        self.thumbImagePath = [EGOFileManager storeImage:thumbImage];
+    else
+        self.thumbImagePath = nil;
+    
+    if (oldPath && ![@"" isEqualToString:oldPath])
+        [[TaskListModel sharedInstance] checkIfImagePathIsStillInUse:oldPath];
+}
+
+- (void) setVideoUrl:(NSString *)videoUrl {
+    NSString* oldPath = self.videoUrl;
+    _videoUrl = videoUrl;
+    if (oldPath && ![@"" isEqualToString:oldPath])
+        [[TaskListModel sharedInstance] checkIfVideoPathIsStillInUse:oldPath];
+    
+}
 
 
 @end

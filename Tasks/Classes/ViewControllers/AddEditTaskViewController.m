@@ -296,7 +296,6 @@
 - (IBAction) clearPicture {
     [btnImage setImage:nil forState:UIControlStateNormal];
     task.thumbImage = nil;
-#warning delete viedeo
     task.videoUrl = nil;
     
     [btnImage setTitle:@"Import" forState:UIControlStateNormal];
@@ -369,12 +368,6 @@
         
     } else {
         thumbImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-#warning delete video
-        //if there's a videoUrl, then there's a video stored.
-        if (task.videoUrl) {
-            
-        }
-        
         task.videoUrl = nil;
     }
     

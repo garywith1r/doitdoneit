@@ -28,4 +28,8 @@
 - (void) forceRecalculateTasks;
 - (NSArray*) getDoneTasks;
 - (void) evaluateMissedTasks;
+
+
+- (void) checkIfImagePathIsStillInUse:(NSString*) path;
+- (void) checkIfVideoPathIsStillInUse:(NSString*) path;
 @end

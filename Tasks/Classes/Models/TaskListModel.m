@@ -10,6 +10,7 @@
 #import "NSDate+Reporting.h"
 #import "StatsModel.h"
 #import "Constants.h"
+#import "EGOFileManager.h"
 
 #define TASKS_ARRAY_KEY @"tasksList"
 #define COMPLETED_TASKS_ARRAY_KEY @"completedTasksList"
@@ -157,8 +158,6 @@ TaskListModel* instance;
     //if two tasks were created at the same time, then are the same task
     NSMutableArray* tempArray = [[NSMutableArray alloc] initWithCapacity:[tasks count]];
     
-#warning delete video
-    
     if ([tasks containsObject:deletingTask]) {
         for (TaskDTO* task in tasks) {
             if ([task.creationDate timeIntervalSinceDate:deletingTask.creationDate] == 0) {
@@ -180,6 +179,10 @@ TaskListModel* instance;
         doneTasks = nil;
         [self storeCompletedTasksData];
     }
+    
+    //delete stored data
+    deletingTask.thumbImage = nil;
+    deletingTask.videoUrl = nil;
     
     [[StatsModel sharedInstance] contabilizeDeletedTask:deletingTask];
 }
@@ -354,5 +357,50 @@ TaskListModel* instance;
     }
     
     return newTask;
+}
+
+
+
+
+#pragma mark - File Managment methods
+
+- (void) checkIfImagePathIsStillInUse:(NSString*) path {
+    if (path && ![@"" isEqualToString:path]) {
+        NSMutableArray* fullTasksArray = [NSMutableArray arrayWithArray:tasks];
+        [tasks addObjectsFromArray:doneTasks];
+        [tasks addObjectsFromArray:missedTasks];
+        
+        BOOL stillInUse = NO;
+        
+        for (TaskDTO* task in fullTasksArray) {
+            if ([path isEqualToString:task.thumbImagePath]) {
+                stillInUse = YES;
+                break;
+            }
+        }
+        
+        if (!stillInUse)
+            [EGOFileManager deleteContentAtPath:path];
+    }
+}
+
+- (void) checkIfVideoPathIsStillInUse:(NSString*) path {
+    if (path && ![@"" isEqualToString:path]) {
+        NSMutableArray* fullTasksArray = [NSMutableArray arrayWithArray:tasks];
+        [tasks addObjectsFromArray:doneTasks];
+        [tasks addObjectsFromArray:missedTasks];
+        
+        BOOL stillInUse = NO;
+        
+        for (TaskDTO* task in fullTasksArray) {
+            if ([path isEqualToString:task.videoUrl]) {
+                stillInUse = YES;
+                break;
+            }
+        }
+        
+        if (!stillInUse)
+            [EGOFileManager deleteContentAtPath:path];
+    }
 }
 @end
