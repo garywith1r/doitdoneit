@@ -9,6 +9,8 @@
 #import "UsersModel.h"
 #import "EGOFileManager.h"
 
+#define LOGGED_USER_PATH_KEY @"UsersDataPath"
+
 @interface UsersModel () {
     NSArray* storedUsers;
     NSDictionary* logedUser;
@@ -40,11 +42,27 @@ UsersModel* userModelInstance;
 }
 
 - (void) addUser:(NSDictionary*)userData {
-    NSMutableDictionary* userDictionary = [NSMutableDictionary dictionaryWithDictionary:userData];
-    NSString* path = [EGOFileManager getAvailablePath];
-    [userDictionary setObject:path forKey:@"UsersDataPath"];
     
+    NSString* path = [userData objectForKey:@"UsersDataPath"];
+    NSMutableDictionary* userDictionary = [NSMutableDictionary dictionaryWithDictionary:userData];
+    NSDictionary* oldUserData = nil;
+    
+    if (!path || [path isEqualToString:@""]) {
+        path = [EGOFileManager getAvailablePath];
+        [userDictionary setObject:path forKey:@"UsersDataPath"];
+        
+    } else {
+        for (NSDictionary* userDictionary in storedUsers) {
+            if ([[userDictionary objectForKey:LOGGED_USER_PATH_KEY] isEqualToString:path]) {
+                oldUserData = userDictionary;
+                break;
+            }
+        }
+    }
+    
+        
     NSMutableArray* tempArray = [NSMutableArray arrayWithArray:storedUsers];
+    [tempArray removeObject:oldUserData];
     [tempArray addObject:[NSDictionary dictionaryWithDictionary:userDictionary]];
     
     storedUsers = [NSArray arrayWithArray:tempArray];

@@ -9,6 +9,7 @@
 #import "AddEditUserViewController.h"
 #import "Constants.h"
 #import "UsersModel.h"
+#import "EGOFileManager.h"
 
 @interface AddEditUserViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     UIImagePickerController* _imagePickerController;
@@ -27,18 +28,43 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (self.usersDictionary) {
+        NSLog(@"%@",[self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY]);
+        txtName.text = [self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY];
+        NSString* imagePath = [self.usersDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
+        if (imagePath) {
+            image = [EGOFileManager getImageFromPath:imagePath];
+            [btnImage setTitle:@"" forState:UIControlStateNormal];
+            btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
+            [btnImage setImage:image forState:UIControlStateNormal];
+        }
+        
+    }
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    if ([self.delegate respondsToSelector:@selector(updatedUsersDictionary:)]) {
+    NSArray *viewControllers = self.navigationController.viewControllers;
     
-        NSDictionary* usersData = @{LOGGED_USER_NAME_KEY:txtName,LOGGED_USER_IMAGE_KEY:image};
-        [self.delegate updatedUsersDictionary:usersData];
+    if ([viewControllers indexOfObject:self] == NSNotFound) { //view is being poped.
+        NSMutableDictionary* newUserDictionary = [[NSMutableDictionary alloc] initWithDictionary:self.usersDictionary];
+        [newUserDictionary setObject:txtName.text forKey:LOGGED_USER_NAME_KEY];
+        
+        if (image) {
+            NSString* imagePath = [EGOFileManager storeImage:image];
+            [newUserDictionary setObject:imagePath forKey:LOGGED_USER_IMAGE_KEY];
+        } else {
+            NSString* imagePath = [newUserDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
+            if (imagePath)
+                [EGOFileManager deleteContentAtPath:imagePath];
+            [newUserDictionary removeObjectForKey:LOGGED_USER_IMAGE_KEY];
+        }
+        
+        [[UsersModel sharedInstance] addUser:[NSDictionary dictionaryWithDictionary:newUserDictionary]];
     }
-    
 }
 
 

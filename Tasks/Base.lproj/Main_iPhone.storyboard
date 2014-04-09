@@ -195,11 +195,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">￼This app is designed to help you establish intentional habits by regularly doing tasks (e.g. weekly) that keep you on track towards your personal goals.
+                                <string key="text">￼This app is designed to help you establish intentional habits by regularly doing tasks (e.g. weekly) that keep you on track towards your personal goals.
 
 All your tasks here have a timeframe that allow for greater flexibility (e.g. ‘go for a run 3x/week’). Habits take time to establish so celebrate each step and don’t get discouraged while you build momentum.
 
-Once you have momentum keep it up. Your stats will show you where you’re at so you can adjust. First create some tasks. We’ll remind you to check your ‘Do It’ list everyday so you can knock a few items off. At the end of the week check back to see how you did.</mutableString>
+Once you have momentum keep it up. Your stats will show you where you’re at so you can adjust. First create some tasks. We’ll remind you to check your ‘Do It’ list everyday so you can knock a few items off. At the end of the week check back to see how you did.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -228,6 +228,10 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TaJ-uL-A9n" id="4kT-4G-aRq"/>
+                                    <outlet property="delegate" destination="TaJ-uL-A9n" id="PJR-O9-F6T"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -240,6 +244,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="table" destination="XiH-Lt-mfa" id="vGH-S2-0um"/>
                         <segue destination="UaL-GW-9p4" kind="push" identifier="EditUserSegue" id="VyM-aZ-jzV"/>
                     </connections>
                 </viewController>
@@ -287,7 +292,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Eh-Sd-EZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630" y="1588"/>
+            <point key="canvasLocation" x="1668" y="1588"/>
         </scene>
         <!--Stats View Controller - Stats-->
         <scene sceneID="tCy-be-KmA">
@@ -1648,7 +1653,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VyM-aZ-jzV"/>
         <segue reference="Rd5-v8-kFa"/>
+        <segue reference="VyM-aZ-jzV"/>
     </inferredMetricsTieBreakers>
 </document>

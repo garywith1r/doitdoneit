@@ -7,17 +7,18 @@
 //
 
 #import "UserSelectionViewController.h"
+#import "SWTableViewCell.h"
+#import "UsersModel.h"
+#import "AddEditUserViewController.h"
+
+@interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate> {
+    NSArray* usersArray;
+    IBOutlet UITableView* table;
+}
+
+@end
 
 @implementation UserSelectionViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -25,21 +26,57 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    usersArray = [[UsersModel sharedInstance] getUsers];
+    [table reloadData];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"EditUserSegue"]) {
+        AddEditUserViewController* vc = segue.destinationViewController;
+        vc.usersDictionary = [usersArray objectAtIndex:((NSIndexPath*)sender).row];
+    }
+}
+
+#pragma mark - UITableView Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return usersArray.count;
+}
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"Cell";
+    
+    
+    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+        NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+        
+        [rightUtilityButtons sw_addUtilityButtonWithColor:
+         [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:0.0]
+                                                     icon:[UIImage imageNamed:@"Delete.png"] tag:indexPath.row];
+        
+        
+        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellIdentifier
+                                  containingTableView:tableView // For row height and selection
+                                   leftUtilityButtons:leftUtilityButtons
+                                  rightUtilityButtons:rightUtilityButtons];
+        
+        cell.delegate = self;
+    }
+    
+    cell.textLabel.text = [[usersArray objectAtIndex:indexPath.row] objectForKey:LOGGED_USER_NAME_KEY];
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"EditUserSegue" sender:indexPath];
+}
 
 @end
