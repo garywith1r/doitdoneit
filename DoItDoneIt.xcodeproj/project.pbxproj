@@ -25,6 +25,8 @@
 		5C30E54318BC5F450083FF23 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C30E53D18BC5F450083FF23 /* Calendar.png */; };
 		5C30E54418BC5F450083FF23 /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C30E53E18BC5F450083FF23 /* Edit.png */; };
 		5C30E54518BC5F450083FF23 /* Star_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C30E53F18BC5F450083FF23 /* Star_Gray.png */; };
+		5C35A13818F5E47A0067959F /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C35A13718F5E47A0067959F /* SummaryViewController.m */; };
+		5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C35A14418F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m */; };
 		5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C559B7818F381260092AAE3 /* EGOCache.m */; };
 		5C559B7B18F381260092AAE3 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 5C559B7918F381260092AAE3 /* README.mdown */; };
 		5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C559B7D18F3819D0092AAE3 /* EGOFileManager.m */; };
@@ -116,6 +118,10 @@
 		5C30E53D18BC5F450083FF23 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
 		5C30E53E18BC5F450083FF23 /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Edit.png; sourceTree = "<group>"; };
 		5C30E53F18BC5F450083FF23 /* Star_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star_Gray.png; sourceTree = "<group>"; };
+		5C35A13618F5E47A0067959F /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		5C35A13718F5E47A0067959F /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		5C35A14318F5F5A50067959F /* NSMutableDictionary+NumbersStoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+NumbersStoring.h"; path = "Tasks/Classes/3rd Party/NSMutableDictionary+NumbersStoring/NSMutableDictionary+NumbersStoring.h"; sourceTree = SOURCE_ROOT; };
+		5C35A14418F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+NumbersStoring.m"; path = "Tasks/Classes/3rd Party/NSMutableDictionary+NumbersStoring/NSMutableDictionary+NumbersStoring.m"; sourceTree = SOURCE_ROOT; };
 		5C559B7718F381260092AAE3 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
 		5C559B7818F381260092AAE3 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
 		5C559B7918F381260092AAE3 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
@@ -252,6 +258,7 @@
 				5CC1E9E618BD379C0018955E /* DeviceDetector */,
 				5C559B7618F381260092AAE3 /* EGOCache-master */,
 				5C2652D918BBA461007F8A0C /* NSDateCategoryForReporting-master */,
+				5C35A13F18F5F5280067959F /* NSDictionary+NumberStoring */,
 				5CD882CE18E9840D003DD93F /* SVWebViewController */,
 				5C2652E118BBF5FD007F8A0C /* SWTableViewCell */,
 			);
@@ -286,6 +293,15 @@
 				5C2652EE18BBF5FD007F8A0C /* SWUtilityButtonView.m */,
 			);
 			path = SWTableViewCell;
+			sourceTree = "<group>";
+		};
+		5C35A13F18F5F5280067959F /* NSDictionary+NumberStoring */ = {
+			isa = PBXGroup;
+			children = (
+				5C35A14318F5F5A50067959F /* NSMutableDictionary+NumbersStoring.h */,
+				5C35A14418F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m */,
+			);
+			path = "NSDictionary+NumberStoring";
 			sourceTree = "<group>";
 		};
 		5C559B7618F381260092AAE3 /* EGOCache-master */ = {
@@ -441,6 +457,8 @@
 				5C238D1818E3369A008F764F /* ZoomImageViewController.m */,
 				5CA2DED318EC771D00F55BC0 /* HistoricalViewController.h */,
 				5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */,
+				5C35A13618F5E47A0067959F /* SummaryViewController.h */,
+				5C35A13718F5E47A0067959F /* SummaryViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -658,9 +676,11 @@
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
+				5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */,
 				5C9B63CB18A1632B0091C1D2 /* SelectDateViewController.m in Sources */,
 				5CD882EE18E9840D003DD93F /* SVModalWebViewController.m in Sources */,
 				5CE4818218E4ACAB0032B6CE /* DAAttributedStringFormatter.m in Sources */,
+				5C35A13818F5E47A0067959F /* SummaryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

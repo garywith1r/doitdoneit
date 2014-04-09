@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSMutableDictionary+NumbersStoring.h"
 
 #define LOGGED_USER_IMAGE_KEY @"loggedUserImage"
 #define LOGGED_USER_NAME_KEY @"loggedUserName"
@@ -16,10 +17,13 @@
 + (UsersModel*) sharedInstance;
 
 - (NSArray*) getUsers;
+
 - (void) addUser:(NSDictionary*)userData;
 - (void) saveUsersArray;
 - (void) saveCurrentUserData;
 
 - (void) changeToUserAtIndex:(NSInteger)index;
+
+@property (nonatomic, readonly) NSDictionary* logedUser;
 
 @end

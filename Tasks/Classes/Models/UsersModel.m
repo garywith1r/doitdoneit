@@ -13,7 +13,6 @@
 
 @interface UsersModel () {
     NSArray* storedUsers;
-    NSDictionary* logedUser;
     NSMutableDictionary* logedUserData;
     
     NSInteger logedUserIndex;
@@ -22,6 +21,7 @@
 @end
 
 @implementation UsersModel
+@synthesize logedUser;
 
 UsersModel* userModelInstance;
 
@@ -45,6 +45,7 @@ UsersModel* userModelInstance;
     
     NSString* path = [userData objectForKey:@"UsersDataPath"];
     NSMutableDictionary* userDictionary = [NSMutableDictionary dictionaryWithDictionary:userData];
+    
     NSDictionary* oldUserData = nil;
     
     if (!path || [path isEqualToString:@""]) {
