@@ -84,12 +84,14 @@
 }
 
 + (void) deleteContentAtPath:(NSString*)path {
-    [[EGOCache globalCache] removeCacheForKey:path];
-    NSError* error;
-    [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-    
-    if (error) {
-        NSLog(@"Error deleting file at path: %@: %@",path,error.description);
+    if (path && ![@"" isEqualToString:path]) {
+        [[EGOCache globalCache] removeCacheForKey:path];
+        NSError* error;
+        [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+        
+        if (error) {
+            NSLog(@"Error deleting file at path: %@: %@",path,error.description);
+        }
     }
 }
 

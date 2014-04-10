@@ -23,6 +23,8 @@
 #import "MHCustomTabBarController.h"
 
 #import "MHTabBarSegue.h"
+#import "UserSelectionViewController.h"
+
 
 NSString *const MHCustomTabBarControllerViewControllerChangedNotification = @"MHCustomTabBarControllerViewControllerChangedNotification";
 NSString *const MHCustomTabBarControllerViewControllerAlreadyVisibleNotification = @"MHCustomTabBarControllerViewControllerAlreadyVisibleNotification";
@@ -99,6 +101,13 @@ NSString *const MHCustomTabBarControllerViewControllerAlreadyVisibleNotification
             [_viewControllersByIdentifier removeObjectForKey:key];
         }
     }];
+}
+
+
+- (void) changeUser {
+    UserSelectionViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSelectionViewController"];
+    vc.isChangingUser = YES;
+    [((UINavigationController*)self.destinationViewController) pushViewController:vc animated:YES];
 }
 
 @end

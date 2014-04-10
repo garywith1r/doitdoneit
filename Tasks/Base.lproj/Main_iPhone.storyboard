@@ -26,8 +26,9 @@
         <!--Navigation Controller - Do It-->
         <scene sceneID="ywX-Z1-g0N">
             <objects>
-                <navigationController definesPresentationContext="YES" id="cqD-jM-1LK" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="cqD-jM-1LK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Do It" id="FHX-B3-P0W"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9s5-iP-kgX">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -348,7 +349,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
         <!--User Selection View Controller - User Profiles-->
         <scene sceneID="WbO-a3-W0L">
             <objects>
-                <viewController id="TaJ-uL-A9n" customClass="UserSelectionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserSelectionView" id="TaJ-uL-A9n" customClass="UserSelectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jvt-e4-CGC"/>
                         <viewControllerLayoutGuide type="bottom" id="awF-VJ-gjl"/>
@@ -601,7 +602,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <viewControllerLayoutGuide type="bottom" id="qDE-XM-p2H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ir0-dn-1xQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-L2-ggs">
@@ -652,11 +653,11 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <viewControllerLayoutGuide type="bottom" id="igy-YX-3jI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="44" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oDI-yT-Ggr" userLabel="Today Tasks Table View">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="150" width="320" height="369"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
@@ -665,6 +666,14 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="gy7-wP-Fyq"/>
                                 </connections>
                             </tableView>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D00-Ph-DLK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="huX-jM-E1O" kind="embed" id="3W4-BO-QEa"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -694,19 +703,19 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <viewControllerLayoutGuide type="bottom" id="VN0-a0-mNf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ls4-Pn-Adp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-Nc-VI2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-8n-GPo">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="569"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Dn-MB-pa2" userLabel="Create Tasks Info View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="395"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="346"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJQ-3v-Bs6">
@@ -1723,22 +1732,26 @@ Missed:     Hit:</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gP9-Fh-eVz">
-                                <rect key="frame" x="20" y="20" width="60" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gP9-Fh-eVz">
+                                <rect key="frame" x="15" y="20" width="72" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Avatar">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeUser" destination="huX-jM-E1O" eventType="touchUpInside" id="FY6-s4-xr0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfm-1m-pgA">
-                                <rect key="frame" x="100" y="20" width="200" height="45"/>
+                                <rect key="frame" x="100" y="20" width="200" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stats" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWp-qP-afF">
-                                <rect key="frame" x="100" y="73" width="200" height="45"/>
+                                <rect key="frame" x="100" y="61" width="200" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1750,14 +1763,14 @@ Missed:     Hit:</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="150"/>
                     <connections>
-                        <outlet property="imageButton" destination="gP9-Fh-eVz" id="gAO-sL-FBg"/>
+                        <outlet property="btnImage" destination="gP9-Fh-eVz" id="hri-Pt-x1F"/>
                         <outlet property="nameLabel" destination="Hfm-1m-pgA" id="w64-1L-wXu"/>
                         <outlet property="statsLabel" destination="BWp-qP-afF" id="LJd-jC-7HC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xt3-kH-QGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="2472"/>
+            <point key="canvasLocation" x="819" y="-918"/>
         </scene>
         <!--Select Date View Controller-->
         <scene sceneID="hus-Wf-3Qh">
@@ -1768,7 +1781,7 @@ Missed:     Hit:</string>
                         <viewControllerLayoutGuide type="bottom" id="W56-pr-Akt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="37g-JO-5St">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-KJ-D8y">
@@ -1834,7 +1847,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Rd5-v8-kFa"/>
+        <segue reference="SUC-Xe-f5k"/>
         <segue reference="aGr-K0-KqR"/>
         <segue reference="VyM-aZ-jzV"/>
     </inferredMetricsTieBreakers>

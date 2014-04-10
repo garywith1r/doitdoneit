@@ -9,6 +9,7 @@
 #import "SummaryViewController.h"
 #import "UsersModel.h"
 #import "EGOFileManager.h"
+#import "MHCustomTabBarController.h"
 
 @interface SummaryViewController () {
     IBOutlet UIButton* btnImage;
@@ -37,6 +38,11 @@
         btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [btnImage setImage:image forState:UIControlStateNormal];
     }
+}
+
+- (IBAction) changeUser {
+    MHCustomTabBarController* tabBar = [self.storyboard instantiateInitialViewController];
+    [tabBar changeUser];
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface UserSelectionViewController : UIViewController
 
+@property BOOL isChangingUser;
+
 @end

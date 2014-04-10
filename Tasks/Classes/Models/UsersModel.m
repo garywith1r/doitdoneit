@@ -11,7 +11,7 @@
 
 #define LOGGED_USER_PATH_KEY @"UsersDataPath"
 
-#define DEFAULT_USER @{@"":LOGGED_USER_IMAGE_KEY,@"Default User":LOGGED_USER_NAME_KEY}
+#define DEFAULT_USER @{LOGGED_USER_IMAGE_KEY:@"",LOGGED_USER_NAME_KEY:@"Default User"}
 
 @interface UsersModel () {
     NSArray* storedUsers;
@@ -82,6 +82,7 @@ UsersModel* userModelInstance;
     
     storedUsers = [NSArray arrayWithArray:tempArray];
     [self saveUsersArray];
+    logedUser = storedUsers[logedUserIndex];
 }
 
 - (void) saveUsersArray {
