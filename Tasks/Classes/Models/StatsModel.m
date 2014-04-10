@@ -10,6 +10,8 @@
 #import "NSDate+Reporting.h"
 #import "TaskListModel.h"
 #import "Constants.h"
+#import "UsersModel.h"
+#import "NSMutableDictionary+NumbersStoring.h"
 
 @interface StatsModel () {
     NSDate* today;
@@ -84,19 +86,19 @@ StatsModel* statsInstance;
     totalCompleted++;
     totalPoints += task.taskPoints;
     
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:todayCompleted forKey:@"todayCompleted"];
-    [userDefaults setInteger:todayPoints forKey:@"todayPoints"];
-    [userDefaults setInteger:thisWeekCompleted forKey:@"thisWeekCompleted"];
-    [userDefaults setInteger:thisWeekPoints forKey:@"thisWeekPoints"];
-    [userDefaults setInteger:thisMonthCompleted forKey:@"thisMonthCompleted"];
-    [userDefaults setInteger:thisMonthPoints forKey:@"thisMonthPoints"];
-    [userDefaults setInteger:totalCompleted forKey:@"totalCompleted"];
-    [userDefaults setInteger:totalPoints forKey:@"totalPoints"];
+    NSMutableDictionary* userData = [UsersModel sharedInstance].logedUserData;
+    [userData setInteger:todayCompleted forKey:@"todayCompleted"];
+    [userData setInteger:todayPoints forKey:@"todayPoints"];
+    [userData setInteger:thisWeekCompleted forKey:@"thisWeekCompleted"];
+    [userData setInteger:thisWeekPoints forKey:@"thisWeekPoints"];
+    [userData setInteger:thisMonthCompleted forKey:@"thisMonthCompleted"];
+    [userData setInteger:thisMonthPoints forKey:@"thisMonthPoints"];
+    [userData setInteger:totalCompleted forKey:@"totalCompleted"];
+    [userData setInteger:totalPoints forKey:@"totalPoints"];
     
     
     
-    NSDate* lastCompleteTaskDay = [userDefaults objectForKey:@"lastCompleteTaskDay"];
+    NSDate* lastCompleteTaskDay = [userData objectForKey:@"lastCompleteTaskDay"];
     
     //AWARD
     if ([today timeIntervalSinceDate:lastCompleteTaskDay] != 0 ) {
@@ -104,7 +106,7 @@ StatsModel* statsInstance;
             consecutiveDays ++;
             if (consecutiveDays > bestConsecutiveDays) {
                 bestConsecutiveDays = consecutiveDays;
-                [userDefaults setInteger:bestConsecutiveDays forKey:@"bestConsecutiveDays"];
+                [userData setInteger:bestConsecutiveDays forKey:@"bestConsecutiveDays"];
                 
                 NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:bestConsecutiveDays],
                                       @"type":[NSNumber numberWithInteger:ConsecutiveDaysAward],
@@ -117,12 +119,12 @@ StatsModel* statsInstance;
             consecutiveDays = 0;
         }
         
-        [userDefaults setInteger:consecutiveDays forKey:@"consecutiveDays"];
-        [userDefaults setObject:today forKey:@"lastCompleteTaskDay"];
+        [userData setInteger:consecutiveDays forKey:@"consecutiveDays"];
+        [userData setObject:today forKey:@"lastCompleteTaskDay"];
         
     }
     
-    [userDefaults synchronize];
+    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 
@@ -193,25 +195,25 @@ StatsModel* statsInstance;
         
     }
     
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:todayCompleted forKey:@"todayCompleted"];
-    [userDefaults setInteger:todayPoints forKey:@"todayPoints"];
-    [userDefaults setInteger:yesterdayCompleted forKey:@"yesterdayCompleted"];
-    [userDefaults setInteger:yesterdayPoints forKey:@"yesterdayPoints"];
-    [userDefaults setInteger:thisWeekCompleted forKey:@"thisWeekCompleted"];
-    [userDefaults setInteger:thisWeekPoints forKey:@"thisWeekPoints"];
-    [userDefaults setInteger:lastWeekCompleted forKey:@"lastWeekCompleted"];
-    [userDefaults setInteger:lastWeekPoints forKey:@"lastWeekPoints"];
-    [userDefaults setInteger:totalCompleted forKey:@"totalCompleted"];
-    [userDefaults setInteger:totalPoints forKey:@"totalPoints"];
+    NSMutableDictionary* userData = [UsersModel sharedInstance].logedUserData;
+    [userData setInteger:todayCompleted forKey:@"todayCompleted"];
+    [userData setInteger:todayPoints forKey:@"todayPoints"];
+    [userData setInteger:yesterdayCompleted forKey:@"yesterdayCompleted"];
+    [userData setInteger:yesterdayPoints forKey:@"yesterdayPoints"];
+    [userData setInteger:thisWeekCompleted forKey:@"thisWeekCompleted"];
+    [userData setInteger:thisWeekPoints forKey:@"thisWeekPoints"];
+    [userData setInteger:lastWeekCompleted forKey:@"lastWeekCompleted"];
+    [userData setInteger:lastWeekPoints forKey:@"lastWeekPoints"];
+    [userData setInteger:totalCompleted forKey:@"totalCompleted"];
+    [userData setInteger:totalPoints forKey:@"totalPoints"];
     
-    [userDefaults setInteger:todayMissed forKey:@"todayMissed"];
-    [userDefaults setInteger:yesterdayMissed forKey:@"yesterdayMissed"];
-    [userDefaults setInteger:thisWeekMissed forKey:@"thisWeekMissed"];
-    [userDefaults setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
-    [userDefaults setInteger:totalMissed forKey:@"totalMissed"];
+    [userData setInteger:todayMissed forKey:@"todayMissed"];
+    [userData setInteger:yesterdayMissed forKey:@"yesterdayMissed"];
+    [userData setInteger:thisWeekMissed forKey:@"thisWeekMissed"];
+    [userData setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
+    [userData setInteger:totalMissed forKey:@"totalMissed"];
     
-    [userDefaults synchronize];
+    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 
@@ -264,60 +266,60 @@ StatsModel* statsInstance;
     
     
     if (save) {
-        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setInteger:todayMissed forKey:@"todayMissed"];
-        [userDefaults setInteger:yesterdayMissed forKey:@"yesterdayMissed"];
-        [userDefaults setInteger:thisWeekMissed forKey:@"thisWeekMissed"];
-        [userDefaults setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
-        [userDefaults setInteger:thisMonthMissed forKey:@"thisMonthMissed"];
-        [userDefaults setInteger:totalMissed forKey:@"totalMissed"];
+        NSMutableDictionary* userData = [UsersModel sharedInstance].logedUserData;
+        [userData setInteger:todayMissed forKey:@"todayMissed"];
+        [userData setInteger:yesterdayMissed forKey:@"yesterdayMissed"];
+        [userData setInteger:thisWeekMissed forKey:@"thisWeekMissed"];
+        [userData setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
+        [userData setInteger:thisMonthMissed forKey:@"thisMonthMissed"];
+        [userData setInteger:totalMissed forKey:@"totalMissed"];
         
-        [userDefaults synchronize];
+        [[UsersModel sharedInstance] saveCurrentUserData];
     }
 }
 
 - (void) loadData {
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary* userData = [UsersModel sharedInstance].logedUserData;
     
-    today = [userDefaults objectForKey:@"storedToday"];
+    today = [userData objectForKey:@"storedToday"];
     
-    todayCompleted = [userDefaults integerForKey:@"todayCompleted"];
-    todayMissed = [userDefaults integerForKey:@"todayMissed"];
-    todayPoints = [userDefaults integerForKey:@"todayPoints"];
+    todayCompleted = [userData integerForKey:@"todayCompleted"];
+    todayMissed = [userData integerForKey:@"todayMissed"];
+    todayPoints = [userData integerForKey:@"todayPoints"];
     
-    yesterdayCompleted = [userDefaults integerForKey:@"yesterdayCompleted"];
-    yesterdayMissed = [userDefaults integerForKey:@"yesterdayMissed"];
-    yesterdayPoints = [userDefaults integerForKey:@"yesterdayPoints"];
+    yesterdayCompleted = [userData integerForKey:@"yesterdayCompleted"];
+    yesterdayMissed = [userData integerForKey:@"yesterdayMissed"];
+    yesterdayPoints = [userData integerForKey:@"yesterdayPoints"];
     
-    thisWeekCompleted = [userDefaults integerForKey:@"thisWeekCompleted"];
-    thisWeekMissed = [userDefaults integerForKey:@"thisWeekMissed"];
-    thisWeekPoints = [userDefaults integerForKey:@"thisWeekPoints"];
+    thisWeekCompleted = [userData integerForKey:@"thisWeekCompleted"];
+    thisWeekMissed = [userData integerForKey:@"thisWeekMissed"];
+    thisWeekPoints = [userData integerForKey:@"thisWeekPoints"];
     
-    lastWeekCompleted = [userDefaults integerForKey:@"lastWeekCompleted"];
-    lastWeekMissed = [userDefaults integerForKey:@"lastWeekMissed"];
-    lastWeekPoints = [userDefaults integerForKey:@"lastWeekPoints"];
+    lastWeekCompleted = [userData integerForKey:@"lastWeekCompleted"];
+    lastWeekMissed = [userData integerForKey:@"lastWeekMissed"];
+    lastWeekPoints = [userData integerForKey:@"lastWeekPoints"];
     
-    thisMonthCompleted = [userDefaults integerForKey:@"thisMonthCompleted"];
-    thisMonthMissed = [userDefaults integerForKey:@"thisMonthMissed"];
-    thisMonthPoints = [userDefaults integerForKey:@"thisMonthPoints"];
+    thisMonthCompleted = [userData integerForKey:@"thisMonthCompleted"];
+    thisMonthMissed = [userData integerForKey:@"thisMonthMissed"];
+    thisMonthPoints = [userData integerForKey:@"thisMonthPoints"];
     
-    totalCompleted = [userDefaults integerForKey:@"totalCompleted"];
-    totalMissed = [userDefaults integerForKey:@"totalMissed"];
-    totalPoints = [userDefaults integerForKey:@"totalPoints"];
+    totalCompleted = [userData integerForKey:@"totalCompleted"];
+    totalMissed = [userData integerForKey:@"totalMissed"];
+    totalPoints = [userData integerForKey:@"totalPoints"];
     
     
-    bestDailyCompletedTasksAmount = [userDefaults floatForKey:@"bestDaily"];
-    bestWeeklyCompletedTasksAmount = [userDefaults floatForKey:@"bestWeekly"];
-    bestMontlyCompletedTaskAmount = [userDefaults floatForKey:@"bestMontly"];
+    bestDailyCompletedTasksAmount = [userData floatForKey:@"bestDaily"];
+    bestWeeklyCompletedTasksAmount = [userData floatForKey:@"bestWeekly"];
+    bestMontlyCompletedTaskAmount = [userData floatForKey:@"bestMontly"];
     
-    awards = [userDefaults objectForKey:@"AwardsArray"];
-    [userDefaults synchronize];
+    awards = [userData objectForKey:@"AwardsArray"];
+    [[UsersModel sharedInstance] saveCurrentUserData];
 }
 
 - (void) evaluateDay {
     if (today && ([today timeIntervalSinceDate:[NSDate midnightToday]] != 0)) {
         
-        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+        NSMutableDictionary* userData = [UsersModel sharedInstance].logedUserData;
         
         if ([[NSDate midnightToday] timeIntervalSinceDate:today] <= ONE_DAY) {
             //has passed one day, so today is yesterday.
@@ -338,7 +340,7 @@ StatsModel* statsInstance;
             [self addAward:dic];
             
             bestDailyCompletedTasksAmount = todayCompleted;
-            [userDefaults setFloat:todayCompleted forKey:@"bestDaily"];
+            [userData setFloat:todayCompleted forKey:@"bestDaily"];
             
             
             
@@ -368,7 +370,7 @@ StatsModel* statsInstance;
                 [self addAward:dic];
                 
                 bestWeeklyCompletedTasksAmount = thisWeekCompleted;
-                [userDefaults setFloat:bestWeeklyCompletedTasksAmount forKey:@"bestDaily"];
+                [userData setFloat:bestWeeklyCompletedTasksAmount forKey:@"bestDaily"];
             }
             
             thisWeekPoints = thisWeekCompleted = thisWeekMissed = 0;
@@ -387,7 +389,7 @@ StatsModel* statsInstance;
                 [self addAward:dic];
                 
                 
-                [userDefaults setFloat:bestMontlyCompletedTaskAmount forKey:@"bestMontly"];
+                [userData setFloat:bestMontlyCompletedTaskAmount forKey:@"bestMontly"];
             }
             thisMonthPoints = thisMonthCompleted = thisMonthMissed = 0;
         }
@@ -395,39 +397,38 @@ StatsModel* statsInstance;
         today = [NSDate midnightToday];
     
         
-        [userDefaults setObject:today forKey:@"storedToday"];
+        [userData setObject:today forKey:@"storedToday"];
         
-        [userDefaults setInteger:todayCompleted forKey:@"todayCompleted"];
-        [userDefaults setInteger:todayMissed forKey:@"todayMissed"];
-        [userDefaults setInteger:todayPoints forKey:@"todayPoints"];
+        [userData setInteger:todayCompleted forKey:@"todayCompleted"];
+        [userData setInteger:todayMissed forKey:@"todayMissed"];
+        [userData setInteger:todayPoints forKey:@"todayPoints"];
         
-        [userDefaults setInteger:yesterdayCompleted forKey:@"yesterdayCompleted"];
-        [userDefaults setInteger:yesterdayMissed forKey:@"yesterdayMissed"];
-        [userDefaults setInteger:yesterdayPoints forKey:@"yesterdayPoints"];
+        [userData setInteger:yesterdayCompleted forKey:@"yesterdayCompleted"];
+        [userData setInteger:yesterdayMissed forKey:@"yesterdayMissed"];
+        [userData setInteger:yesterdayPoints forKey:@"yesterdayPoints"];
         
-        [userDefaults setInteger:thisWeekCompleted forKey:@"thisWeekCompleted"];
-        [userDefaults setInteger:thisWeekPoints forKey:@"thisWeekPoints"];
-        [userDefaults setInteger:thisWeekMissed forKey:@"thisWeekMissed"];
+        [userData setInteger:thisWeekCompleted forKey:@"thisWeekCompleted"];
+        [userData setInteger:thisWeekPoints forKey:@"thisWeekPoints"];
+        [userData setInteger:thisWeekMissed forKey:@"thisWeekMissed"];
         
-        [userDefaults setInteger:lastWeekCompleted forKey:@"lastWeekCompleted"];
-        [userDefaults setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
-        [userDefaults setInteger:lastWeekPoints forKey:@"lastWeekPoints"];
+        [userData setInteger:lastWeekCompleted forKey:@"lastWeekCompleted"];
+        [userData setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
+        [userData setInteger:lastWeekPoints forKey:@"lastWeekPoints"];
         
-        [userDefaults setInteger:thisMonthCompleted forKey:@"thisMonthCompleted"];
-        [userDefaults setInteger:thisMonthMissed forKey:@"thisMonthMissed"];
-        [userDefaults setInteger:thisMonthPoints forKey:@"thisMonthPoints"];
+        [userData setInteger:thisMonthCompleted forKey:@"thisMonthCompleted"];
+        [userData setInteger:thisMonthMissed forKey:@"thisMonthMissed"];
+        [userData setInteger:thisMonthPoints forKey:@"thisMonthPoints"];
         
-        [userDefaults setInteger:totalCompleted forKey:@"totalCompleted"];
-        [userDefaults setInteger:totalMissed forKey:@"totalMissed"];
-        [userDefaults setInteger:totalPoints forKey:@"totalPoints"];
+        [userData setInteger:totalCompleted forKey:@"totalCompleted"];
+        [userData setInteger:totalMissed forKey:@"totalMissed"];
+        [userData setInteger:totalPoints forKey:@"totalPoints"];
         
-        [userDefaults synchronize];
     } else if (!today) {
         today = [NSDate midnightToday];
-        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:today forKey:@"storedToday"];
-        [userDefaults synchronize];
+        [[UsersModel sharedInstance].logedUserData setObject:today forKey:@"storedToday"];
     }
+    
+    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 
@@ -446,8 +447,7 @@ StatsModel* statsInstance;
     [tempArray insertObject:awardDic atIndex:0];
     
     self.awards = [NSArray arrayWithArray:tempArray];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:awards forKey:@"AwardsArray"];
+    [[UsersModel sharedInstance].logedUserData setObject:awards forKey:@"AwardsArray"];
              
 }
 

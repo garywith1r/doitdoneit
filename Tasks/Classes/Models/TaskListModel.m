@@ -11,6 +11,7 @@
 #import "StatsModel.h"
 #import "Constants.h"
 #import "EGOFileManager.h"
+#import "UsersModel.h"
 
 #define TASKS_ARRAY_KEY @"tasksList"
 #define COMPLETED_TASKS_ARRAY_KEY @"completedTasksList"
@@ -85,13 +86,13 @@ TaskListModel* instance;
         [storeArray addObject:[task convertToDictionary]];
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithArray:storeArray] forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[UsersModel sharedInstance].logedUserData setObject:[NSArray arrayWithArray:storeArray] forKey:key];
+    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 
 - (NSMutableArray*) loadTaskArrayForKey:(NSString*) key {
-    NSArray* storedArray = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSArray* storedArray = [[UsersModel sharedInstance].logedUserData objectForKey:key];
     
     NSMutableArray* tempArray = [NSMutableArray arrayWithCapacity:storedArray.count];
     

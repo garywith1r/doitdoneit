@@ -25,5 +25,6 @@
 - (void) changeToUserAtIndex:(NSInteger)index;
 
 @property (nonatomic, readonly) NSDictionary* logedUser;
+@property (nonatomic, readonly) NSMutableDictionary* logedUserData;
 
 @end

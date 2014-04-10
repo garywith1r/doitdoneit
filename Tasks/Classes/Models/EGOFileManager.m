@@ -31,16 +31,20 @@
 }
 
 + (NSData*) getDataFromPath:(NSString*)path {
-    EGOCache* cache = [EGOCache globalCache];
-    NSData* data = [cache dataForKey:path];
-    
-    if (data) //cache hit.
+    if (path && ![@"" isEqualToString:path]) {
+        EGOCache* cache = [EGOCache globalCache];
+        NSData* data = [cache dataForKey:path];
+        
+        if (data) //cache hit.
+            return data;
+        
+        data = [[NSFileManager defaultManager] contentsAtPath:path];
+        [cache setObject:data forKey:path];
+        
         return data;
-    
-    data = [[NSFileManager defaultManager] contentsAtPath:path];
-    [cache setObject:data forKey:path];
-    
-    return data;
+    } else {
+        return nil;
+    }
 }
 
 + (NSString*) storeImage:(UIImage*)image {
