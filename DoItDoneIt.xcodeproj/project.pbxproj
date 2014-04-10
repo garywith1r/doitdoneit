@@ -47,6 +47,8 @@
 		5C9B63D318A1635C0091C1D2 /* TaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63D218A1635C0091C1D2 /* TaskListModel.m */; };
 		5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63D718A17AAC0091C1D2 /* TasksViewCell.m */; };
 		5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */; };
+		5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1222718F72A2100F32CCF /* MHCustomTabBarController.m */; };
+		5CA1222B18F72A2100F32CCF /* MHTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */; };
 		5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */; };
 		5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7093618EEE7BD00D3B55F /* AwardsViewController.m */; };
 		5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1E9E818BD379C0018955E /* DeviceDetector.m */; };
@@ -156,6 +158,10 @@
 		5C9B63D718A17AAC0091C1D2 /* TasksViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksViewCell.m; sourceTree = "<group>"; };
 		5C9B63D918A192BA0091C1D2 /* CompleteTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteTaskViewController.h; sourceTree = "<group>"; };
 		5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteTaskViewController.m; sourceTree = "<group>"; };
+		5CA1222618F72A2100F32CCF /* MHCustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHCustomTabBarController.h; sourceTree = "<group>"; };
+		5CA1222718F72A2100F32CCF /* MHCustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCustomTabBarController.m; sourceTree = "<group>"; };
+		5CA1222818F72A2100F32CCF /* MHTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTabBarSegue.h; sourceTree = "<group>"; };
+		5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTabBarSegue.m; sourceTree = "<group>"; };
 		5CA2DED318EC771D00F55BC0 /* HistoricalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalViewController.h; sourceTree = "<group>"; };
 		5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricalViewController.m; sourceTree = "<group>"; };
 		5CA7093518EEE7BD00D3B55F /* AwardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardsViewController.h; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 				5CE4817718E4ACAB0032B6CE /* DAAttributedStringUtils */,
 				5CC1E9E618BD379C0018955E /* DeviceDetector */,
 				5C559B7618F381260092AAE3 /* EGOCache-master */,
+				5CA1222518F72A2100F32CCF /* MHCustomTabBarController */,
 				5C2652D918BBA461007F8A0C /* NSDateCategoryForReporting-master */,
 				5C35A13F18F5F5280067959F /* NSDictionary+NumberStoring */,
 				5CD882CE18E9840D003DD93F /* SVWebViewController */,
@@ -464,6 +471,17 @@
 			path = Classes/ViewControllers;
 			sourceTree = "<group>";
 		};
+		5CA1222518F72A2100F32CCF /* MHCustomTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				5CA1222618F72A2100F32CCF /* MHCustomTabBarController.h */,
+				5CA1222718F72A2100F32CCF /* MHCustomTabBarController.m */,
+				5CA1222818F72A2100F32CCF /* MHTabBarSegue.h */,
+				5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */,
+			);
+			path = MHCustomTabBarController;
+			sourceTree = "<group>";
+		};
 		5CC1E9E618BD379C0018955E /* DeviceDetector */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +662,7 @@
 				5C105C0618F3C1C2002C2A3F /* AddEditUserViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
 				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
+				5CA1222B18F72A2100F32CCF /* MHTabBarSegue.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
 				5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */,
 				5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */,
@@ -675,6 +694,7 @@
 				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
+				5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
 				5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */,
 				5C9B63CB18A1632B0091C1D2 /* SelectDateViewController.m in Sources */,
