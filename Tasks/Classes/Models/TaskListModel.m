@@ -41,11 +41,15 @@ TaskListModel* instance;
 
 - (id) init {
     if (self = [super init]) {
-        [self loadTasksData];
-        [self loadCompletedTasksData];
-        [self loadMissedTasksData];
+        [self loadFullData];
     }
     return self;
+}
+
+- (void) loadFullData {
+    [self loadTasksData];
+    [self loadCompletedTasksData];
+    [self loadMissedTasksData];
 }
 
 - (void) loadTasksData {

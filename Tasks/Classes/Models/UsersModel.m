@@ -95,6 +95,8 @@ UsersModel* userModelInstance;
 }
 
 - (void) changeToUserAtIndex:(NSInteger)index {
+    // we won't save currents user data cause each single change is stored when performed.
+    
     logedUser = [[self getUsers] objectAtIndex:index];
     NSData* data = [EGOFileManager getDataFromPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
     if (data) {
@@ -103,6 +105,8 @@ UsersModel* userModelInstance;
         logedUserData = [[NSMutableDictionary alloc] init];
     }
     logedUserIndex = index;
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:logedUserIndex] forKey:@"logedUserIndex"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "SWTableViewCell.h"
 #import "UsersModel.h"
 #import "AddEditUserViewController.h"
+#import "TaskListModel.h"
 
 @interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate> {
     NSArray* usersArray;
@@ -81,6 +82,8 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.isChangingUser) {
         [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row];
+        [[TaskListModel sharedInstance] loadFullData];
+        [[TaskListModel sharedInstance] forceRecalculateTasks];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         [self performSegueWithIdentifier:@"EditUserSegue" sender:indexPath];

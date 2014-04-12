@@ -16,6 +16,8 @@
 
 - (void) storeTasksData;
 - (void) storeData;
+- (void) loadFullData;
+- (void) forceRecalculateTasks;
 
 - (TaskDTO*) taskAtIndex:(int)index;
 - (void) addTask:(TaskDTO*) task;
@@ -25,9 +27,10 @@
 - (void) missTask:(TaskDTO*) task;
 
 - (NSArray*) getToDoTasks;
-- (void) forceRecalculateTasks;
 - (NSArray*) getDoneTasks;
 - (void) evaluateMissedTasks;
+
+
 
 
 - (void) checkIfImagePathIsStillInUse:(NSString*) path;
