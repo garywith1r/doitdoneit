@@ -71,18 +71,20 @@
     cell.textLabel.text = [[usersArray objectAtIndex:indexPath.row] objectForKey:LOGGED_USER_NAME_KEY];
     
     if (self.isChangingUser)
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    else
         cell.accessoryType = UITableViewCellAccessoryNone;
+    else
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.isChangingUser)
+    if (self.isChangingUser) {
         [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row];
-    else
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
         [self performSegueWithIdentifier:@"EditUserSegue" sender:indexPath];
+    }
 }
 
 @end

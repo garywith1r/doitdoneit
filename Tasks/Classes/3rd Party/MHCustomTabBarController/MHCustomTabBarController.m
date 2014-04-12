@@ -83,6 +83,10 @@ NSString *const MHCustomTabBarControllerViewControllerAlreadyVisibleNotification
     
 }
 
+- (void) setDestinationViewController:(UIViewController *)destinationViewController {
+    _destinationViewController = destinationViewController;
+}
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([self.destinationIdentifier isEqual:identifier]) {
         //Dont perform segue, if visible ViewController is already the destination ViewController

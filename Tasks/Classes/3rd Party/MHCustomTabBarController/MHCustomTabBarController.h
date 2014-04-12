@@ -27,7 +27,7 @@ extern NSString *const MHCustomTabBarControllerViewControllerAlreadyVisibleNotif
 
 @interface MHCustomTabBarController : UIViewController
 
-@property (weak,nonatomic) UIViewController *destinationViewController;
+@property (weak ,nonatomic) UIViewController *destinationViewController;
 @property (strong, nonatomic) NSString *destinationIdentifier;
 @property (strong, nonatomic) UIViewController *oldViewController;
 @property (weak, nonatomic) IBOutlet UIView *container;

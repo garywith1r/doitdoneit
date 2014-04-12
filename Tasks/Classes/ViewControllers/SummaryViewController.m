@@ -41,7 +41,7 @@
 }
 
 - (IBAction) changeUser {
-    MHCustomTabBarController* tabBar = [self.storyboard instantiateInitialViewController];
+    MHCustomTabBarController* tabBar = (MHCustomTabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     [tabBar changeUser];
 }
 

@@ -349,7 +349,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
         <!--User Selection View Controller - User Profiles-->
         <scene sceneID="WbO-a3-W0L">
             <objects>
-                <viewController storyboardIdentifier="UserSelectionView" id="TaJ-uL-A9n" customClass="UserSelectionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserSelectionViewController" id="TaJ-uL-A9n" customClass="UserSelectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jvt-e4-CGC"/>
                         <viewControllerLayoutGuide type="bottom" id="awF-VJ-gjl"/>
