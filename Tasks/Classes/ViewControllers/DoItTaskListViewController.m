@@ -91,7 +91,7 @@
     cellView.lblStats.text = [NSString stringWithFormat:@"Points: %ld Done: %d\nMissed: %d Hit: %.2f", (long)task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
     
     cellView.lblDescription.text = task.detailsText;
-    cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];
+//    cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];
     cellView.lblDescription.delegate = self;
     
     cellView.doneButton.tag = indexPath.row;
@@ -102,36 +102,33 @@
     [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    cellView.hideCellButton.tag = indexPath.row;
-    [cellView.hideCellButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-    [cellView.hideCellButton addTarget:self action:@selector(hideSelectedRow:) forControlEvents:UIControlEventTouchUpInside];
-    cellView.hideCellButton.enabled = NO;
+    cellView.expandCollapseButton.tag = indexPath.row;
+    [cellView.expandCollapseButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [cellView.expandCollapseButton addTarget:self action:@selector(expandOrContractCell:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task {
-    CGFloat labelsHeight = 0;
+    NSLog(@"%f",table.frame.size.height);
     
-    if (task.detailsText && ![@"" isEqualToString:task.detailsText.string]) {
-        DAAttributedLabel* attributedLabel = [[DAAttributedLabel alloc] initWithFrame:self.view.frame];
-        attributedLabel.text = task.detailsText;
-        labelsHeight = [attributedLabel getPreferredHeight];
+    return 305;
+}
+
+- (void) showTaskAtRow:(NSInteger)row {
+    [super showTaskAtRow:row];
+    if (row != -1) {
+        [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        table.scrollEnabled = NO;
     }
-    
-    return EXPANDED_ROW_HEIGHT + labelsHeight;
+}
+
+- (void) hideTaskAtRow:(NSInteger)row {
+    [super hideTaskAtRow:row];
+    table.scrollEnabled = YES;
 }
 
 #pragma mark - CompleteTaskDelegate Methods
 
-- (void) noteTextDidStartEditing {
-    if (!keyboardIsUp) {
-        [UIView beginAnimations:Nil context:nil];
-        [UIView setAnimationDuration:0.3];
-//        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant - KEYBOARD_SIZE;
-        [UIView commitAnimations];
-        [self performSelector:@selector(scrollTableViewToCompleteViewCell) withObject:nil afterDelay:0.1];
-        keyboardIsUp = YES;
-    }
-}
+
 
 - (void) scrollTableViewToCompleteViewCell {
     [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:completedTaskIndex+1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];

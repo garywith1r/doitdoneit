@@ -33,9 +33,10 @@
 
 
 - (void) thumbnailTapped:(UIButton*)sender;
-- (void) hideSelectedRow:(UIButton*)sender;
 
+- (void) expandOrContractCell:(UIButton*) sender;
 - (void) showTaskAtRow:(NSInteger)row;
+- (void) hideTaskAtRow:(NSInteger)row;
 
 
 

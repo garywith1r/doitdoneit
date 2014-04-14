@@ -77,8 +77,8 @@
     [table deselectRowAtIndexPath:[NSIndexPath indexPathForItem:row inSection:0] animated:YES];
 }
 
-- (void) hideSelectedRow:(UIButton*)sender {
-    if (selectedRow == sender.tag)
+- (void) hideTaskAtRow:(NSInteger)row {
+    if (selectedRow == row)
         [self showTaskAtRow:-1];
 }
 
@@ -138,8 +138,11 @@
     return cell;
 }
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self showTaskAtRow:indexPath.row];
+- (void) expandOrContractCell:(UIButton*) sender {
+    if (sender.tag == selectedRow)
+        [self hideTaskAtRow:sender.tag];
+    else
+        [self showTaskAtRow:sender.tag];
 }
 
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {}
