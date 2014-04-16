@@ -23,6 +23,8 @@
 
 @implementation UsersModel
 @synthesize logedUser, logedUserData;
+@synthesize purchasedAddsFree, purchasedMultiUser, purchasedParentsMode, purchasedWeeklyReview;
+@synthesize parentsModeEnabled, parentsPinCode;
 
 UsersModel* userModelInstance;
 
@@ -38,6 +40,16 @@ UsersModel* userModelInstance;
     if (self = [super init]) {
         logedUserIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"logedUserIndex"] integerValue];
         [self changeToUserAtIndex:logedUserIndex];
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+        purchasedParentsMode = [userDefaults boolForKey:@"purchasedParentsMode"];
+        purchasedMultiUser = [userDefaults boolForKey:@"purchasedMultiUser"];
+        purchasedAddsFree = [userDefaults boolForKey:@"purchasedAddsFree"];
+        purchasedWeeklyReview = [userDefaults boolForKey:@"purchasedWeeklyReview"];
+        
+        parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
+        
+#warning debug
+        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
     }
     
     return self;
@@ -109,4 +121,13 @@ UsersModel* userModelInstance;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (BOOL) currentUserCanCreateTasks {
+    return self.parentsModeEnabled;
+}
+
+- (void) setParentsPinCode:(NSString *)_parentsPinCode {
+    parentsPinCode = _parentsPinCode;
+    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"parentsPinCode"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 @end

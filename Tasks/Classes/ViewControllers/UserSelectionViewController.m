@@ -15,6 +15,8 @@
 @interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate> {
     NSArray* usersArray;
     IBOutlet UITableView* table;
+    IBOutlet UIView* parentsModeView;
+    IBOutlet UISwitch* parentsModeSwitch;
 }
 
 @end
@@ -30,6 +32,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     usersArray = [[UsersModel sharedInstance] getUsers];
+    parentsModeSwitch.on = [UsersModel sharedInstance].parentsModeEnabled;
     [table reloadData];
 }
 
@@ -40,9 +43,31 @@
     }
 }
 
+- (IBAction) parentsViewValueChanged {
+    if (parentsModeSwitch.on) {
+        [self performSegueWithIdentifier:@"ActiveParentsMode" sender:nil];
+    } else {
+        [UsersModel sharedInstance].parentsModeEnabled = NO;
+    }
+}
+
 #pragma mark - UITableView Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return usersArray.count;
+}
+
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.isChangingUser && [UsersModel sharedInstance].purchasedParentsMode)
+        return parentsModeView;
+    else
+        return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.isChangingUser && [UsersModel sharedInstance].purchasedParentsMode)
+        return parentsModeView.frame.size.height;
+    else
+        return 0;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -59,6 +59,26 @@
     [self performSegueWithIdentifier:COMPLETE_TASK_SEGUE sender: self];
 }
 
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row < contentDataArray.count) {
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    } else { //add new task cell
+        return  [tableView dequeueReusableCellWithIdentifier:@"AddNewTaskCell"];
+    }
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row < contentDataArray.count) {
+        [super tableView:table didSelectRowAtIndexPath:indexPath];
+    } else {
+        [self performSegueWithIdentifier:@"NewTaskSegue" sender:nil];
+    }
+}
+
+
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     TaskDTO* task = contentDataArray[indexPath.row];
     

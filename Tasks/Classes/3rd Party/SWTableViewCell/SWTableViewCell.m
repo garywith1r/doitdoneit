@@ -159,7 +159,6 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     self.scrollViewButtonViewRight.frame = CGRectMake(CGRectGetWidth(self.bounds), 0, 0, self.height);
     self.scrollViewButtonViewRight.layer.masksToBounds = YES;
     self.scrollViewContentView.frame = CGRectMake([self leftUtilityButtonsWidth], 0, CGRectGetWidth(self.bounds), self.height);
-    self.cellScrollView.scrollEnabled = YES;
     self.tapGestureRecognizer.enabled = YES;
     
 }

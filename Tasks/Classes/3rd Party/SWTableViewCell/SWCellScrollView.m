@@ -16,7 +16,7 @@
     //
     // This works very well in maintaining user expectations while still allowing for the user to
     // scroll the cell sideways when that is their true intent.
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && self.scrollEnabled) {
         
         // Find the current scrolling velocity in that view, in the Y direction.
         CGFloat yVelocity = [(UIPanGestureRecognizer*)gestureRecognizer velocityInView:gestureRecognizer.view].y;

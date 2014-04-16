@@ -26,7 +26,7 @@
         <!--Navigation Controller - Do It-->
         <scene sceneID="ywX-Z1-g0N">
             <objects>
-                <navigationController definesPresentationContext="YES" id="cqD-jM-1LK" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="cqD-jM-1LK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Do It" id="FHX-B3-P0W"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -300,6 +300,25 @@
                                             <segue destination="TaJ-uL-A9n" kind="push" id="I8h-Ya-FsR"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qn2-S7-A5l">
+                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qn2-S7-A5l" id="pkp-Ge-sfW">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Parents Pincode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R20-my-JHW">
+                                                    <rect key="frame" x="20" y="1" width="233" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ASp-hb-bdO" kind="push" id="fhl-av-gXt"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -347,6 +366,45 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
             </objects>
             <point key="canvasLocation" x="740" y="1588"/>
         </scene>
+        <!--Set Parents Pin View Controller-->
+        <scene sceneID="rl1-M8-AnS">
+            <objects>
+                <viewController id="ASp-hb-bdO" customClass="SetParentsPinViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O8B-U9-Ps4"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Zp-hQ-kuF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7ki-G8-0J0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ygc-78-ckA">
+                                <rect key="frame" x="112" y="126" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ASp-hb-bdO" id="8Bg-vc-tJC"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rlS-lv-SkI">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="RHw-cn-pLN">
+                            <connections>
+                                <action selector="savePincode" destination="ASp-hb-bdO" id="ctC-HR-h5X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pincode" destination="Ygc-78-ckA" id="bHY-CU-aw7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYd-9Y-LGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="2311"/>
+        </scene>
         <!--User Selection View Controller - User Profiles-->
         <scene sceneID="WbO-a3-W0L">
             <objects>
@@ -379,13 +437,37 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="parentsModeSwitch" destination="NqQ-Mk-KUc" id="nhM-vP-eSi"/>
+                        <outlet property="parentsModeView" destination="6bb-Sp-Orq" id="0Td-e5-umq"/>
                         <outlet property="table" destination="XiH-Lt-mfa" id="vGH-S2-0um"/>
                         <segue destination="UaL-GW-9p4" kind="push" identifier="EditUserSegue" id="VyM-aZ-jzV"/>
+                        <segue destination="8En-7t-hlC" kind="push" identifier="ActiveParentsMode" id="o3z-sD-ZM1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="851-wG-bZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="6bb-Sp-Orq">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-Mk-KUc">
+                            <rect key="frame" x="251" y="6" width="51" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="parentsViewValueChanged" destination="TaJ-uL-A9n" eventType="valueChanged" id="nst-Px-huE"/>
+                            </connections>
+                        </switch>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Parents Control" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIn-RS-uYk">
+                            <rect key="frame" x="20" y="11" width="120" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="1210" y="1588"/>
+            <point key="canvasLocation" x="1222" y="1588"/>
         </scene>
         <!--Add Edit User View Controller - Add User-->
         <scene sceneID="Rjy-Mo-IYC">
@@ -428,6 +510,39 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Eh-Sd-EZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1668" y="1588"/>
+        </scene>
+        <!--Parents Pin Code View Controller-->
+        <scene sceneID="F6F-Jl-JfT">
+            <objects>
+                <viewController id="8En-7t-hlC" customClass="ParentsPinCodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c08-iY-MCj"/>
+                        <viewControllerLayoutGuide type="bottom" id="FFI-R4-njx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bPy-Fp-7AS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-AE-8DU">
+                                <rect key="frame" x="112" y="97" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8En-7t-hlC" id="baW-Fi-Msn"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yJQ-fz-Fyi"/>
+                    <connections>
+                        <outlet property="pinCodeText" destination="kzU-AE-8DU" id="p8A-Cw-8CE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U6h-yx-f6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="2278"/>
         </scene>
         <!--Stats View Controller - Stats-->
         <scene sceneID="tCy-be-KmA">
@@ -603,7 +718,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <viewControllerLayoutGuide type="bottom" id="qDE-XM-p2H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ir0-dn-1xQ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-L2-ggs">
@@ -654,13 +769,31 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <viewControllerLayoutGuide type="bottom" id="igy-YX-3jI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="44" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oDI-yT-Ggr" userLabel="Today Tasks Table View">
-                                <rect key="frame" x="0.0" y="150" width="320" height="305"/>
+                                <rect key="frame" x="0.0" y="150" width="320" height="369"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddNewTaskCell" id="OuT-2L-NsB">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OuT-2L-NsB" id="Nw6-sf-W1S">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to add" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUg-il-vUd">
+                                                    <rect key="frame" x="119" y="19" width="82" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="OIp-jW-5u4"/>
@@ -678,13 +811,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Do It" id="p1x-Nt-DdS">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="15D-To-VZi">
-                            <connections>
-                                <segue destination="oME-Fa-l65" kind="push" identifier="NewTaskSegue" id="SUC-Xe-f5k"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Do It" id="p1x-Nt-DdS"/>
                     <connections>
                         <outlet property="table" destination="oDI-yT-Ggr" id="Z6g-N4-bpz"/>
                         <segue destination="oME-Fa-l65" kind="push" identifier="EditTaskSegue" id="1AM-Om-xeG"/>
@@ -704,19 +831,19 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <viewControllerLayoutGuide type="bottom" id="VN0-a0-mNf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ls4-Pn-Adp">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-Nc-VI2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZ0-8n-GPo">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Dn-MB-pa2" userLabel="Create Tasks Info View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="282"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="346"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJQ-3v-Bs6">
@@ -1066,7 +1193,7 @@ Second Line</string>
                         <viewControllerLayoutGuide type="bottom" id="j6d-Xx-RBM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Qf-ex-GKg">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwS-wh-8qu">
@@ -1493,8 +1620,9 @@ Missed:     Hit:</string>
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="lv0-V9-DbG" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="185" id="1Dj-M0-Iou"/>
                                     <constraint firstItem="f3e-VG-uv8" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="79" id="9ss-i3-1pc"/>
                                     <constraint firstItem="vyJ-Ma-QjU" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="6" id="ClQ-HJ-DNf"/>
                                     <constraint firstItem="EtJ-kl-sgc" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="7" id="Kph-e7-oVB"/>
@@ -1508,13 +1636,11 @@ Missed:     Hit:</string>
                                     <constraint firstItem="H9w-TI-rJR" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="20" id="hO1-rb-OB3"/>
                                     <constraint firstItem="KCQ-eO-cNj" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="5" id="hdE-HB-17f"/>
                                     <constraint firstItem="0sh-qr-4fz" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="2" id="nai-WU-Ngj"/>
-                                    <constraint firstItem="lv0-V9-DbG" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="185" id="uHa-1z-ouQ"/>
                                     <constraint firstItem="vyJ-Ma-QjU" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="102" id="zQy-0O-txH"/>
                                     <constraint firstItem="KCQ-eO-cNj" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="7" id="ziU-JT-QOl"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="01f-mv-sxi" firstAttribute="leading" secondItem="0G3-xH-9GY" secondAttribute="leading" id="C7m-ky-YER"/>
                             <constraint firstAttribute="trailing" secondItem="01f-mv-sxi" secondAttribute="trailing" id="IPx-Ec-ej3"/>
@@ -1540,7 +1666,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hg1-fe-95h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="2472"/>
+            <point key="canvasLocation" x="421" y="3356"/>
         </scene>
         <!--Tasks View Cell-->
         <scene sceneID="QOa-hA-xTu">
@@ -1734,7 +1860,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBc-mS-wcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="2472"/>
+            <point key="canvasLocation" x="790" y="3356"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="e7v-Yk-s2J">
@@ -1797,7 +1923,7 @@ Missed:     Hit:</string>
                         <viewControllerLayoutGuide type="bottom" id="W56-pr-Akt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="37g-JO-5St">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-KJ-D8y">
@@ -1863,8 +1989,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SUC-Xe-f5k"/>
         <segue reference="aGr-K0-KqR"/>
+        <segue reference="1AM-Om-xeG"/>
         <segue reference="VyM-aZ-jzV"/>
     </inferredMetricsTieBreakers>
 </document>

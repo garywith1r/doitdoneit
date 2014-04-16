@@ -87,6 +87,8 @@
 		5CE4818318E4ACAB0032B6CE /* DABoxesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817D18E4ACAB0032B6CE /* DABoxesLayer.m */; };
 		5CE4818418E4ACAB0032B6CE /* DAFontSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817F18E4ACAB0032B6CE /* DAFontSet.m */; };
 		5CE4818518E4ACAB0032B6CE /* DAFontSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CE4818018E4ACAB0032B6CE /* DAFontSet.plist */; };
+		5CEA32C318FEE69C00B85322 /* ParentsPinCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA32C218FEE69C00B85322 /* ParentsPinCodeViewController.m */; };
+		5CEA32C618FEF3B700B85322 /* SetParentsPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA32C518FEF3B700B85322 /* SetParentsPinViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,6 +230,10 @@
 		5CE4817E18E4ACAB0032B6CE /* DAFontSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFontSet.h; sourceTree = "<group>"; };
 		5CE4817F18E4ACAB0032B6CE /* DAFontSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAFontSet.m; sourceTree = "<group>"; };
 		5CE4818018E4ACAB0032B6CE /* DAFontSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DAFontSet.plist; sourceTree = "<group>"; };
+		5CEA32C118FEE69C00B85322 /* ParentsPinCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentsPinCodeViewController.h; sourceTree = "<group>"; };
+		5CEA32C218FEE69C00B85322 /* ParentsPinCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentsPinCodeViewController.m; sourceTree = "<group>"; };
+		5CEA32C418FEF3B700B85322 /* SetParentsPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetParentsPinViewController.h; sourceTree = "<group>"; };
+		5CEA32C518FEF3B700B85322 /* SetParentsPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetParentsPinViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +259,10 @@
 				5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */,
 				5C105C0418F3C1C2002C2A3F /* AddEditUserViewController.h */,
 				5C105C0518F3C1C2002C2A3F /* AddEditUserViewController.m */,
+				5CEA32C118FEE69C00B85322 /* ParentsPinCodeViewController.h */,
+				5CEA32C218FEE69C00B85322 /* ParentsPinCodeViewController.m */,
+				5CEA32C418FEF3B700B85322 /* SetParentsPinViewController.h */,
+				5CEA32C518FEF3B700B85322 /* SetParentsPinViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -682,6 +692,7 @@
 				5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */,
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,
 				5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */,
+				5CEA32C618FEF3B700B85322 /* SetParentsPinViewController.m in Sources */,
 				5C2652F318BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */,
 				5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */,
@@ -691,6 +702,7 @@
 				5CE4818418E4ACAB0032B6CE /* DAFontSet.m in Sources */,
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,
+				5CEA32C318FEE69C00B85322 /* ParentsPinCodeViewController.m in Sources */,
 				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,

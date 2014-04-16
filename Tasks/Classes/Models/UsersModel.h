@@ -24,7 +24,18 @@
 
 - (void) changeToUserAtIndex:(NSInteger)index;
 
+- (BOOL) currentUserCanCreateTasks;
+
 @property (nonatomic, readonly) NSDictionary* logedUser;
 @property (nonatomic, readonly) NSMutableDictionary* logedUserData;
+
+
+@property (readonly) BOOL purchasedParentsMode;
+@property (readonly) BOOL purchasedAddsFree;
+@property (readonly) BOOL purchasedMultiUser;
+@property (readonly) BOOL purchasedWeeklyReview;
+
+@property BOOL parentsModeEnabled;
+@property (nonatomic, strong) NSString* parentsPinCode;
 
 @end
