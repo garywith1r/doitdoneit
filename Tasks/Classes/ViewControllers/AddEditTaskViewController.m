@@ -193,6 +193,10 @@
     
 }
 
+- (IBAction) cancelButtonPressed {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction) changeDueDate {
     selectingDueDate = YES;
     [self performSegueWithIdentifier:SELECT_DATE_SEGUE sender: self];

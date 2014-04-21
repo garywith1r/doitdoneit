@@ -93,9 +93,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [contentDataArray count] + [[UsersModel sharedInstance] currentUserCanCreateTasks];
+    return [contentDataArray count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         static NSString *cellIdentifier = @"Cell";
@@ -141,6 +140,10 @@
         
     
 }
+
+//- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self showTaskAtRow:indexPath.row];
+//}
 
 - (void) expandOrContractCell:(UIButton*) sender {
     if (sender.tag == selectedRow)

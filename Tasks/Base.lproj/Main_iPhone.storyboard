@@ -708,11 +708,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                     <tabBarItem key="tabBarItem" title="Done It" id="vmI-df-UNc"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Done It" id="BOS-PC-doz">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="utE-PN-N0w">
-                            <connections>
-                                <segue destination="oME-Fa-l65" kind="push" identifier="NewTaskSegue" id="cKK-Ef-6db"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="utE-PN-N0w"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -832,6 +828,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <outlet property="table" destination="oDI-yT-Ggr" id="Z6g-N4-bpz"/>
                         <segue destination="oME-Fa-l65" kind="push" identifier="EditTaskSegue" id="1AM-Om-xeG"/>
                         <segue destination="vUr-RC-gJ1" kind="push" identifier="CompleteTaskSegue" id="RUI-SZ-wM2"/>
+                        <segue destination="oME-Fa-l65" kind="push" identifier="NewTaskSegue" id="Mi7-qC-Oxm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -1156,6 +1153,26 @@ Second Line</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4q-du-RqE">
+                                                <rect key="frame" x="200" y="354" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="saveButtonPressed" destination="oME-Fa-l65" eventType="touchUpInside" id="yRP-qo-CxX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oa9-iA-Hka">
+                                                <rect key="frame" x="38" y="354" width="61" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButtonPressed" destination="oME-Fa-l65" eventType="touchUpInside" id="yTi-mw-SDa"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -1164,13 +1181,7 @@ Second Line</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oCT-zq-rVg">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="hRm-1x-Yn0">
-                            <connections>
-                                <action selector="saveButtonPressed" destination="oME-Fa-l65" id="dOi-4e-1CA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="oCT-zq-rVg"/>
                     <connections>
                         <outlet property="btnImage" destination="fWq-qn-q3C" id="Ak4-Wx-jXd"/>
                         <outlet property="completeTaskDetailsView" destination="720-VA-e4s" id="TVd-fa-fMF"/>
@@ -2006,7 +2017,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="aGr-K0-KqR"/>
-        <segue reference="1AM-Om-xeG"/>
         <segue reference="VyM-aZ-jzV"/>
+        <segue reference="Mi7-qC-Oxm"/>
     </inferredMetricsTieBreakers>
 </document>

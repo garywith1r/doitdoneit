@@ -16,6 +16,7 @@
 #import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
 #import "CompleteTaskViewController.h"
+#import "UsersModel.h"
 
 
 #define COMPLETE_TASK_SEGUE @"CompleteTaskSegue"
@@ -59,7 +60,9 @@
     [self performSegueWithIdentifier:COMPLETE_TASK_SEGUE sender: self];
 }
 
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [contentDataArray count] + [[UsersModel sharedInstance] currentUserCanCreateTasks];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -71,9 +74,7 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < contentDataArray.count) {
-        [super tableView:table didSelectRowAtIndexPath:indexPath];
-    } else {
+    if (indexPath.row >= contentDataArray.count) {
         [self performSegueWithIdentifier:@"NewTaskSegue" sender:nil];
     }
 }
