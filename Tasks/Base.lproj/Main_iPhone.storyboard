@@ -161,6 +161,9 @@
                                     <constraint firstAttribute="width" constant="320" id="CiA-28-6oV"/>
                                     <constraint firstAttribute="height" constant="50" id="kaQ-Jd-lIl"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="kP0-nJ-aNX" id="qn8-0Q-387"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -176,8 +179,9 @@
                     </view>
                     <connections>
                         <outlet property="container" destination="dCX-Cx-tXQ" id="EiB-Ip-IDe"/>
-                        <outlet property="iAddsViewHeight" destination="kaQ-Jd-lIl" id="EAi-0Q-rZ2"/>
                         <outlet property="iAdsView" destination="Lm4-Sc-Fgu" id="lqB-g3-Uc5"/>
+                        <outlet property="iAdsViewHeight" destination="kaQ-Jd-lIl" id="bhD-g2-D7o"/>
+                        <outlet property="tabBar" destination="Out-Q3-CLb" id="jQn-Fo-zke"/>
                         <outletCollection property="buttons" destination="bXt-AH-NWy" id="bh0-OB-1Z6"/>
                         <outletCollection property="buttons" destination="fm5-N0-gBl" id="ODI-Sc-Ym1"/>
                         <outletCollection property="buttons" destination="Hua-kb-Lvx" id="JXo-5w-8hz"/>
