@@ -9,7 +9,7 @@
 #import "SummaryViewController.h"
 #import "UsersModel.h"
 #import "EGOFileManager.h"
-#import "MHCustomTabBarController.h"
+#import "TabBarController.h"
 
 @interface SummaryViewController () {
     IBOutlet UIButton* btnImage;
@@ -41,7 +41,7 @@
 }
 
 - (IBAction) changeUser {
-    MHCustomTabBarController* tabBar = (MHCustomTabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    TabBarController* tabBar = (TabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     [tabBar changeUser];
 }
 

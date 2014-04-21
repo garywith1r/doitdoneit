@@ -34,7 +34,4 @@ extern NSString *const MHCustomTabBarControllerViewControllerAlreadyVisibleNotif
 @property (nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 
-
-- (void) changeUser;
-
 @end

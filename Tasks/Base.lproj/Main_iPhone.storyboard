@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-265" y="-638"/>
         </scene>
-        <!--Custom Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="ORE-CR-gJI">
             <objects>
-                <viewController id="kP0-nJ-aNX" customClass="MHCustomTabBarController" sceneMemberID="viewController">
+                <viewController id="kP0-nJ-aNX" customClass="TabBarController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lnH-qn-IaJ"/>
                         <viewControllerLayoutGuide type="bottom" id="3qs-Ex-Blr"/>
@@ -146,26 +146,37 @@
                                 </constraints>
                             </view>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCX-Cx-tXQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="469"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="QMa-o7-43f"/>
-                                    <constraint firstAttribute="height" constant="519" id="ggf-1W-gdJ"/>
                                 </constraints>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lm4-Sc-Fgu" customClass="ADBannerView">
+                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="CiA-28-6oV"/>
+                                    <constraint firstAttribute="height" constant="50" id="kaQ-Jd-lIl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dCX-Cx-tXQ" firstAttribute="leading" secondItem="5oa-0d-mn8" secondAttribute="leading" id="0Le-fy-tBg"/>
                             <constraint firstItem="Out-Q3-CLb" firstAttribute="leading" secondItem="5oa-0d-mn8" secondAttribute="leading" id="6ek-Zm-IjK"/>
-                            <constraint firstItem="Out-Q3-CLb" firstAttribute="top" secondItem="dCX-Cx-tXQ" secondAttribute="bottom" id="Pat-sI-J8b"/>
+                            <constraint firstItem="Lm4-Sc-Fgu" firstAttribute="leading" secondItem="5oa-0d-mn8" secondAttribute="leading" id="T4t-Pe-uV6"/>
+                            <constraint firstItem="Lm4-Sc-Fgu" firstAttribute="top" secondItem="dCX-Cx-tXQ" secondAttribute="bottom" id="XpS-zB-14U"/>
+                            <constraint firstAttribute="bottom" secondItem="Lm4-Sc-Fgu" secondAttribute="bottom" constant="49" id="g6F-ne-av3"/>
                             <constraint firstAttribute="bottom" secondItem="Out-Q3-CLb" secondAttribute="bottom" id="hyw-k9-82y"/>
                             <constraint firstItem="dCX-Cx-tXQ" firstAttribute="top" secondItem="5oa-0d-mn8" secondAttribute="top" id="pbh-9b-hcf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="container" destination="dCX-Cx-tXQ" id="EiB-Ip-IDe"/>
+                        <outlet property="iAddsViewHeight" destination="kaQ-Jd-lIl" id="EAi-0Q-rZ2"/>
                         <outletCollection property="buttons" destination="bXt-AH-NWy" id="bh0-OB-1Z6"/>
                         <outletCollection property="buttons" destination="fm5-N0-gBl" id="ODI-Sc-Ym1"/>
                         <outletCollection property="buttons" destination="Hua-kb-Lvx" id="JXo-5w-8hz"/>

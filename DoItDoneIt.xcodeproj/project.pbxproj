@@ -30,6 +30,8 @@
 		5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C559B7818F381260092AAE3 /* EGOCache.m */; };
 		5C559B7B18F381260092AAE3 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 5C559B7918F381260092AAE3 /* README.mdown */; };
 		5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C559B7D18F3819D0092AAE3 /* EGOFileManager.m */; };
+		5C88D0DD190540730059ADFD /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C88D0DC190540730059ADFD /* TabBarController.m */; };
+		5C88D0DF1905445F0059ADFD /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C88D0DE1905445F0059ADFD /* iAd.framework */; };
 		5C9B637218A14A350091C1D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B637118A14A350091C1D2 /* Foundation.framework */; };
 		5C9B637418A14A350091C1D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B637318A14A350091C1D2 /* CoreGraphics.framework */; };
 		5C9B637618A14A350091C1D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B637518A14A350091C1D2 /* UIKit.framework */; };
@@ -131,6 +133,9 @@
 		5C559B7918F381260092AAE3 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
 		5C559B7C18F3819D0092AAE3 /* EGOFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOFileManager.h; sourceTree = "<group>"; };
 		5C559B7D18F3819D0092AAE3 /* EGOFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOFileManager.m; sourceTree = "<group>"; };
+		5C88D0DB190540730059ADFD /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		5C88D0DC190540730059ADFD /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		5C88D0DE1905445F0059ADFD /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5C9B636E18A14A350091C1D2 /* Do It Done It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do It Done It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9B637118A14A350091C1D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5C9B637318A14A350091C1D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -241,6 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C88D0DF1905445F0059ADFD /* iAd.framework in Frameworks */,
 				5CDB775318BF075D000A4C04 /* Social.framework in Frameworks */,
 				5CDB775118BF0758000A4C04 /* Accounts.framework in Frameworks */,
 				5C9B637418A14A350091C1D2 /* CoreGraphics.framework in Frameworks */,
@@ -352,6 +358,7 @@
 		5C9B637018A14A350091C1D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C88D0DE1905445F0059ADFD /* iAd.framework */,
 				5CDB775218BF075D000A4C04 /* Social.framework */,
 				5CDB775018BF0758000A4C04 /* Accounts.framework */,
 				5C9B637118A14A350091C1D2 /* Foundation.framework */,
@@ -476,6 +483,8 @@
 				5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */,
 				5C35A13618F5E47A0067959F /* SummaryViewController.h */,
 				5C35A13718F5E47A0067959F /* SummaryViewController.m */,
+				5C88D0DB190540730059ADFD /* TabBarController.h */,
+				5C88D0DC190540730059ADFD /* TabBarController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -711,6 +720,7 @@
 				5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */,
 				5C9B63CB18A1632B0091C1D2 /* SelectDateViewController.m in Sources */,
 				5CD882EE18E9840D003DD93F /* SVModalWebViewController.m in Sources */,
+				5C88D0DD190540730059ADFD /* TabBarController.m in Sources */,
 				5CE4818218E4ACAB0032B6CE /* DAAttributedStringFormatter.m in Sources */,
 				5C35A13818F5E47A0067959F /* SummaryViewController.m in Sources */,
 			);
