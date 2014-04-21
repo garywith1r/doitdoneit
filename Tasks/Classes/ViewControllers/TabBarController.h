@@ -11,6 +11,6 @@
 @interface TabBarController : MHCustomTabBarController
 
 - (void) changeUser;
-- (void) removeAdds:(BOOL)animating;
+- (void) removeAdds;
 
 @end

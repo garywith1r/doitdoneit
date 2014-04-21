@@ -177,6 +177,7 @@
                     <connections>
                         <outlet property="container" destination="dCX-Cx-tXQ" id="EiB-Ip-IDe"/>
                         <outlet property="iAddsViewHeight" destination="kaQ-Jd-lIl" id="EAi-0Q-rZ2"/>
+                        <outlet property="iAdsView" destination="Lm4-Sc-Fgu" id="lqB-g3-Uc5"/>
                         <outletCollection property="buttons" destination="bXt-AH-NWy" id="bh0-OB-1Z6"/>
                         <outletCollection property="buttons" destination="fm5-N0-gBl" id="ODI-Sc-Ym1"/>
                         <outletCollection property="buttons" destination="Hua-kb-Lvx" id="JXo-5w-8hz"/>

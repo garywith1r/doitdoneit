@@ -12,6 +12,7 @@
 
 @interface TabBarController () {
     IBOutlet NSLayoutConstraint *iAddsViewHeight;
+    IBOutlet UIView* iAdsView;
 }
 
 @end
@@ -21,14 +22,12 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     if ([UsersModel sharedInstance].purchasedAddsFree)
-        [self removeAdds:NO];
+        [self removeAdds];
 }
 
-- (void) removeAdds:(BOOL)animating {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3 * animating];
+- (void) removeAdds {
     iAddsViewHeight.constant = 0;
-    [UIView commitAnimations];
+    iAdsView.hidden = YES;
 }
 
 - (void) changeUser {
