@@ -41,7 +41,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    MOOPullGestureRecognizer *recognizer = [[MOOPullGestureRecognizer alloc] initWithTarget:self action:@selector(quickAddGesture)];
+    MOOPullGestureRecognizer *recognizer = [[MOOPullGestureRecognizer alloc] initWithTarget:self action:@selector(quickAddGesture:)];
     // Create quickAdd view
     
     UITableViewCell* cell = [table dequeueReusableCellWithIdentifier:@"QuickAddTaskCell"];
@@ -212,8 +212,8 @@
 
 #pragma mark - Gesture Methods
 
-- (void) quickAddGesture {
-    if (!showingQuickAddCell) {
+- (void) quickAddGesture:(MOOPullGestureRecognizer*)gesture {
+    if (!showingQuickAddCell && (gesture.pullState == MOOPullTriggered)) {
         showingQuickAddCell = YES;
         quickAddDto = [[TaskDTO alloc] init];
         quickAddTitle.text = quickAddDto.title;
