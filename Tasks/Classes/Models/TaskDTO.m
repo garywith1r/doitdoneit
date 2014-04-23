@@ -299,22 +299,28 @@
 }
 
 - (NSString*) repeatTimesDisplayText {
-    NSString* displayText = [NSString stringWithFormat:@"%d times per ",self.repeatTimes];
+    NSString* displayText = [NSString stringWithFormat:@"%d",self.repeatTimes];
+    if (self.repeatTimes == 1)
+        displayText = [displayText stringByAppendingString:@" time "];
+    else
+        displayText = [displayText stringByAppendingString:@" times "];
+        
+        
     switch (self.repeatPeriod) {
         case Weekly:
-            displayText = [displayText stringByAppendingString:@"week"];
+            displayText = [displayText stringByAppendingString:@" per week"];
             break;
         case Fortnightly:
-            displayText = [displayText stringByAppendingString:@"fortnight"];
+            displayText = [displayText stringByAppendingString:@" per fortnight"];
             break;
         case Monthly:
-            displayText = [displayText stringByAppendingString:@"month"];
+            displayText = [displayText stringByAppendingString:@" per month"];
             break;
         case Quarterly:
-            displayText = [displayText stringByAppendingString:@"quarter"];
+            displayText = [displayText stringByAppendingString:@" per quarter"];
             break;
         case Yearly:
-            displayText = [displayText stringByAppendingString:@"year"];
+            displayText = [displayText stringByAppendingString:@" per year"];
             break;
     }
     

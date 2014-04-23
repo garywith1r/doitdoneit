@@ -28,6 +28,7 @@
 		5C35A13818F5E47A0067959F /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C35A13718F5E47A0067959F /* SummaryViewController.m */; };
 		5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C35A14418F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m */; };
 		5C4A0F9E190822E7003062E2 /* QuickAddTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4A0F9D190822E7003062E2 /* QuickAddTaskCell.m */; };
+		5C4A0FA1190834E6003062E2 /* SelectRepeatTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4A0FA0190834E6003062E2 /* SelectRepeatTimesViewController.m */; };
 		5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C559B7818F381260092AAE3 /* EGOCache.m */; };
 		5C559B7B18F381260092AAE3 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 5C559B7918F381260092AAE3 /* README.mdown */; };
 		5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C559B7D18F3819D0092AAE3 /* EGOFileManager.m */; };
@@ -134,6 +135,8 @@
 		5C35A14418F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+NumbersStoring.m"; path = "Tasks/Classes/3rd Party/NSMutableDictionary+NumbersStoring/NSMutableDictionary+NumbersStoring.m"; sourceTree = SOURCE_ROOT; };
 		5C4A0F9C190822E7003062E2 /* QuickAddTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickAddTaskCell.h; sourceTree = "<group>"; };
 		5C4A0F9D190822E7003062E2 /* QuickAddTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickAddTaskCell.m; sourceTree = "<group>"; };
+		5C4A0F9F190834E6003062E2 /* SelectRepeatTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRepeatTimesViewController.h; sourceTree = "<group>"; };
+		5C4A0FA0190834E6003062E2 /* SelectRepeatTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRepeatTimesViewController.m; sourceTree = "<group>"; };
 		5C559B7718F381260092AAE3 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
 		5C559B7818F381260092AAE3 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
 		5C559B7918F381260092AAE3 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
@@ -525,6 +528,8 @@
 				5C88D0DC190540730059ADFD /* TabBarController.m */,
 				5C4A0F9C190822E7003062E2 /* QuickAddTaskCell.h */,
 				5C4A0F9D190822E7003062E2 /* QuickAddTaskCell.m */,
+				5C4A0F9F190834E6003062E2 /* SelectRepeatTimesViewController.h */,
+				5C4A0FA0190834E6003062E2 /* SelectRepeatTimesViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -739,6 +744,7 @@
 				5C2652F418BBF5FD007F8A0C /* SWUtilityButtonView.m in Sources */,
 				5CE4818318E4ACAB0032B6CE /* DABoxesLayer.m in Sources */,
 				5C2652EF18BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				5C4A0FA1190834E6003062E2 /* SelectRepeatTimesViewController.m in Sources */,
 				5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */,
 				5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */,
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,

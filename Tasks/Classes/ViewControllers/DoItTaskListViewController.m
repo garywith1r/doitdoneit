@@ -18,18 +18,19 @@
 #import "CompleteTaskViewController.h"
 #import "UsersModel.h"
 #import "QuickAddTaskCell.h"
+#import "SelectRepeatTimesViewController.h"
 
 #import "MOOPullGestureRecognizer.h"
 #import "MOOCreateView.h"
 
-@interface DoItTaskListViewController () <CompleteTaskDelegate> {
+@interface DoItTaskListViewController () <CompleteTaskDelegate, SelectRepeatTimesDelegate> {
     BOOL showingQuickAddCell;
     int completedTaskIndex;
     
     CompleteTaskViewCell* completeTaskCell;
     
-    IBOutlet UITextField* quickAddTitle;
-    IBOutlet UILabel* quickAddRepeatTimes;
+    UITextField* quickAddTitle;
+    UILabel* quickAddRepeatTimes;
     
     TaskDTO* quickAddDto;
 }
@@ -69,6 +70,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     showingQuickAddCell = NO;
+    quickAddDto = nil;
     [table reloadData];
 }
 
@@ -245,13 +247,19 @@
 - (void) hideQuickAddCell {
     showingQuickAddCell = NO;
     [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+    quickAddDto = nil;
 }
 
 - (IBAction) quickAddButtonPressed {
+    if (!quickAddDto.title || [quickAddDto.title isEqualToString:@""]) {
+        [[[UIAlertView alloc] initWithTitle:@"" message:@"Plese enter a title for the task." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+        return;
+    }
     [[TaskListModel sharedInstance] addTask:quickAddDto];
     [self hideQuickAddCell];
     [self reloadContentData];
     [table reloadData];
+    quickAddDto = nil;
 }
 
 - (IBAction) fullAddButtonPressed {
@@ -261,11 +269,22 @@
 }
 
 - (IBAction) repeatTimesButtonPressed {
-
+    SelectRepeatTimesViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectRepeatTimesViewController"];
+    [vc setInitialTimes:quickAddDto.repeatTimes andInitialTimeInterval:quickAddDto.repeatPeriod];
+    vc.delegate = self;
+    [vc presentOnViewController:self];
 }
 
 - (IBAction) textFieldDidFinish:(UITextField*) sender {
     quickAddDto.title = sender.text;
+}
+
+#pragma mark - RepeatTimesDelegate methods
+- (void) selectedRepeatTimes:(NSInteger)repeatTimes perTimeInterval:(NSInteger)timeInterval {
+    quickAddDto.repeatTimes = repeatTimes;
+    quickAddDto.repeatPeriod = timeInterval;
+    
+    quickAddRepeatTimes.text = [quickAddDto repeatTimesDisplayText];
 }
 
 @end
