@@ -41,5 +41,6 @@ typedef void (^MOOCreateViewConfiguration)(MOOCreateView *createView, UITableVie
 @property (nonatomic, strong, readonly) MOOGradientView *gradientView;
 
 - (id)initWithCell:(UITableViewCell *)cell;
+- (void) hideCreateView:(BOOL)hidden;
 
 @end

@@ -33,6 +33,7 @@
     UILabel* quickAddRepeatTimes;
     
     TaskDTO* quickAddDto;
+    MOOCreateView *createView;
 }
 
 @end
@@ -47,7 +48,8 @@
     
     UITableViewCell* cell = [table dequeueReusableCellWithIdentifier:@"QuickAddTaskCell"];
     
-    MOOCreateView *createView = [[MOOCreateView alloc] initWithCell:cell];
+    createView = [[MOOCreateView alloc] initWithCell:cell];
+    createView.hidden = YES;
     createView.configurationBlock = ^(MOOCreateView *view, UITableViewCell *cell, MOOPullState state){
         if (![cell isKindOfClass:[UITableViewCell class]])
             return;
@@ -71,6 +73,7 @@
     [super viewWillAppear:animated];
     showingQuickAddCell = NO;
     quickAddDto = nil;
+    [createView hideCreateView:![[UsersModel sharedInstance] currentUserCanCreateTasks]];
     [table reloadData];
 }
 
@@ -215,7 +218,7 @@
 #pragma mark - Gesture Methods
 
 - (void) quickAddGesture:(MOOPullGestureRecognizer*)gesture {
-    if (!showingQuickAddCell && (gesture.pullState == MOOPullTriggered)) {
+    if (!showingQuickAddCell && [[UsersModel sharedInstance] currentUserCanCreateTasks] && (gesture.pullState == MOOPullTriggered)) {
         showingQuickAddCell = YES;
         quickAddDto = [[TaskDTO alloc] init];
         quickAddTitle.text = quickAddDto.title;
@@ -228,7 +231,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 {
-    if (!showingQuickAddCell && scrollView.pullGestureRecognizer)
+    if (!showingQuickAddCell && [[UsersModel sharedInstance] currentUserCanCreateTasks] && scrollView.pullGestureRecognizer)
         [scrollView.pullGestureRecognizer scrollViewDidScroll:scrollView];
     
     if (scrollView.contentOffset.y >= 3.0f && showingQuickAddCell) {

@@ -92,6 +92,16 @@
     self.rotationView = nil;
 }
 
+- (void) hideCreateView:(BOOL)hidden {
+    if (hidden)
+        self.backgroundColor = [UIColor clearColor];
+    else
+        self.backgroundColor = [UIColor blackColor];
+    self.cell.hidden = hidden;
+    self.gradientView.hidden = hidden;
+    self.hidden = hidden;
+}
+
 #pragma mark - Subview methods
 
 - (void)layoutSubviews;
