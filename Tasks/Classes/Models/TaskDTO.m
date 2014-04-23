@@ -31,9 +31,9 @@
 - (id) init {
     if (self = [super init]) {
         self.currentRepetition = 1;
-        self.repeatTimes = 1;
-        self.repeatPeriod = 0;
-        self.taskPoints = 1;
+        self.repeatTimes = 2;
+        self.repeatPeriod = Weekly;
+        self.taskPoints = 5;
         self.status = 0;
         self.rating = 0;
         self.dueDate = [NSDate dateWithTimeInterval:DEFAULT_TIME_FOR_TASK sinceDate:[NSDate midnightToday]];
@@ -296,6 +296,29 @@
     if (oldPath && ![@"" isEqualToString:oldPath])
         [[TaskListModel sharedInstance] checkIfVideoPathIsStillInUse:oldPath];
     
+}
+
+- (NSString*) repeatTimesDisplayText {
+    NSString* displayText = [NSString stringWithFormat:@"%d times per ",self.repeatTimes];
+    switch (self.repeatPeriod) {
+        case Weekly:
+            displayText = [displayText stringByAppendingString:@"week"];
+            break;
+        case Fortnightly:
+            displayText = [displayText stringByAppendingString:@"fortnight"];
+            break;
+        case Monthly:
+            displayText = [displayText stringByAppendingString:@"month"];
+            break;
+        case Quarterly:
+            displayText = [displayText stringByAppendingString:@"quarter"];
+            break;
+        case Yearly:
+            displayText = [displayText stringByAppendingString:@"year"];
+            break;
+    }
+    
+    return displayText;
 }
 
 

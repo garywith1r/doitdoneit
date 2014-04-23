@@ -17,23 +17,60 @@
 #import "SVWebViewController.h"
 #import "CompleteTaskViewController.h"
 #import "UsersModel.h"
+#import "QuickAddTaskCell.h"
 
-
-#define COMPLETE_TASK_SEGUE @"CompleteTaskSegue"
+#import "MOOPullGestureRecognizer.h"
+#import "MOOCreateView.h"
 
 @interface DoItTaskListViewController () <CompleteTaskDelegate> {
-    BOOL keyboardIsUp;
-    BOOL showingCompleteTaskCell;
+    BOOL showingQuickAddCell;
     int completedTaskIndex;
     
     CompleteTaskViewCell* completeTaskCell;
     
+    IBOutlet UITextField* quickAddTitle;
+    IBOutlet UILabel* quickAddRepeatTimes;
     
+    TaskDTO* quickAddDto;
 }
 
 @end
 
 @implementation DoItTaskListViewController
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    MOOPullGestureRecognizer *recognizer = [[MOOPullGestureRecognizer alloc] initWithTarget:self action:@selector(quickAddGesture)];
+    // Create quickAdd view
+    
+    UITableViewCell* cell = [table dequeueReusableCellWithIdentifier:@"QuickAddTaskCell"];
+    
+    MOOCreateView *createView = [[MOOCreateView alloc] initWithCell:cell];
+    createView.configurationBlock = ^(MOOCreateView *view, UITableViewCell *cell, MOOPullState state){
+        if (![cell isKindOfClass:[UITableViewCell class]])
+            return;
+        
+        switch (state)
+        {
+            case MOOPullActive:
+                break;
+            case MOOPullTriggered:
+                break;
+            case MOOPullIdle:
+                break;
+        }
+    };
+    recognizer.triggerView = createView;
+    [table addGestureRecognizer:recognizer];
+
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    showingQuickAddCell = NO;
+    [table reloadData];
+}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
@@ -48,11 +85,6 @@
 }
 
 - (void) deleteTaskOnMarkedPosition {
-    if (showingCompleteTaskCell && (tagToDeleteIndex == completedTaskIndex)) {
-        showingCompleteTaskCell = NO;
-        [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
-        completedTaskIndex = -1;
-    }
     [super deleteTaskOnMarkedPosition];
 }
 
@@ -61,21 +93,34 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [contentDataArray count] + [[UsersModel sharedInstance] currentUserCanCreateTasks];
+    return [contentDataArray count] + [[UsersModel sharedInstance] currentUserCanCreateTasks] + showingQuickAddCell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row < contentDataArray.count) {
-        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSInteger row = indexPath.row;
+    
+    if (showingQuickAddCell) {
+        if (row == 0) {
+            QuickAddTaskCell* cell = (QuickAddTaskCell*)[table dequeueReusableCellWithIdentifier:@"QuickAddTaskCell"];
+            quickAddRepeatTimes = cell.lblRepeatTiems;
+            quickAddTitle = cell.txtTitle;
+            return cell;
+        } else {
+            row--;
+        }
+    }
+    
+    if (row < contentDataArray.count) {
+        return [super tableView:tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
     } else { //add new task cell
         return  [tableView dequeueReusableCellWithIdentifier:@"AddNewTaskCell"];
     }
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row >= contentDataArray.count) {
-        [self performSegueWithIdentifier:@"NewTaskSegue" sender:nil];
+    if (indexPath.row >= (contentDataArray.count + showingQuickAddCell)) {
+        [self performSegueWithIdentifier:NEW_TASK_SEGUE sender:nil];
     }
 }
 
@@ -84,6 +129,7 @@
     TaskDTO* task = contentDataArray[indexPath.row];
     
     TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
+    
     
     [cell setContentView:cellView.view];
     
@@ -129,9 +175,14 @@
 }
 
 - (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task {
-    NSLog(@"%f",table.frame.size.height);
-    
     return 305;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ((indexPath.row == 0) && showingQuickAddCell)
+        return 110;
+    else
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 - (void) showTaskAtRow:(NSInteger)row {
@@ -155,36 +206,66 @@
     [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:completedTaskIndex+1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
-- (void) noteTextDidEndEditing {
-    if (keyboardIsUp) {
-        [UIView beginAnimations:Nil context:nil];
-        [UIView setAnimationDuration:0.3];
-//        tableViewHeightConstrait.constant = tableViewHeightConstrait.constant + KEYBOARD_SIZE;
-        [UIView commitAnimations];
-        keyboardIsUp = NO;
-    }
-}
-
-- (void) shouldDisposeTheCellForTask:(TaskDTO*)task {
-    [self reloadContentData];
-    if (task.currentRepetition == task.repeatTimes) {
-        showingCompleteTaskCell = NO;
-        [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex inSection:0], [NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
-        
-    } else {
-        [table reloadData];
-        showingCompleteTaskCell = NO;
-        [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:completedTaskIndex + 1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
-    }
-    
-    completedTaskIndex = -1;
-    table.userInteractionEnabled = NO;
-    [table performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
-    [self performSelector:@selector(restoreTable) withObject:[NSNumber numberWithBool:YES] afterDelay:0.35];
-}
-
 - (void) restoreTable {
     table.userInteractionEnabled = YES;
+}
+
+#pragma mark - Gesture Methods
+
+- (void) quickAddGesture {
+    if (!showingQuickAddCell) {
+        showingQuickAddCell = YES;
+        quickAddDto = [[TaskDTO alloc] init];
+        quickAddTitle.text = quickAddDto.title;
+        quickAddRepeatTimes.text = [quickAddDto repeatTimesDisplayText];
+        [table reloadData];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+{
+    if (!showingQuickAddCell && scrollView.pullGestureRecognizer)
+        [scrollView.pullGestureRecognizer scrollViewDidScroll:scrollView];
+    
+    if (scrollView.contentOffset.y >= 3.0f && showingQuickAddCell) {
+        [self hideQuickAddCell];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+{
+    if (!showingQuickAddCell && scrollView.pullGestureRecognizer)
+        [scrollView.pullGestureRecognizer resetPullState];
+}
+
+#pragma mark - QuickAdd Methods
+
+- (void) hideQuickAddCell {
+    showingQuickAddCell = NO;
+    [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (IBAction) quickAddButtonPressed {
+    [[TaskListModel sharedInstance] addTask:quickAddDto];
+    [self hideQuickAddCell];
+    [self reloadContentData];
+    [table reloadData];
+}
+
+- (IBAction) fullAddButtonPressed {
+    taskToShow = quickAddDto;
+    taskToShowIsNewCopy = YES;
+    [self performSegueWithIdentifier:EDIT_TASK_SEGUE sender:nil];
+}
+
+- (IBAction) repeatTimesButtonPressed {
+
+}
+
+- (IBAction) textFieldDidFinish:(UITextField*) sender {
+    quickAddDto.title = sender.text;
 }
 
 @end

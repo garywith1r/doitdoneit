@@ -84,9 +84,6 @@
     
     [contentView layoutIfNeeded];
     
-    NSLog(@"%f",scrollView.frame.size.height);
-    NSLog(@"%f",contentView.frame.size.height);
-    
     CGFloat heightDifference = scrollViewHeightConstrait.constant - contentView.frame.size.height;
     
     if (heightDifference < 0)

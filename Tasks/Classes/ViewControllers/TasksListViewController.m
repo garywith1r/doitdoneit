@@ -25,9 +25,6 @@
     NSString* titleToShow;
     
     
-    TaskDTO* taskToShow;
-    BOOL taskToShowIsNewCopy;
-    
     MPMoviePlayerController* playerViewController;
     ZoomImageViewController* zoomImageController;
 }
@@ -43,7 +40,8 @@
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name: UIApplicationWillEnterForegroundNotification object:nil];
-}
+    
+    }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -52,7 +50,7 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"EditTaskSegue"]) {
+    if ([segue.identifier isEqualToString:EDIT_TASK_SEGUE]) {
         AddEditTaskViewController* taskController = (AddEditTaskViewController*) [segue destinationViewController];
         taskController.task = taskToShow;
         taskController.isNewTask = taskToShowIsNewCopy;
@@ -163,12 +161,12 @@
         case 0: // copy
             taskToShow = [[contentDataArray objectAtIndex:cell.tag] taskWithData];
             taskToShowIsNewCopy = YES;
-            [self performSegueWithIdentifier:@"EditTaskSegue" sender:nil];
+            [self performSegueWithIdentifier:EDIT_TASK_SEGUE sender:nil];
             break;
         case 1: // Edit
         {
             taskToShow = [contentDataArray objectAtIndex:cell.tag];
-            [self performSegueWithIdentifier:@"EditTaskSegue" sender:nil];
+            [self performSegueWithIdentifier:EDIT_TASK_SEGUE sender:nil];
             break;
         }
         case 2: // delete

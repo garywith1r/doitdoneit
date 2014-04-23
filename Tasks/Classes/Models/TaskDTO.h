@@ -19,7 +19,9 @@ enum TaskStatus {
 enum TaskRepeatPeriod {
     Weekly = 0,
     Fortnightly,
-    Monthly
+    Monthly,
+    Quarterly,
+    Yearly
 };
 
 @interface TaskDTO : NSObject
@@ -58,4 +60,6 @@ enum TaskRepeatPeriod {
 - (void) incrementMissedItBy:(int)increment;
 - (double) hitRate;
 
+
+- (NSString*) repeatTimesDisplayText;
 @end

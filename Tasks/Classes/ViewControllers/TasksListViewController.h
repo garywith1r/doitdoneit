@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DAAttributedLabel.h"
+#import "TaskDto.h"
 
 
 #define NORMAL_ROW_HEIGHT 60.0
@@ -15,6 +16,9 @@
 
 #define THUMBNAIL_FRAME CGRectMake (7,5,0,0)
 
+#define COMPLETE_TASK_SEGUE @"CompleteTaskSegue"
+#define NEW_TASK_SEGUE @"NewTaskSegue"
+#define EDIT_TASK_SEGUE @"EditTaskSegue"
 
 
 @interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DAAttributedLabelDelegate> {
@@ -23,6 +27,9 @@
     
     int tagToDeleteIndex;
     NSInteger selectedRow;
+    
+    TaskDTO* taskToShow;
+    BOOL taskToShowIsNewCopy;
 }
 
 @property (nonatomic, weak) UINavigationController* navController;

@@ -46,16 +46,12 @@
 
 - (IBAction) skipTask {
     [[TaskListModel sharedInstance] missTask:self.task];
-    if ([self.delegate respondsToSelector:@selector(shouldDisposeTheCellForTask:)])
-        [self.delegate shouldDisposeTheCellForTask:self.task];
 }
 
 - (IBAction) completeTask {
     self.task.rating = ratingTemp;
     self.task.notes = txtNotes.text;
     [[TaskListModel sharedInstance] completeTask:self.task];
-    if ([self.delegate respondsToSelector:@selector(shouldDisposeTheCellForTask:)])
-        [self.delegate shouldDisposeTheCellForTask:self.task];
 }
 
 - (IBAction) shareOnFacebook {
