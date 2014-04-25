@@ -61,6 +61,8 @@ enum AwardType {
 
 - (void) recalculateVolatileStats;
 
+- (CGFloat) thisWeekHitRate;
+
 
 
 @end

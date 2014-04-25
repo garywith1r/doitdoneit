@@ -8,8 +8,10 @@
 
 #import "SummaryViewController.h"
 #import "UsersModel.h"
+#import "StatsModel.h"
 #import "EGOFileManager.h"
 #import "TabBarController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SummaryViewController () {
     IBOutlet UIButton* btnImage;
@@ -24,6 +26,9 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    btnImage.layer.cornerRadius = 34;
+    btnImage.layer.masksToBounds = YES;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -31,7 +36,11 @@
     
     NSDictionary* currentUser = [UsersModel sharedInstance].logedUser;
     
+    
+    StatsModel* statsModel = [StatsModel sharedInstance];
+    
     nameLabel.text = [currentUser objectForKey:LOGGED_USER_NAME_KEY];
+    statsLabel.text = [NSString stringWithFormat:@"%d Done today, %d this\nweek. Hit rate %.1f%%",statsModel.todayCompleted, statsModel.thisWeekCompleted, [statsModel thisWeekHitRate]];
     UIImage* image = [EGOFileManager getImageFromPath:[currentUser objectForKey:LOGGED_USER_IMAGE_KEY]];
     if (image) {
         [btnImage setTitle:@"" forState:UIControlStateNormal];
