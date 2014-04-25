@@ -166,20 +166,17 @@
     
     NSArray *viewControllers = self.navigationController.viewControllers;
     if ([viewControllers indexOfObject:self] == NSNotFound) {
-        // View is disappearing because it was popped from the stack
-        
+        // View was poped. Remove Buttons from RootViewController.
         
         CGRect frame = buttonsView.frame;
-        
         frame.origin.x = self.view.frame.size.width;
+        
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
         [UIView setAnimationDelegate:buttonsView];
         [UIView setAnimationDidStopSelector:@selector(removeFromSuperview)];
         buttonsView.frame = frame;
         [UIView commitAnimations];
-        
-        NSLog(@"View controller was popped");
     }
 }
 
