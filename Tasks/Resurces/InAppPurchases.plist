@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Name</key>
+		<string>Remove Ads</string>
+		<key>ProductId</key>
+		<string></string>
+		<key>Description</key>
+		<string>obviously removes all ad banners from the app.</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Multiuser Upgrade</string>
+		<key>ProductId</key>
+		<string></string>
+		<key>Description</key>
+		<string>enables the user button on the home screen. This lets you to add or switch between users and also includes ad removal.</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Family Mode</string>
+		<key>ProductId</key>
+		<string></string>
+		<key>Description</key>
+		<string>enables multi users and locks adding and editing of tasks. Kids can complete tasks only. Parent can edit completed tasks of all kids to verify and also includes ad removal.</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Weekly Review</string>
+		<key>ProductId</key>
+		<string></string>
+		<key>Description</key>
+		<string>This enables the ‘Weekly Review’ button on the home screen that lets you view and send the details of your week to one or more email recipients. The recipients default to those last entered. Includes ad removal too.</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>PRO Upgrade</string>
+		<key>ProductId</key>
+		<string></string>
+		<key>Description</key>
+		<string>enables all features.</string>
+	</dict>
+</array>
+</plist>

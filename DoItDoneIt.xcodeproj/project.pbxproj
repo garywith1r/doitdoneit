@@ -164,6 +164,11 @@
 		5CEC4585190AB4F2007AA425 /* go@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC457B190AB4F2007AA425 /* go@2x.png */; };
 		5CEC4586190AB4F2007AA425 /* photo_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC457C190AB4F2007AA425 /* photo_add.png */; };
 		5CEC4587190AB4F2007AA425 /* photo_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC457D190AB4F2007AA425 /* photo_add@2x.png */; };
+		5CEC458A190AEFD0007AA425 /* InAppPurchasesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4589190AEFD0007AA425 /* InAppPurchasesTableViewController.m */; };
+		5CEC458D190AF4FD007AA425 /* inAppPurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC458C190AF4FD007AA425 /* inAppPurchaseTableViewCell.m */; };
+		5CEC458F190AF980007AA425 /* InAppPurchases.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC458E190AF980007AA425 /* InAppPurchases.plist */; };
+		5CEC4592190AFFBA007AA425 /* SettingsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */; };
+		5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4594190B0274007AA425 /* InAppPurhcaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -392,6 +397,15 @@
 		5CEC457B190AB4F2007AA425 /* go@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go@2x.png"; sourceTree = "<group>"; };
 		5CEC457C190AB4F2007AA425 /* photo_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_add.png; sourceTree = "<group>"; };
 		5CEC457D190AB4F2007AA425 /* photo_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_add@2x.png"; sourceTree = "<group>"; };
+		5CEC4588190AEFD0007AA425 /* InAppPurchasesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchasesTableViewController.h; sourceTree = "<group>"; };
+		5CEC4589190AEFD0007AA425 /* InAppPurchasesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchasesTableViewController.m; sourceTree = "<group>"; };
+		5CEC458B190AF4FD007AA425 /* inAppPurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inAppPurchaseTableViewCell.h; sourceTree = "<group>"; };
+		5CEC458C190AF4FD007AA425 /* inAppPurchaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = inAppPurchaseTableViewCell.m; sourceTree = "<group>"; };
+		5CEC458E190AF980007AA425 /* InAppPurchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InAppPurchases.plist; sourceTree = "<group>"; };
+		5CEC4590190AFFBA007AA425 /* SettingsTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTabBarController.h; sourceTree = "<group>"; };
+		5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTabBarController.m; sourceTree = "<group>"; };
+		5CEC4593190B0274007AA425 /* InAppPurhcaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurhcaseViewController.h; sourceTree = "<group>"; };
+		5CEC4594190B0274007AA425 /* InAppPurhcaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurhcaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +428,8 @@
 		5C105C0018F3C173002C2A3F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5CEC4590190AFFBA007AA425 /* SettingsTabBarController.h */,
+				5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */,
 				5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */,
 				5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */,
 				5C105C0418F3C1C2002C2A3F /* AddEditUserViewController.h */,
@@ -422,6 +438,12 @@
 				5CEA32C218FEE69C00B85322 /* ParentsPinCodeViewController.m */,
 				5CEA32C418FEF3B700B85322 /* SetParentsPinViewController.h */,
 				5CEA32C518FEF3B700B85322 /* SetParentsPinViewController.m */,
+				5CEC4588190AEFD0007AA425 /* InAppPurchasesTableViewController.h */,
+				5CEC4589190AEFD0007AA425 /* InAppPurchasesTableViewController.m */,
+				5CEC458B190AF4FD007AA425 /* inAppPurchaseTableViewCell.h */,
+				5CEC458C190AF4FD007AA425 /* inAppPurchaseTableViewCell.m */,
+				5CEC4593190B0274007AA425 /* InAppPurhcaseViewController.h */,
+				5CEC4594190B0274007AA425 /* InAppPurhcaseViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -578,6 +600,7 @@
 				5C9B638318A14A350091C1D2 /* Main_iPhone.storyboard */,
 				5C9B63AA18A151C90091C1D2 /* Images */,
 				5C9B637818A14A350091C1D2 /* Supporting Files */,
+				5CEC458E190AF980007AA425 /* InAppPurchases.plist */,
 			);
 			name = Resurces;
 			path = Tasks/Resurces;
@@ -934,6 +957,7 @@
 				5CD63E73190A070000017304 /* Default.jpg in Resources */,
 				5CD63E81190A070000017304 /* repeat1_week_on.png in Resources */,
 				5CD63E80190A070000017304 /* repeat_number@2x.png in Resources */,
+				5CEC458F190AF980007AA425 /* InAppPurchases.plist in Resources */,
 				5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */,
 				5CD63E8B190A070000017304 /* repeat3_fort.png in Resources */,
 				5CD63EA4190A070000017304 /* tabbar_task_on@2x.png in Resources */,
@@ -1020,8 +1044,10 @@
 				5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */,
 				5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */,
 				5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */,
+				5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */,
 				5CD882F318E9840D003DD93F /* SVWebViewControllerActivityChrome.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
+				5CEC458A190AEFD0007AA425 /* InAppPurchasesTableViewController.m in Sources */,
 				5C88D0FA190563600059ADFD /* MOORefreshView.m in Sources */,
 				5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
@@ -1038,6 +1064,7 @@
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,
 				5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */,
 				5CEA32C618FEF3B700B85322 /* SetParentsPinViewController.m in Sources */,
+				5CEC4592190AFFBA007AA425 /* SettingsTabBarController.m in Sources */,
 				5C2652F318BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */,
 				5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */,
@@ -1053,6 +1080,7 @@
 				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
+				5CEC458D190AF4FD007AA425 /* inAppPurchaseTableViewCell.m in Sources */,
 				5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
 				5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */,
