@@ -7,6 +7,7 @@
 //
 
 #import "InAppPurhcaseViewController.h"
+#import "RMStore.h"
 
 @interface InAppPurhcaseViewController () {
     IBOutlet UILabel* lblTitle;
@@ -29,11 +30,15 @@
 
 
 - (IBAction) purchaseButtonPressed {
-    
+    [[RMStore defaultStore] addPayment:[self.inAppDictionary objectForKey:@"ProductId"] success:^(SKPaymentTransaction *transaction) {
+        NSLog(@"Purchased!");
+    } failure:^(SKPaymentTransaction *transaction, NSError *error) {
+        NSLog(@"Something went wrong");
+    }];
 }
 
 - (IBAction) cancelButtonPressed {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
