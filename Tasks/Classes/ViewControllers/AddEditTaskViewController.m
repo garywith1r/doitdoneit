@@ -48,6 +48,8 @@
     IBOutlet NSLayoutConstraint* scrollViewHeightConstrait;
     IBOutlet NSLayoutConstraint* contentViewHeightConstrait;
     
+    IBOutlet UIButton* btnCancel;
+    
     BOOL selectingDueDate;
     BOOL keyboardIsUp;
     
@@ -126,29 +128,23 @@
     dueDateTemp = self.task.dueDate;
     completitionDateTemp = self.task.completitionDate;
     
-    scrollViewHeightConstrait.constant = self.view.frame.size.height;
-    
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
-        scrollViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
-    
-    
-    //    UIViewController* mainVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    //    mainVC.view.backgroundColor = [UIColor redColor];
-    //    [mainVC.view addSubview:buttonsView];
+    UIViewController* mainVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [mainVC.view addSubview:buttonsView];
     
     CGRect frame = buttonsView.frame;
-    //    frame.origin.y = mainVC.view.frame.size.height - frame.size.height;
-    frame.origin.y = 0;
-    frame.origin.x = -160;
-    //    frame.origin = CGPointZero;
+    frame.origin.x = mainVC.view.frame.size.width;
+    frame.origin.y = mainVC.view.frame.size.height - frame.size.height;
     buttonsView.frame = frame;
     
+    frame.origin.x = 0;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    buttonsView.frame = frame;
+    [UIView commitAnimations];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-	// Do any additional setup after loading the view.
-    
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
@@ -163,6 +159,28 @@
     
     lblDetails.text = self.task.detailsText;
     
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if ([viewControllers indexOfObject:self] == NSNotFound) {
+        // View is disappearing because it was popped from the stack
+        
+        
+        CGRect frame = buttonsView.frame;
+        
+        frame.origin.x = self.view.frame.size.width;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        [UIView setAnimationDelegate:buttonsView];
+        [UIView setAnimationDidStopSelector:@selector(removeFromSuperview)];
+        buttonsView.frame = frame;
+        [UIView commitAnimations];
+        
+        NSLog(@"View controller was popped");
+    }
 }
 
 - (IBAction) sliderHasChanged :(id)sender {
@@ -247,27 +265,6 @@
     }
     
     return YES;
-}
-
-- (IBAction) textEditingBegun {
-    if (!keyboardIsUp) {
-        [UIView beginAnimations:Nil context:nil];
-        [UIView setAnimationDuration:0.3];
-        scrollViewHeightConstrait.constant = scrollViewHeightConstrait.constant - KEYBOARD_SIZE;
-        [UIView commitAnimations];
-        keyboardIsUp = YES;
-    }
-}
-
-
-- (IBAction) textEditingEnd {
-    if (keyboardIsUp) {
-        [UIView beginAnimations:Nil context:nil];
-        [UIView setAnimationDuration:0.3];
-        scrollViewHeightConstrait.constant = scrollViewHeightConstrait.constant + KEYBOARD_SIZE;
-        [UIView commitAnimations];
-        keyboardIsUp = NO;
-    }
 }
 
 - (IBAction) updatePicture:(UIButton *)sender {
