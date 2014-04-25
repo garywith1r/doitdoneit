@@ -30,6 +30,8 @@
     
     IBOutlet UIImageView* arrowImage;
     
+    
+    UIButton* selectedRowExpandButton;
 }
 
 @end
@@ -71,9 +73,10 @@
 }
 
 - (void) showTaskAtRow:(NSInteger)row {
-    selectedRow = row;
+    if (selectedRowExpandButton)
+        [selectedRowExpandButton setImage:[UIImage imageNamed:@"arrow1.png"] forState:UIControlStateNormal];
     
-    arrowImage.image = [UIImage imageNamed:@"arrow2.png"];
+    selectedRow = row;
     
     [table beginUpdates];
     [table endUpdates];
@@ -83,7 +86,8 @@
 - (void) hideTaskAtRow:(NSInteger)row {
     if (selectedRow == row) {
         [self showTaskAtRow:-1];
-        arrowImage.image = [UIImage imageNamed:@"arrow1.png"];
+        [selectedRowExpandButton setImage:[UIImage imageNamed:@"arrow1.png"] forState:UIControlStateNormal];
+        selectedRowExpandButton = nil;
     }
 }
 
@@ -151,8 +155,11 @@
 - (void) expandOrContractCell:(UIButton*) sender {
     if (sender.tag == selectedRow)
         [self hideTaskAtRow:sender.tag];
-    else
+    else {
         [self showTaskAtRow:sender.tag];
+        selectedRowExpandButton = sender;
+        [selectedRowExpandButton setImage:[UIImage imageNamed:@"arrow2.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {}

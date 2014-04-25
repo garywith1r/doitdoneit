@@ -35,7 +35,6 @@
     IBOutlet UILabel* lblTaskPoints;
     IBOutlet UILabel* dueDate;
     IBOutlet UIButton* btnImage;
-    IBOutlet UILabel* lblAddPhoto;
     IBOutlet DAAttributedLabel* lblDetails;
     
     IBOutlet UIView* completeTaskDetailsView;
@@ -99,10 +98,8 @@
     btnImage.layer.masksToBounds = YES;
     
     if (task.thumbImage) {
-        [btnImage setTitle:@"" forState:UIControlStateNormal];
         btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [btnImage setImage:task.thumbImage forState:UIControlStateNormal];
-        lblAddPhoto.hidden = YES;
     }
     
     if (self.task.status == TaskStatusIncomplete) {
@@ -307,7 +304,8 @@
     task.thumbImage = nil;
     task.videoUrl = nil;
     
-    lblAddPhoto.hidden = NO;
+    btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [btnImage setImage:task.thumbImage forState:UIControlStateNormal];
 }
 
 #pragma mark - ActionSheet Delegate
@@ -389,10 +387,8 @@
     
     
     if (thumbImage) {
-        [btnImage setTitle:@"" forState:UIControlStateNormal];
         btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [btnImage setImage:thumbImage forState:UIControlStateNormal];
-        lblAddPhoto.hidden = YES;
         
         task.thumbImage = thumbImage;
     }

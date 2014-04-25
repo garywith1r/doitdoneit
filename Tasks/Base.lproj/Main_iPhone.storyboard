@@ -97,6 +97,7 @@
                                         <state key="normal" image="tabbar_task.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="tabbar_task_on.png"/>
                                         <state key="highlighted" image="tabbar_task_on.png"/>
                                         <connections>
                                             <segue destination="cqD-jM-1LK" kind="custom" identifier="viewController3" customClass="MHTabBarSegue" id="mnV-Tq-U5Z"/>
@@ -826,11 +827,12 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-lm-5MJ" userLabel="Complete Add Btn">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-lm-5MJ" userLabel="Complete Add Btn">
                                                             <rect key="frame" x="3" y="2" width="23" height="23"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="23" id="acb-nH-qEo"/>
+                                                                <constraint firstAttribute="height" constant="23" id="UDP-gQ-SwG"/>
+                                                                <constraint firstAttribute="width" constant="23" id="naK-FI-1Eg"/>
                                                             </constraints>
                                                             <state key="normal" image="task_add.png">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -839,9 +841,13 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                                 <action selector="fullAddButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5sE-uD-Qxs"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgc-0E-dgU" userLabel="Done Button">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgc-0E-dgU" userLabel="Done Button">
                                                             <rect key="frame" x="293" y="2" width="23" height="23"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="23" id="Sda-NS-4Od"/>
+                                                                <constraint firstAttribute="height" constant="23" id="zR0-TD-BiI"/>
+                                                            </constraints>
                                                             <state key="normal" image="task_ok.png">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
@@ -850,9 +856,13 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                                 <action selector="quickAddButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZRi-MQ-BgK"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Task" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-ez-tug" userLabel="New Task Lbl">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Task" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-ez-tug" userLabel="New Task Lbl">
                                                             <rect key="frame" x="118" y="1" width="84" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="84" id="815-e6-C1w"/>
+                                                                <constraint firstAttribute="height" constant="21" id="MPe-eB-Wyg"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="0.95686274509803915" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -860,15 +870,12 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="Tgc-0E-dgU" firstAttribute="leading" secondItem="Jcn-ez-tug" secondAttribute="trailing" constant="91" id="003-oK-BVA"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Tgc-0E-dgU" secondAttribute="trailing" constant="4" id="H70-gt-LJ3"/>
-                                                        <constraint firstItem="NCe-lm-5MJ" firstAttribute="top" secondItem="Tgc-0E-dgU" secondAttribute="top" id="Q8v-aJ-3cD"/>
-                                                        <constraint firstItem="NCe-lm-5MJ" firstAttribute="baseline" secondItem="Jcn-ez-tug" secondAttribute="baseline" constant="2" id="Rfr-op-C8W"/>
-                                                        <constraint firstItem="NCe-lm-5MJ" firstAttribute="bottom" secondItem="Tgc-0E-dgU" secondAttribute="bottom" id="aP6-TE-SGR"/>
-                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="centerX" secondItem="nfS-jx-8Wt" secondAttribute="centerX" id="c6x-5I-hCS"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Tgc-0E-dgU" secondAttribute="bottom" constant="3" id="crL-PZ-d6N"/>
-                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="leading" secondItem="NCe-lm-5MJ" secondAttribute="trailing" constant="92" id="iNO-h8-fs9"/>
-                                                        <constraint firstItem="NCe-lm-5MJ" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="2" id="j4Z-c8-OBk"/>
+                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="118" id="2Zl-sd-jtH"/>
+                                                        <constraint firstItem="Tgc-0E-dgU" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="2" id="FwK-z5-1K9"/>
+                                                        <constraint firstItem="Tgc-0E-dgU" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="293" id="Tnx-Tk-SRm"/>
+                                                        <constraint firstItem="NCe-lm-5MJ" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="3" id="WPm-X2-TZ2"/>
+                                                        <constraint firstItem="NCe-lm-5MJ" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="2" id="ecm-74-Bf6"/>
+                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="1" id="vav-U6-IKY"/>
                                                     </constraints>
                                                 </view>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-VD-PXh" userLabel="Title TextField">
@@ -1123,10 +1130,10 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                             <action selector="sliderHasChanged:" destination="oME-Fa-l65" eventType="valueChanged" id="QHe-Pi-XmW"/>
                                                         </connections>
                                                     </slider>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWq-qn-q3C" userLabel="Photo Button">
-                                                        <rect key="frame" x="9" y="21" width="77" height="49"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWq-qn-q3C" userLabel="Photo Button">
+                                                        <rect key="frame" x="9" y="21" width="71" height="45"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal">
+                                                        <state key="normal" image="photo_add.png">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -1134,13 +1141,6 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                             <action selector="updatePicture:" destination="oME-Fa-l65" eventType="touchUpInside" id="89V-Ym-5XT"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Photo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="42" translatesAutoresizingMaskIntoConstraints="NO" id="QYn-wc-bRJ" userLabel="Add Photo Lbl">
-                                                        <rect key="frame" x="26" y="27" width="42" height="36"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7G-j4-NTt" userLabel="Points number Lbl">
                                                         <rect key="frame" x="270" y="191" width="34" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1155,24 +1155,24 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-ww-chJ">
-                                                        <rect key="frame" x="70" y="131" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-ww-chJ">
+                                                        <rect key="frame" x="82" y="143" width="29" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="KdY-uJ-3Nz">
-                                                        <rect key="frame" x="262" y="224" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="P3D-oR-r79">
+                                                        <rect key="frame" x="298" y="102" width="10" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="y61-M2-gUH">
-                                                        <rect key="frame" x="262" y="131" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="y61-M2-gUH">
+                                                        <rect key="frame" x="298" y="149" width="10" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="P3D-oR-r79">
-                                                        <rect key="frame" x="262" y="84" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="KdY-uJ-3Nz">
+                                                        <rect key="frame" x="298" y="243" width="10" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbj-qz-b2l" userLabel="Details Button">
-                                                        <rect key="frame" x="78" y="233" width="234" height="33"/>
+                                                        <rect key="frame" x="82" y="233" width="208" height="34"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1264,7 +1264,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="5iA-Jw-OPB">
-                                                        <rect key="frame" x="79" y="143" width="213" height="34"/>
+                                                        <rect key="frame" x="82" y="143" width="213" height="34"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <string key="text">Label
 Second Line</string>
@@ -1273,12 +1273,12 @@ Second Line</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2E-ps-XD1">
-                                                        <rect key="frame" x="78" y="6" width="30" height="30"/>
+                                                        <rect key="frame" x="82" y="6" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1286,12 +1286,12 @@ Second Line</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9o-gM-8BT">
-                                                        <rect key="frame" x="108" y="6" width="30" height="30"/>
+                                                        <rect key="frame" x="112" y="6" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1299,12 +1299,12 @@ Second Line</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywL-g9-njF">
-                                                        <rect key="frame" x="138" y="6" width="30" height="30"/>
+                                                        <rect key="frame" x="142" y="6" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1312,12 +1312,12 @@ Second Line</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zb-I2-Px8">
-                                                        <rect key="frame" x="168" y="6" width="30" height="30"/>
+                                                        <rect key="frame" x="172" y="6" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1325,39 +1325,39 @@ Second Line</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDt-hI-Rl9">
-                                                        <rect key="frame" x="198" y="6" width="30" height="30"/>
+                                                        <rect key="frame" x="202" y="6" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ratingButtonPressed:" destination="oME-Fa-l65" eventType="touchUpInside" id="UZU-Si-1D3"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="eaB-IF-YuV">
-                                                        <rect key="frame" x="70" y="90" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="eaB-IF-YuV">
+                                                        <rect key="frame" x="82" y="103" width="29" height="23"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 times per week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXG-EX-AXd">
-                                                        <rect key="frame" x="79" y="56" width="197" height="21"/>
+                                                        <rect key="frame" x="82" y="56" width="197" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="WmS-x2-K6c">
-                                                        <rect key="frame" x="260" y="42" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="WmS-x2-K6c">
+                                                        <rect key="frame" x="300" y="60" width="10" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pxh-qW-Hel">
-                                                        <rect key="frame" x="260" y="90" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pxh-qW-Hel">
+                                                        <rect key="frame" x="300" y="108" width="10" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-hn-MRH">
-                                                        <rect key="frame" x="260" y="135" width="50" height="50"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-hn-MRH">
+                                                        <rect key="frame" x="300" y="153" width="10" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h1d-ho-c7p">
@@ -1430,7 +1430,6 @@ Second Line</string>
                         <outlet property="completeTaskDetailsView" destination="720-VA-e4s" id="TVd-fa-fMF"/>
                         <outlet property="doneDate" destination="6tu-wZ-3xY" id="J6x-P8-cgT"/>
                         <outlet property="dueDate" destination="xKd-1F-mbH" id="f0z-8j-UaB"/>
-                        <outlet property="lblAddPhoto" destination="QYn-wc-bRJ" id="xXv-UO-jwM"/>
                         <outlet property="lblDetails" destination="H0o-2m-iqr" id="bg2-Ok-KtP"/>
                         <outlet property="lblInfo" destination="5iA-Jw-OPB" id="WfZ-37-Zmc"/>
                         <outlet property="lblNotes" destination="eXG-EX-AXd" id="sbz-CR-eCC"/>
@@ -1600,10 +1599,10 @@ Missed:     Hit:</string>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz3-QB-uLv">
                                                         <rect key="frame" x="90" y="5" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1613,10 +1612,10 @@ Missed:     Hit:</string>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB5-xz-c5D">
                                                         <rect key="frame" x="130" y="5" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1626,10 +1625,10 @@ Missed:     Hit:</string>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SI7-4t-HXU">
                                                         <rect key="frame" x="170" y="5" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1639,10 +1638,10 @@ Missed:     Hit:</string>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abP-Bt-6s7">
                                                         <rect key="frame" x="210" y="5" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1652,10 +1651,10 @@ Missed:     Hit:</string>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFr-pr-NRY">
                                                         <rect key="frame" x="251" y="5" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="S" image="Star_Gray.png">
+                                                        <state key="normal" image="award_line.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" image="Star_Yellow.png">
+                                                        <state key="selected" image="award.png">
                                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -1793,7 +1792,7 @@ Missed:     Hit:</string>
                                 <rect key="frame" x="15" y="116" width="290" height="336"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repeat_number.png" translatesAutoresizingMaskIntoConstraints="NO" id="7iv-lh-vAe">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="repeat_number.png" translatesAutoresizingMaskIntoConstraints="NO" id="7iv-lh-vAe">
                                         <rect key="frame" x="129" y="68" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -2063,14 +2062,11 @@ Missed:     Hit:</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow1.png" translatesAutoresizingMaskIntoConstraints="NO" id="qPT-lh-NZq">
-                                        <rect key="frame" x="278" y="36" width="22" height="13"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vS-fA-ZmU" userLabel="Expand / Collapse Button">
                                         <rect key="frame" x="88" y="0.0" width="232" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
+                                        <inset key="imageEdgeInsets" minX="171" minY="9" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="arrow1.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -2220,58 +2216,51 @@ Missed:     Hit:</string>
                                     <button opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgM-fV-ZfF">
                                         <rect key="frame" x="81" y="89" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="S" image="Star_Gray.png">
+                                        <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="Star_Yellow.png">
+                                        <state key="selected" image="award.png">
                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdZ-EW-pIX">
                                         <rect key="frame" x="121" y="89" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="S" image="Star_Gray.png">
+                                        <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="Star_Yellow.png">
+                                        <state key="selected" image="award.png">
                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dul-KX-0dn">
                                         <rect key="frame" x="161" y="89" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="S" image="Star_Gray.png">
+                                        <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="Star_Yellow.png">
+                                        <state key="selected" image="award.png">
                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAj-kL-eyl">
                                         <rect key="frame" x="201" y="89" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="S" image="Star_Gray.png">
+                                        <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="Star_Yellow.png">
+                                        <state key="selected" image="award.png">
                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW1-gt-l8N">
                                         <rect key="frame" x="242" y="89" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="S" image="Star_Gray.png">
+                                        <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="Star_Yellow.png">
+                                        <state key="selected" image="award.png">
                                             <color key="titleColor" red="0.46666666670000001" green="0.76862745099999996" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwZ-IH-xwi" userLabel="Expand / Collapse Button">
-                                        <rect key="frame" x="81" y="0.0" width="239" height="78"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-A7-ArY" userLabel="Separator Line">
@@ -2279,6 +2268,14 @@ Missed:     Hit:</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwZ-IH-xwi" userLabel="Expand / Collapse Button">
+                                        <rect key="frame" x="88" y="0.0" width="232" height="78"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="171" minY="9" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="arrow1.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2443,12 +2440,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="Calendar.png" width="128" height="128"/>
         <image name="FacebookIcon.png" width="30" height="30"/>
-        <image name="Star_Gray.png" width="128" height="128"/>
-        <image name="Star_Yellow.png" width="128" height="128"/>
         <image name="TwitterIcon.png" width="30" height="30"/>
         <image name="arrow1.png" width="22" height="13"/>
+        <image name="award.png" width="21" height="21"/>
+        <image name="award_line.png" width="21" height="21"/>
+        <image name="calendar.png" width="29" height="23"/>
+        <image name="go.png" width="10" height="14"/>
+        <image name="photo_add.png" width="71" height="45"/>
         <image name="repeat1_week.png" width="117" height="39"/>
         <image name="repeat1_week_on.png" width="117" height="40"/>
         <image name="repeat2_month.png" width="117" height="40"/>
