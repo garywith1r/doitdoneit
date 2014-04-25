@@ -30,21 +30,21 @@
 @interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
-    IBOutlet UITextField* txtRepeatTimes;
-    IBOutlet UILabel* lblTitle;
     IBOutlet UILabel* lblRepeatTimes;
-    IBOutlet UISegmentedControl* sgmRepeatInterval;
     IBOutlet UISlider* sldTaskPoints;
     IBOutlet UILabel* lblTaskPoints;
     IBOutlet UILabel* dueDate;
     IBOutlet UIButton* btnImage;
+    IBOutlet UILabel* lblAddPhoto;
     IBOutlet DAAttributedLabel* lblDetails;
     
     IBOutlet UIView* completeTaskDetailsView;
     IBOutletCollection(UIButton) NSArray* ratingButtons;
-    IBOutlet UITextField* txtNotes;
+    IBOutlet UILabel* lblNotes;
     IBOutlet UILabel* doneDate;
     IBOutlet UILabel* lblInfo;
+    
+    IBOutlet UIView* buttonsView;
     
     IBOutlet NSLayoutConstraint* scrollViewHeightConstrait;
     IBOutlet NSLayoutConstraint* contentViewHeightConstrait;
@@ -86,18 +86,23 @@
         self.isNewTask = YES;
     }
     
-    lblTitle.text = txtTitle.text = self.task.title;
+    txtTitle.text = self.task.title;
     lblDetails.delegate = self;
     
-    lblRepeatTimes.text = txtRepeatTimes.text = [NSString stringWithFormat:@"%d",(int)self.task.repeatTimes];
-    sgmRepeatInterval.selectedSegmentIndex = self.task.repeatPeriod;
+    lblRepeatTimes.text = [self.task repeatTimesDisplayText];
     sldTaskPoints.value = self.task.taskPoints;
     [self sliderHasChanged:sldTaskPoints];
     
+    btnImage.layer.borderColor = YELLOW_COLOR.CGColor;
+    btnImage.layer.borderWidth = 2.0;
+    btnImage.layer.cornerRadius = 4;
+    btnImage.layer.masksToBounds = YES;
+    
     if (task.thumbImage) {
         [btnImage setTitle:@"" forState:UIControlStateNormal];
-        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [btnImage setImage:task.thumbImage forState:UIControlStateNormal];
+        lblAddPhoto.hidden = YES;
     }
     
     if (self.task.status == TaskStatusIncomplete) {
@@ -106,11 +111,11 @@
     } else {
         newTaskDetailsView.userInteractionEnabled = NO;
         
-        txtTitle.hidden = txtRepeatTimes.hidden = YES;
-        lblTitle.hidden = lblRepeatTimes.hidden = NO;
+        txtTitle.hidden = YES;
+        lblRepeatTimes.hidden = NO;
         
         [self setRating:(int)self.task.rating];
-        txtNotes.text = self.task.notes;
+        lblNotes.text = self.task.notes;
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM/dd/yy"];
@@ -129,6 +134,17 @@
     if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
         scrollViewHeightConstrait.constant -= (self.tabBarController.tabBar.frame.size.height + self.navigationController.navigationBar.frame.size.height);
     
+    
+    //    UIViewController* mainVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    //    mainVC.view.backgroundColor = [UIColor redColor];
+    //    [mainVC.view addSubview:buttonsView];
+    
+    CGRect frame = buttonsView.frame;
+    //    frame.origin.y = mainVC.view.frame.size.height - frame.size.height;
+    frame.origin.y = 0;
+    frame.origin.x = -160;
+    //    frame.origin = CGPointZero;
+    buttonsView.frame = frame;
     
 }
 
@@ -163,18 +179,9 @@
         return;
     }
     
-    if ([txtRepeatTimes.text intValue] == 0) {
-        [[[UIAlertView alloc] initWithTitle:@"" message:@"Plese provide a valid amount of repetitions" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
-        return;
-    }
-    
     self.task.title = txtTitle.text;
-    self.task.repeatTimes = [txtRepeatTimes.text intValue];
     
-    self.task.repeatPeriod = (int)sgmRepeatInterval.selectedSegmentIndex;
     self.task.taskPoints = lroundf(sldTaskPoints.value);
-    
-    self.task.notes = txtNotes.text;
     
     self.task.dueDate = dueDateTemp;
     self.task.completitionDate = completitionDateTemp;
@@ -240,8 +247,6 @@
     
     if (textField == txtTitle) {
         return newText.length <= TASK_TITLE_MAX_CHARACTERS;
-    } else if (textField == txtNotes) {
-        return newText.length <= TASK_NOTE_MAX_CHARACTERS;
     }
     
     return YES;
@@ -276,7 +281,7 @@
                                                         cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
                                                    destructiveButtonTitle:nil
                                                         otherButtonTitles:NSLocalizedString(@"Take Photo", nil),
-                                      NSLocalizedString(@"Choose Existing Photo", nil), nil];
+                                      NSLocalizedString(@"Choose Existing Photo", nil), NSLocalizedString(@"Clear", nil), nil];
         
         actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
         
@@ -302,7 +307,7 @@
     task.thumbImage = nil;
     task.videoUrl = nil;
     
-    [btnImage setTitle:@"Import" forState:UIControlStateNormal];
+    lblAddPhoto.hidden = NO;
 }
 
 #pragma mark - ActionSheet Delegate
@@ -312,10 +317,12 @@
     _imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie,kUTTypeImage, nil];
     _imagePickerController.delegate = self;
     
-	if (buttonIndex == 0){ //Camara
+	if (buttonIndex == 0) { //Camara
 		_imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:_imagePickerController animated:YES completion:^{}];
-	} else if(buttonIndex == 1){ //Existing Photo
+        
+        
+	} else if(buttonIndex == 1) { //Existing Photo
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             
             _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -336,10 +343,15 @@
                     
                     [_imagePickerController.view setFrame:containerController.view.frame];
                 }
-            } else
+            } else {
                 [self presentViewController:_imagePickerController animated:YES completion:^{}];
+            }
         }
-	}
+        
+        
+	} else if(buttonIndex == 2) { //Clear Image
+        [self clearPicture];
+    }
 }
 
 
@@ -378,8 +390,9 @@
     
     if (thumbImage) {
         [btnImage setTitle:@"" forState:UIControlStateNormal];
-        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [btnImage setImage:thumbImage forState:UIControlStateNormal];
+        lblAddPhoto.hidden = YES;
         
         task.thumbImage = thumbImage;
     }

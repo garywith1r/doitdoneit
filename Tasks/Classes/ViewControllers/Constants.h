@@ -13,3 +13,6 @@
 #define ONE_DAY 86400
 
 #define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+
+#define YELLOW_COLOR [UIColor colorWithRed:255/255.0 green:244/255.0 blue:0/255.0 alpha:1]

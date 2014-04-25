@@ -49,7 +49,7 @@ UsersModel* userModelInstance;
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
         
 #warning debug
-        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
+        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = parentsModeEnabled = purchasedWeeklyReview = YES;
     }
     
     return self;

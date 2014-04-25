@@ -27,6 +27,9 @@
     
     MPMoviePlayerController* playerViewController;
     ZoomImageViewController* zoomImageController;
+    
+    IBOutlet UIImageView* arrowImage;
+    
 }
 
 @end
@@ -70,14 +73,18 @@
 - (void) showTaskAtRow:(NSInteger)row {
     selectedRow = row;
     
+    arrowImage.image = [UIImage imageNamed:@"arrow2.png"];
+    
     [table beginUpdates];
     [table endUpdates];
     [table deselectRowAtIndexPath:[NSIndexPath indexPathForItem:row inSection:0] animated:YES];
 }
 
 - (void) hideTaskAtRow:(NSInteger)row {
-    if (selectedRow == row)
+    if (selectedRow == row) {
         [self showTaskAtRow:-1];
+        arrowImage.image = [UIImage imageNamed:@"arrow1.png"];
+    }
 }
 
 #pragma mark - UITableView Methods
@@ -133,9 +140,7 @@
         cell.tag = indexPath.row;
         cell.cellScrollView.scrollEnabled = [[UsersModel sharedInstance] currentUserCanCreateTasks];
         
-        
         return cell;
-        
     
 }
 

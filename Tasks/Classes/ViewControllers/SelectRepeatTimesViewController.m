@@ -46,11 +46,6 @@
     contentView.layer.cornerRadius = 5;
     contentView.layer.masksToBounds = YES;
     
-    lblRepeatTimes.layer.borderColor = [UIColor blackColor].CGColor;
-    lblRepeatTimes.layer.borderWidth = 1.0;
-    lblRepeatTimes.layer.cornerRadius = 10;
-    contentView.layer.masksToBounds = YES;
-    
     lblRepeatTimes.text = [NSString stringWithFormat:@"%d",repeatTimes];
     
     decreaseButton.enabled = (repeatTimes != 1);
