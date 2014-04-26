@@ -7,9 +7,10 @@
 //
 
 #import "SelectDateViewController.h"
+#import "MNCalendarView.h"
 
-@interface SelectDateViewController () {
-    IBOutlet UIDatePicker* datePicker;
+@interface SelectDateViewController () <MNCalendarViewDelegate>{
+    IBOutlet MNCalendarView *calendarView;
 }
 
 @end
@@ -19,15 +20,25 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    
+//    MNCalendarView *calendarView = [[MNCalendarView alloc] initWithFrame:self.view.bounds];
     if (self.startDate)
-        datePicker.date = self.startDate;
+        calendarView.selectedDate = self.startDate;
+    else
+        calendarView.selectedDate = [NSDate date];
+    calendarView.delegate = self;
 }
 
 - (IBAction) save {
     if([self.delegate respondsToSelector:@selector(didSelectDate:)])
-        [self.delegate didSelectDate:datePicker.date];
-    
+        [self.delegate didSelectDate:self.startDate];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)calendarView:(MNCalendarView *)calendarView didSelectDate:(NSDate *)date {
+    self.startDate = date;
+    [self save];
 }
 
 @end

@@ -146,6 +146,14 @@
 		5CDB775918BF0F79000A4C04 /* FacebookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB775718BF0F79000A4C04 /* FacebookIcon@2x.png */; };
 		5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */; };
 		5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB775C18BF1191000A4C04 /* StatsModel.m */; };
+		5CE04ABC190C331E00083225 /* MNCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04AAC190C331E00083225 /* MNCalendarHeaderView.m */; };
+		5CE04ABD190C331E00083225 /* MNCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04AAF190C331E00083225 /* MNCalendarView.m */; };
+		5CE04ABE190C331E00083225 /* MNCalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04AB1190C331E00083225 /* MNCalendarViewCell.m */; };
+		5CE04ABF190C331E00083225 /* MNCalendarViewDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04AB3190C331E00083225 /* MNCalendarViewDayCell.m */; };
+		5CE04AC0190C331E00083225 /* MNCalendarViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04AB5190C331E00083225 /* MNCalendarViewLayout.m */; };
+		5CE04AC1190C331E00083225 /* MNCalendarViewWeekdayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04AB7190C331E00083225 /* MNCalendarViewWeekdayCell.m */; };
+		5CE04AC2190C331E00083225 /* MNFastDateEnumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04AB9190C331E00083225 /* MNFastDateEnumeration.m */; };
+		5CE04AC3190C331E00083225 /* NSDate+MNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE04ABB190C331E00083225 /* NSDate+MNAdditions.m */; };
 		5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */; };
 		5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817918E4ACAB0032B6CE /* DAAttributedLabel.m */; };
 		5CE4818218E4ACAB0032B6CE /* DAAttributedStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4817B18E4ACAB0032B6CE /* DAAttributedStringFormatter.m */; };
@@ -375,6 +383,23 @@
 		5CDB775818BF0F79000A4C04 /* TwitterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TwitterIcon@2x.png"; sourceTree = "<group>"; };
 		5CDB775B18BF1191000A4C04 /* StatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsModel.h; sourceTree = "<group>"; };
 		5CDB775C18BF1191000A4C04 /* StatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsModel.m; sourceTree = "<group>"; };
+		5CE04AAB190C331E00083225 /* MNCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarHeaderView.h; sourceTree = "<group>"; };
+		5CE04AAC190C331E00083225 /* MNCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarHeaderView.m; sourceTree = "<group>"; };
+		5CE04AAD190C331E00083225 /* MNCalendarView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MNCalendarView-Prefix.pch"; sourceTree = "<group>"; };
+		5CE04AAE190C331E00083225 /* MNCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarView.h; sourceTree = "<group>"; };
+		5CE04AAF190C331E00083225 /* MNCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarView.m; sourceTree = "<group>"; };
+		5CE04AB0190C331E00083225 /* MNCalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewCell.h; sourceTree = "<group>"; };
+		5CE04AB1190C331E00083225 /* MNCalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewCell.m; sourceTree = "<group>"; };
+		5CE04AB2190C331E00083225 /* MNCalendarViewDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewDayCell.h; sourceTree = "<group>"; };
+		5CE04AB3190C331E00083225 /* MNCalendarViewDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewDayCell.m; sourceTree = "<group>"; };
+		5CE04AB4190C331E00083225 /* MNCalendarViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewLayout.h; sourceTree = "<group>"; };
+		5CE04AB5190C331E00083225 /* MNCalendarViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewLayout.m; sourceTree = "<group>"; };
+		5CE04AB6190C331E00083225 /* MNCalendarViewWeekdayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewWeekdayCell.h; sourceTree = "<group>"; };
+		5CE04AB7190C331E00083225 /* MNCalendarViewWeekdayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewWeekdayCell.m; sourceTree = "<group>"; };
+		5CE04AB8190C331E00083225 /* MNFastDateEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFastDateEnumeration.h; sourceTree = "<group>"; };
+		5CE04AB9190C331E00083225 /* MNFastDateEnumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFastDateEnumeration.m; sourceTree = "<group>"; };
+		5CE04ABA190C331E00083225 /* NSDate+MNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MNAdditions.h"; sourceTree = "<group>"; };
+		5CE04ABB190C331E00083225 /* NSDate+MNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MNAdditions.m"; sourceTree = "<group>"; };
 		5CE4817418E4916D0032B6CE /* EditDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDetailsViewController.h; sourceTree = "<group>"; };
 		5CE4817518E4916D0032B6CE /* EditDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDetailsViewController.m; sourceTree = "<group>"; };
 		5CE4817818E4ACAB0032B6CE /* DAAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAttributedLabel.h; sourceTree = "<group>"; };
@@ -465,6 +490,7 @@
 				5CC1E9E618BD379C0018955E /* DeviceDetector */,
 				5C559B7618F381260092AAE3 /* EGOCache-master */,
 				5CA1222518F72A2100F32CCF /* MHCustomTabBarController */,
+				5CE04AAA190C331E00083225 /* MNCalendarView */,
 				5C88D0E0190563600059ADFD /* MOOPullGesture */,
 				5C2652D918BBA461007F8A0C /* NSDateCategoryForReporting-master */,
 				5C35A13F18F5F5280067959F /* NSDictionary+NumberStoring */,
@@ -844,6 +870,30 @@
 			path = Safari;
 			sourceTree = "<group>";
 		};
+		5CE04AAA190C331E00083225 /* MNCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				5CE04AAB190C331E00083225 /* MNCalendarHeaderView.h */,
+				5CE04AAC190C331E00083225 /* MNCalendarHeaderView.m */,
+				5CE04AAD190C331E00083225 /* MNCalendarView-Prefix.pch */,
+				5CE04AAE190C331E00083225 /* MNCalendarView.h */,
+				5CE04AAF190C331E00083225 /* MNCalendarView.m */,
+				5CE04AB0190C331E00083225 /* MNCalendarViewCell.h */,
+				5CE04AB1190C331E00083225 /* MNCalendarViewCell.m */,
+				5CE04AB2190C331E00083225 /* MNCalendarViewDayCell.h */,
+				5CE04AB3190C331E00083225 /* MNCalendarViewDayCell.m */,
+				5CE04AB4190C331E00083225 /* MNCalendarViewLayout.h */,
+				5CE04AB5190C331E00083225 /* MNCalendarViewLayout.m */,
+				5CE04AB6190C331E00083225 /* MNCalendarViewWeekdayCell.h */,
+				5CE04AB7190C331E00083225 /* MNCalendarViewWeekdayCell.m */,
+				5CE04AB8190C331E00083225 /* MNFastDateEnumeration.h */,
+				5CE04AB9190C331E00083225 /* MNFastDateEnumeration.m */,
+				5CE04ABA190C331E00083225 /* NSDate+MNAdditions.h */,
+				5CE04ABB190C331E00083225 /* NSDate+MNAdditions.m */,
+			);
+			path = MNCalendarView;
+			sourceTree = "<group>";
+		};
 		5CE4817718E4ACAB0032B6CE /* DAAttributedStringUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1071,6 +1121,7 @@
 				5C105C0618F3C1C2002C2A3F /* AddEditUserViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
 				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
+				5CE04AC2190C331E00083225 /* MNFastDateEnumeration.m in Sources */,
 				5CE9A5AC190B0C5200E74951 /* RMStore.m in Sources */,
 				5CA1222B18F72A2100F32CCF /* MHTabBarSegue.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
@@ -1078,10 +1129,14 @@
 				5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */,
 				5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */,
 				5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */,
+				5CE04ABF190C331E00083225 /* MNCalendarViewDayCell.m in Sources */,
+				5CE04AC3190C331E00083225 /* NSDate+MNAdditions.m in Sources */,
 				5CD882F318E9840D003DD93F /* SVWebViewControllerActivityChrome.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
 				5CEC458A190AEFD0007AA425 /* InAppPurchasesTableViewController.m in Sources */,
 				5C88D0FA190563600059ADFD /* MOORefreshView.m in Sources */,
+				5CE04ABE190C331E00083225 /* MNCalendarViewCell.m in Sources */,
+				5CE04ABD190C331E00083225 /* MNCalendarView.m in Sources */,
 				5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
 				5CD882F718E9840D003DD93F /* SVWebViewControllerActivitySafari.m in Sources */,
@@ -1095,10 +1150,12 @@
 				5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */,
 				5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */,
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,
+				5CE04AC1190C331E00083225 /* MNCalendarViewWeekdayCell.m in Sources */,
 				5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */,
 				5CEA32C618FEF3B700B85322 /* SetParentsPinViewController.m in Sources */,
 				5CEC4592190AFFBA007AA425 /* SettingsTabBarController.m in Sources */,
 				5C2652F318BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				5CE04ABC190C331E00083225 /* MNCalendarHeaderView.m in Sources */,
 				5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */,
 				5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */,
 				5CDB775618BF0DC5000A4C04 /* StatsViewController.m in Sources */,
@@ -1124,6 +1181,7 @@
 				5C88D0DD190540730059ADFD /* TabBarController.m in Sources */,
 				5CE4818218E4ACAB0032B6CE /* DAAttributedStringFormatter.m in Sources */,
 				5C35A13818F5E47A0067959F /* SummaryViewController.m in Sources */,
+				5CE04AC0190C331E00083225 /* MNCalendarViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
