@@ -8,6 +8,8 @@
 
 #import "InAppPurhcaseViewController.h"
 #import "RMStore.h"
+#import "UsersModel.h"
+
 
 @interface InAppPurhcaseViewController () {
     IBOutlet UILabel* lblTitle;
@@ -30,11 +32,13 @@
 
 
 - (IBAction) purchaseButtonPressed {
-    [[RMStore defaultStore] addPayment:[self.inAppDictionary objectForKey:@"ProductId"] success:^(SKPaymentTransaction *transaction) {
-        NSLog(@"Purchased!");
-    } failure:^(SKPaymentTransaction *transaction, NSError *error) {
-        NSLog(@"Something went wrong");
-    }];
+    [[UsersModel sharedInstance] removeAdsUpgradePurchased];
+    
+//    [[RMStore defaultStore] addPayment:[self.inAppDictionary objectForKey:@"ProductId"] success:^(SKPaymentTransaction *transaction) {
+//        NSLog(@"Purchased!");
+//    } failure:^(SKPaymentTransaction *transaction, NSError *error) {
+//        NSLog(@"Something went wrong");
+//    }];
 }
 
 - (IBAction) cancelButtonPressed {

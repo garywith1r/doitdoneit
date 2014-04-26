@@ -28,14 +28,14 @@
     iAdsViewHeightValue = iAdsViewHeight.constant;
     iAdsViewHeight.constant = 0;
     iAdsView.hidden = YES;
-    if ([UsersModel sharedInstance].purchasedAddsFree)
-        [self performSelector:@selector(removeAdds) withObject:nil afterDelay:0.1];
+//    if ([UsersModel sharedInstance].purchasedAddsFree)
+//        [self performSelector:@selector(removeAdds) withObject:nil afterDelay:0.1];
 }
 
 - (void) removeAdds {
     iAdsViewHeight.constant = 0;
+    [UIView animateWithDuration:0.3 animations:^{[self.view layoutIfNeeded];}];
     iAdsView.hidden = YES;
-    
     
 }
 
@@ -52,6 +52,7 @@
     if (![UsersModel sharedInstance].purchasedAddsFree) {
         iAdsView.hidden = NO;
         iAdsViewHeight.constant = iAdsViewHeightValue;
+        [UIView animateWithDuration:0.3 animations:^{[self.view layoutIfNeeded];}];
     }
 }
 

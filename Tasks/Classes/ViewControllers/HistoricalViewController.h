@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MHCustomTabBarController.h"
 
-@interface HistoricalViewController : UIViewController
+@interface HistoricalViewController : MHCustomTabBarController
 
 @end

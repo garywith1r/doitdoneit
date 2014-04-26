@@ -26,6 +26,9 @@
 
 - (BOOL) currentUserCanCreateTasks;
 
+
+- (void) removeAdsUpgradePurchased;
+
 @property (nonatomic, readonly) NSDictionary* logedUser;
 @property (nonatomic, readonly) NSMutableDictionary* logedUserData;
 

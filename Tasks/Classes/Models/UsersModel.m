@@ -8,6 +8,7 @@
 
 #import "UsersModel.h"
 #import "EGOFileManager.h"
+#import "TabBarController.h"
 
 #define LOGGED_USER_PATH_KEY @"UsersDataPath"
 
@@ -50,6 +51,7 @@ UsersModel* userModelInstance;
         
 #warning debug
         purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = parentsModeEnabled = purchasedWeeklyReview = YES;
+        purchasedAddsFree = NO;
     }
     
     return self;
@@ -130,4 +132,11 @@ UsersModel* userModelInstance;
     [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"parentsPinCode"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+- (void) removeAdsUpgradePurchased {
+    purchasedAddsFree = YES;
+    TabBarController* tabBar = (TabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [tabBar removeAdds];
+}
+
 @end
