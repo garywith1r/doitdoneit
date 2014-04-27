@@ -32,8 +32,7 @@
 
 
 - (IBAction) purchaseButtonPressed {
-    [[UsersModel sharedInstance] removeAdsUpgradePurchased];
-    
+    [self purchseSucseed];
 //    [[RMStore defaultStore] addPayment:[self.inAppDictionary objectForKey:@"ProductId"] success:^(SKPaymentTransaction *transaction) {
 //        NSLog(@"Purchased!");
 //    } failure:^(SKPaymentTransaction *transaction, NSError *error) {
@@ -43,6 +42,25 @@
 
 - (IBAction) cancelButtonPressed {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void) purchseSucseed {
+    NSInteger code = [[self.inAppDictionary objectForKey:@"Code"] integerValue];
+    
+    switch (code) {
+        case 0: //Pro
+        case 1: { //Family
+            [[UsersModel sharedInstance] familyUpgradePurchased];
+            [self performSegueWithIdentifier:@"SetUpParentsPincode" sender:nil];
+        }
+        case 2: //Multiuser
+            [[UsersModel sharedInstance] multiuserUpgradePurchased];
+        case 3: //Weekly Review
+            [[UsersModel sharedInstance] weeklyReviewUpgradePurchased];
+        case 4: //Remove Ads
+            [[UsersModel sharedInstance] removeAdsUpgradePurchased];
+    }
 }
 
 

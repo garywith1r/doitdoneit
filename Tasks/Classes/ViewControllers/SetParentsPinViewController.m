@@ -8,6 +8,7 @@
 
 #import "SetParentsPinViewController.h"
 #import "UsersModel.h"
+#import "Constants.h"
 
 @interface SetParentsPinViewController () <UITextFieldDelegate>  {
     IBOutlet UITextField* pincode;
@@ -17,18 +18,26 @@
 
 @implementation SetParentsPinViewController
 
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString* text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (text.length == PARENTS_CODE_DIGITS) {
+        if ([text isEqualToString:[UsersModel sharedInstance].parentsPinCode]) {
+            [self.navigationController popViewControllerAnimated:YES];
+            [UsersModel sharedInstance].parentsModeEnabled = YES;
+        } else {
+            textField.text = @"";
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [pincode becomeFirstResponder];
 }
 
-- (IBAction) savePincode {
-    [UsersModel sharedInstance].parentsPinCode = pincode.text;
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    return [textField.text stringByReplacingCharactersInRange:range withString:string].length <= PINCODE_CHARACTERS;
-}
 
 @end

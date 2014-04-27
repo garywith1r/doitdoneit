@@ -6,41 +6,51 @@
 		<key>Name</key>
 		<string>Remove Ads</string>
 		<key>ProductId</key>
-		<string></string>
+		<string>com.is2c.doitdoneit.removeads</string>
 		<key>Description</key>
 		<string>This is a free app that is supported by advertising. This makes it easy for you to try it out without restriction. We are hoping that once you use it and find that it’s worth keeping that you’ll support us by purchasing one of our upgrades. This is basic upgrade that removes the advertisements that can sometimes be distracting</string>
+		<key>Code</key>
+		<string>4</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>Multiuser Upgrade</string>
 		<key>ProductId</key>
-		<string></string>
+		<string>com.is2c.doitdoneit.multiuser</string>
 		<key>Description</key>
 		<string>This upgrade is designed for households that share a device amongst 2 or more people who want to use our app but have their own data. When purchased this upgrade allows you to add as many users as you like on the Settings screen and then change between them by tapping the profile picture at the top. All of the tasks, records and stats are kept separate for each user. This upgrade also includes the removal of advertisements.</string>
+		<key>Code</key>
+		<string>2</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>Family Mode</string>
 		<key>ProductId</key>
-		<string></string>
+		<string>com.is2c.doitdoneit.familymode</string>
 		<key>Description</key>
 		<string>This upgrade is designed for parents who want to help their kids develop good habits. You create users for each of your children and then create tasks for each of them in ‘parent mode’ (which is passcode protected). The kids use the app to record what they’ve done each day/week and you can monitor their progress. Use the points system to create extra incentives for them. Parents can use the app as normal too. This upgrade also includes ad removal.</string>
+		<key>Code</key>
+		<string>1</string>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>Weekly Review</string>
 		<key>ProductId</key>
-		<string></string>
+		<string>com.is2c.doitdoneit.weeklyreview</string>
 		<key>Description</key>
 		<string>This upgrade unlocks an ‘accountability’ feature which allows you to send a weekly summary of your completed tasks to one or more people by email. This could be a mentor, coach, music teacher or just a friend who’s helping you keep on track towards your goals. Setup the email recipients in the Settings screen. On the home page you will find a new ‘Weekly Review’ button that allows you to see the weekly summary, add a note and then email it. This upgrade also includes ad removal.</string>
+		<key>Code</key>
+		<integer>3</integer>
 	</dict>
 	<dict>
 		<key>Name</key>
 		<string>PRO Upgrade</string>
 		<key>ProductId</key>
-		<string></string>
+		<string>com.is2c.doitdoneit.pro</string>
 		<key>Description</key>
 		<string>This upgrade unlocks all features.</string>
+		<key>Code</key>
+		<integer>0</integer>
 	</dict>
 </array>
 </plist>

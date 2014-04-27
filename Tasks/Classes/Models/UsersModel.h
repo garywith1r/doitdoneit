@@ -28,6 +28,9 @@
 
 
 - (void) removeAdsUpgradePurchased;
+- (void) weeklyReviewUpgradePurchased;
+- (void) multiuserUpgradePurchased;
+- (void) familyUpgradePurchased;
 
 @property (nonatomic, readonly) NSDictionary* logedUser;
 @property (nonatomic, readonly) NSMutableDictionary* logedUserData;

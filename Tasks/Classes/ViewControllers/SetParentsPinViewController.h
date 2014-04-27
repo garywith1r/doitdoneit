@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#define PINCODE_CHARACTERS 4
 
 @interface SetParentsPinViewController : UIViewController
 

@@ -163,7 +163,7 @@
 		5CE9A53E190B0B5A00E74951 /* TopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9A53D190B0B5A00E74951 /* TopLeftLabel.m */; };
 		5CE9A5AC190B0C5200E74951 /* RMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9A5A1190B0C5200E74951 /* RMStore.m */; };
 		5CE9A5AE190B12CE00E74951 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9A5AD190B12CE00E74951 /* StoreKit.framework */; };
-		5CEA32C318FEE69C00B85322 /* ParentsPinCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA32C218FEE69C00B85322 /* ParentsPinCodeViewController.m */; };
+		5CEA32C318FEE69C00B85322 /* SetUpParentsPinCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA32C218FEE69C00B85322 /* SetUpParentsPinCodeViewController.m */; };
 		5CEA32C618FEF3B700B85322 /* SetParentsPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA32C518FEF3B700B85322 /* SetParentsPinViewController.m */; };
 		5CEC457E190AB4F2007AA425 /* award.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC4574190AB4F2007AA425 /* award.png */; };
 		5CEC457F190AB4F2007AA425 /* award@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC4575190AB4F2007AA425 /* award@2x.png */; };
@@ -417,8 +417,8 @@
 		5CE9A5A1190B0C5200E74951 /* RMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStore.m; sourceTree = "<group>"; };
 		5CE9A5AD190B12CE00E74951 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5CE9A5AF190B13EC00E74951 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5CEA32C118FEE69C00B85322 /* ParentsPinCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentsPinCodeViewController.h; sourceTree = "<group>"; };
-		5CEA32C218FEE69C00B85322 /* ParentsPinCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentsPinCodeViewController.m; sourceTree = "<group>"; };
+		5CEA32C118FEE69C00B85322 /* SetUpParentsPinCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpParentsPinCodeViewController.h; sourceTree = "<group>"; };
+		5CEA32C218FEE69C00B85322 /* SetUpParentsPinCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpParentsPinCodeViewController.m; sourceTree = "<group>"; };
 		5CEA32C418FEF3B700B85322 /* SetParentsPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetParentsPinViewController.h; sourceTree = "<group>"; };
 		5CEA32C518FEF3B700B85322 /* SetParentsPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetParentsPinViewController.m; sourceTree = "<group>"; };
 		5CEC4574190AB4F2007AA425 /* award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = award.png; sourceTree = "<group>"; };
@@ -469,8 +469,8 @@
 				5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */,
 				5C105C0418F3C1C2002C2A3F /* AddEditUserViewController.h */,
 				5C105C0518F3C1C2002C2A3F /* AddEditUserViewController.m */,
-				5CEA32C118FEE69C00B85322 /* ParentsPinCodeViewController.h */,
-				5CEA32C218FEE69C00B85322 /* ParentsPinCodeViewController.m */,
+				5CEA32C118FEE69C00B85322 /* SetUpParentsPinCodeViewController.h */,
+				5CEA32C218FEE69C00B85322 /* SetUpParentsPinCodeViewController.m */,
 				5CEA32C418FEF3B700B85322 /* SetParentsPinViewController.h */,
 				5CEA32C518FEF3B700B85322 /* SetParentsPinViewController.m */,
 				5CEC4588190AEFD0007AA425 /* InAppPurchasesTableViewController.h */,
@@ -1167,7 +1167,7 @@
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
 				5C88D0F9190563600059ADFD /* MOOPullGestureRecognizer.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,
-				5CEA32C318FEE69C00B85322 /* ParentsPinCodeViewController.m in Sources */,
+				5CEA32C318FEE69C00B85322 /* SetUpParentsPinCodeViewController.m in Sources */,
 				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,

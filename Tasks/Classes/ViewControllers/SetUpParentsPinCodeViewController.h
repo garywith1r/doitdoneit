@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ParentsPinCodeViewController : UIViewController
+@interface SetUpParentsPinCodeViewController : UIViewController
 
 @property BOOL isEnablingParentsMode;
 

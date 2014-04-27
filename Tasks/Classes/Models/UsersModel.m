@@ -48,10 +48,6 @@ UsersModel* userModelInstance;
         purchasedWeeklyReview = [userDefaults boolForKey:@"purchasedWeeklyReview"];
         
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
-        
-#warning debug
-        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = parentsModeEnabled = purchasedWeeklyReview = YES;
-        purchasedAddsFree = NO;
     }
     
     return self;
@@ -137,6 +133,30 @@ UsersModel* userModelInstance;
     purchasedAddsFree = YES;
     TabBarController* tabBar = (TabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     [tabBar removeAdds];
+    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedAddsFree"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+- (void) weeklyReviewUpgradePurchased {
+    purchasedWeeklyReview = YES;
+    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedWeeklyReview"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void) multiuserUpgradePurchased {
+    purchasedMultiUser = YES;
+    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedMultiUser"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void) familyUpgradePurchased {
+    purchasedParentsMode = YES;
+    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedParentsMode"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    TabBarController* tabBar = (TabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    //show screen to setup parent code.
+}
+
 
 @end
