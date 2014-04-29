@@ -35,7 +35,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    lblRepeatTimes.text = [NSString stringWithFormat:@"%d",repeatTimes];
+    lblRepeatTimes.text = [NSString stringWithFormat:@"%ld",(long)repeatTimes];
     
     decreaseButton.enabled = (repeatTimes != 1);
     increaseButton.enabled = (repeatTimes != 9);
@@ -45,7 +45,7 @@
 
 - (IBAction) increaseRepeatTimes {
     repeatTimes++;
-    lblRepeatTimes.text = [NSString stringWithFormat:@"%d",repeatTimes];
+    lblRepeatTimes.text = [NSString stringWithFormat:@"%ld",(long)repeatTimes];
     if (repeatTimes == 9)
         increaseButton.enabled = NO;
     else
@@ -56,7 +56,7 @@
 
 - (IBAction) decreaseRepeatTimes {
     repeatTimes--;
-    lblRepeatTimes.text = [NSString stringWithFormat:@"%d",repeatTimes];
+    lblRepeatTimes.text = [NSString stringWithFormat:@"%ld",(long)repeatTimes];
     if (repeatTimes == 1)
         decreaseButton.enabled = NO;
     else

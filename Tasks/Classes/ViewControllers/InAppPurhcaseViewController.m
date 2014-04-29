@@ -33,11 +33,21 @@
 
 - (IBAction) purchaseButtonPressed {
 
-    [[RMStore defaultStore] addPayment:[self.inAppDictionary objectForKey:@"ProductId"] success:^(SKPaymentTransaction *transaction) {
-        NSLog(@"Purchased!");
+    if (![RMStore canMakePayments]) return;
+    
+    NSString *productID = [self.inAppDictionary objectForKey:@"ProductId"];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [[RMStore defaultStore] addPayment:productID success:^(SKPaymentTransaction *transaction) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [self purchseSucseed];
     } failure:^(SKPaymentTransaction *transaction, NSError *error) {
-        NSLog(@"Something went wrong");
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Payment Transaction Failed", @"")
+                                                           message:NSLocalizedString(@"Please try again in a few moments", @"")
+                                                          delegate:nil
+                                                 cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                                 otherButtonTitles:nil];
+        [alerView show];
     }];
 }
 

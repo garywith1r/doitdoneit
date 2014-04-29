@@ -285,7 +285,7 @@
 #pragma mark - RepeatTimesDelegate methods
 - (void) selectedRepeatTimes:(NSInteger)repeatTimes perTimeInterval:(NSInteger)timeInterval {
     quickAddDto.repeatTimes = repeatTimes;
-    quickAddDto.repeatPeriod = timeInterval;
+    quickAddDto.repeatPeriod = (int)timeInterval;
     
     quickAddRepeatTimes.text = [quickAddDto repeatTimesDisplayText];
 }

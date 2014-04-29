@@ -10,10 +10,11 @@
 #import "inAppPurchaseTableViewCell.h"
 #import "InAppPurhcaseViewController.h"
 #import <StoreKit/StoreKit.h>
+#import "RMStore.h"
 
 @interface InAppPurchasesTableViewController () <SKProductsRequestDelegate> {
-    NSArray* inAppPurchasesDictionary;
-    int selectedItem;
+    NSArray* inAppPurchasesDictionaries;
+    NSInteger selectedItem;
     SKProductsRequest *request;
 }
 
@@ -24,14 +25,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     inAppPurchasesDictionary = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"InAppPurchases" ofType:@"plist"]];
+     inAppPurchasesDictionaries = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"InAppPurchases" ofType:@"plist"]];
     [self requestProductData];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PurchaseItemSegue"]) {
         InAppPurhcaseViewController* vc = (InAppPurhcaseViewController*)segue.destinationViewController;
-        vc.inAppDictionary = [inAppPurchasesDictionary objectAtIndex:selectedItem];
+        vc.inAppDictionary = [inAppPurchasesDictionaries objectAtIndex:selectedItem];
     }
 }
 
@@ -39,13 +40,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [inAppPurchasesDictionary count];
+    return [inAppPurchasesDictionaries count];
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     inAppPurchaseTableViewCell* cell = (inAppPurchaseTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"inAppCell"];
     
-    NSDictionary* inAppDictionary = inAppPurchasesDictionary[indexPath.row];
+    NSDictionary* inAppDictionary = inAppPurchasesDictionaries[indexPath.row];
     
     cell.titleLabel.text = [inAppDictionary objectForKey:@"Name"];
     
@@ -60,9 +61,23 @@
 
 
 - (void) requestProductData {
-    request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObjects: @"com.is2c.doitdoneit.multiuser",@"multisuer",nil]];
-    request.delegate = self;
-    [request start];
+    NSMutableArray* products = [NSMutableArray arrayWithCapacity:inAppPurchasesDictionaries.count];
+    
+    for (NSDictionary* userDict in inAppPurchasesDictionaries) {
+        [products addObject:[userDict objectForKey:@"ProductId"]];
+    }
+    
+    [[RMStore defaultStore] requestProducts:[NSSet setWithArray:products] success:^(NSArray *products, NSArray *invalidProductIdentifiers) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    } failure:^(NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Products Request Failed", @"")
+                                                            message:error.localizedDescription
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
 }
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse: (SKProductsResponse *)response {

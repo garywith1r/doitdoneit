@@ -299,7 +299,7 @@
 }
 
 - (NSString*) repeatTimesDisplayText {
-    NSString* displayText = [NSString stringWithFormat:@"%d",self.repeatTimes];
+    NSString* displayText = [NSString stringWithFormat:@"%ld",(long)self.repeatTimes];
     if (self.repeatTimes == 1)
         displayText = [displayText stringByAppendingString:@" time "];
     else
