@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import "inAppPurchaseTableViewCell.h"
+#import "UpgradeTableViewCell.h"
 
-@implementation inAppPurchaseTableViewCell
+@implementation UpgradeTableViewCell
 @synthesize titleLabel;
 
 

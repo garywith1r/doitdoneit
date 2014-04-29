@@ -20,6 +20,9 @@
     IBOutlet UITableView* table;
     IBOutlet UIView* headersView;
     
+    IBOutlet UIView* footerView;
+    IBOutlet UISwitch* parentModeSwitch;
+    
 }
 
 @end
@@ -36,10 +39,19 @@
     [super viewWillAppear:animated];
     usersArray = [[UsersModel sharedInstance] getUsers];
     [table reloadData];
+    parentModeSwitch.on = [UsersModel sharedInstance].parentsModeEnabled;
 }
 
 - (IBAction) backButtonPressed {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction) switchstatusChanged {
+    if (parentModeSwitch.on) {
+        [self performSegueWithIdentifier:@"ActiveParentsMode" sender:nil];
+    } else {
+        [UsersModel sharedInstance].parentsModeEnabled = NO;
+    }
 }
 
 #pragma mark - UITableView Methods
@@ -53,6 +65,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return headersView.frame.size.height;
+}
+
+- (UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (self.isChangingUser)
+        return footerView;
+    else
+        return nil;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (self.isChangingUser)
+        return footerView.frame.size.height;
+    else
+        return 0.0;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

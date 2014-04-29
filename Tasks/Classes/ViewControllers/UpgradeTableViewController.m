@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import "InAppPurchasesTableViewController.h"
-#import "inAppPurchaseTableViewCell.h"
+#import "UpgradeTableViewController.h"
+#import "UpgradeTableViewCell.h"
 #import "InAppPurhcaseViewController.h"
 #import <StoreKit/StoreKit.h>
 #import "RMStore.h"
 
-@interface InAppPurchasesTableViewController () <SKProductsRequestDelegate> {
+@interface UpgradeTableViewController () <SKProductsRequestDelegate> {
     NSArray* inAppPurchasesDictionaries;
     NSInteger selectedItem;
     SKProductsRequest *request;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation InAppPurchasesTableViewController
+@implementation UpgradeTableViewController
 
 - (void)viewDidLoad
 {
@@ -44,7 +44,7 @@
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    inAppPurchaseTableViewCell* cell = (inAppPurchaseTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"inAppCell"];
+    UpgradeTableViewCell* cell = (UpgradeTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"inAppCell"];
     
     NSDictionary* inAppDictionary = inAppPurchasesDictionaries[indexPath.row];
     
@@ -67,29 +67,12 @@
         [products addObject:[userDict objectForKey:@"ProductId"]];
     }
     
+    //Without this I can't make the purchases at next screen work.
     [[RMStore defaultStore] requestProducts:[NSSet setWithArray:products] success:^(NSArray *products, NSArray *invalidProductIdentifiers) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     } failure:^(NSError *error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Products Request Failed", @"")
-                                                            message:error.localizedDescription
-                                                           delegate:nil
-                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                                                  otherButtonTitles:nil];
-        [alertView show];
     }];
-}
-
-- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse: (SKProductsResponse *)response {
-    NSArray *myProduct = response.products;
-    NSArray *invalid = response.invalidProductIdentifiers;
-    // populate UI
-    NSLog(@"product: %@",myProduct);
-    NSLog(@"invalid product: %@",invalid);
-}
-
-- (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
-    NSLog(@"%@",error);
 }
 
 @end

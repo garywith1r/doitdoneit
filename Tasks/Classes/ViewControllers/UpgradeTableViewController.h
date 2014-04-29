@@ -1,5 +1,5 @@
 //
-//  inAppPurchaseTableViewCell.h
+//  InAppPurchasesTableViewController.h
 //  DoItDoneIt
 //
 //  Created by Gonzalo Hardy on 4/25/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface inAppPurchaseTableViewCell : UITableViewCell
-
-@property (nonatomic, weak) IBOutlet UILabel* titleLabel;
+@interface UpgradeTableViewController : UITableViewController
 
 @end

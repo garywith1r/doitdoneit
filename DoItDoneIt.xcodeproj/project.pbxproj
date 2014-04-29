@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C05E51519106B2C0000AE50 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C05E51419106B2C0000AE50 /* PopViewController.m */; };
 		5C05EA1618BB0C3E00BE92F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */; };
 		5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */; };
 		5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0818F3C53D002C2A3F /* UsersModel.m */; };
@@ -186,8 +187,8 @@
 		5CEC4585190AB4F2007AA425 /* go@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC457B190AB4F2007AA425 /* go@2x.png */; };
 		5CEC4586190AB4F2007AA425 /* photo_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC457C190AB4F2007AA425 /* photo_add.png */; };
 		5CEC4587190AB4F2007AA425 /* photo_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC457D190AB4F2007AA425 /* photo_add@2x.png */; };
-		5CEC458A190AEFD0007AA425 /* InAppPurchasesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4589190AEFD0007AA425 /* InAppPurchasesTableViewController.m */; };
-		5CEC458D190AF4FD007AA425 /* inAppPurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC458C190AF4FD007AA425 /* inAppPurchaseTableViewCell.m */; };
+		5CEC458A190AEFD0007AA425 /* UpgradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4589190AEFD0007AA425 /* UpgradeTableViewController.m */; };
+		5CEC458D190AF4FD007AA425 /* UpgradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC458C190AF4FD007AA425 /* UpgradeTableViewCell.m */; };
 		5CEC458F190AF980007AA425 /* InAppPurchases.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CEC458E190AF980007AA425 /* InAppPurchases.plist */; };
 		5CEC4592190AFFBA007AA425 /* SettingsTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */; };
 		5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4594190B0274007AA425 /* InAppPurhcaseViewController.m */; };
@@ -195,6 +196,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C05E51319106B2C0000AE50 /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
+		5C05E51419106B2C0000AE50 /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
 		5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectionViewController.h; sourceTree = "<group>"; };
 		5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectionViewController.m; sourceTree = "<group>"; };
@@ -456,10 +459,10 @@
 		5CEC457B190AB4F2007AA425 /* go@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go@2x.png"; sourceTree = "<group>"; };
 		5CEC457C190AB4F2007AA425 /* photo_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_add.png; sourceTree = "<group>"; };
 		5CEC457D190AB4F2007AA425 /* photo_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_add@2x.png"; sourceTree = "<group>"; };
-		5CEC4588190AEFD0007AA425 /* InAppPurchasesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchasesTableViewController.h; sourceTree = "<group>"; };
-		5CEC4589190AEFD0007AA425 /* InAppPurchasesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchasesTableViewController.m; sourceTree = "<group>"; };
-		5CEC458B190AF4FD007AA425 /* inAppPurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inAppPurchaseTableViewCell.h; sourceTree = "<group>"; };
-		5CEC458C190AF4FD007AA425 /* inAppPurchaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = inAppPurchaseTableViewCell.m; sourceTree = "<group>"; };
+		5CEC4588190AEFD0007AA425 /* UpgradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeTableViewController.h; sourceTree = "<group>"; };
+		5CEC4589190AEFD0007AA425 /* UpgradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeTableViewController.m; sourceTree = "<group>"; };
+		5CEC458B190AF4FD007AA425 /* UpgradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeTableViewCell.h; sourceTree = "<group>"; };
+		5CEC458C190AF4FD007AA425 /* UpgradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeTableViewCell.m; sourceTree = "<group>"; };
 		5CEC458E190AF980007AA425 /* InAppPurchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InAppPurchases.plist; sourceTree = "<group>"; };
 		5CEC4590190AFFBA007AA425 /* SettingsTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTabBarController.h; sourceTree = "<group>"; };
 		5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTabBarController.m; sourceTree = "<group>"; };
@@ -501,10 +504,10 @@
 				5CEA32C218FEE69C00B85322 /* SetUpParentsPinCodeViewController.m */,
 				5CEA32C418FEF3B700B85322 /* EnterParentsPinViewController.h */,
 				5CEA32C518FEF3B700B85322 /* EnterParentsPinViewController.m */,
-				5CEC4588190AEFD0007AA425 /* InAppPurchasesTableViewController.h */,
-				5CEC4589190AEFD0007AA425 /* InAppPurchasesTableViewController.m */,
-				5CEC458B190AF4FD007AA425 /* inAppPurchaseTableViewCell.h */,
-				5CEC458C190AF4FD007AA425 /* inAppPurchaseTableViewCell.m */,
+				5CEC4588190AEFD0007AA425 /* UpgradeTableViewController.h */,
+				5CEC4589190AEFD0007AA425 /* UpgradeTableViewController.m */,
+				5CEC458B190AF4FD007AA425 /* UpgradeTableViewCell.h */,
+				5CEC458C190AF4FD007AA425 /* UpgradeTableViewCell.m */,
 				5CEC4593190B0274007AA425 /* InAppPurhcaseViewController.h */,
 				5CEC4594190B0274007AA425 /* InAppPurhcaseViewController.m */,
 			);
@@ -824,6 +827,8 @@
 				5C88D0DC190540730059ADFD /* TabBarController.m */,
 				5C4A0F9C190822E7003062E2 /* QuickAddTaskCell.h */,
 				5C4A0F9D190822E7003062E2 /* QuickAddTaskCell.m */,
+				5C05E51319106B2C0000AE50 /* PopViewController.h */,
+				5C05E51419106B2C0000AE50 /* PopViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -1208,7 +1213,7 @@
 				5CE04AC3190C331E00083225 /* NSDate+MNAdditions.m in Sources */,
 				5CD882F318E9840D003DD93F /* SVWebViewControllerActivityChrome.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
-				5CEC458A190AEFD0007AA425 /* InAppPurchasesTableViewController.m in Sources */,
+				5CEC458A190AEFD0007AA425 /* UpgradeTableViewController.m in Sources */,
 				5C88D0FA190563600059ADFD /* MOORefreshView.m in Sources */,
 				5CE04ABE190C331E00083225 /* MNCalendarViewCell.m in Sources */,
 				5CE04ABD190C331E00083225 /* MNCalendarView.m in Sources */,
@@ -1237,6 +1242,7 @@
 				5C559B7A18F381260092AAE3 /* EGOCache.m in Sources */,
 				5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */,
 				5CDB775618BF0DC5000A4C04 /* StatsViewController.m in Sources */,
+				5C05E51519106B2C0000AE50 /* PopViewController.m in Sources */,
 				5C88D0F8190563600059ADFD /* MOOCreateView.m in Sources */,
 				5C9B63D318A1635C0091C1D2 /* TaskListModel.m in Sources */,
 				5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */,
@@ -1249,7 +1255,7 @@
 				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
-				5CEC458D190AF4FD007AA425 /* inAppPurchaseTableViewCell.m in Sources */,
+				5CEC458D190AF4FD007AA425 /* UpgradeTableViewCell.m in Sources */,
 				5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
 				5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */,
