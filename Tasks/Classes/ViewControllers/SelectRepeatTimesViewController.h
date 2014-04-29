@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PopUpViewController.h"
 
 @protocol SelectRepeatTimesDelegate <NSObject>
 
@@ -14,10 +14,10 @@
 
 @end
 
-@interface SelectRepeatTimesViewController : UIViewController
+@interface SelectRepeatTimesViewController : PopUpViewController
 @property (nonatomic, weak) NSObject <SelectRepeatTimesDelegate>* delegate;
 
-- (void) presentOnViewController:(UIViewController*)viewController;
+
 - (void) setInitialTimes:(NSInteger)times andInitialTimeInterval:(NSInteger)interval;
 
 @end

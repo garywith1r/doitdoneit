@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SetParentsPinViewController : UIViewController
+@interface EnterParentsPinViewController : UIViewController
 
 
 @end

@@ -9,10 +9,12 @@
 #import "InAppPurchasesTableViewController.h"
 #import "inAppPurchaseTableViewCell.h"
 #import "InAppPurhcaseViewController.h"
+#import <StoreKit/StoreKit.h>
 
-@interface InAppPurchasesTableViewController () {
+@interface InAppPurchasesTableViewController () <SKProductsRequestDelegate> {
     NSArray* inAppPurchasesDictionary;
     int selectedItem;
+    SKProductsRequest *request;
 }
 
 @end
@@ -23,6 +25,7 @@
 {
     [super viewDidLoad];
      inAppPurchasesDictionary = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"InAppPurchases" ofType:@"plist"]];
+    [self requestProductData];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -52,6 +55,24 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     selectedItem = indexPath.row;
     [self performSegueWithIdentifier:@"PurchaseItemSegue" sender:nil];
+}
+
+
+
+- (void) requestProductData {
+    request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObject: @"com.is2c.doitdoneit.multiuser"]];
+    request.delegate = self;
+    [request start];
+}
+
+- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse: (SKProductsResponse *)response {
+    NSArray *myProduct = response.products;
+    // populate UI
+    NSLog(@"%@",myProduct);
+}
+
+- (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
+    NSLog(@"%@",error);
 }
 
 @end

@@ -9,14 +9,14 @@
 #import "UserSelectionViewController.h"
 #import "SWTableViewCell.h"
 #import "UsersModel.h"
-#import "AddEditUserViewController.h"
 #import "TaskListModel.h"
+#import "NewUserPopUP.h"
 
-@interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate> {
+@interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate, PopUpDelegate> {
     NSArray* usersArray;
     IBOutlet UITableView* table;
-    IBOutlet UIView* parentsModeView;
-    IBOutlet UISwitch* parentsModeSwitch;
+    IBOutlet UIView* headersView;
+    
 }
 
 @end
@@ -32,49 +32,36 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     usersArray = [[UsersModel sharedInstance] getUsers];
-    parentsModeSwitch.on = [UsersModel sharedInstance].parentsModeEnabled;
     [table reloadData];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"EditUserSegue"]) {
-        AddEditUserViewController* vc = segue.destinationViewController;
-        vc.usersDictionary = [usersArray objectAtIndex:((NSIndexPath*)sender).row];
-    }
-}
-
-- (IBAction) parentsViewValueChanged {
-    if (parentsModeSwitch.on) {
-        [self performSegueWithIdentifier:@"ActiveParentsMode" sender:nil];
-    } else {
-        [UsersModel sharedInstance].parentsModeEnabled = NO;
-    }
+- (IBAction) backButtonPressed {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITableView Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return usersArray.count;
+    return usersArray.count + [UsersModel sharedInstance].purchasedMultiUser;
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (self.isChangingUser && [UsersModel sharedInstance].purchasedParentsMode)
-        return parentsModeView;
-    else
-        return nil;
+    return headersView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (self.isChangingUser && [UsersModel sharedInstance].purchasedParentsMode)
-        return parentsModeView.frame.size.height;
-    else
-        return 0;
+    return headersView.frame.size.height;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    if ([UsersModel sharedInstance].purchasedMultiUser && (indexPath.row == 0)) {
+        return [table dequeueReusableCellWithIdentifier:@"NewUserCell"];
+    }
     static NSString *cellIdentifier = @"Cell";
-    
-    
     SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    NSUInteger row = indexPath.row - [UsersModel sharedInstance].purchasedMultiUser;
     
     if (cell == nil) {
         NSMutableArray *leftUtilityButtons = [NSMutableArray new];
@@ -82,7 +69,7 @@
         
         [rightUtilityButtons sw_addUtilityButtonWithColor:
          [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:0.0]
-                                                     icon:[UIImage imageNamed:@"Delete.png"] tag:indexPath.row];
+                                                     icon:[UIImage imageNamed:@"Delete.png"] tag:row];
         
         
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
@@ -94,7 +81,7 @@
         cell.delegate = self;
     }
     
-    cell.textLabel.text = [[usersArray objectAtIndex:indexPath.row] objectForKey:LOGGED_USER_NAME_KEY];
+    cell.textLabel.text = [[usersArray objectAtIndex:row] objectForKey:LOGGED_USER_NAME_KEY];
     
     if (self.isChangingUser)
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -105,14 +92,27 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.isChangingUser) {
-        [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row];
+    if ([UsersModel sharedInstance].purchasedMultiUser && (indexPath.row == 0) ) {
+        NewUserPopUP* newUser = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserPopUp"];
+        newUser.delegate = self;
+        [newUser presentOnViewController:self];
+        
+    } else if (self.isChangingUser) {
+        [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row - [UsersModel sharedInstance].purchasedMultiUser];
         [[TaskListModel sharedInstance] loadFullData];
         [[TaskListModel sharedInstance] forceRecalculateTasks];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
-        [self performSegueWithIdentifier:@"EditUserSegue" sender:indexPath];
+        NewUserPopUP* newUser = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserPopUp"];
+        newUser.usersDictionary = [usersArray objectAtIndex:(indexPath.row - [UsersModel sharedInstance].purchasedMultiUser)];
+        newUser.delegate = self;
+        [newUser presentOnViewController:self];     
     }
+}
+
+#pragma pragma mark - PopUpDelegate
+- (void) popUpWillClose {
+    [self viewWillAppear:NO];
 }
 
 @end

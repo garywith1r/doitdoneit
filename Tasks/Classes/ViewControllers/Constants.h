@@ -22,3 +22,5 @@
 #define FEEDBACK_EMAIL_RECIPIENT @"doitdoneit@gmail.com"
 #define FEEDBACK_EMAIL_SUBJECT @"Do It Done It Feedback"
 #define FEEDBACK_EMAIL_BODY @""
+
+#define DEFAULT_USER_IMAGE [UIImage imageNamed:@"default_user.jpg"]

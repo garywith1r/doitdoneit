@@ -46,7 +46,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name: UIApplicationWillEnterForegroundNotification object:nil];
     
-    }
+}
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -113,44 +113,42 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         static NSString *cellIdentifier = @"Cell";
         
-        
-        SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        if (cell == nil) {
-            NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-            NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-            
-            [rightUtilityButtons sw_addUtilityButtonWithColor:
-             [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:0.0]
-                                                         icon:[UIImage imageNamed:@"Copy.png"] tag:indexPath.row];
-            [rightUtilityButtons sw_addUtilityButtonWithColor:
-             [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:0.0]
-                                                         icon:[UIImage imageNamed:@"Edit.png"] tag:indexPath.row];
-            [rightUtilityButtons sw_addUtilityButtonWithColor:
-             [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:0.0]
-                                                         icon:[UIImage imageNamed:@"Delete.png"] tag:indexPath.row];
-            
-            
-            cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                          reuseIdentifier:cellIdentifier
-                                      containingTableView:tableView // For row height and selection
-                                       leftUtilityButtons:leftUtilityButtons
-                                      rightUtilityButtons:rightUtilityButtons];
-            
-            cell.delegate = self;
-        }
-        
-        cell.height = [self getExpandedCellHeightForTask:contentDataArray[indexPath.row]];
-        cell.clipsToBounds = YES
-        ;
-        
-        //we'll use the tag to identify the task by it's index.
-        [self setCellViewForCell:cell atIndexPath:indexPath];
-        cell.tag = indexPath.row;
-        cell.cellScrollView.scrollEnabled = [[UsersModel sharedInstance] currentUserCanCreateTasks];
-        
-        return cell;
     
+    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+        NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+        
+        [rightUtilityButtons sw_addUtilityButtonWithColor:
+         [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:0.0]
+                                                     icon:[UIImage imageNamed:@"Copy.png"] tag:indexPath.row];
+        [rightUtilityButtons sw_addUtilityButtonWithColor:
+         [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:0.0]
+                                                     icon:[UIImage imageNamed:@"Edit.png"] tag:indexPath.row];
+        [rightUtilityButtons sw_addUtilityButtonWithColor:
+         [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:0.0]
+                                                     icon:[UIImage imageNamed:@"Delete.png"] tag:indexPath.row];
+        
+        
+        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellIdentifier
+                                  containingTableView:tableView // For row height and selection
+                                   leftUtilityButtons:leftUtilityButtons
+                                  rightUtilityButtons:rightUtilityButtons];
+        
+        cell.delegate = self;
+    }
+    
+    cell.height = [self getExpandedCellHeightForTask:contentDataArray[indexPath.row]];
+    cell.clipsToBounds = YES;
+    
+    //we'll use the tag to identify the task by it's index.
+    [self setCellViewForCell:cell atIndexPath:indexPath];
+    cell.tag = indexPath.row;
+    cell.cellScrollView.scrollEnabled = [[UsersModel sharedInstance] currentUserCanCreateTasks];
+    
+    return cell;
 }
 
 //- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -275,8 +273,7 @@
 }
 
 #pragma mark - DAAttributedLabelDelegate Methods
-- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
-{
+- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum {
     NSString* url = ((TaskDTO*)contentDataArray[selectedRow]).detailsLinksArray[linkNum];
     
     NSRange prefixRange = [url rangeOfString:@"http"

@@ -1,17 +1,17 @@
 //
-//  AddEditUserViewController.m
+//  NewUserPopUP.m
 //  DoItDoneIt
 //
-//  Created by Gonzalo Hardy on 4/8/14.
+//  Created by Gonzalo Hardy on 4/28/14.
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import "AddEditUserViewController.h"
-#import "Constants.h"
-#import "UsersModel.h"
+#import "NewUserPopUP.h"
 #import "EGOFileManager.h"
+#import "UsersModel.h"
+#import "Constants.h"
 
-@interface AddEditUserViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+@interface NewUserPopUP () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     UIImagePickerController* _imagePickerController;
     UIPopoverController* popoverController;
     
@@ -22,49 +22,54 @@
 
 @end
 
-@implementation AddEditUserViewController
+@implementation NewUserPopUP
+@synthesize usersDictionary;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+    btnImage.layer.cornerRadius = 37;
+    btnImage.layer.masksToBounds = YES;
+    [txtName becomeFirstResponder];
     if (self.usersDictionary) {
         NSLog(@"%@",[self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY]);
         txtName.text = [self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY];
         NSString* imagePath = [self.usersDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
+        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        
         if (imagePath) {
             image = [EGOFileManager getImageFromPath:imagePath];
             [btnImage setTitle:@"" forState:UIControlStateNormal];
-            btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
             [btnImage setImage:image forState:UIControlStateNormal];
+        } else {
+            [btnImage setImage:DEFAULT_USER_IMAGE forState:UIControlStateNormal];
         }
         
     }
 }
 
-- (void) viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+- (IBAction) doneButtonPressed {
+    [super doneButtonPressed];
     
-    NSArray *viewControllers = self.navigationController.viewControllers;
+    NSMutableDictionary* newUserDictionary = [[NSMutableDictionary alloc] initWithDictionary:self.usersDictionary];
+    [newUserDictionary setObject:txtName.text forKey:LOGGED_USER_NAME_KEY];
     
-    if ([viewControllers indexOfObject:self] == NSNotFound) { //view is being poped.
-        NSMutableDictionary* newUserDictionary = [[NSMutableDictionary alloc] initWithDictionary:self.usersDictionary];
-        [newUserDictionary setObject:txtName.text forKey:LOGGED_USER_NAME_KEY];
-        
-        if (image) {
-            NSString* imagePath = [EGOFileManager storeImage:image];
-            [newUserDictionary setObject:imagePath forKey:LOGGED_USER_IMAGE_KEY];
-        } else {
-            NSString* imagePath = [newUserDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
-            if (imagePath)
-                [EGOFileManager deleteContentAtPath:imagePath];
-            [newUserDictionary removeObjectForKey:LOGGED_USER_IMAGE_KEY];
-        }
-        
-        [[UsersModel sharedInstance] addUser:[NSDictionary dictionaryWithDictionary:newUserDictionary]];
+    if (image) {
+        NSString* imagePath = [EGOFileManager storeImage:image];
+        [newUserDictionary setObject:imagePath forKey:LOGGED_USER_IMAGE_KEY];
+    } else {
+        NSString* imagePath = [newUserDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
+        if (imagePath)
+            [EGOFileManager deleteContentAtPath:imagePath];
+        [newUserDictionary removeObjectForKey:LOGGED_USER_IMAGE_KEY];
     }
+    
+    [[UsersModel sharedInstance] addUser:[NSDictionary dictionaryWithDictionary:newUserDictionary]];
+}
+
+
+- (IBAction) closeButtonPressed {
+    [super closeButtonPressed];
+    [txtName resignFirstResponder];
 }
 
 
@@ -130,9 +135,15 @@
             } else
                 [self presentViewController:_imagePickerController animated:YES completion:^{}];
         }
-	}
+	} else if(buttonIndex == 2) { //Clear Image
+        [self clearPicture];
+    }
 }
 
+- (void) clearPicture {
+    [btnImage setImage:nil forState:UIControlStateNormal];
+    [btnImage setImage:DEFAULT_USER_IMAGE forState:UIControlStateNormal];
+}
 
 #pragma mark - UIImagePickerControllerDelegate
 -(void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
@@ -142,7 +153,6 @@
     
     if (thumbImage) {
         [btnImage setTitle:@"" forState:UIControlStateNormal];
-        btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [btnImage setImage:thumbImage forState:UIControlStateNormal];
         image = thumbImage;
     }
@@ -163,5 +173,7 @@
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
 }
+
+
 
 @end

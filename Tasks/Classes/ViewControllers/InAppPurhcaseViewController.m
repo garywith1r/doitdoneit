@@ -32,12 +32,13 @@
 
 
 - (IBAction) purchaseButtonPressed {
-    [self purchseSucseed];
-//    [[RMStore defaultStore] addPayment:[self.inAppDictionary objectForKey:@"ProductId"] success:^(SKPaymentTransaction *transaction) {
-//        NSLog(@"Purchased!");
-//    } failure:^(SKPaymentTransaction *transaction, NSError *error) {
-//        NSLog(@"Something went wrong");
-//    }];
+
+    [[RMStore defaultStore] addPayment:[self.inAppDictionary objectForKey:@"ProductId"] success:^(SKPaymentTransaction *transaction) {
+        NSLog(@"Purchased!");
+        [self purchseSucseed];
+    } failure:^(SKPaymentTransaction *transaction, NSError *error) {
+        NSLog(@"Something went wrong");
+    }];
 }
 
 - (IBAction) cancelButtonPressed {

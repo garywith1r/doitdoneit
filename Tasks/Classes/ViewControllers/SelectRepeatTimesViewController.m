@@ -7,7 +7,7 @@
 //
 
 #import "SelectRepeatTimesViewController.h"
-#import <QuartzCore/QuartzCore.h>
+
 
 @interface SelectRepeatTimesViewController () {
     IBOutletCollection(UIButton) NSArray* repeatTimeIntervalButtons;
@@ -17,23 +17,14 @@
     
     NSInteger repeatTimes;
     NSInteger repeatTimesInterval;
-    
-    IBOutlet UIView* contentView;
+
 }
 
 @end
 
 @implementation SelectRepeatTimesViewController
 
-- (void) presentOnViewController:(UIViewController*)viewController {
-    [viewController.view addSubview:self.view];
-    [viewController addChildViewController:self];
-    
-    [UIView beginAnimations:NULL context:nil];
-    [UIView setAnimationDuration:0.3];
-    self.view.alpha = 1;
-    [UIView commitAnimations];
-}
+
 
 - (void) setInitialTimes:(NSInteger)times andInitialTimeInterval:(NSInteger)interval {
     repeatTimes = times;
@@ -43,8 +34,6 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    contentView.layer.cornerRadius = 5;
-    contentView.layer.masksToBounds = YES;
     
     lblRepeatTimes.text = [NSString stringWithFormat:@"%d",repeatTimes];
     
@@ -88,22 +77,10 @@
 - (IBAction) doneButtonPressed {
     if ([self.delegate respondsToSelector:@selector(selectedRepeatTimes:perTimeInterval:)])
         [self.delegate selectedRepeatTimes:repeatTimes perTimeInterval:repeatTimesInterval];
-    [self closeButtonPressed];
+    [super doneButtonPressed];
 }
 
-- (IBAction) closeButtonPressed {
-    [UIView beginAnimations:NULL context:nil];
-    [UIView setAnimationDuration:0.3];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(viewFadedOut)];
-    self.view.alpha = 0;
-    [UIView commitAnimations];
-}
 
-- (void) viewFadedOut {
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
-}
 
 
 @end
