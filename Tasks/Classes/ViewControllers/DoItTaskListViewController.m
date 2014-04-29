@@ -23,7 +23,7 @@
 #import "MOOPullGestureRecognizer.h"
 #import "MOOCreateView.h"
 
-@interface DoItTaskListViewController () <CompleteTaskDelegate, SelectRepeatTimesDelegate> {
+@interface DoItTaskListViewController () <CompleteTaskDelegate, PopUpDelegate, SelectRepeatTimesDelegate> {
     BOOL showingQuickAddCell;
     int completedTaskIndex;
     

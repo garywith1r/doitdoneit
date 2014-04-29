@@ -60,15 +60,17 @@
 
 
 - (void) requestProductData {
-    request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObject: @"com.is2c.doitdoneit.multiuser"]];
+    request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObjects: @"com.is2c.doitdoneit.multiuser",@"multisuer",nil]];
     request.delegate = self;
     [request start];
 }
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse: (SKProductsResponse *)response {
     NSArray *myProduct = response.products;
+    NSArray *invalid = response.invalidProductIdentifiers;
     // populate UI
-    NSLog(@"%@",myProduct);
+    NSLog(@"product: %@",myProduct);
+    NSLog(@"invalid product: %@",invalid);
 }
 
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {

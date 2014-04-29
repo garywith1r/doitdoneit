@@ -48,22 +48,23 @@
 }
 
 - (IBAction) doneButtonPressed {
-    [super doneButtonPressed];
-    
     NSMutableDictionary* newUserDictionary = [[NSMutableDictionary alloc] initWithDictionary:self.usersDictionary];
     [newUserDictionary setObject:txtName.text forKey:LOGGED_USER_NAME_KEY];
+    
+    
+    NSString* imagePath = [newUserDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
+    if (imagePath && ![@"" isEqualToString:imagePath])
+        [EGOFileManager deleteContentAtPath:imagePath];
+    [newUserDictionary removeObjectForKey:LOGGED_USER_IMAGE_KEY];
     
     if (image) {
         NSString* imagePath = [EGOFileManager storeImage:image];
         [newUserDictionary setObject:imagePath forKey:LOGGED_USER_IMAGE_KEY];
-    } else {
-        NSString* imagePath = [newUserDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
-        if (imagePath)
-            [EGOFileManager deleteContentAtPath:imagePath];
-        [newUserDictionary removeObjectForKey:LOGGED_USER_IMAGE_KEY];
     }
     
     [[UsersModel sharedInstance] addUser:[NSDictionary dictionaryWithDictionary:newUserDictionary]];
+    
+    [super doneButtonPressed];
 }
 
 

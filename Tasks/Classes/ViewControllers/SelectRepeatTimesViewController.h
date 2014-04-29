@@ -15,7 +15,7 @@
 @end
 
 @interface SelectRepeatTimesViewController : PopUpViewController
-@property (nonatomic, weak) NSObject <SelectRepeatTimesDelegate>* delegate;
+@property (nonatomic, weak) NSObject <PopUpDelegate, SelectRepeatTimesDelegate>* delegate;
 
 
 - (void) setInitialTimes:(NSInteger)times andInitialTimeInterval:(NSInteger)interval;
