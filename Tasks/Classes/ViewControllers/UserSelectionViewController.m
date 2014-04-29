@@ -11,6 +11,9 @@
 #import "UsersModel.h"
 #import "TaskListModel.h"
 #import "NewUserPopUP.h"
+#import "UserCellViewController.h"
+#import "EGOFileManager.h"
+#import "Constants.h"
 
 @interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate, PopUpDelegate> {
     NSArray* usersArray;
@@ -81,12 +84,24 @@
         cell.delegate = self;
     }
     
-    cell.textLabel.text = [[usersArray objectAtIndex:row] objectForKey:LOGGED_USER_NAME_KEY];
+    NSDictionary* usersDict = [usersArray objectAtIndex:row];
+    UserCellViewController* cellView = [self.storyboard instantiateViewControllerWithIdentifier:@"UserCellViewController"];
     
-    if (self.isChangingUser)
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    else
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [cell setContentView:cellView.view];
+
+    cellView.nameLabel.text = [usersDict objectForKey:LOGGED_USER_NAME_KEY];
+    NSString* imagePath = [usersDict objectForKey:LOGGED_USER_IMAGE_KEY];
+    
+    if (imagePath) {
+        cellView.avatarImage.image = [EGOFileManager getImageFromPath:imagePath];
+    } else {
+        cellView.avatarImage.image = DEFAULT_USER_IMAGE;
+    }
+    
+    cellView.disclosureImage.hidden = self.isChangingUser;
+    cellView.statsLabel.hidden = !self.isChangingUser;
+    
+    
     
     return cell;
 }

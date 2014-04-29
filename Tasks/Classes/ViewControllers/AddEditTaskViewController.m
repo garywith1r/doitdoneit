@@ -293,7 +293,7 @@
     }
 }
 
-- (IBAction) clearPicture {
+- (void) clearPicture {
     [btnImage setImage:nil forState:UIControlStateNormal];
     task.thumbImage = nil;
     task.videoUrl = nil;
@@ -301,6 +301,8 @@
     btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [btnImage setImage:task.thumbImage forState:UIControlStateNormal];
 }
+
+- (IBAction) textEditingEnd {}
 
 #pragma mark - ActionSheet Delegate
 //Takes the actionSheet's action when the user press "Photo"

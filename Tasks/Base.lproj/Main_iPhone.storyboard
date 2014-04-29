@@ -1269,7 +1269,6 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         <connections>
-                                                            <action selector="textEditingBegun" destination="oME-Fa-l65" eventType="editingDidBegin" id="9jO-mt-y1a"/>
                                                             <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEnd" id="9UW-VU-Ffd"/>
                                                             <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEndOnExit" id="ydO-Fz-CQp"/>
                                                             <outlet property="delegate" destination="oME-Fa-l65" id="9Mz-2U-lso"/>
@@ -2494,6 +2493,57 @@ Missed:     Hit:</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBc-mS-wcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="790" y="3356"/>
+        </scene>
+        <!--User Cell View Controller-->
+        <scene sceneID="L7A-7p-2Zd">
+            <objects>
+                <viewController storyboardIdentifier="UserCellViewController" id="hnq-q6-gQT" customClass="UserCellViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2RI-Zy-gaZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="DFo-Us-XjI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qTj-dh-K9o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSS-zX-yah">
+                                <rect key="frame" x="11" y="1" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8w-Rc-I7Y">
+                                <rect key="frame" x="69" y="13" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="ghP-oT-wZF">
+                                <rect key="frame" x="295" y="17" width="10" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzp-xs-2do">
+                                <rect key="frame" x="213" y="3" width="100" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="47"/>
+                    <connections>
+                        <outlet property="avatarImage" destination="fSS-zX-yah" id="PNX-yv-Bgt"/>
+                        <outlet property="disclosureImage" destination="ghP-oT-wZF" id="qS0-M7-NBO"/>
+                        <outlet property="nameLabel" destination="i8w-Rc-I7Y" id="fLF-0g-OYn"/>
+                        <outlet property="statsLabel" destination="Fzp-xs-2do" id="9X1-UC-nxG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZ4-LF-eqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1163" y="3489"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="e7v-Yk-s2J">

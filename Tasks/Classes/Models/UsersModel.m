@@ -123,7 +123,9 @@ UsersModel* userModelInstance;
 }
 
 - (BOOL) currentUserCanCreateTasks {
-    return self.parentsModeEnabled;
+//    return self.parentsModeEnabled;
+#warning test
+    return YES;
 }
 
 - (void) setParentsPinCode:(NSString *)_parentsPinCode {

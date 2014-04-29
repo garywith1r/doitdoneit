@@ -22,6 +22,7 @@
 		5C2D0556190F2B2A00F0C56F /* photo_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2D0554190F2B2A00F0C56F /* photo_profile@2x.png */; };
 		5C2D0559190F2D3100F0C56F /* NewUserPopUP.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D0558190F2D3100F0C56F /* NewUserPopUP.m */; };
 		5C2D055B190F798D00F0C56F /* default_user.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C2D055A190F798D00F0C56F /* default_user.jpg */; };
+		5C2D055E190F875900F0C56F /* UserCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D055D190F875900F0C56F /* UserCellViewController.m */; };
 		5C30E54118BC5F450083FF23 /* Copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C30E53B18BC5F450083FF23 /* Copy.png */; };
 		5C30E54218BC5F450083FF23 /* Delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C30E53C18BC5F450083FF23 /* Delete.png */; };
 		5C30E54318BC5F450083FF23 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C30E53D18BC5F450083FF23 /* Calendar.png */; };
@@ -221,6 +222,8 @@
 		5C2D0557190F2D3100F0C56F /* NewUserPopUP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserPopUP.h; sourceTree = "<group>"; };
 		5C2D0558190F2D3100F0C56F /* NewUserPopUP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserPopUP.m; sourceTree = "<group>"; };
 		5C2D055A190F798D00F0C56F /* default_user.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_user.jpg; sourceTree = "<group>"; };
+		5C2D055C190F875900F0C56F /* UserCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCellViewController.h; sourceTree = "<group>"; };
+		5C2D055D190F875900F0C56F /* UserCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCellViewController.m; sourceTree = "<group>"; };
 		5C30E53B18BC5F450083FF23 /* Copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Copy.png; sourceTree = "<group>"; };
 		5C30E53C18BC5F450083FF23 /* Delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete.png; sourceTree = "<group>"; };
 		5C30E53D18BC5F450083FF23 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */,
 				5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */,
 				5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */,
+				5C2D055C190F875900F0C56F /* UserCellViewController.h */,
+				5C2D055D190F875900F0C56F /* UserCellViewController.m */,
 				5CEA32C118FEE69C00B85322 /* SetUpParentsPinCodeViewController.h */,
 				5CEA32C218FEE69C00B85322 /* SetUpParentsPinCodeViewController.m */,
 				5CEA32C418FEF3B700B85322 /* EnterParentsPinViewController.h */,
@@ -1208,6 +1213,7 @@
 				5CE04ABE190C331E00083225 /* MNCalendarViewCell.m in Sources */,
 				5CE04ABD190C331E00083225 /* MNCalendarView.m in Sources */,
 				5CE4817618E4916D0032B6CE /* EditDetailsViewController.m in Sources */,
+				5C2D055E190F875900F0C56F /* UserCellViewController.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
 				5CD882F718E9840D003DD93F /* SVWebViewControllerActivitySafari.m in Sources */,
 				5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */,

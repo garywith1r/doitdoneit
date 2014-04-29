@@ -17,6 +17,8 @@
     
     IBOutlet UIButton* btnImage;
     IBOutlet UITextField* txtName;
+    IBOutlet UISwitch* parentUserSwitch;
+    IBOutlet UILabel* parentUserLabel;
     UIImage* image;
 }
 
@@ -29,7 +31,9 @@
     [super viewDidLoad];
     btnImage.layer.cornerRadius = 37;
     btnImage.layer.masksToBounds = YES;
+    
     [txtName becomeFirstResponder];
+    
     if (self.usersDictionary) {
         NSLog(@"%@",[self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY]);
         txtName.text = [self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY];
@@ -45,6 +49,8 @@
         }
         
     }
+    
+    parentUserLabel.hidden = parentUserSwitch.hidden = [UsersModel sharedInstance].purchasedParentsMode;
 }
 
 - (IBAction) doneButtonPressed {

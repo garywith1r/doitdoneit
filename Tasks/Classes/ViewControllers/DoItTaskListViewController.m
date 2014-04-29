@@ -133,7 +133,7 @@
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     TaskDTO* task = contentDataArray[indexPath.row];
     
-    TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
+    TasksViewCell* cellView = [self.storyboard instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
     
     
     [cell setContentView:cellView.view];
