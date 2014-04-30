@@ -12,7 +12,7 @@
 #import <StoreKit/StoreKit.h>
 #import "RMStore.h"
 
-@interface UpgradeTableViewController () <SKProductsRequestDelegate> {
+@interface UpgradeTableViewController () {
     NSArray* inAppPurchasesDictionaries;
     NSInteger selectedItem;
     SKProductsRequest *request;

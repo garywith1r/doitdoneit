@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C05E51519106B2C0000AE50 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C05E51419106B2C0000AE50 /* PopViewController.m */; };
 		5C05EA1618BB0C3E00BE92F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */; };
+		5C0F8F62191087CA00B7A0AF /* SetGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */; };
 		5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */; };
 		5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0818F3C53D002C2A3F /* UsersModel.m */; };
 		5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C238D1818E3369A008F764F /* ZoomImageViewController.m */; };
@@ -199,6 +200,8 @@
 		5C05E51319106B2C0000AE50 /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
 		5C05E51419106B2C0000AE50 /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
 		5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5C0F8F60191087CA00B7A0AF /* SetGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGoalViewController.h; sourceTree = "<group>"; };
+		5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGoalViewController.m; sourceTree = "<group>"; };
 		5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectionViewController.h; sourceTree = "<group>"; };
 		5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectionViewController.m; sourceTree = "<group>"; };
 		5C105C0718F3C53D002C2A3F /* UsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersModel.h; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 		5C105C0018F3C173002C2A3F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5C0F8F60191087CA00B7A0AF /* SetGoalViewController.h */,
+				5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */,
 				5CEC4590190AFFBA007AA425 /* SettingsTabBarController.h */,
 				5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */,
 				5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */,
@@ -1232,6 +1237,7 @@
 				5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */,
 				5C9B63D818A17AAC0091C1D2 /* TasksViewCell.m in Sources */,
 				5C2D0559190F2D3100F0C56F /* NewUserPopUP.m in Sources */,
+				5C0F8F62191087CA00B7A0AF /* SetGoalViewController.m in Sources */,
 				5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */,
 				5CE04AC1190C331E00083225 /* MNCalendarViewWeekdayCell.m in Sources */,
 				5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */,

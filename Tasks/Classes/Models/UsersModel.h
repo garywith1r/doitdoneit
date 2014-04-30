@@ -11,6 +11,7 @@
 
 #define LOGGED_USER_IMAGE_KEY @"loggedUserImage"
 #define LOGGED_USER_NAME_KEY @"loggedUserName"
+#define LOGGED_USER_GOAL_KEY @"loggedUserGoal"
 
 @interface UsersModel : NSObject
 
