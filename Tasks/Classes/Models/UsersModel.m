@@ -18,6 +18,8 @@
     NSArray* storedUsers;
     
     NSInteger logedUserIndex;
+    
+    BOOL _parentsModeEnabled;
 }
 
 @end
@@ -25,7 +27,7 @@
 @implementation UsersModel
 @synthesize logedUser, logedUserData;
 @synthesize purchasedAddsFree, purchasedMultiUser, purchasedParentsMode, purchasedWeeklyReview;
-@synthesize parentsModeEnabled, parentsPinCode;
+@synthesize parentsModeEnabled, parentsModeActive, parentsPinCode;
 
 UsersModel* userModelInstance;
 
@@ -47,6 +49,7 @@ UsersModel* userModelInstance;
         purchasedAddsFree = [userDefaults boolForKey:@"purchasedAddsFree"];
         purchasedWeeklyReview = [userDefaults boolForKey:@"purchasedWeeklyReview"];
         
+        parentsModeEnabled = [userDefaults boolForKey:@"parentsModeEnabled"];
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
         
 #warning test mode
@@ -123,7 +126,7 @@ UsersModel* userModelInstance;
 }
 
 - (BOOL) currentUserCanCreateTasks {
-//    return self.parentsModeEnabled;
+//    return self.parentsModeEnabled || !self.parentsModeEnabled;
 #warning test
     return YES;
 }
@@ -138,26 +141,38 @@ UsersModel* userModelInstance;
     purchasedAddsFree = YES;
     TabBarController* tabBar = (TabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     [tabBar removeAdds];
-    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedAddsFree"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"purchasedAddsFree"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) weeklyReviewUpgradePurchased {
     purchasedWeeklyReview = YES;
-    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedWeeklyReview"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"purchasedWeeklyReview"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) multiuserUpgradePurchased {
     purchasedMultiUser = YES;
-    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedMultiUser"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"purchasedMultiUser"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) familyUpgradePurchased {
     purchasedParentsMode = YES;
-    [[NSUserDefaults standardUserDefaults] setObject:parentsPinCode forKey:@"purchasedParentsMode"];
+    parentsModeEnabled = YES;
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"purchasedParentsMode"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"parentsModeEnabled"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void) setParentsModeEnabled:(BOOL)parentsModeOn {
+    parentsModeEnabled = parentsModeOn;
+    [[NSUserDefaults standardUserDefaults] setBool:parentsModeOn forKey:@"parentsModeEnabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL) parentsModeEnabled {
+    return parentsModeEnabled;
 }
 
 

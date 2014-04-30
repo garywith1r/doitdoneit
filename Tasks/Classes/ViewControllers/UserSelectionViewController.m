@@ -39,7 +39,7 @@
     [super viewWillAppear:animated];
     usersArray = [[UsersModel sharedInstance] getUsers];
     [table reloadData];
-    parentModeSwitch.on = [UsersModel sharedInstance].parentsModeEnabled;
+    parentModeSwitch.on = [UsersModel sharedInstance].parentsModeActive;
 }
 
 - (IBAction) backButtonPressed {
@@ -50,7 +50,7 @@
     if (parentModeSwitch.on) {
         [self performSegueWithIdentifier:@"ActiveParentsMode" sender:nil];
     } else {
-        [UsersModel sharedInstance].parentsModeEnabled = NO;
+        [UsersModel sharedInstance].parentsModeActive = NO;
     }
 }
 

@@ -66,6 +66,8 @@
 		5CC1E9EF18BD3B240018955E /* Edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EC18BD3B240018955E /* Edit@2x.png */; };
 		5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2178718BCEB7100C8FA34 /* DoItTaskListViewController.m */; };
 		5CC2178B18BCEEB700C8FA34 /* DoneItTasksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */; };
+		5CC608E719110FAA0039ACA8 /* RemindersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC608E619110FAA0039ACA8 /* RemindersViewController.m */; };
+		5CC608EA1911157B0039ACA8 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC608E91911157B0039ACA8 /* SettingsTableViewController.m */; };
 		5CD63E6E190A070000017304 /* arrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E2E190A06FF00017304 /* arrow1.png */; };
 		5CD63E6F190A070000017304 /* arrow1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E2F190A06FF00017304 /* arrow1@2x.png */; };
 		5CD63E70190A070000017304 /* arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E30190A06FF00017304 /* arrow2.png */; };
@@ -303,6 +305,10 @@
 		5CC2178718BCEB7100C8FA34 /* DoItTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoItTaskListViewController.m; sourceTree = "<group>"; };
 		5CC2178918BCEEB700C8FA34 /* DoneItTasksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneItTasksListViewController.h; sourceTree = "<group>"; };
 		5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneItTasksListViewController.m; sourceTree = "<group>"; };
+		5CC608E519110FAA0039ACA8 /* RemindersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindersViewController.h; sourceTree = "<group>"; };
+		5CC608E619110FAA0039ACA8 /* RemindersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindersViewController.m; sourceTree = "<group>"; };
+		5CC608E81911157B0039ACA8 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		5CC608E91911157B0039ACA8 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		5CD63E2E190A06FF00017304 /* arrow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow1.png; sourceTree = "<group>"; };
 		5CD63E2F190A06FF00017304 /* arrow1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow1@2x.png"; sourceTree = "<group>"; };
 		5CD63E30190A06FF00017304 /* arrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow2.png; sourceTree = "<group>"; };
@@ -497,10 +503,10 @@
 		5C105C0018F3C173002C2A3F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				5C0F8F60191087CA00B7A0AF /* SetGoalViewController.h */,
-				5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */,
 				5CEC4590190AFFBA007AA425 /* SettingsTabBarController.h */,
 				5CEC4591190AFFBA007AA425 /* SettingsTabBarController.m */,
+				5C0F8F60191087CA00B7A0AF /* SetGoalViewController.h */,
+				5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */,
 				5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */,
 				5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */,
 				5C2D055C190F875900F0C56F /* UserCellViewController.h */,
@@ -515,6 +521,10 @@
 				5CEC458C190AF4FD007AA425 /* UpgradeTableViewCell.m */,
 				5CEC4593190B0274007AA425 /* InAppPurhcaseViewController.h */,
 				5CEC4594190B0274007AA425 /* InAppPurhcaseViewController.m */,
+				5CC608E519110FAA0039ACA8 /* RemindersViewController.h */,
+				5CC608E619110FAA0039ACA8 /* RemindersViewController.m */,
+				5CC608E81911157B0039ACA8 /* SettingsTableViewController.h */,
+				5CC608E91911157B0039ACA8 /* SettingsTableViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1213,6 +1223,7 @@
 				5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */,
 				5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */,
 				5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */,
+				5CC608E719110FAA0039ACA8 /* RemindersViewController.m in Sources */,
 				5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */,
 				5CE04ABF190C331E00083225 /* MNCalendarViewDayCell.m in Sources */,
 				5CE04AC3190C331E00083225 /* NSDate+MNAdditions.m in Sources */,
@@ -1263,6 +1274,7 @@
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
 				5CEC458D190AF4FD007AA425 /* UpgradeTableViewCell.m in Sources */,
 				5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */,
+				5CC608EA1911157B0039ACA8 /* SettingsTableViewController.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
 				5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */,
 				5C4A0F9E190822E7003062E2 /* QuickAddTaskCell.m in Sources */,

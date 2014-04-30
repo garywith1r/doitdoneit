@@ -25,7 +25,7 @@
     if (text.length == PARENTS_CODE_DIGITS) {
         if ([text isEqualToString:[UsersModel sharedInstance].parentsPinCode]) {
             [self.navigationController popViewControllerAnimated:YES];
-            [UsersModel sharedInstance].parentsModeEnabled = YES;
+            [UsersModel sharedInstance].parentsModeActive = YES;
             errorPincode.hidden = YES;
         } else {
             textField.text = @"";

@@ -11,7 +11,11 @@
 
 #define LOGGED_USER_IMAGE_KEY @"loggedUserImage"
 #define LOGGED_USER_NAME_KEY @"loggedUserName"
+
+//this keys are for loggedUserData dictionary.
 #define LOGGED_USER_GOAL_KEY @"loggedUserGoal"
+#define LOGGED_USER_REMINDERS_KEY @"loggedUserReminder"
+#define LOGGED_USER_PRIVATE_KEY @"loggedUserHasPrivatedAccount"
 
 @interface UsersModel : NSObject
 
@@ -42,7 +46,8 @@
 @property (readonly) BOOL purchasedMultiUser;
 @property (readonly) BOOL purchasedWeeklyReview;
 
-@property BOOL parentsModeEnabled;
+@property BOOL parentsModeActive; //this option enables the current user to create / delete tasks.
+@property BOOL parentsModeEnabled; //this option enables/disables the whole feature.
 @property (nonatomic, strong) NSString* parentsPinCode;
 
 @end
