@@ -33,7 +33,7 @@
     
     [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     
-    cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     if (task.thumbImagePath && ![@"" isEqualToString: task.thumbImagePath])
         [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];
     else

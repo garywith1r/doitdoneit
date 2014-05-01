@@ -62,6 +62,7 @@
 		5CA284FE1912B09300315F44 /* default_task@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FC1912B09300315F44 /* default_task@2x.jpg */; };
 		5CA285011912B7C100315F44 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FF1912B7C100315F44 /* Default.png */; };
 		5CA285021912B7C100315F44 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA285001912B7C100315F44 /* Default@2x.png */; };
+		5CA285051912E3A800315F44 /* NotePopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA285041912E3A800315F44 /* NotePopUpViewController.m */; };
 		5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */; };
 		5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7093618EEE7BD00D3B55F /* AwardsViewController.m */; };
 		5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1E9E818BD379C0018955E /* DeviceDetector.m */; };
@@ -295,6 +296,8 @@
 		5CA284FC1912B09300315F44 /* default_task@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default_task@2x.jpg"; sourceTree = "<group>"; };
 		5CA284FF1912B7C100315F44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5CA285001912B7C100315F44 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5CA285031912E3A800315F44 /* NotePopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotePopUpViewController.h; sourceTree = "<group>"; };
+		5CA285041912E3A800315F44 /* NotePopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotePopUpViewController.m; sourceTree = "<group>"; };
 		5CA2DED318EC771D00F55BC0 /* HistoricalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalViewController.h; sourceTree = "<group>"; };
 		5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricalViewController.m; sourceTree = "<group>"; };
 		5CA7093518EEE7BD00D3B55F /* AwardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardsViewController.h; sourceTree = "<group>"; };
@@ -604,6 +607,8 @@
 				5C4A0FA0190834E6003062E2 /* SelectRepeatTimesViewController.m */,
 				5C2D0557190F2D3100F0C56F /* NewUserPopUP.h */,
 				5C2D0558190F2D3100F0C56F /* NewUserPopUP.m */,
+				5CA285031912E3A800315F44 /* NotePopUpViewController.h */,
+				5CA285041912E3A800315F44 /* NotePopUpViewController.m */,
 			);
 			name = PopUps;
 			sourceTree = "<group>";
@@ -1218,6 +1223,7 @@
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
 				5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */,
 				5C559B7E18F3819D0092AAE3 /* EGOFileManager.m in Sources */,
+				5CA285051912E3A800315F44 /* NotePopUpViewController.m in Sources */,
 				5CE4818118E4ACAB0032B6CE /* DAAttributedLabel.m in Sources */,
 				5CC608E719110FAA0039ACA8 /* RemindersViewController.m in Sources */,
 				5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */,

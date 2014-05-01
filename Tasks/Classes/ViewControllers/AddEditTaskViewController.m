@@ -15,6 +15,7 @@
 #import "EditDetailsViewController.h"
 #import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
+#import "NotePopUpViewController.h"
 
 
 #import <MobileCoreServices/UTCoreTypes.h>
@@ -27,7 +28,7 @@
 
 
 
-@interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, PopUpDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UILabel* lblRepeatTimes;
@@ -152,6 +153,7 @@
     }
     
     lblDetails.text = self.task.detailsText;
+    lblNotes.text = self.task.notes;
     
 }
 
@@ -218,6 +220,13 @@
 - (IBAction) changeCompletitionDate {
     selectingDueDate = NO;
     [self performSegueWithIdentifier:SELECT_DATE_SEGUE sender: self];
+}
+
+- (IBAction) notesButtonPressed {
+    NotePopUpViewController* noteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NotePopUpViewController"];
+    noteVC.delegate = self;
+    noteVC.task = task;
+    [noteVC presentOnViewController:self];
 }
 
 - (IBAction) ratingButtonPressed:(UIButton*) sender {
@@ -417,5 +426,10 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
+
+#pragma mark - PopUpDelegate Methods
+- (void) popUpWillClose {
+    [self viewWillAppear:NO];
+}
 
 @end
