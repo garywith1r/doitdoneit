@@ -9,6 +9,7 @@
 #import "SWTableViewCell.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
 #import "SWUtilityButtonView.h"
+#import "Constants.h"
 
 static NSString * const kTableViewCellContentView = @"UITableViewCellContentView";
 
@@ -125,7 +126,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     
     // Create the content view that will live in our scroll view
     UIView *scrollViewContentView = [[UIView alloc] initWithFrame:CGRectMake([self leftUtilityButtonsWidth], 0, CGRectGetWidth(self.bounds), self.height)];
-    scrollViewContentView.backgroundColor = [UIColor whiteColor];
+    scrollViewContentView.backgroundColor = DARK_GRAY_COLOR;
     [self.cellScrollView addSubview:scrollViewContentView];
     self.scrollViewContentView = scrollViewContentView;
     
@@ -175,6 +176,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     
     self.scrollViewButtonViewLeft = scrollViewButtonViewLeft;
     [scrollViewButtonViewLeft setFrame:CGRectMake([self leftUtilityButtonsWidth], 0, [self leftUtilityButtonsWidth], self.height)];
+    scrollViewButtonViewLeft.backgroundColor = DARK_GRAY_COLOR;
     
     [self.cellScrollView insertSubview:scrollViewButtonViewLeft belowSubview:self.scrollViewContentView];
 
@@ -196,6 +198,7 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     [scrollViewButtonViewRight setFrame:CGRectMake(CGRectGetWidth(self.bounds), 0, [self rightUtilityButtonsWidth], self.height)];
     
     [self.cellScrollView insertSubview:scrollViewButtonViewRight belowSubview:self.scrollViewContentView];
+    scrollViewButtonViewRight.backgroundColor = DARK_GRAY_COLOR;
     
     [departingLeftButtons removeFromSuperview];
     [scrollViewButtonViewRight populateUtilityButtons];
@@ -305,8 +308,8 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
-    [super setBackgroundColor:backgroundColor];
-    _scrollViewContentView.backgroundColor = backgroundColor;
+    [super setBackgroundColor:DARK_GRAY_COLOR];
+    _scrollViewContentView.backgroundColor = DARK_GRAY_COLOR;
 }
 
 - (void)setHighlighted:(BOOL)highlighted

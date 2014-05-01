@@ -60,6 +60,8 @@
 		5CA1222B18F72A2100F32CCF /* MHTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */; };
 		5CA284FD1912B09300315F44 /* default_task.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FB1912B09300315F44 /* default_task.jpg */; };
 		5CA284FE1912B09300315F44 /* default_task@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FC1912B09300315F44 /* default_task@2x.jpg */; };
+		5CA285011912B7C100315F44 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FF1912B7C100315F44 /* Default.png */; };
+		5CA285021912B7C100315F44 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA285001912B7C100315F44 /* Default@2x.png */; };
 		5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */; };
 		5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7093618EEE7BD00D3B55F /* AwardsViewController.m */; };
 		5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1E9E818BD379C0018955E /* DeviceDetector.m */; };
@@ -74,11 +76,6 @@
 		5CD63E6F190A070000017304 /* arrow1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E2F190A06FF00017304 /* arrow1@2x.png */; };
 		5CD63E70190A070000017304 /* arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E30190A06FF00017304 /* arrow2.png */; };
 		5CD63E71190A070000017304 /* arrow2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E31190A06FF00017304 /* arrow2@2x.png */; };
-		5CD63E72190A070000017304 /* Copy(original).png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E32190A06FF00017304 /* Copy(original).png */; };
-		5CD63E73190A070000017304 /* Default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E33190A06FF00017304 /* Default.jpg */; };
-		5CD63E74190A070000017304 /* Default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E34190A06FF00017304 /* Default@2x.jpg */; };
-		5CD63E75190A070000017304 /* Delete(original).png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E35190A06FF00017304 /* Delete(original).png */; };
-		5CD63E76190A070000017304 /* Edit(original).png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E36190A06FF00017304 /* Edit(original).png */; };
 		5CD63E77190A070000017304 /* repeat_less_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E37190A06FF00017304 /* repeat_less_on.png */; };
 		5CD63E78190A070000017304 /* repeat_less_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E38190A06FF00017304 /* repeat_less_on@2x.png */; };
 		5CD63E79190A070000017304 /* repeat_less.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD63E39190A06FF00017304 /* repeat_less.png */; };
@@ -296,6 +293,8 @@
 		5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTabBarSegue.m; sourceTree = "<group>"; };
 		5CA284FB1912B09300315F44 /* default_task.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_task.jpg; sourceTree = "<group>"; };
 		5CA284FC1912B09300315F44 /* default_task@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default_task@2x.jpg"; sourceTree = "<group>"; };
+		5CA284FF1912B7C100315F44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5CA285001912B7C100315F44 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5CA2DED318EC771D00F55BC0 /* HistoricalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalViewController.h; sourceTree = "<group>"; };
 		5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricalViewController.m; sourceTree = "<group>"; };
 		5CA7093518EEE7BD00D3B55F /* AwardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardsViewController.h; sourceTree = "<group>"; };
@@ -317,11 +316,6 @@
 		5CD63E2F190A06FF00017304 /* arrow1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow1@2x.png"; sourceTree = "<group>"; };
 		5CD63E30190A06FF00017304 /* arrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow2.png; sourceTree = "<group>"; };
 		5CD63E31190A06FF00017304 /* arrow2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow2@2x.png"; sourceTree = "<group>"; };
-		5CD63E32190A06FF00017304 /* Copy(original).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Copy(original).png"; sourceTree = "<group>"; };
-		5CD63E33190A06FF00017304 /* Default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Default.jpg; sourceTree = "<group>"; };
-		5CD63E34190A06FF00017304 /* Default@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Default@2x.jpg"; sourceTree = "<group>"; };
-		5CD63E35190A06FF00017304 /* Delete(original).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delete(original).png"; sourceTree = "<group>"; };
-		5CD63E36190A06FF00017304 /* Edit(original).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Edit(original).png"; sourceTree = "<group>"; };
 		5CD63E37190A06FF00017304 /* repeat_less_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeat_less_on.png; sourceTree = "<group>"; };
 		5CD63E38190A06FF00017304 /* repeat_less_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repeat_less_on@2x.png"; sourceTree = "<group>"; };
 		5CD63E39190A06FF00017304 /* repeat_less.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeat_less.png; sourceTree = "<group>"; };
@@ -729,11 +723,6 @@
 				5CD63E2F190A06FF00017304 /* arrow1@2x.png */,
 				5CD63E30190A06FF00017304 /* arrow2.png */,
 				5CD63E31190A06FF00017304 /* arrow2@2x.png */,
-				5CD63E32190A06FF00017304 /* Copy(original).png */,
-				5CD63E33190A06FF00017304 /* Default.jpg */,
-				5CD63E34190A06FF00017304 /* Default@2x.jpg */,
-				5CD63E35190A06FF00017304 /* Delete(original).png */,
-				5CD63E36190A06FF00017304 /* Edit(original).png */,
 				5C2D0553190F2B2A00F0C56F /* photo_profile.png */,
 				5C2D0554190F2B2A00F0C56F /* photo_profile@2x.png */,
 				5CD63E37190A06FF00017304 /* repeat_less_on.png */,
@@ -785,6 +774,8 @@
 				5C30E53D18BC5F450083FF23 /* Calendar.png */,
 				5C30E53E18BC5F450083FF23 /* Edit.png */,
 				5CC1E9EC18BD3B240018955E /* Edit@2x.png */,
+				5CA284FF1912B7C100315F44 /* Default.png */,
+				5CA285001912B7C100315F44 /* Default@2x.png */,
 				5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */,
 			);
 			path = Images;
@@ -1114,7 +1105,6 @@
 				5CD63E98190A070000017304 /* tabbar_awards_on@2x.png in Resources */,
 				5CDAF0F0190D9D8800634437 /* settings_upgrades_on.png in Resources */,
 				5CD63E8C190A070000017304 /* repeat3_fort@2x.png in Resources */,
-				5CD63E76190A070000017304 /* Edit(original).png in Resources */,
 				5CD63E7D190A070000017304 /* repeat_more.png in Resources */,
 				5CD63E88190A070000017304 /* repeat2_month@2x.png in Resources */,
 				5CD882F618E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
@@ -1126,13 +1116,11 @@
 				5CD63E7A190A070000017304 /* repeat_less@2x.png in Resources */,
 				5CD63E71190A070000017304 /* arrow2@2x.png in Resources */,
 				5CD63EAA190A070000017304 /* task_ok_off@2x.png in Resources */,
-				5CD63E72190A070000017304 /* Copy(original).png in Resources */,
 				5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */,
 				5C30E54318BC5F450083FF23 /* Calendar.png in Resources */,
 				5CD63E9C190A070000017304 /* tabbar_home_on@2x.png in Resources */,
 				5CD63EA1190A070000017304 /* tabbar_task.png in Resources */,
 				5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */,
-				5CD63E73190A070000017304 /* Default.jpg in Resources */,
 				5CD63E81190A070000017304 /* repeat1_week_on.png in Resources */,
 				5CD63E80190A070000017304 /* repeat_number@2x.png in Resources */,
 				5C2D055B190F798D00F0C56F /* default_user.jpg in Resources */,
@@ -1142,7 +1130,6 @@
 				5CD63EA4190A070000017304 /* tabbar_task_on@2x.png in Resources */,
 				5CD63E6F190A070000017304 /* arrow1@2x.png in Resources */,
 				5C559B7B18F381260092AAE3 /* README.mdown in Resources */,
-				5CD63E75190A070000017304 /* Delete(original).png in Resources */,
 				5CD63E99190A070000017304 /* tabbar_home.png in Resources */,
 				5CD63E89190A070000017304 /* repeat3_fort_on.png in Resources */,
 				5CD63E9F190A070000017304 /* tabbar_settings_on.png in Resources */,
@@ -1161,7 +1148,6 @@
 				5CD63EA8190A070000017304 /* task_add@2x.png in Resources */,
 				5CD63E90190A070000017304 /* repeat4_quarter@2x.png in Resources */,
 				5CD63E6E190A070000017304 /* arrow1.png in Resources */,
-				5CD63E74190A070000017304 /* Default@2x.jpg in Resources */,
 				5CD63E82190A070000017304 /* repeat1_week_on@2x.png in Resources */,
 				5CEC4580190AB4F2007AA425 /* award_line.png in Resources */,
 				5CD63E9D190A070000017304 /* tabbar_settings.png in Resources */,
@@ -1183,6 +1169,7 @@
 				5CDAF0EC190D9D8800634437 /* settings_feedback_on.png in Resources */,
 				5CD882F818E9840D003DD93F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				5CD63E93190A070000017304 /* repeat5_year.png in Resources */,
+				5CA285021912B7C100315F44 /* Default@2x.png in Resources */,
 				5CD63E77190A070000017304 /* repeat_less_on.png in Resources */,
 				5C30E54418BC5F450083FF23 /* Edit.png in Resources */,
 				5CD882ED18E9840D003DD93F /* SVWebViewController.strings in Resources */,
@@ -1202,6 +1189,7 @@
 				5CD63E7C190A070000017304 /* repeat_more_on@2x.png in Resources */,
 				5CDAF0EF190D9D8800634437 /* settings_upgrades_off.png in Resources */,
 				5C2D0556190F2B2A00F0C56F /* photo_profile@2x.png in Resources */,
+				5CA285011912B7C100315F44 /* Default.png in Resources */,
 				5CD63EA7190A070000017304 /* task_add.png in Resources */,
 				5CD63EA2190A070000017304 /* tabbar_task@2x.png in Resources */,
 				5C30E54118BC5F450083FF23 /* Copy.png in Resources */,
@@ -1424,7 +1412,7 @@
 				);
 				PRODUCT_NAME = "Do It Done It";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1446,7 +1434,7 @@
 				);
 				PRODUCT_NAME = "Do It Done It";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
