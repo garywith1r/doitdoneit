@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DAAttributedLabel.h"
 
+//150 is the space the other controllers in the cell use
+#define CELL_ITEMS_HEIGHT 170
+
 @interface TasksViewCell : UIViewController
 
 @property (nonatomic, strong) IBOutlet UILabel* lblTitle;
@@ -21,7 +24,9 @@
 @property (nonatomic, strong) IBOutlet UIButton* expandCollapseButton;
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray* stars;
 @property (nonatomic, strong) IBOutlet DAAttributedLabel* lblDescription;
+@property (nonatomic, strong) IBOutlet UIScrollView* descriptionScrollView;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionHeightConstrait;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionScrollViewHeightConstrait;
 
 
 @property (nonatomic) BOOL todayCell;

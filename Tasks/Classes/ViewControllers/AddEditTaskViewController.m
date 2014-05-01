@@ -45,11 +45,6 @@
     
     IBOutlet UIView* buttonsView;
     
-    IBOutlet NSLayoutConstraint* scrollViewHeightConstrait;
-    IBOutlet NSLayoutConstraint* contentViewHeightConstrait;
-    
-    IBOutlet UIButton* btnCancel;
-    
     BOOL selectingDueDate;
     BOOL keyboardIsUp;
     
@@ -106,7 +101,6 @@
     
     if (self.task.status == TaskStatusIncomplete) {
         completeTaskDetailsView.hidden = YES;
-        contentViewHeightConstrait.constant = contentViewHeightConstrait.constant - completeTaskDetailsView.frame.size.height;
     } else {
         newTaskDetailsView.userInteractionEnabled = NO;
         

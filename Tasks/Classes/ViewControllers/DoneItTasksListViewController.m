@@ -11,7 +11,8 @@
 #import "SWTableViewCell.h"
 #import "TasksViewCell.h"
 
-@interface DoneItTasksListViewController ()
+@interface DoneItTasksListViewController () {
+}
 
 @end
 

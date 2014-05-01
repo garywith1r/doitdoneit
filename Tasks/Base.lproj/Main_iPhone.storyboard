@@ -2432,7 +2432,7 @@ Second Line</string>
                                             <constraint firstAttribute="width" constant="73" id="8jf-0b-eGm"/>
                                             <constraint firstAttribute="height" constant="21" id="h6d-Rh-nR7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2458,15 +2458,30 @@ Second Line</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyJ-Ma-QjU" customClass="DAAttributedLabel">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkg-T2-lUP">
                                         <rect key="frame" x="6" y="102" width="308" height="75"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyJ-Ma-QjU" customClass="DAAttributedLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="308" height="75"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="eqQ-2M-RIL"/>
+                                                    <constraint firstAttribute="width" constant="308" id="fYe-oS-ed9"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="eqQ-2M-RIL"/>
-                                            <constraint firstAttribute="width" constant="308" id="fYe-oS-ed9"/>
+                                            <constraint firstItem="vyJ-Ma-QjU" firstAttribute="leading" secondItem="mkg-T2-lUP" secondAttribute="leading" id="7Ys-Jz-q7Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="vyJ-Ma-QjU" secondAttribute="trailing" id="O6w-qk-IfS"/>
+                                            <constraint firstAttribute="height" constant="75" id="Pvt-3F-D2L"/>
+                                            <constraint firstItem="vyJ-Ma-QjU" firstAttribute="top" secondItem="mkg-T2-lUP" secondAttribute="top" id="Ryg-q5-5EH"/>
+                                            <constraint firstAttribute="width" constant="308" id="YsH-kR-X9e"/>
+                                            <constraint firstAttribute="bottom" secondItem="vyJ-Ma-QjU" secondAttribute="bottom" id="edM-3t-091"/>
                                         </constraints>
-                                    </view>
+                                    </scrollView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="117" translatesAutoresizingMaskIntoConstraints="NO" id="EtJ-kl-sgc">
                                         <rect key="frame" x="48" y="196" width="117" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2505,22 +2520,22 @@ Missed:     Hit:</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="lv0-V9-DbG" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="192" id="1Dj-M0-Iou"/>
+                                    <constraint firstItem="mkg-T2-lUP" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="102" id="5do-vy-Shm"/>
                                     <constraint firstItem="f3e-VG-uv8" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="79" id="9ss-i3-1pc"/>
-                                    <constraint firstItem="vyJ-Ma-QjU" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="6" id="ClQ-HJ-DNf"/>
+                                    <constraint firstItem="EtJ-kl-sgc" firstAttribute="top" secondItem="mkg-T2-lUP" secondAttribute="bottom" constant="19" id="J6Z-wr-uUz"/>
                                     <constraint firstItem="EtJ-kl-sgc" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="48" id="Kph-e7-oVB"/>
                                     <constraint firstItem="H9w-TI-rJR" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="88" id="MpA-ib-cvS"/>
                                     <constraint firstItem="0sh-qr-4fz" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="88" id="NTb-C0-dRP"/>
                                     <constraint firstItem="lv0-V9-DbG" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="173" id="Sie-ue-FC6"/>
                                     <constraint firstItem="T2M-tD-ULX" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="236" id="aAG-VR-J6R"/>
                                     <constraint firstItem="f3e-VG-uv8" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="7" id="dVL-6D-qrk"/>
-                                    <constraint firstItem="EtJ-kl-sgc" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="196" id="fqG-4G-Utu"/>
                                     <constraint firstItem="T2M-tD-ULX" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="2" id="fxk-k4-Vcq"/>
+                                    <constraint firstItem="mkg-T2-lUP" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="6" id="h66-Yq-JG1"/>
                                     <constraint firstItem="H9w-TI-rJR" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="20" id="hO1-rb-OB3"/>
                                     <constraint firstItem="KCQ-eO-cNj" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="5" id="hdE-HB-17f"/>
                                     <constraint firstItem="0sh-qr-4fz" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="2" id="nai-WU-Ngj"/>
-                                    <constraint firstItem="vyJ-Ma-QjU" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="102" id="zQy-0O-txH"/>
                                     <constraint firstItem="KCQ-eO-cNj" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="7" id="ziU-JT-QOl"/>
+                                    <constraint firstItem="lv0-V9-DbG" firstAttribute="top" secondItem="mkg-T2-lUP" secondAttribute="bottom" constant="15" id="zzV-g6-gUg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2536,9 +2551,12 @@ Missed:     Hit:</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="242"/>
                     <connections>
+                        <outlet property="descriptionScrollView" destination="mkg-T2-lUP" id="oey-Fz-qgu"/>
                         <outlet property="doneButton" destination="lv0-V9-DbG" id="oaV-YV-6ff"/>
                         <outlet property="expandCollapseButton" destination="7vS-fA-ZmU" id="zDr-OG-6Xl"/>
                         <outlet property="lblDescription" destination="vyJ-Ma-QjU" id="RmY-N1-R2x"/>
+                        <outlet property="lblDescriptionHeightConstrait" destination="eqQ-2M-RIL" id="cQL-OJ-38L"/>
+                        <outlet property="lblDescriptionScrollViewHeightConstrait" destination="Pvt-3F-D2L" id="kFA-xE-W0W"/>
                         <outlet property="lblDueDate" destination="T2M-tD-ULX" id="K6n-M2-L2u"/>
                         <outlet property="lblRepeatTimes" destination="0sh-qr-4fz" id="eaR-W1-cnx"/>
                         <outlet property="lblStats" destination="EtJ-kl-sgc" id="3cd-JF-Ib0"/>

@@ -41,16 +41,14 @@
 
 - (void) viewDidLoad {
     selectedRow = -1;
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
-        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name: UIApplicationWillEnterForegroundNotification object:nil];
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadContentData];
+    [table layoutIfNeeded];
     [table reloadData];
 }
 

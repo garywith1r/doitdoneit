@@ -23,6 +23,8 @@
 #import "MOOPullGestureRecognizer.h"
 #import "MOOCreateView.h"
 
+
+
 @interface DoItTaskListViewController () <CompleteTaskDelegate, PopUpDelegate, SelectRepeatTimesDelegate> {
     BOOL showingQuickAddCell;
     int completedTaskIndex;
@@ -163,8 +165,16 @@
     cellView.lblStats.text = [NSString stringWithFormat:@"Points: %ld Done: %d\nMissed: %d Hit: %.2f", (long)task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
     
     cellView.lblDescription.text = task.detailsText;
-//    cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];
+    cellView.lblDescription.text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tortor nulla, auctor non purus ut, pellentesque suscipit nunc. Pellentesque eget metus quis erat viverra ullamcorper. Proin vel varius orci, sit amet luctus erat. Sed dapibus in erat id tincidunt. Maecenas et est volutpat, varius eros eu, hendrerit ante. Ut luctus tortor a convallis rutrum. Duis et urna nunc. In aliquet a nunc at pharetra. Pellentesque porttitor vel odio ut mollis. Pellentesque ultrices dictum nunc vel dapibus. Nulla et dui et elit sodales scelerisque sed ut metus. Curabitur id orci sagittis, laoreet neque ac, auctor nunc. Etiam iaculis at urna a mattis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas, augue et egestas vulputate, metus metus mattis eros, sed sollicitudin est justo nec urna.\n\nSuspendisse blandit, lacus vitae iaculis laoreet, turpis turpis adipiscing tellus, at posuere mi urna et ligula. Phasellus ultricies at dolor quis ornare. Praesent rhoncus elit arcu, eu ultrices nulla tincidunt a. Praesent vitae felis eget tellus lacinia egestas sed eu augue. Nam eu tincidunt odio, ut mollis velit. Phasellus est arcu, hendrerit eu mi quis, pharetra blandit libero. In mattis pretium augue, id luctus eros lacinia fermentum. Nulla a molestie mi. Donec congue pretium leo, eu aliquam felis porta ac. Nullam condimentum est felis, a posuere sem laoreet non. Morbi at convallis risus, mollis malesuada eros.\n\nNam eget venenatis ante. Morbi porta quam ac ornare interdum. Pellentesque fringilla, dui in elementum ullamcorper, odio quam bibendum metus, ut tempus ligula tellus in neque. Sed est est, volutpat eu massa ut, tempus tincidunt mauris. Maecenas vitae ligula consequat metus interdum pharetra. Praesent suscipit rhoncus mauris quis pellentesque. Aliquam aliquam, tellus ut ornare fermentum, urna magna pulvinar odio, vitae semper ligula eros ac magna. Quisque aliquam laoreet mi sed rhoncus. Fusce a mi dui. Maecenas mauris purus, tristique sed neque quis, gravida gravida mauris. Praesent lorem eros, pretium ac luctus sit amet, tincidunt eu ante. Proin vehicula sit amet purus quis interdum. Donec non erat eleifend, posuere elit nec, ornare lectus. Donec cursus consectetur arcu. Etiam ac pulvinar risus, ac ullamcorper justo.\n\nDonec justo magna, tempus id est a, mollis elementum tortor. Proin nec sem auctor, elementum augue sit amet, ultrices eros. Fusce quis est bibendum massa cursus vestibulum nec eget leo. Aliquam vitae nisl vitae mauris aliquam commodo eget a purus. Donec pellentesque odio quis ullamcorper rutrum. Proin at leo in turpis porttitor lacinia. Nunc imperdiet orci et feugiat dapibus. Suspendisse viverra interdum ipsum eget iaculis. Nam elit lorem, consectetur et semper id, ullamcorper vitae velit.\n\nClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sed fringilla turpis. Quisque ultricies dapibus velit eu eleifend. Aliquam erat volutpat. Proin in accumsan massa. Suspendisse vel elit eget elit hendrerit scelerisque. Mauris sit amet eleifend tellus.";
+    cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];
+    [cellView.lblDescription layoutIfNeeded];
+    cellView.descriptionScrollView.contentSize = cellView.lblDescription.frame.size;
+    
+    
     cellView.lblDescription.delegate = self;
+    
+    
+    cellView.lblDescriptionScrollViewHeightConstrait.constant = table.frame.size.height - CELL_ITEMS_HEIGHT;
     
     cellView.doneButton.tag = indexPath.row;
     [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
@@ -180,7 +190,7 @@
 }
 
 - (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task {
-    return 305;
+    return table.frame.size.height;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
