@@ -10,7 +10,7 @@
 #import "DAAttributedLabel.h"
 
 //150 is the space the other controllers in the cell use
-#define CELL_ITEMS_HEIGHT 170
+#define CELL_ITEMS_HEIGHT 157
 
 @interface TasksViewCell : UIViewController
 

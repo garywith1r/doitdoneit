@@ -24,3 +24,4 @@
 #define FEEDBACK_EMAIL_BODY @""
 
 #define DEFAULT_USER_IMAGE [UIImage imageNamed:@"default_user.jpg"]
+#define DEFAULT_TASK_IMAGE [UIImage imageNamed:@"default_task.jpg"]

@@ -10,6 +10,7 @@
 #import "TaskListModel.h"
 #import "SWTableViewCell.h"
 #import "TasksViewCell.h"
+#import "Constants.h"
 
 @interface DoneItTasksListViewController () {
 }
@@ -32,12 +33,18 @@
     
     [cellView.thumbImageButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     
-    if (task.thumbImage) {
-        cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    if (task.thumbImagePath && ![@"" isEqualToString: task.thumbImagePath])
         [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];
-        cellView.thumbImageButton.tag = indexPath.row;
-        [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
-    }
+    else
+        [cellView.thumbImageButton setImage:DEFAULT_TASK_IMAGE forState:UIControlStateNormal];
+    cellView.thumbImageButton.tag = indexPath.row;
+    [cellView.thumbImageButton addTarget:self action:@selector(thumbnailTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    cellView.thumbImageButton.layer.borderColor = YELLOW_COLOR.CGColor;
+    cellView.thumbImageButton.layer.borderWidth = 2.0;
+    cellView.thumbImageButton.layer.cornerRadius = 4;
+    cellView.thumbImageButton.layer.masksToBounds = YES;
     
     cellView.doneButton.tag = indexPath.row;
     

@@ -76,9 +76,10 @@
     
     selectedRow = row;
     
+    [table deselectRowAtIndexPath:[NSIndexPath indexPathForItem:row inSection:0] animated:YES];
     [table beginUpdates];
     [table endUpdates];
-    [table deselectRowAtIndexPath:[NSIndexPath indexPathForItem:row inSection:0] animated:YES];
+    
 }
 
 - (void) hideTaskAtRow:(NSInteger)row {
@@ -97,11 +98,6 @@
     } else {
         return NORMAL_ROW_HEIGHT;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    // This will create a "invisible" footer
-    return 0.01f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -220,10 +216,9 @@
 
 - (void) thumbnailTapped:(UIButton*)sender {
     TaskDTO* task = [contentDataArray objectAtIndex:sender.tag];
-    if (task.videoUrl) {
+    if (task.videoUrl && ![@"" isEqualToString:task.videoUrl]) {
         [self playVideo:task.videoUrl fromButton:sender];
-    } else {
-        //it's an image
+    } else if (task.thumbImagePath && ![@"" isEqualToString:task.thumbImagePath]){
         [self zoomImage:task.thumbImage fromButton:sender];
     }
 }
