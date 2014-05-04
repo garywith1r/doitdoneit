@@ -11,7 +11,7 @@
 
 #import "DAAttributedStringFormatter.h"
 #import "DAAttributedLabel.h"
-
+#import "Constants.h"
 
 
 #define BULLET_TEXT @"\\*"
@@ -21,7 +21,7 @@
 
 @interface EditDetailsViewController () <UITextViewDelegate> {
     IBOutlet UITextView* detailsTextView;
-    IBOutlet UIButton* bulletButton;
+    IBOutlet UILabel* tipsLabel;
     
     NSMutableArray* linksOnText;
 }
@@ -30,15 +30,6 @@
 
 @implementation EditDetailsViewController
 @synthesize dto;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -52,21 +43,13 @@
         linksOnText = [[NSMutableArray alloc] init];
     
     detailsTextView.attributedText = dto.detailsText;
+    
+    tipsLabel.layer.borderColor = YELLOW_COLOR.CGColor;
+    tipsLabel.layer.borderWidth = 2.0;
 }
 
-- (IBAction) bulletButtonPressed {
-    
-    NSRange range = detailsTextView.selectedRange;
-    NSString * firstHalfString = [detailsTextView.text substringToIndex:range.location];
-    NSString * secondHalfString = [detailsTextView.text substringFromIndex: range.location];
-    range.location = range.location + BULLET_CODE.length;
-    
-    
-    detailsTextView.text = [NSString stringWithFormat:@"%@%@%@",firstHalfString,BULLET_CODE,secondHalfString];
-    detailsTextView.selectedRange = range;
-}
 
-- (IBAction) save {
+- (IBAction) doneButtonPressed {
     
     dto.detailsText = detailsTextView.attributedText;
     dto.detailsLinksArray = [NSArray arrayWithArray:linksOnText];
@@ -74,6 +57,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction) cancelButtonPressed {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 - (void) searchTextForHiperlinks {

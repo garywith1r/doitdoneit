@@ -16,6 +16,7 @@
 #import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
 #import "NotePopUpViewController.h"
+#import "SelectRepeatTimesViewController.h"
 
 
 #import <MobileCoreServices/UTCoreTypes.h>
@@ -28,7 +29,7 @@
 
 
 
-@interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, PopUpDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, PopUpDelegate, SelectRepeatTimesDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UILabel* lblRepeatTimes;
@@ -62,14 +63,7 @@
 @synthesize task;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:SELECT_DATE_SEGUE]) {
-        SelectDateViewController* editController = (SelectDateViewController*) [segue destinationViewController];
-        editController.delegate = self;
-        if (selectingDueDate)
-            editController.startDate = dueDateTemp;
-        else
-            editController.startDate = completitionDateTemp;
-    } else if ([segue.identifier isEqualToString:EDIT_DETAILS_SEGUE]) {
+    if ([segue.identifier isEqualToString:EDIT_DETAILS_SEGUE]) {
         EditDetailsViewController* editController = (EditDetailsViewController*) [segue destinationViewController];
         editController.dto = task;
     }
@@ -122,20 +116,6 @@
     
     dueDateTemp = self.task.dueDate;
     completitionDateTemp = self.task.completitionDate;
-    
-    UIViewController* mainVC = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    [mainVC.view addSubview:buttonsView];
-    
-    CGRect frame = buttonsView.frame;
-    frame.origin.x = mainVC.view.frame.size.width;
-    frame.origin.y = mainVC.view.frame.size.height - frame.size.height;
-    buttonsView.frame = frame;
-    
-    frame.origin.x = 0;
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-    buttonsView.frame = frame;
-    [UIView commitAnimations];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -157,27 +137,15 @@
     
 }
 
-- (void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    NSArray *viewControllers = self.navigationController.viewControllers;
-    if ([viewControllers indexOfObject:self] == NSNotFound) {
-        // View was poped. Remove Buttons from RootViewController.
-        
-        CGRect frame = buttonsView.frame;
-        frame.origin.x = self.view.frame.size.width;
-        
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.3];
-        [UIView setAnimationDelegate:buttonsView];
-        [UIView setAnimationDidStopSelector:@selector(removeFromSuperview)];
-        buttonsView.frame = frame;
-        [UIView commitAnimations];
-    }
-}
-
 - (IBAction) sliderHasChanged :(id)sender {
     lblTaskPoints.text = [NSString stringWithFormat:@"%ld",lroundf(sldTaskPoints.value)];
+}
+
+- (IBAction) repeatTimesButtonPressed {
+    SelectRepeatTimesViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectRepeatTimesViewController"];
+    [vc setInitialTimes:self.task.repeatTimes andInitialTimeInterval:self.task.repeatPeriod];
+    vc.delegate = self;
+    [vc presentOnViewController:self];
 }
 
 - (IBAction) saveButtonPressed {
@@ -214,12 +182,18 @@
 
 - (IBAction) changeDueDate {
     selectingDueDate = YES;
-    [self performSegueWithIdentifier:SELECT_DATE_SEGUE sender: self];
+    SelectDateViewController* editController = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectDateViewController"];
+    editController.delegate = self;
+    editController.startDate = dueDateTemp;
+    [self.navigationController pushViewController:editController animated:YES];
 }
 
 - (IBAction) changeCompletitionDate {
     selectingDueDate = NO;
-    [self performSegueWithIdentifier:SELECT_DATE_SEGUE sender: self];
+    SelectDateViewController* editController = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectDateViewController"];
+    editController.delegate = self;
+    editController.startDate = dueDateTemp;
+    [self.navigationController pushViewController:editController animated:YES];
 }
 
 - (IBAction) notesButtonPressed {
@@ -430,6 +404,14 @@
 #pragma mark - PopUpDelegate Methods
 - (void) popUpWillClose {
     [self viewWillAppear:NO];
+}
+
+#pragma mark - SelectRepeatTimesDelegate methods
+- (void) selectedRepeatTimes:(NSInteger)repeatTimes perTimeInterval:(NSInteger)timeInterval {
+    self.task.repeatTimes = repeatTimes;
+    self.task.repeatPeriod = (int)timeInterval;
+    
+    lblRepeatTimes.text = [self.task repeatTimesDisplayText];
 }
 
 @end

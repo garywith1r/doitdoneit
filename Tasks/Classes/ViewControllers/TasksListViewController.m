@@ -167,15 +167,13 @@
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     switch (index) {
-        case 0: // copy
-            taskToShow = [[contentDataArray objectAtIndex:cell.tag] taskWithData];
-            taskToShowIsNewCopy = YES;
-            [self performSegueWithIdentifier:EDIT_TASK_SEGUE sender:nil];
+        case 0:{ // copy
+            [self presentEditTaskControllerForTask:[[contentDataArray objectAtIndex:cell.tag] taskWithData] beingNewTask:YES];
             break;
+        }
         case 1: // Edit
         {
-            taskToShow = [contentDataArray objectAtIndex:cell.tag];
-            [self performSegueWithIdentifier:EDIT_TASK_SEGUE sender:nil];
+            [self presentEditTaskControllerForTask:[contentDataArray objectAtIndex:cell.tag] beingNewTask:NO];
             break;
         }
         case 2: // delete
@@ -189,6 +187,14 @@
         default:
             break;
     }
+}
+
+-  (void) presentEditTaskControllerForTask:(TaskDTO*)task beingNewTask:(BOOL)newTask {
+    AddEditTaskViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddEditTaskViewController"];
+    vc.task = task;
+    vc.isNewTask = newTask;
+    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [mainVC pushViewController:vc animated:YES];
 }
 
 #pragma mark - Utility Methods

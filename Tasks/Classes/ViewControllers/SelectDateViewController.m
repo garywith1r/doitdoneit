@@ -21,18 +21,21 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    
-//    MNCalendarView *calendarView = [[MNCalendarView alloc] initWithFrame:self.view.bounds];
     if (self.startDate)
         calendarView.selectedDate = self.startDate;
     else
         calendarView.selectedDate = [NSDate date];
     calendarView.delegate = self;
+    calendarView.clipsToBounds = YES;
 }
 
 - (IBAction) save {
     if([self.delegate respondsToSelector:@selector(didSelectDate:)])
         [self.delegate didSelectDate:self.startDate];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction) cancel {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

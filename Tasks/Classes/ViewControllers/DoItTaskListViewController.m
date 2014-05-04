@@ -10,7 +10,6 @@
 #import "TaskListModel.h"
 #import "TasksViewCell.h"
 #import "SWTableViewCell.h"
-#import "CompleteTaskViewCell.h"
 #import "DeviceDetector.h"
 #import "Constants.h"
 #import "DAAttributedLabel.h"
@@ -25,11 +24,10 @@
 
 
 
-@interface DoItTaskListViewController () <CompleteTaskDelegate, PopUpDelegate, SelectRepeatTimesDelegate, UITextFieldDelegate> {
+@interface DoItTaskListViewController () <PopUpDelegate, SelectRepeatTimesDelegate, UITextFieldDelegate> {
     BOOL showingQuickAddCell;
     int completedTaskIndex;
     
-    CompleteTaskViewCell* completeTaskCell;
     
     UITextField* quickAddTitle;
     UILabel* quickAddRepeatTimes;
@@ -127,7 +125,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row >= (contentDataArray.count + showingQuickAddCell)) {
-        [self performSegueWithIdentifier:NEW_TASK_SEGUE sender:nil];
+        [self presentEditTaskControllerForTask:nil beingNewTask:YES];
     }
 }
 
@@ -283,9 +281,7 @@
 }
 
 - (IBAction) fullAddButtonPressed {
-    taskToShow = quickAddDto;
-    taskToShowIsNewCopy = YES;
-    [self performSegueWithIdentifier:EDIT_TASK_SEGUE sender:nil];
+    [self presentEditTaskControllerForTask:quickAddDto beingNewTask:YES];
 }
 
 - (IBAction) repeatTimesButtonPressed {
@@ -304,7 +300,7 @@
 
 - (IBAction) textFieldDidFinish:(UITextField*) sender {}
 
-#pragma mark - RepeatTimesDelegate methods
+#pragma mark - SelectRepeatTimesDelegate methods
 - (void) selectedRepeatTimes:(NSInteger)repeatTimes perTimeInterval:(NSInteger)timeInterval {
     quickAddDto.repeatTimes = repeatTimes;
     quickAddDto.repeatPeriod = (int)timeInterval;

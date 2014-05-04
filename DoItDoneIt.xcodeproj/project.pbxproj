@@ -150,8 +150,6 @@
 		5CDAF0EE190D9D8800634437 /* settings_settings_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDAF0E8190D9D8800634437 /* settings_settings_on.png */; };
 		5CDAF0EF190D9D8800634437 /* settings_upgrades_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDAF0E9190D9D8800634437 /* settings_upgrades_off.png */; };
 		5CDAF0F0190D9D8800634437 /* settings_upgrades_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDAF0EA190D9D8800634437 /* settings_upgrades_on.png */; };
-		5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */; };
-		5CDB774518BEB556000A4C04 /* CompleteTaskViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */; };
 		5CDB774818BEBE7F000A4C04 /* FacebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774618BEBE7F000A4C04 /* FacebookIcon.png */; };
 		5CDB774918BEBE7F000A4C04 /* TwitterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB774718BEBE7F000A4C04 /* TwitterIcon.png */; };
 		5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB774E18BF05B7000A4C04 /* MediaModel.m */; };
@@ -405,9 +403,6 @@
 		5CDAF0E8190D9D8800634437 /* settings_settings_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_settings_on.png; sourceTree = "<group>"; };
 		5CDAF0E9190D9D8800634437 /* settings_upgrades_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_upgrades_off.png; sourceTree = "<group>"; };
 		5CDAF0EA190D9D8800634437 /* settings_upgrades_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_upgrades_on.png; sourceTree = "<group>"; };
-		5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteTaskViewCell.h; sourceTree = "<group>"; };
-		5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteTaskViewCell.m; sourceTree = "<group>"; };
-		5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompleteTaskViewCell.xib; sourceTree = "<group>"; };
 		5CDB774618BEBE7F000A4C04 /* FacebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookIcon.png; sourceTree = "<group>"; };
 		5CDB774718BEBE7F000A4C04 /* TwitterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterIcon.png; sourceTree = "<group>"; };
 		5CDB774A18BEBEC2000A4C04 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/ViewControllers/Constants.h; sourceTree = "<group>"; };
@@ -821,9 +816,6 @@
 				5CC2178A18BCEEB700C8FA34 /* DoneItTasksListViewController.m */,
 				5C9B63D618A17AAC0091C1D2 /* TasksViewCell.h */,
 				5C9B63D718A17AAC0091C1D2 /* TasksViewCell.m */,
-				5CDB774118BEB556000A4C04 /* CompleteTaskViewCell.h */,
-				5CDB774218BEB556000A4C04 /* CompleteTaskViewCell.m */,
-				5CDB774318BEB556000A4C04 /* CompleteTaskViewCell.xib */,
 				5C9B63D918A192BA0091C1D2 /* CompleteTaskViewController.h */,
 				5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */,
 				5C9B63C818A1632B0091C1D2 /* AddEditTaskViewController.h */,
@@ -1096,7 +1088,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CD63E86190A070000017304 /* repeat2_month_on@2x.png in Resources */,
-				5CDB774518BEB556000A4C04 /* CompleteTaskViewCell.xib in Resources */,
 				5CEC4585190AB4F2007AA425 /* go@2x.png in Resources */,
 				5CD63E9B190A070000017304 /* tabbar_home_on.png in Resources */,
 				5CD63E9E190A070000017304 /* tabbar_settings@2x.png in Resources */,
@@ -1239,7 +1230,6 @@
 				5C2D055E190F875900F0C56F /* UserCellViewController.m in Sources */,
 				5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */,
 				5CD882F718E9840D003DD93F /* SVWebViewControllerActivitySafari.m in Sources */,
-				5CDB774418BEB556000A4C04 /* CompleteTaskViewCell.m in Sources */,
 				5CD882F918E9840D003DD93F /* SVWebViewControllerActivity.m in Sources */,
 				5CC2178818BCEB7100C8FA34 /* DoItTaskListViewController.m in Sources */,
 				5C2652F418BBF5FD007F8A0C /* SWUtilityButtonView.m in Sources */,

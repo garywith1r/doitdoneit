@@ -45,6 +45,7 @@
 - (void) showTaskAtRow:(NSInteger)row;
 - (void) hideTaskAtRow:(NSInteger)row;
 
+-  (void) presentEditTaskControllerForTask:(TaskDTO*)task beingNewTask:(BOOL)newTask;
 
 
 @end
