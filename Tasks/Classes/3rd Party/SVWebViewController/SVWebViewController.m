@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIBarButtonItem *refreshBarButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *stopBarButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *actionBarButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *doneBarButtonItem;
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) NSURL *URL;
@@ -83,6 +84,7 @@
     _refreshBarButtonItem = nil;
     _stopBarButtonItem = nil;
     _actionBarButtonItem = nil;
+    _doneBarButtonItem = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -169,12 +171,20 @@
     return _actionBarButtonItem;
 }
 
+- (UIBarButtonItem *)doneBarButtonItem {
+    if (!_doneBarButtonItem) {
+        _doneBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
+    }
+    return _doneBarButtonItem;
+}
+
 #pragma mark - Toolbar
 
 - (void)updateToolbarItems {
     self.backBarButtonItem.enabled = self.self.webView.canGoBack;
     self.forwardBarButtonItem.enabled = self.self.webView.canGoForward;
     self.actionBarButtonItem.enabled = !self.self.webView.isLoading;
+    self.doneBarButtonItem.enabled = YES;
     
     UIBarButtonItem *refreshStopBarButtonItem = self.self.webView.isLoading ? self.stopBarButtonItem : self.refreshBarButtonItem;
     
@@ -194,6 +204,8 @@
                           self.forwardBarButtonItem,
                           fixedSpace,
                           self.actionBarButtonItem,
+                          fixedSpace,
+                          self.doneBarButtonItem,
                           nil];
         
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, toolbarWidth, 44.0f)];
@@ -213,6 +225,8 @@
                           refreshStopBarButtonItem,
                           flexibleSpace,
                           self.actionBarButtonItem,
+                          flexibleSpace,
+                          self.doneBarButtonItem,
                           fixedSpace,
                           nil];
         
@@ -269,7 +283,7 @@
 }
 
 - (void)doneButtonClicked:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

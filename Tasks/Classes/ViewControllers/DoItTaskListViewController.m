@@ -12,7 +12,6 @@
 #import "SWTableViewCell.h"
 #import "DeviceDetector.h"
 #import "Constants.h"
-#import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
 #import "CompleteTaskViewController.h"
 #import "UsersModel.h"
@@ -169,6 +168,8 @@
     
     cellView.lblStats.text = [NSString stringWithFormat:@"Points: %ld Done: %d\nMissed: %d Hit: %.2f", (long)task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
     
+    cellView.lblDescription.dataDetectorTypes = UIDataDetectorTypeAll;
+    cellView.lblDescription.highlightedTextColor = YELLOW_COLOR;
     cellView.lblDescription.text = task.detailsText;
     cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];
     [cellView.lblDescription layoutIfNeeded];

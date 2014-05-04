@@ -9,8 +9,6 @@
 #import "EditDetailsViewController.h"
 #import <CoreText/CTStringAttributes.h>
 
-#import "DAAttributedStringFormatter.h"
-#import "DAAttributedLabel.h"
 #import "Constants.h"
 
 
@@ -66,7 +64,7 @@
     
     NSRange range = detailsTextView.selectedRange;
     
-    NSMutableString* text = [[NSMutableString alloc] initWithString:detailsTextView.text];
+    NSString* text = detailsTextView.text;
     
     NSError* error;
     
@@ -78,9 +76,6 @@
     
     if (matches.count) {
         
-        DAAttributedStringFormatter* formatter = [[DAAttributedStringFormatter alloc] init];
-        formatter.colors = @[[UIColor blackColor], [UIColor blueColor]];
-        
         //Iterate through the matches and highlight them
         NSMutableArray* attributesArray = [[NSMutableArray alloc] initWithCapacity:matches.count * 2];
         for (int x = 0; x < matches.count; x++)
@@ -90,31 +85,15 @@
             NSNumber* location = [NSNumber numberWithInteger:matchRange.location];
             NSNumber* lenght = [NSNumber numberWithInteger:matchRange.length];
             
-            /* we'll add attributes to both texts at the end, because the mutable attributed string returned by the DAAttributedStringFormatter can't be stored with colour / underline attributes, so we'll use the standar ones.
-             */
-            [attributesArray addObject:@{@"attribute":NSForegroundColorAttributeName,@"value":[UIColor blueColor],@"location":location,@"length":lenght}];
-            [attributesArray addObject:@{@"attribute":NSUnderlineStyleAttributeName,@"value":[NSNumber numberWithInt:1],@"location":location,@"length":lenght}];
-            
-            
-            //have to fix the location because we're adding text for each link. 8 is the amount of characters added per link.
-            matchRange.location = matchRange.location + 8*x;
-            
-            [linksOnText addObject: [text substringWithRange:matchRange]];
-            
-            [text insertString:@"%l%b" atIndex:matchRange.location+matchRange.length];
-            [text insertString:@"%B%L" atIndex:matchRange.location];
-
+            [attributesArray addObject:@{@"attribute":NSForegroundColorAttributeName,@"value":YELLOW_COLOR,@"location":location,@"length":lenght}];
             
         }
         
         
-        
-        
-        NSMutableAttributedString* attrText = [formatter formatString:text].mutableCopy;
-        
-
+        NSMutableAttributedString* attrText = [[NSMutableAttributedString alloc] initWithString:text];
         [attrText beginEditing];
         
+        //add default font.
         [attrText addAttribute:(id)kCTFontAttributeName
                          value:detailsTextView.font
                          range:NSMakeRange(0, attrText.length)];
@@ -134,14 +113,12 @@
         
         detailsTextView.attributedText = attrText;
         detailsTextView.selectedRange = range;
-        
     }
 }
 
 
 
 #pragma mark UITextViewDelegate Methods
-
 - (void)textViewDidChange:(UITextView *)textView {
     
     textView.text = [textView.text stringByReplacingOccurrencesOfString:BULLET_TEXT withString:BULLET_CODE];

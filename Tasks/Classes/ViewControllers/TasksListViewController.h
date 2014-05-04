@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DAAttributedLabel.h"
+#import "TTTAttributedLabel.h"
 #import "TaskDto.h"
 
 
@@ -21,7 +21,7 @@
 #define EDIT_TASK_SEGUE @"EditTaskSegue"
 
 
-@interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DAAttributedLabelDelegate> {
+@interface TasksListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate> {
     NSArray* contentDataArray;
     IBOutlet UITableView* table;
     

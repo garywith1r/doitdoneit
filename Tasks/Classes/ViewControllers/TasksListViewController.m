@@ -271,19 +271,20 @@
     }
 }
 
-#pragma mark - DAAttributedLabelDelegate Methods
-- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum {
-    NSString* url = ((TaskDTO*)contentDataArray[selectedRow]).detailsLinksArray[linkNum];
+#pragma mark - TTTAttributedLabelDelegate Methods
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
+    NSString* stringUrl = [url absoluteString];
     
-    NSRange prefixRange = [url rangeOfString:@"http"
-                options:(NSAnchoredSearch | NSCaseInsensitiveSearch)];
+    NSRange prefixRange = [stringUrl rangeOfString:@"http"
+                                           options:(NSAnchoredSearch | NSCaseInsensitiveSearch)];
     
     if (prefixRange.location == NSNotFound) {
-        url = [@"http://" stringByAppendingString:url];
+        stringUrl = [@"http://" stringByAppendingString:stringUrl];
     }
     
-	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:url];
-    [self.navigationController pushViewController:webViewController animated:YES];
+	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:stringUrl];
+    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [mainVC pushViewController:webViewController animated:YES];
 }
 
 @end

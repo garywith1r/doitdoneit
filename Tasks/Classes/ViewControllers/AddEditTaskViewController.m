@@ -13,10 +13,10 @@
 #import "Constants.h"
 #import "StatsModel.h"
 #import "EditDetailsViewController.h"
-#import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
 #import "NotePopUpViewController.h"
 #import "SelectRepeatTimesViewController.h"
+#import "TTTAttributedLabel.h"
 
 
 #import <MobileCoreServices/UTCoreTypes.h>
@@ -29,7 +29,7 @@
 
 
 
-@interface AddEditTaskViewController () <SelectDateDelegate, DAAttributedLabelDelegate, PopUpDelegate, SelectRepeatTimesDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface AddEditTaskViewController () <SelectDateDelegate, TTTAttributedLabelDelegate, PopUpDelegate, SelectRepeatTimesDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UIView* newTaskDetailsView;
     IBOutlet UITextField* txtTitle;
     IBOutlet UILabel* lblRepeatTimes;
@@ -37,7 +37,7 @@
     IBOutlet UILabel* lblTaskPoints;
     IBOutlet UILabel* dueDate;
     IBOutlet UIButton* btnImage;
-    IBOutlet DAAttributedLabel* lblDetails;
+    IBOutlet TTTAttributedLabel* lblDetails;
     
     IBOutlet UIView* completeTaskDetailsView;
     IBOutletCollection(UIButton) NSArray* ratingButtons;
@@ -79,6 +79,7 @@
     
     txtTitle.text = self.task.title;
     lblDetails.delegate = self;
+    lblDetails.highlightedTextColor = YELLOW_COLOR;
     
     lblRepeatTimes.text = [self.task repeatTimesDisplayText];
     sldTaskPoints.value = self.task.taskPoints;
@@ -384,20 +385,21 @@
 }
 
 
-#pragma mark - DAAttributedLabelDelegate Methods
-- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum
+#pragma mark - TTTAttributedLabelDelegate Methods
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
-    NSString* url = task.detailsLinksArray[linkNum];
+    NSString* stringUrl = [url absoluteString];
     
-    NSRange prefixRange = [url rangeOfString:@"http"
+    NSRange prefixRange = [stringUrl rangeOfString:@"http"
                                      options:(NSAnchoredSearch | NSCaseInsensitiveSearch)];
     
     if (prefixRange.location == NSNotFound) {
-        url = [@"http://" stringByAppendingString:url];
+        stringUrl = [@"http://" stringByAppendingString:stringUrl];
     }
     
-	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:url];
-    [self.navigationController pushViewController:webViewController animated:YES];
+	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:stringUrl];
+    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [mainVC pushViewController:webViewController animated:YES];
 }
 
 

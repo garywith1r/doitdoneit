@@ -8,16 +8,14 @@
 
 #import "CompleteTaskViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "DAAttributedLabel.h"
 #import "SVWebViewController.h"
 #import "MediaModel.h"
 #import "TaskListModel.h"
 #import "Constants.h"
-#import "DAAttributedLabel.h"
 #import "DeviceDetector.h"
 #import "NotePopUpViewController.h"
 
-@interface CompleteTaskViewController () <DAAttributedLabelDelegate, PopUpDelegate>{
+@interface CompleteTaskViewController () <PopUpDelegate>{
     IBOutlet UILabel* lblTitle;
     IBOutlet UILabel* lblStats;
     IBOutlet UILabel* lblDueDate;
@@ -128,21 +126,6 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString* newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return newText.length <= TASK_NOTE_MAX_CHARACTERS;
-}
-
-#pragma mark - DAAttributedLabelDelegate Methods
-- (void) label:(DAAttributedLabel *)label didSelectLink:(NSInteger)linkNum {
-    NSString* url = self.task.detailsLinksArray[linkNum];
-    
-    NSRange prefixRange = [url rangeOfString:@"http"
-                                     options:(NSAnchoredSearch | NSCaseInsensitiveSearch)];
-    
-    if (prefixRange.location == NSNotFound) {
-        url = [@"http://" stringByAppendingString:url];
-    }
-    
-	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:url];
-    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 #pragma mark - PopUpDelegate Methods

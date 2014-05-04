@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DAAttributedLabel.h"
+#import "TTTAttributedLabel.h"
 
 //150 is the space the other controllers in the cell use
 #define CELL_ITEMS_HEIGHT 157
@@ -23,7 +23,7 @@
 @property (nonatomic, strong) IBOutlet UIButton* thumbImageButton;
 @property (nonatomic, strong) IBOutlet UIButton* expandCollapseButton;
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray* stars;
-@property (nonatomic, strong) IBOutlet DAAttributedLabel* lblDescription;
+@property (nonatomic, strong) IBOutlet TTTAttributedLabel* lblDescription;
 @property (nonatomic, strong) IBOutlet UIScrollView* descriptionScrollView;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionHeightConstrait;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionScrollViewHeightConstrait;
