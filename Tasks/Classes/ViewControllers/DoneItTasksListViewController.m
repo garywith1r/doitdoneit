@@ -11,6 +11,7 @@
 #import "SWTableViewCell.h"
 #import "TasksViewCell.h"
 #import "Constants.h"
+#import "NSDate+Reporting.h"
 
 @interface DoneItTasksListViewController () {
 }
@@ -56,36 +57,10 @@
     
     cellView.lblTitle.text = task.title;
     
-    int timeSinceCompletition = ceil([[NSDate date] timeIntervalSinceDate:task.completitionDate] /60.0);
     
-    NSString* timeSinceText = (task.status == TaskStatusComplete)?@"Done":@"Missed";
+    NSString* timeSinceText = (task.status == TaskStatusComplete)?@"Done ":@"Missed ";
     
-    if (timeSinceCompletition < 2)
-        timeSinceText = [timeSinceText stringByAppendingString:@" a few moments ago."];
-    
-    else if (timeSinceCompletition < 60)
-        timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@" %d mins ago.", timeSinceCompletition]];
-    
-    else {
-        timeSinceCompletition = ceil(timeSinceCompletition / 60.0);
-        
-        if (timeSinceCompletition == 1)
-            timeSinceText = [timeSinceText stringByAppendingString:@" an hour ago."];
-        
-        else if (timeSinceCompletition < 24)
-            timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@" %d hours ago.",timeSinceCompletition]];
-        
-        else {
-            timeSinceCompletition = ceil(timeSinceCompletition / 24.0);
-            
-            if (timeSinceCompletition == 1)
-                timeSinceText = [timeSinceText stringByAppendingString:@" yesterday."];
-            
-            else
-                timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@" %d days ago.",timeSinceCompletition]];
-        }
-        
-    }
+    timeSinceText = [timeSinceText stringByAppendingString:[NSDate timePassedSince:task.completitionDate]];
     
     cellView.lblDueDate.text = timeSinceText;
     cellView.lblNote.text = task.notes;

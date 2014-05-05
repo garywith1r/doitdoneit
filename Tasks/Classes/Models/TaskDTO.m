@@ -328,4 +328,20 @@
 }
 
 
+- (UIImage*) getHitRateImage {
+    double hitRate = [self hitRate];
+    
+    if (hitRate >= 65) {
+        return [UIImage imageNamed:@"face_happy.png"];
+    } else if (hitRate >= 45) {
+        return [UIImage imageNamed:@"face_indifferent.png"];
+    } else if (hitRate >= 15) {
+        return [UIImage imageNamed:@"face_perplexed.png"];
+    } else {
+        return [UIImage imageNamed:@"face_sad.png"];
+    }
+    
+}
+
+
 @end

@@ -316,4 +316,40 @@
     return [gregorianCalendar dateFromComponents:components];    
 }
 
+
++ (NSString*) timePassedSince:(NSDate*)date {
+    
+    int timeSince = ceil([[NSDate date] timeIntervalSinceDate:date] /60.0);
+    NSString* timeSinceText = @"";
+    
+    if (timeSince < 2)
+        timeSinceText = [timeSinceText stringByAppendingString:@"a few moments ago."];
+    
+    else if (timeSince < 60)
+        timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@"%d mins ago.", timeSince]];
+    
+    else {
+        timeSince = ceil(timeSince / 60.0);
+        
+        if (timeSince == 1)
+            timeSinceText = [timeSinceText stringByAppendingString:@"an hour ago."];
+        
+        else if (timeSince < 24)
+            timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@"%d hours ago.",timeSince]];
+        
+        else {
+            timeSince = ceil(timeSince / 24.0);
+            
+            if (timeSince == 1)
+                timeSinceText = [timeSinceText stringByAppendingString:@"yesterday."];
+            
+            else
+                timeSinceText = [timeSinceText stringByAppendingString:[NSString stringWithFormat:@"%d days ago.",timeSince]];
+        }
+        
+    }
+    
+    return timeSinceText;
+}
+
 @end

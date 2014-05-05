@@ -11,6 +11,7 @@
 #import "MediaModel.h"
 #import "StatsModel.h"
 #import "DeviceDetector.h"
+#import "StatsViewCell.h"
 
 @interface StatsViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate> {
     IBOutlet UITableView* table;
@@ -67,28 +68,70 @@
     }
     
     StatsModel* stats = [StatsModel sharedInstance];
+    StatsViewCell* statsView = [self.storyboard instantiateViewControllerWithIdentifier:@"StatsViewCell"];
+    
+    [cell setContentView:statsView.view];
+    
+    double hitRate= 0;
     
     switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Today %ld, Points %ld\nHit Rate %.1f%%",(long)stats.todayCompleted,(long)stats.todayPoints, stats.todayHitRate];
+        case 0: {
+            statsView.titleLabel.text = @"Today";
+            statsView.tasksLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.todayCompleted];
+            statsView.pointsLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.todayPoints];
+            statsView.hitRateLabel.text = [NSString stringWithFormat:@"%.1f%%",stats.todayHitRate];
+            hitRate = stats.todayHitRate;
             break;
-        case 1:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Yesterday %ld, Points %ld\nHit Rate %.1f%%",(long)stats.yesterdayCompleted,(long)stats.yesterdayPoints, stats.yesterdayHitRate];
+        }
+        case 1: {
+            statsView.titleLabel.text = @"Yesterday";
+            statsView.tasksLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.yesterdayCompleted];
+            statsView.pointsLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.yesterdayPoints];
+            statsView.hitRateLabel.text = [NSString stringWithFormat:@"%.1f%%",stats.yesterdayHitRate];
+            hitRate = stats.yesterdayHitRate;
             break;
-        case 2:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed This Week %ld, Points %ld\nHit Rate %.1f%%",(long)stats.thisWeekCompleted,(long)stats.thisWeekPoints, stats.thisWeekHitRate];
+        }
+        case 2: {
+            statsView.titleLabel.text = @"This Week";
+            statsView.tasksLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.thisWeekCompleted];
+            statsView.pointsLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.thisWeekPoints];
+            statsView.hitRateLabel.text = [NSString stringWithFormat:@"%.1f%%",stats.thisWeekHitRate];
+            hitRate = stats.thisWeekHitRate;
             break;
-        case 3:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Last Week %ld, Points %ld\nHit Rate %.1f%%",(long)stats.lastWeekCompleted,(long)stats.lastWeekPoints, stats.lastWeekHitRate];
+        }
+        case 3: {
+            statsView.titleLabel.text = @"Last Week";
+            statsView.tasksLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.lastWeekCompleted];
+            statsView.pointsLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.lastWeekPoints];
+            statsView.hitRateLabel.text = [NSString stringWithFormat:@"%.1f%%",stats.lastWeekHitRate];
+            hitRate = stats.lastWeekHitRate;
             break;
-        case 4:
-            cell.textLabel.text = [NSString stringWithFormat:@"Completed Overall %ld, Points %ld\nHit Rate %.1f%%",(long)stats.totalCompleted,(long)stats.totalPoints, stats.totalHitRate];
+        }
+        case 4: {
+            statsView.titleLabel.text = @"Overall";
+            statsView.tasksLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.totalCompleted];
+            statsView.pointsLabel.text = [NSString stringWithFormat:@"%ld",(long)stats.totalPoints];
+            statsView.hitRateLabel.text = [NSString stringWithFormat:@"%.1f%%",stats.totalHitRate];
+            hitRate = stats.totalHitRate;
             break;
+        }
             
         default:
             break;
     }
     
+    
+    
+    
+    if (hitRate >= 65) {
+        statsView.image.image = [UIImage imageNamed:@"face_happy.png"];
+    } else if (hitRate >= 45) {
+        statsView.image.image = [UIImage imageNamed:@"face_indifferent.png"];
+    } else if (hitRate >= 15) {
+        statsView.image.image = [UIImage imageNamed:@"face_perplexed.png"];
+    } else {
+        statsView.image.image = [UIImage imageNamed:@"face_sad.png"];
+    }
     
     return cell;
 }

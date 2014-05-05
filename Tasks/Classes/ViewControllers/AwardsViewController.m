@@ -11,6 +11,8 @@
 #import "MediaModel.h"
 #import "StatsModel.h"
 #import "DeviceDetector.h"
+#import "StatsViewCell.h"
+#import "NSDate+Reporting.h"
 
 @interface AwardsViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate> {
     IBOutlet UITableView* table;
@@ -71,28 +73,33 @@
     }
     
     StatsModel* stats = [StatsModel sharedInstance];
+    StatsViewCell* statsView = [self.storyboard instantiateViewControllerWithIdentifier:@"AwardViewCell"];
+    
+    [cell setContentView:statsView.view];
     NSDictionary* awardDictionary = [stats.awards objectAtIndex:indexPath.row];
     
     switch ([[awardDictionary objectForKey:@"type"] intValue]) {
         case ConsecutiveDaysAward:
-            cell.textLabel.text = [NSString stringWithFormat:@"%d consecutiveDays",[[awardDictionary objectForKey:@"amount"] intValue]];
+            statsView.awardLabel.text = [NSString stringWithFormat:@"%d consecutiveDays",[[awardDictionary objectForKey:@"amount"] intValue]];
             break;
         case HighestHitRateAward:
-            cell.textLabel.text = [NSString stringWithFormat:@"Highest hit rate %.2f%%",[[awardDictionary objectForKey:@"amount"] floatValue]];
+            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest hit rate %.2f%%",[[awardDictionary objectForKey:@"amount"] floatValue]];
             break;
         case HighestDailyPointsAward:
-            cell.textLabel.text = [NSString stringWithFormat:@"Highest daily tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
+            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest daily tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
             break;
         case HighestWeeklyPointsAward:
-            cell.textLabel.text = [NSString stringWithFormat:@"Highest weekly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
+            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest weekly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
             break;
         case HighestMonthlyPointsAward:
-            cell.textLabel.text = [NSString stringWithFormat:@"Highest monthly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
+            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest monthly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
             break;
             
         default:
             break;
     }
+    
+    statsView.awardDate.text = [NSDate timePassedSince:[awardDictionary objectForKey:@"day"]];
     
     
     return cell;

@@ -9,7 +9,7 @@
 #import "TasksViewCell.h"
 
 @implementation TasksViewCell
-@synthesize lblTitle, lblStats, lblRepeatTimes, lblDescription, lblDueDate, lblDescriptionHeightConstrait;
+@synthesize lblTitle, lblStats, lblRepeatTimes, lblDescription, lblDueDate, statsImage,lblDescriptionHeightConstrait;
 @synthesize doneButton, thumbImageButton, expandCollapseButton;
 
 

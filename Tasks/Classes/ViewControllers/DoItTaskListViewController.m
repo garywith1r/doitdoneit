@@ -175,6 +175,8 @@
     [cellView.lblDescription layoutIfNeeded];
     cellView.descriptionScrollView.contentSize = cellView.lblDescription.frame.size;
     
+    cellView.statsImage.image = [task getHitRateImage];
+    
     
     cellView.lblDescription.delegate = self;
     

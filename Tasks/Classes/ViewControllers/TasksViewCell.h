@@ -27,6 +27,7 @@
 @property (nonatomic, strong) IBOutlet UIScrollView* descriptionScrollView;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionHeightConstrait;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint* lblDescriptionScrollViewHeightConstrait;
+@property (nonatomic, strong) IBOutlet UIImageView* statsImage;
 
 
 @property (nonatomic) BOOL todayCell;

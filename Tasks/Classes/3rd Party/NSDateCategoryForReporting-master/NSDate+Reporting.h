@@ -103,5 +103,8 @@
 //     [test logWithComment:@"First day of current month: "];
 - (void)logWithComment:(NSString *)comment;
 #endif
+
+
++ (NSString*) timePassedSince:(NSDate*)date;
     
 @end
