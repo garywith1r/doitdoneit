@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWh-hw-BQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="-1488"/>
+            <point key="canvasLocation" x="48" y="-1480"/>
         </scene>
         <!--Navigation Controller - Do It-->
         <scene sceneID="ywX-Z1-g0N">
@@ -43,7 +43,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8h-l3-MAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="-620"/>
+            <point key="canvasLocation" x="67" y="-666"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OLe-15-vKF">
@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dx0-2F-w02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-472" y="-11"/>
+            <point key="canvasLocation" x="-510" y="13"/>
         </scene>
         <!--Navigation Controller - Done It-->
         <scene sceneID="xT7-ZA-ZNH">
@@ -236,7 +236,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlt-Qa-MKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="636"/>
+            <point key="canvasLocation" x="67" y="708"/>
         </scene>
         <!--Historical View Controller-->
         <scene sceneID="ghD-cA-Kvw">
@@ -639,7 +639,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAf-MQ-2Gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718" y="1489"/>
+            <point key="canvasLocation" x="1618" y="1484"/>
         </scene>
         <!--Reminders View Controller-->
         <scene sceneID="ObB-A4-s0r">
@@ -680,23 +680,83 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                 <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eiJ-rb-j2S">
-                                <rect key="frame" x="251" y="75" width="51" height="31"/>
+                                <rect key="frame" x="189" y="201" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.22352941179999999" green="0.76078431369999999" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="switchValueChanged" destination="NrM-Dd-Byv" eventType="valueChanged" id="fBs-z6-8oq"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="289" translatesAutoresizingMaskIntoConstraints="NO" id="DJT-6Z-G0B">
+                                <rect key="frame" x="16" y="58" width="289" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="We'll send you ">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="2 reminders a day but only if you haven't checked the app.">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+If it feels like we're nagging you then you can turn them off, but we're only trying to help.</string>
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminders" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J4-jz-Ifa">
+                                <rect key="frame" x="16" y="211" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OFF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSb-x1-IOd">
+                                <rect key="frame" x="139" y="211" width="37" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAm-HP-6D4">
+                                <rect key="frame" x="253" y="209" width="29" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.76078431369999999" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdX-wY-QlW" userLabel="BorderView">
+                                <rect key="frame" x="10" y="58" width="294" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="hpD-f6-wMA"/>
                     <connections>
                         <outlet property="remindersSwitch" destination="eiJ-rb-j2S" id="EWC-fT-DqD"/>
+                        <outlet property="remindersTextBox" destination="JdX-wY-QlW" id="7Gl-1g-FJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0L1-oU-pvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2960" y="1505"/>
+            <point key="canvasLocation" x="3198" y="1489"/>
         </scene>
         <!--Enter Parents Pin View Controller-->
         <scene sceneID="rl1-M8-AnS">
@@ -753,7 +813,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <constraints>
                             <constraint firstItem="DdE-9N-9OQ" firstAttribute="top" secondItem="7ki-G8-0J0" secondAttribute="top" constant="125" id="CIC-fV-4hZ"/>
                             <constraint firstItem="Ygc-78-ckA" firstAttribute="top" secondItem="7ki-G8-0J0" secondAttribute="top" constant="87" id="Jgn-IQ-YiH"/>
-                            <constraint firstAttribute="bottom" secondItem="CNU-Sh-vxY" secondAttribute="bottom" constant="223" id="MBD-Mu-HmI"/>
+                            <constraint firstItem="CNU-Sh-vxY" firstAttribute="top" secondItem="DdE-9N-9OQ" secondAttribute="bottom" constant="28" id="T9g-rk-dqw"/>
                             <constraint firstItem="DdE-9N-9OQ" firstAttribute="leading" secondItem="7ki-G8-0J0" secondAttribute="leading" constant="20" id="Ww2-cq-9X4"/>
                             <constraint firstItem="CNU-Sh-vxY" firstAttribute="leading" secondItem="7ki-G8-0J0" secondAttribute="leading" constant="26" id="a3J-24-lL7"/>
                             <constraint firstItem="Ygc-78-ckA" firstAttribute="leading" secondItem="7ki-G8-0J0" secondAttribute="leading" constant="20" id="xrp-lI-6Ux"/>
@@ -772,7 +832,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYd-9Y-LGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3194" y="601"/>
+            <point key="canvasLocation" x="3198" y="737"/>
         </scene>
         <!--User Selection View Controller - User Profiles-->
         <scene sceneID="WbO-a3-W0L">
@@ -884,7 +944,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                     <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2375" y="1372"/>
+            <point key="canvasLocation" x="2355" y="1489"/>
         </scene>
         <!--Set Up Parents Pin Code View Controller-->
         <scene sceneID="F6F-Jl-JfT">
@@ -952,7 +1012,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rm0-2v-507" userLabel="Button - Done Big">
-                                <rect key="frame" x="26" y="167" width="268" height="38"/>
+                                <rect key="frame" x="26" y="164" width="268" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -968,7 +1028,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPX-8Y-0jK">
-                                <rect key="frame" x="12" y="167" width="139" height="38"/>
+                                <rect key="frame" x="12" y="164" width="139" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -984,7 +1044,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="274-Se-Z0W" userLabel="Button - Done Small">
-                                <rect key="frame" x="170" y="167" width="139" height="38"/>
+                                <rect key="frame" x="170" y="164" width="139" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1033,24 +1093,24 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                         <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4E2-S6-hZ9" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="1Dy-aS-yRm"/>
-                            <constraint firstAttribute="bottom" secondItem="iPX-8Y-0jK" secondAttribute="bottom" constant="227" id="1tK-vb-U4J"/>
                             <constraint firstItem="mgc-xH-LQY" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="84e-Ox-SiS"/>
                             <constraint firstItem="Rm0-2v-507" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="26" id="8Vn-yy-fLL"/>
                             <constraint firstItem="iPX-8Y-0jK" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="12" id="91I-sp-pFn"/>
                             <constraint firstItem="kzU-AE-8DU" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="97p-Ax-VL5"/>
                             <constraint firstItem="274-Se-Z0W" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="170" id="BNW-uT-oJZ"/>
                             <constraint firstItem="4E2-S6-hZ9" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="35" id="DiX-rz-vss"/>
+                            <constraint firstItem="iPX-8Y-0jK" firstAttribute="top" secondItem="mgc-xH-LQY" secondAttribute="bottom" constant="31" id="FbQ-E7-hiJ"/>
                             <constraint firstItem="7eh-KB-UfH" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="65" id="Hr7-2k-Hwc"/>
+                            <constraint firstItem="274-Se-Z0W" firstAttribute="top" secondItem="mgc-xH-LQY" secondAttribute="bottom" constant="31" id="Nim-Hq-8bz"/>
                             <constraint firstItem="7eh-KB-UfH" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="Qdp-3k-NlO"/>
+                            <constraint firstItem="Rm0-2v-507" firstAttribute="top" secondItem="mgc-xH-LQY" secondAttribute="bottom" constant="31" id="QvE-Aa-DPb"/>
                             <constraint firstItem="NyC-m0-1nF" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="35" id="Zt9-7c-qgz"/>
-                            <constraint firstAttribute="bottom" secondItem="274-Se-Z0W" secondAttribute="bottom" constant="227" id="aXl-bC-oky"/>
                             <constraint firstItem="q51-KE-keF" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="6" id="fVL-yQ-BqL"/>
                             <constraint firstItem="q51-KE-keF" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="u8m-OM-7xT"/>
                             <constraint firstItem="NyC-m0-1nF" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="48" id="wD9-yg-MpF"/>
                             <constraint firstAttribute="trailing" secondItem="q51-KE-keF" secondAttribute="trailing" constant="20" id="wVa-z7-rtl"/>
                             <constraint firstItem="mgc-xH-LQY" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="103" id="xeG-gE-dlX"/>
                             <constraint firstItem="kzU-AE-8DU" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="2" id="zRI-sr-x9F"/>
-                            <constraint firstAttribute="bottom" secondItem="Rm0-2v-507" secondAttribute="bottom" constant="227" id="zcP-is-dJf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yJQ-fz-Fyi"/>
@@ -1070,7 +1130,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6h-yx-f6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734" y="609"/>
+            <point key="canvasLocation" x="2738" y="745"/>
         </scene>
         <!--Stats View Controller - Stats-->
         <scene sceneID="tCy-be-KmA">
@@ -1113,7 +1173,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6J-da-ysh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050" y="791"/>
+            <point key="canvasLocation" x="2088" y="745"/>
         </scene>
         <!--Awards View Controller - Stats-->
         <scene sceneID="9Rv-iu-Ykj">
@@ -1156,7 +1216,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m56-Go-bw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1618" y="735"/>
+            <point key="canvasLocation" x="1618" y="745"/>
         </scene>
         <!--Zoom Image View Controller-->
         <scene sceneID="MhY-XI-x4I">
@@ -1207,7 +1267,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugy-UJ-M6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1032" y="2990"/>
+            <point key="canvasLocation" x="-424" y="2942"/>
         </scene>
         <!--Done It Tasks List View Controller - Done It-->
         <scene sceneID="aHu-NR-HNw">
@@ -1254,7 +1314,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLi-9V-18A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120" y="785"/>
+            <point key="canvasLocation" x="1106" y="745"/>
         </scene>
         <!--Edit Details View Controller-->
         <scene sceneID="wD7-kN-I30">
@@ -2076,7 +2136,7 @@ Second Line</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv4-RG-To1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="-26"/>
+            <point key="canvasLocation" x="853" y="-28"/>
         </scene>
         <!--Complete Task View Controller-->
         <scene sceneID="YEz-wh-tUY">
@@ -2381,7 +2441,7 @@ Second Line</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9y-hi-N0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208" y="-677"/>
+            <point key="canvasLocation" x="1257" y="-666"/>
         </scene>
         <!--Pop View Controller-->
         <scene sceneID="dtz-ho-Ugd">
@@ -2428,7 +2488,7 @@ Second Line</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czN-r2-oeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2960" y="2041"/>
+            <point key="canvasLocation" x="3198" y="2041"/>
         </scene>
         <!--Select Repeat Times View Controller-->
         <scene sceneID="2lT-T4-XcZ">
@@ -2615,7 +2675,7 @@ Second Line</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9I-Pl-ytY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="2959"/>
+            <point key="canvasLocation" x="1077" y="2954"/>
         </scene>
         <!--Tasks View Cell-->
         <scene sceneID="oZe-Uk-28b">
@@ -2797,7 +2857,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hg1-fe-95h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="3063"/>
+            <point key="canvasLocation" x="1488" y="3280"/>
         </scene>
         <!--Tasks View Cell-->
         <scene sceneID="QOa-hA-xTu">
@@ -2993,7 +3053,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBc-mS-wcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="3092"/>
+            <point key="canvasLocation" x="1899" y="3372"/>
         </scene>
         <!--User Cell View Controller-->
         <scene sceneID="L7A-7p-2Zd">
@@ -3044,7 +3104,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZ4-LF-eqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="3201"/>
+            <point key="canvasLocation" x="2288" y="3475"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="e7v-Yk-s2J">
@@ -3100,7 +3160,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xt3-kH-QGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="-1094"/>
+            <point key="canvasLocation" x="1618" y="-953"/>
         </scene>
         <!--Select Date View Controller-->
         <scene sceneID="hus-Wf-3Qh">
@@ -3159,7 +3219,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPW-sw-0BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015" y="-733"/>
+            <point key="canvasLocation" x="2022" y="-765"/>
         </scene>
         <!--Settings Tab Bar Controller-->
         <scene sceneID="yaX-mi-Cs0">
@@ -3241,7 +3301,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njp-Nj-GAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="1532"/>
+            <point key="canvasLocation" x="48" y="1447"/>
         </scene>
         <!--Navigation Controller - Settings-->
         <scene sceneID="SSE-aw-eD1">
@@ -3263,7 +3323,7 @@ Missed:     Hit:</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWw-z5-CIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637" y="2156"/>
+            <point key="canvasLocation" x="629" y="2184"/>
         </scene>
         <!--Upgrade Table View Controller-->
         <scene sceneID="Ilt-VT-Tai">
@@ -3313,7 +3373,7 @@ Missed:     Hit:</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3a-42-iNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="2184"/>
+            <point key="canvasLocation" x="1126" y="2184"/>
         </scene>
         <!--In App Purhcase View Controller-->
         <scene sceneID="mMD-AW-lRj">
@@ -3410,7 +3470,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsr-Y6-aQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1746" y="2192"/>
+            <point key="canvasLocation" x="1618" y="2184"/>
         </scene>
         <!--New User PopUP-->
         <scene sceneID="39f-hw-Ocv">
@@ -3509,7 +3569,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG0-MB-fts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50" y="2867"/>
+            <point key="canvasLocation" x="552" y="2954"/>
         </scene>
         <!--Set Goal View Controller-->
         <scene sceneID="vSp-Wf-FQy">
@@ -3593,7 +3653,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htN-vm-cmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2960" y="2594"/>
+            <point key="canvasLocation" x="3198" y="2594"/>
         </scene>
         <!--Note Pop Up View Controller-->
         <scene sceneID="GTu-5h-xt5">
@@ -3685,7 +3745,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ay-fs-W5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-480" y="2787"/>
+            <point key="canvasLocation" x="48" y="2954"/>
         </scene>
     </scenes>
     <resources>
@@ -3740,7 +3800,7 @@ Missed:     Hit:</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="18u-i4-12Z"/>
-        <segue reference="Pq2-NZ-kzj"/>
-        <segue reference="yYv-sk-0fL"/>
+        <segue reference="CDg-je-7pN"/>
+        <segue reference="JJL-Ml-AgY"/>
     </inferredMetricsTieBreakers>
 </document>

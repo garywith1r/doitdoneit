@@ -8,9 +8,11 @@
 
 #import "RemindersViewController.h"
 #import "UsersModel.h"
+#import "Constants.h"
 
 @interface RemindersViewController () {
     IBOutlet UISwitch* remindersSwitch;
+    IBOutlet UIView* remindersTextBox;
 }
 
 
@@ -19,12 +21,15 @@
 
 @implementation RemindersViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     remindersSwitch.on = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_REMINDERS_KEY];
+    
+    remindersTextBox.layer.borderColor = YELLOW_COLOR.CGColor;
+    remindersTextBox.layer.borderWidth = 2.0;
 }
 
 
