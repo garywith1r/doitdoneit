@@ -759,7 +759,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0L1-oU-pvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="1489"/>
+            <point key="canvasLocation" x="3198" y="1484"/>
         </scene>
         <!--Enter Parents Pin View Controller-->
         <scene sceneID="rl1-M8-AnS">
@@ -911,6 +911,9 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                             <rect key="frame" x="175" y="6" width="51" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="onTintColor" red="0.22352941179999999" green="0.76078431369999999" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchstatusChanged" destination="TaJ-uL-A9n" eventType="valueChanged" id="hN1-2s-PMu"/>
+                            </connections>
                         </switch>
                     </subviews>
                     <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -947,7 +950,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                     <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2355" y="1489"/>
+            <point key="canvasLocation" x="2578" y="1484"/>
         </scene>
         <!--Set Up Parents Pin Code View Controller-->
         <scene sceneID="F6F-Jl-JfT">
@@ -1062,13 +1065,6 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                     <action selector="done:" destination="8En-7t-hlC" eventType="touchUpInside" id="R3w-Mr-VRG"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please check that your pin match and try again." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="252" translatesAutoresizingMaskIntoConstraints="NO" id="gth-Mp-s3y">
-                                <rect key="frame" x="48" y="140" width="252" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4E2-S6-hZ9">
                                 <rect key="frame" x="20" y="35" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1077,10 +1073,6 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                     <constraint firstAttribute="width" constant="20" id="gNu-QM-cuZ"/>
                                 </constraints>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-Vh-8fU">
-                                <rect key="frame" x="20" y="139" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your pin was entered incorrectly" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="252" translatesAutoresizingMaskIntoConstraints="NO" id="NyC-m0-1nF">
                                 <rect key="frame" x="48" y="35" width="252" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1088,6 +1080,17 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                     <constraint firstAttribute="width" constant="252" id="UZ9-dp-WXm"/>
                                     <constraint firstAttribute="height" constant="20" id="ceV-Eu-Tly"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-Vh-8fU">
+                                <rect key="frame" x="20" y="139" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please check that your pin match and try again." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="252" translatesAutoresizingMaskIntoConstraints="NO" id="gth-Mp-s3y">
+                                <rect key="frame" x="48" y="140" width="252" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1121,10 +1124,10 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                         <outlet property="bigDoneBtn" destination="Rm0-2v-507" id="5Jw-m3-7J3"/>
                         <outlet property="canChangeOnSettingsLabel" destination="q51-KE-keF" id="9Fr-Zg-mQa"/>
                         <outlet property="cancelBtn" destination="iPX-8Y-0jK" id="mdf-z6-TeJ"/>
-                        <outlet property="newPinCodeErrorLabel" destination="NyC-m0-1nF" id="zOY-hh-SUQ"/>
+                        <outlet property="newPinCodeErrorLabel" destination="gth-Mp-s3y" id="nV5-G6-mN5"/>
                         <outlet property="newPinCodeText" destination="7eh-KB-UfH" id="BKH-Kl-Nhp"/>
                         <outlet property="newPinErrorImage" destination="ZOZ-Vh-8fU" id="JfM-vo-uz6"/>
-                        <outlet property="oldPinCodeErrorLabel" destination="gth-Mp-s3y" id="QKF-gP-SWE"/>
+                        <outlet property="oldPinCodeErrorLabel" destination="NyC-m0-1nF" id="cI2-KO-bCa"/>
                         <outlet property="oldPinCodeText" destination="kzU-AE-8DU" id="Oqi-YM-ueJ"/>
                         <outlet property="oldPinErrorImage" destination="4E2-S6-hZ9" id="NTR-vM-TaZ"/>
                         <outlet property="retryNewPinCodeText" destination="mgc-xH-LQY" id="RV5-0y-W9h"/>
@@ -2136,11 +2139,11 @@ Second Line</string>
                         <outlet property="sldTaskPoints" destination="YAq-Am-u9l" id="jwS-ac-bqD"/>
                         <outlet property="txtTitle" destination="dyb-je-EmI" id="8P7-Hz-Leo"/>
                         <outlet property="view" destination="ls4-Pn-Adp" id="s2T-no-GCC"/>
-                        <outletCollection property="ratingButtons" destination="y2E-ps-XD1" id="UGd-Nk-iXh"/>
-                        <outletCollection property="ratingButtons" destination="v9o-gM-8BT" id="NGa-PW-Ngf"/>
-                        <outletCollection property="ratingButtons" destination="HDt-hI-Rl9" id="etu-qs-KKH"/>
-                        <outletCollection property="ratingButtons" destination="1Zb-I2-Px8" id="BiD-xE-wNe"/>
-                        <outletCollection property="ratingButtons" destination="ywL-g9-njF" id="Soh-yQ-EFy"/>
+                        <outletCollection property="ratingButtons" destination="y2E-ps-XD1" id="Xlk-CA-f1N"/>
+                        <outletCollection property="ratingButtons" destination="v9o-gM-8BT" id="K5L-xM-EB6"/>
+                        <outletCollection property="ratingButtons" destination="ywL-g9-njF" id="z7q-wZ-gT2"/>
+                        <outletCollection property="ratingButtons" destination="1Zb-I2-Px8" id="LD5-Wn-8UE"/>
+                        <outletCollection property="ratingButtons" destination="HDt-hI-Rl9" id="Rtz-WW-xPB"/>
                         <segue destination="HJk-38-YcT" kind="push" identifier="SelectDatesSegue" id="wkv-Zn-k2w"/>
                     </connections>
                 </viewController>
@@ -2498,7 +2501,7 @@ Second Line</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czN-r2-oeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="2041"/>
+            <point key="canvasLocation" x="3198" y="2085"/>
         </scene>
         <!--Select Repeat Times View Controller-->
         <scene sceneID="2lT-T4-XcZ">
@@ -3103,7 +3106,7 @@ Missed:     Hit:</string>
                                 <rect key="frame" x="295" y="17" width="10" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzp-xs-2do">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzp-xs-2do">
                                 <rect key="frame" x="213" y="3" width="100" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3674,7 +3677,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htN-vm-cmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="2594"/>
+            <point key="canvasLocation" x="3198" y="2638"/>
         </scene>
         <!--Note Pop Up View Controller-->
         <scene sceneID="GTu-5h-xt5">

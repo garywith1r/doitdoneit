@@ -13,6 +13,7 @@
 #import "TabBarController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Constants.h"
+#import "UserSelectionViewController.h"
 
 @interface SummaryViewController () {
     IBOutlet UIButton* btnImage;
@@ -30,7 +31,7 @@
     
     btnImage.layer.cornerRadius = 34;
     btnImage.layer.masksToBounds = YES;
-    btnImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -53,8 +54,10 @@
 }
 
 - (IBAction) changeUser {
-    TabBarController* tabBar = (TabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
-    [tabBar changeUser];
+    UserSelectionViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSelectionViewController"];
+    vc.isChangingUser = YES;
+    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [mainVC pushViewController:vc animated:YES];
 }
 
 @end

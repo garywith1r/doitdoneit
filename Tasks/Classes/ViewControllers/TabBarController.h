@@ -10,7 +10,6 @@
 
 @interface TabBarController : MHCustomTabBarController
 
-- (void) changeUser;
 - (void) removeAdds;
 
 @end

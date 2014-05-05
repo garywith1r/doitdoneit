@@ -51,9 +51,6 @@ UsersModel* userModelInstance;
         
         parentsModeEnabled = [userDefaults boolForKey:@"parentsModeEnabled"];
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
-        
-#warning test mode
-        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
     }
     
     return self;
@@ -74,27 +71,29 @@ UsersModel* userModelInstance;
 - (void) addUser:(NSDictionary*)userData {
     
     NSString* path = [userData objectForKey:LOGGED_USER_PATH_KEY];
-    NSMutableDictionary* userDictionary = [NSMutableDictionary dictionaryWithDictionary:userData];
+    NSMutableDictionary* newUserDictionary = [NSMutableDictionary dictionaryWithDictionary:userData];
     
-    NSDictionary* oldUserData = nil;
+    NSMutableArray* tempArray = [NSMutableArray arrayWithArray:storedUsers];
     
     if (!path || [path isEqualToString:@""]) {
         path = [EGOFileManager getAvailablePath];
-        [userDictionary setObject:path forKey:LOGGED_USER_PATH_KEY];
+        [newUserDictionary setObject:path forKey:LOGGED_USER_PATH_KEY];
+        [tempArray addObject:newUserDictionary];
         
     } else {
-        for (NSDictionary* userDictionary in storedUsers) {
+        int x = 0;
+        for (;x < storedUsers.count; x++) {
+            NSDictionary* userDictionary = storedUsers[x];
             if ([[userDictionary objectForKey:LOGGED_USER_PATH_KEY] isEqualToString:path]) {
-                oldUserData = userDictionary;
+                [tempArray replaceObjectAtIndex:x withObject:[NSDictionary dictionaryWithDictionary:newUserDictionary]];
                 break;
             }
         }
     }
     
         
-    NSMutableArray* tempArray = [NSMutableArray arrayWithArray:storedUsers];
-    [tempArray removeObject:oldUserData];
-    [tempArray addObject:[NSDictionary dictionaryWithDictionary:userDictionary]];
+    
+    
     
     storedUsers = [NSArray arrayWithArray:tempArray];
     [self saveUsersArray];
@@ -126,9 +125,7 @@ UsersModel* userModelInstance;
 }
 
 - (BOOL) currentUserCanCreateTasks {
-//    return self.parentsModeEnabled || !self.parentsModeEnabled;
-#warning test
-    return YES;
+    return self.parentsModeActive || !self.parentsModeEnabled;
 }
 
 - (void) setParentsPinCode:(NSString *)_parentsPinCode {

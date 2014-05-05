@@ -68,14 +68,14 @@
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (self.isChangingUser)
+    if (self.isChangingUser && [UsersModel sharedInstance].parentsModeEnabled)
         return footerView;
     else
         return nil;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (self.isChangingUser)
+    if (self.isChangingUser && [UsersModel sharedInstance].parentsModeEnabled)
         return footerView.frame.size.height;
     else
         return 0.0;
@@ -118,7 +118,7 @@
     cellView.nameLabel.text = [usersDict objectForKey:LOGGED_USER_NAME_KEY];
     NSString* imagePath = [usersDict objectForKey:LOGGED_USER_IMAGE_KEY];
     
-    if (imagePath) {
+    if (imagePath && ![@"" isEqualToString:imagePath]) {
         cellView.avatarImage.image = [EGOFileManager getImageFromPath:imagePath];
     } else {
         cellView.avatarImage.image = DEFAULT_USER_IMAGE;

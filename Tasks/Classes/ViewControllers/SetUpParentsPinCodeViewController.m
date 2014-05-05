@@ -64,7 +64,7 @@
 - (IBAction) done:(id)sender {
     NSString* oldPin = [UsersModel sharedInstance].parentsPinCode;
     if (oldPin) {
-        if ([oldPinCodeText.text isEqualToString:oldPin]) {
+        if (![oldPinCodeText.text isEqualToString:oldPin]) {
             oldPinErrorImage.hidden = oldPinCodeErrorLabel.hidden = NO;
             return;
         } else {
@@ -72,7 +72,7 @@
         }
     }
     
-    if (![@"" isEqualToString:newPinCodeText.text] && ![newPinCodeText.text isEqualToString:retryNewPinCodeText.text]) {
+    if ([@"" isEqualToString:newPinCodeText.text] || ![newPinCodeText.text isEqualToString:retryNewPinCodeText.text]) {
         newPinErrorImage.hidden = newPinCodeErrorLabel.hidden = NO;
         return;
     } else {

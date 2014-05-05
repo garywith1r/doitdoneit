@@ -7,7 +7,6 @@
 //
 
 #import "TabBarController.h"
-#import "UserSelectionViewController.h"
 #import "UsersModel.h"
 #import "iAd/ADBannerView.h"
 
@@ -37,12 +36,6 @@
     [UIView animateWithDuration:0.3 animations:^{[self.view layoutIfNeeded];}];
     iAdsView.hidden = YES;
     
-}
-
-- (void) changeUser {
-    UserSelectionViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSelectionViewController"];
-    vc.isChangingUser = YES;
-    [((UINavigationController*)self.destinationViewController) pushViewController:vc animated:YES];
 }
 
 
