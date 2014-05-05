@@ -17,6 +17,7 @@
 
 #define YELLOW_COLOR [UIColor colorWithRed:255/255.0 green:244/255.0 blue:0/255.0 alpha:1]
 #define DARK_GRAY_COLOR [UIColor colorWithRed:44/255.0 green:44/255.0 blue:44/255.0 alpha:1]
+#define GRAY_COLOR [UIColor colorWithRed:99/255.0 green:99/255.0 blue:99/255.0 alpha:1]
 
 #define PARENTS_CODE_DIGITS 4
 

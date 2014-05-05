@@ -27,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [contentView layoutIfNeeded];
-    [self showDoneItView];
     
 }
 

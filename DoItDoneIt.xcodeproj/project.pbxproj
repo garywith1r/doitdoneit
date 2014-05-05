@@ -190,6 +190,18 @@
 		5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEC4594190B0274007AA425 /* InAppPurhcaseViewController.m */; };
 		5CF76F1F1916F073002E84ED /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF76F1C1916F073002E84ED /* NSAttributedString+Attributes.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5CF76F201916F073002E84ED /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF76F1E1916F073002E84ED /* TTTAttributedLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5CF76F29191719B4002E84ED /* DoneIt_awards_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F21191719B4002E84ED /* DoneIt_awards_off.png */; };
+		5CF76F2A191719B4002E84ED /* DoneIt_awards_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F22191719B4002E84ED /* DoneIt_awards_off@2x.png */; };
+		5CF76F2B191719B4002E84ED /* DoneIt_awards_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F23191719B4002E84ED /* DoneIt_awards_on.png */; };
+		5CF76F2C191719B4002E84ED /* DoneIt_awards_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F24191719B4002E84ED /* DoneIt_awards_on@2x.png */; };
+		5CF76F2D191719B4002E84ED /* DoneIt_doneit_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F25191719B4002E84ED /* DoneIt_doneit_off.png */; };
+		5CF76F2E191719B4002E84ED /* DoneIt_doneit_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F26191719B4002E84ED /* DoneIt_doneit_off@2x.png */; };
+		5CF76F2F191719B4002E84ED /* DoneIt_doneit_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F27191719B4002E84ED /* DoneIt_doneit_on.png */; };
+		5CF76F30191719B4002E84ED /* DoneIt_doneit_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F28191719B4002E84ED /* DoneIt_doneit_on@2x.png */; };
+		5CF76F3519171AAB002E84ED /* Doneit_stats_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F3119171AAB002E84ED /* Doneit_stats_off.png */; };
+		5CF76F3619171AAB002E84ED /* Doneit_stats_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F3219171AAB002E84ED /* Doneit_stats_off@2x.png */; };
+		5CF76F3719171AAB002E84ED /* Doneit_stats_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F3319171AAB002E84ED /* Doneit_stats_on.png */; };
+		5CF76F3819171AAB002E84ED /* Doneit_stats_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F3419171AAB002E84ED /* Doneit_stats_on@2x.png */; };
 		5CFB2B01190F18E6003D539D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFB2B00190F18E6003D539D /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -465,6 +477,18 @@
 		5CF76F1C1916F073002E84ED /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
 		5CF76F1D1916F073002E84ED /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		5CF76F1E1916F073002E84ED /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		5CF76F21191719B4002E84ED /* DoneIt_awards_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneIt_awards_off.png; sourceTree = "<group>"; };
+		5CF76F22191719B4002E84ED /* DoneIt_awards_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DoneIt_awards_off@2x.png"; sourceTree = "<group>"; };
+		5CF76F23191719B4002E84ED /* DoneIt_awards_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneIt_awards_on.png; sourceTree = "<group>"; };
+		5CF76F24191719B4002E84ED /* DoneIt_awards_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DoneIt_awards_on@2x.png"; sourceTree = "<group>"; };
+		5CF76F25191719B4002E84ED /* DoneIt_doneit_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneIt_doneit_off.png; sourceTree = "<group>"; };
+		5CF76F26191719B4002E84ED /* DoneIt_doneit_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DoneIt_doneit_off@2x.png"; sourceTree = "<group>"; };
+		5CF76F27191719B4002E84ED /* DoneIt_doneit_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneIt_doneit_on.png; sourceTree = "<group>"; };
+		5CF76F28191719B4002E84ED /* DoneIt_doneit_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DoneIt_doneit_on@2x.png"; sourceTree = "<group>"; };
+		5CF76F3119171AAB002E84ED /* Doneit_stats_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doneit_stats_off.png; sourceTree = "<group>"; };
+		5CF76F3219171AAB002E84ED /* Doneit_stats_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Doneit_stats_off@2x.png"; sourceTree = "<group>"; };
+		5CF76F3319171AAB002E84ED /* Doneit_stats_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doneit_stats_on.png; sourceTree = "<group>"; };
+		5CF76F3419171AAB002E84ED /* Doneit_stats_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Doneit_stats_on@2x.png"; sourceTree = "<group>"; };
 		5CFB2AFF190F18E4003D539D /* Do It Done It.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Do It Done It.entitlements"; sourceTree = "<group>"; };
 		5CFB2B00190F18E6003D539D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -711,6 +735,18 @@
 				5CDAF0E8190D9D8800634437 /* settings_settings_on.png */,
 				5CDAF0E9190D9D8800634437 /* settings_upgrades_off.png */,
 				5CDAF0EA190D9D8800634437 /* settings_upgrades_on.png */,
+				5CF76F21191719B4002E84ED /* DoneIt_awards_off.png */,
+				5CF76F22191719B4002E84ED /* DoneIt_awards_off@2x.png */,
+				5CF76F23191719B4002E84ED /* DoneIt_awards_on.png */,
+				5CF76F24191719B4002E84ED /* DoneIt_awards_on@2x.png */,
+				5CF76F25191719B4002E84ED /* DoneIt_doneit_off.png */,
+				5CF76F26191719B4002E84ED /* DoneIt_doneit_off@2x.png */,
+				5CF76F27191719B4002E84ED /* DoneIt_doneit_on.png */,
+				5CF76F28191719B4002E84ED /* DoneIt_doneit_on@2x.png */,
+				5CF76F3119171AAB002E84ED /* Doneit_stats_off.png */,
+				5CF76F3219171AAB002E84ED /* Doneit_stats_off@2x.png */,
+				5CF76F3319171AAB002E84ED /* Doneit_stats_on.png */,
+				5CF76F3419171AAB002E84ED /* Doneit_stats_on@2x.png */,
 				5CD63E2E190A06FF00017304 /* arrow1.png */,
 				5CD63E2F190A06FF00017304 /* arrow1@2x.png */,
 				5CD63E30190A06FF00017304 /* arrow2.png */,
@@ -1078,9 +1114,11 @@
 				5CEC4585190AB4F2007AA425 /* go@2x.png in Resources */,
 				5CD63E9B190A070000017304 /* tabbar_home_on.png in Resources */,
 				5CD63E9E190A070000017304 /* tabbar_settings@2x.png in Resources */,
+				5CF76F29191719B4002E84ED /* DoneIt_awards_off.png in Resources */,
 				5CD63E7B190A070000017304 /* repeat_more_on.png in Resources */,
 				5CD63E7F190A070000017304 /* repeat_number.png in Resources */,
 				5CD63E94190A070000017304 /* repeat5_year@2x.png in Resources */,
+				5CF76F2F191719B4002E84ED /* DoneIt_doneit_on.png in Resources */,
 				5CEC457E190AB4F2007AA425 /* award.png in Resources */,
 				5CA284FE1912B09300315F44 /* default_task@2x.jpg in Resources */,
 				5CD63E87190A070000017304 /* repeat2_month.png in Resources */,
@@ -1099,6 +1137,8 @@
 				5CD63E7A190A070000017304 /* repeat_less@2x.png in Resources */,
 				5CD63E71190A070000017304 /* arrow2@2x.png in Resources */,
 				5CD63EAA190A070000017304 /* task_ok_off@2x.png in Resources */,
+				5CF76F2A191719B4002E84ED /* DoneIt_awards_off@2x.png in Resources */,
+				5CF76F2D191719B4002E84ED /* DoneIt_doneit_off.png in Resources */,
 				5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */,
 				5C30E54318BC5F450083FF23 /* Calendar.png in Resources */,
 				5CD63E9C190A070000017304 /* tabbar_home_on@2x.png in Resources */,
@@ -1119,12 +1159,16 @@
 				5CEC4582190AB4F2007AA425 /* calendar.png in Resources */,
 				5CD882F518E9840D003DD93F /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
 				5CD63E78190A070000017304 /* repeat_less_on@2x.png in Resources */,
+				5CF76F2B191719B4002E84ED /* DoneIt_awards_on.png in Resources */,
 				5CD63EAC190A070000017304 /* task_ok@2x.png in Resources */,
 				5C9B638518A14A350091C1D2 /* Main_iPhone.storyboard in Resources */,
+				5CF76F2E191719B4002E84ED /* DoneIt_doneit_off@2x.png in Resources */,
+				5CF76F30191719B4002E84ED /* DoneIt_doneit_on@2x.png in Resources */,
 				5CD63E95190A070000017304 /* tabbar_awards.png in Resources */,
 				5CD63E96190A070000017304 /* tabbar_awards@2x.png in Resources */,
 				5CD882F118E9840D003DD93F /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
 				5CEC4587190AB4F2007AA425 /* photo_add@2x.png in Resources */,
+				5CF76F2C191719B4002E84ED /* DoneIt_awards_on@2x.png in Resources */,
 				5CEC4584190AB4F2007AA425 /* go.png in Resources */,
 				5CD63E83190A070000017304 /* repeat1_week.png in Resources */,
 				5CD63E85190A070000017304 /* repeat2_month_on.png in Resources */,
@@ -1137,10 +1181,13 @@
 				5CD63E8E190A070000017304 /* repeat4_quarter_on@2x.png in Resources */,
 				5CD63EA0190A070000017304 /* tabbar_settings_on@2x.png in Resources */,
 				5C9B637C18A14A350091C1D2 /* InfoPlist.strings in Resources */,
+				5CF76F3719171AAB002E84ED /* Doneit_stats_on.png in Resources */,
 				5CD63E70190A070000017304 /* arrow2.png in Resources */,
 				5CD63E8F190A070000017304 /* repeat4_quarter.png in Resources */,
 				5C30E54218BC5F450083FF23 /* Delete.png in Resources */,
+				5CF76F3519171AAB002E84ED /* Doneit_stats_off.png in Resources */,
 				5CDB774918BEBE7F000A4C04 /* TwitterIcon.png in Resources */,
+				5CF76F3619171AAB002E84ED /* Doneit_stats_off@2x.png in Resources */,
 				5CDAF0ED190D9D8800634437 /* settings_settings_off.png in Resources */,
 				5CEC457F190AB4F2007AA425 /* award@2x.png in Resources */,
 				5CD63E7E190A070000017304 /* repeat_more@2x.png in Resources */,
@@ -1176,6 +1223,7 @@
 				5CD63EA2190A070000017304 /* tabbar_task@2x.png in Resources */,
 				5C30E54118BC5F450083FF23 /* Copy.png in Resources */,
 				5CDAF0EE190D9D8800634437 /* settings_settings_on.png in Resources */,
+				5CF76F3819171AAB002E84ED /* Doneit_stats_on@2x.png in Resources */,
 				5CD63E84190A070000017304 /* repeat1_week@2x.png in Resources */,
 				5C2D0555190F2B2A00F0C56F /* photo_profile.png in Resources */,
 				5CD63EA9190A070000017304 /* task_ok_off.png in Resources */,

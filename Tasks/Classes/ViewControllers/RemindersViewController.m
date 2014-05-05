@@ -29,7 +29,7 @@
     remindersSwitch.on = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_REMINDERS_KEY];
     
     remindersTextBox.layer.borderColor = YELLOW_COLOR.CGColor;
-    remindersTextBox.layer.borderWidth = 2.0;
+    remindersTextBox.layer.borderWidth = 1.0;
 }
 
 

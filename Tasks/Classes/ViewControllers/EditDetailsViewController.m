@@ -89,13 +89,18 @@
             
         }
         
-        
+        detailsTextView.textColor = [UIColor whiteColor];
         NSMutableAttributedString* attrText = [[NSMutableAttributedString alloc] initWithString:text];
         [attrText beginEditing];
         
         //add default font.
         [attrText addAttribute:(id)kCTFontAttributeName
                          value:detailsTextView.font
+                         range:NSMakeRange(0, attrText.length)];
+        
+        //set white text
+        [attrText addAttribute:(id)NSForegroundColorAttributeName
+                         value:[UIColor whiteColor]
                          range:NSMakeRange(0, attrText.length)];
         
         //add attributes to the links
@@ -113,6 +118,7 @@
         
         detailsTextView.attributedText = attrText;
         detailsTextView.selectedRange = range;
+        
     }
 }
 

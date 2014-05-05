@@ -172,7 +172,7 @@
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCX-Cx-tXQ">
                                 <rect key="frame" x="0.0" y="20" width="320" height="449"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.74509803919999995" green="0.086274509799999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="QMa-o7-43f"/>
                                 </constraints>
@@ -250,69 +250,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="469"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bML-Di-rDU">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoN-XZ-SoS">
+                                <rect key="frame" x="0.0" y="37" width="320" height="432"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60r-ef-hlr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7B-d1-KdM">
-                                        <rect key="frame" x="20" y="4" width="87" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUD-mN-bef">
+                                        <rect key="frame" x="12" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Done It">
+                                        <state key="normal" image="DoneIt_doneit_off.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="DoneIt_doneit_on.png"/>
                                         <connections>
-                                            <segue destination="Mov-xi-9Ik" kind="custom" identifier="viewController1" customClass="MHTabBarSegue" id="daS-rw-fzY"/>
+                                            <segue destination="Mov-xi-9Ik" kind="custom" identifier="viewController1" customClass="MHTabBarSegue" id="tF7-tV-qbY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuc-ve-UbB">
-                                        <rect key="frame" x="115" y="4" width="87" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9Z-kY-Je0">
+                                        <rect key="frame" x="111" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Awards">
+                                        <state key="normal" image="DoneIt_awards_off.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="DoneIt_awards_on.png"/>
                                         <connections>
-                                            <segue destination="Rbp-AC-itX" kind="custom" identifier="viewController2" customClass="MHTabBarSegue" id="9db-rt-NQ8"/>
+                                            <segue destination="Rbp-AC-itX" kind="custom" identifier="viewController2" customClass="MHTabBarSegue" id="zS8-TP-GDg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4S-p0-zNp">
-                                        <rect key="frame" x="217" y="4" width="87" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmA-MX-kCp">
+                                        <rect key="frame" x="210" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Stats">
+                                        <state key="normal" image="Doneit_stats_off.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="Doneit_stats_on.png"/>
                                         <connections>
-                                            <segue destination="3gI-0e-III" kind="custom" identifier="viewController3" customClass="MHTabBarSegue" id="Aj8-k9-N6E"/>
+                                            <segue destination="3gI-0e-III" kind="custom" identifier="viewController3" customClass="MHTabBarSegue" id="qKr-Ac-PXf"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="m4g-Jr-SRp"/>
+                                    <constraint firstAttribute="height" constant="37" id="cme-cu-BDU"/>
                                 </constraints>
                             </view>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoN-XZ-SoS">
-                                <rect key="frame" x="0.0" y="37" width="320" height="432"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bML-Di-rDU" firstAttribute="top" secondItem="gbg-cM-82X" secondAttribute="top" id="BUI-Oi-ITd"/>
-                            <constraint firstAttribute="trailing" secondItem="bML-Di-rDU" secondAttribute="trailing" id="L2t-ri-Fro"/>
-                            <constraint firstItem="bML-Di-rDU" firstAttribute="leading" secondItem="gbg-cM-82X" secondAttribute="leading" id="MLW-rn-AyJ"/>
-                            <constraint firstItem="aoN-XZ-SoS" firstAttribute="top" secondItem="bML-Di-rDU" secondAttribute="bottom" id="TqB-ho-pYM"/>
+                            <constraint firstItem="60r-ef-hlr" firstAttribute="leading" secondItem="gbg-cM-82X" secondAttribute="leading" id="6Js-Dz-RT5"/>
+                            <constraint firstAttribute="trailing" secondItem="60r-ef-hlr" secondAttribute="trailing" id="O7d-ae-qim"/>
                             <constraint firstAttribute="bottom" secondItem="aoN-XZ-SoS" secondAttribute="bottom" id="Wb7-cU-iII"/>
                             <constraint firstAttribute="trailing" secondItem="aoN-XZ-SoS" secondAttribute="trailing" id="fqL-Xu-fCn"/>
+                            <constraint firstItem="60r-ef-hlr" firstAttribute="top" secondItem="gbg-cM-82X" secondAttribute="top" id="gat-tD-mBM"/>
                             <constraint firstItem="aoN-XZ-SoS" firstAttribute="leading" secondItem="gbg-cM-82X" secondAttribute="leading" id="rVk-6A-b8p"/>
+                            <constraint firstItem="aoN-XZ-SoS" firstAttribute="top" secondItem="60r-ef-hlr" secondAttribute="bottom" id="uDY-cI-Ca5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Myt-sE-gCG"/>
                     <connections>
                         <outlet property="container" destination="aoN-XZ-SoS" id="7nV-oK-Ycg"/>
-                        <outletCollection property="buttons" destination="u7B-d1-KdM" id="qfd-s0-Ljq"/>
-                        <outletCollection property="buttons" destination="Uuc-ve-UbB" id="PbJ-fX-ybX"/>
-                        <outletCollection property="buttons" destination="g4S-p0-zNp" id="Bd7-QY-zF6"/>
+                        <outletCollection property="buttons" destination="sUD-mN-bef" id="DwN-26-jgG"/>
+                        <outletCollection property="buttons" destination="V9Z-kY-Je0" id="UFZ-Y0-bnC"/>
+                        <outletCollection property="buttons" destination="nmA-MX-kCp" id="gSy-XW-a6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfc-kp-mds" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1147,14 +1150,16 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YTF-35-0Zl">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="3gI-0e-III" id="Q53-E8-ECu"/>
                                     <outlet property="delegate" destination="3gI-0e-III" id="w3K-S7-qhp"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YTF-35-0Zl" firstAttribute="top" secondItem="EQo-cy-Rzf" secondAttribute="top" id="Fe1-yS-5LU"/>
                             <constraint firstItem="YTF-35-0Zl" firstAttribute="leading" secondItem="EQo-cy-Rzf" secondAttribute="leading" id="euv-rd-MKM"/>
@@ -1190,14 +1195,16 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3fz-cU-3np">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Rbp-AC-itX" id="Uc9-UF-g4R"/>
                                     <outlet property="delegate" destination="Rbp-AC-itX" id="dWR-i0-iIO"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="3fz-cU-3np" secondAttribute="bottom" id="JAu-kf-g15"/>
                             <constraint firstItem="3fz-cU-3np" firstAttribute="leading" secondItem="KOa-7l-0aP" secondAttribute="leading" id="g0b-cI-zVs"/>
@@ -1284,14 +1291,17 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="izw-ZK-l8u">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mov-xi-9Ik" id="uVs-3w-jmA"/>
                                     <outlet property="delegate" destination="Mov-xi-9Ik" id="3KT-wL-bXb"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="izw-ZK-l8u" firstAttribute="leading" secondItem="szM-Ln-xca" secondAttribute="leading" id="Ojg-ao-BKm"/>
                             <constraint firstAttribute="trailing" secondItem="izw-ZK-l8u" secondAttribute="trailing" id="gju-CP-a9o"/>
@@ -3236,7 +3246,7 @@ Missed:     Hit:</string>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAH-pQ-Va6">
                                 <rect key="frame" x="0.0" y="37" width="320" height="432"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                             </containerView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Km1-Nv-DdW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
@@ -3749,6 +3759,12 @@ Missed:     Hit:</string>
         </scene>
     </scenes>
     <resources>
+        <image name="DoneIt_awards_off.png" width="99" height="28"/>
+        <image name="DoneIt_awards_on.png" width="99" height="28"/>
+        <image name="DoneIt_doneit_off.png" width="99" height="28"/>
+        <image name="DoneIt_doneit_on.png" width="99" height="28"/>
+        <image name="Doneit_stats_off.png" width="99" height="28"/>
+        <image name="Doneit_stats_on.png" width="99" height="28"/>
         <image name="FacebookIcon.png" width="15" height="30"/>
         <image name="TwitterIcon.png" width="36" height="30"/>
         <image name="arrow1.png" width="22" height="13"/>
