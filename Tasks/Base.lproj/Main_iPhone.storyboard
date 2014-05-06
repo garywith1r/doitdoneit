@@ -421,7 +421,7 @@
                         <segue destination="aNK-Kp-nbz" kind="push" identifier="IntroductionSegue" id="mWy-By-qYz"/>
                         <segue destination="NrM-Dd-Byv" kind="push" identifier="RemindersSegue" id="mzP-qX-BZS"/>
                         <segue destination="r6v-Ad-6so" kind="push" identifier="ReviewRecipientsSegue" id="1mM-Px-Y1I"/>
-                        <segue destination="PpN-Dw-0Yx" kind="push" id="aR1-64-oMu"/>
+                        <segue destination="PpN-Dw-0Yx" kind="push" identifier="SetGoalSegue" id="aR1-64-oMu"/>
                         <segue destination="TaJ-uL-A9n" kind="push" identifier="EditUsersSegue" id="yh6-1a-YFE"/>
                         <segue destination="8En-7t-hlC" kind="push" identifier="SetUpParentsPincode" id="cP6-Z1-CA9"/>
                     </connections>
@@ -1808,10 +1808,6 @@ Second Line</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="go.png" translatesAutoresizingMaskIntoConstraints="NO" id="fNK-hn-MRH">
-                                                <rect key="frame" x="300" y="147" width="10" height="14"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2E-ps-XD1">
                                                 <rect key="frame" x="82" y="6" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1906,13 +1902,6 @@ Second Line</string>
                                                 <connections>
                                                     <action selector="notesButtonPressed" destination="oME-Fa-l65" eventType="touchUpInside" id="3yJ-Ja-VUf"/>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3p-Iu-hc5">
-                                                <rect key="frame" x="0.0" y="142" width="320" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2013,7 +2002,7 @@ Second Line</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37S-dZ-xf7" userLabel="Button - Thumb Image">
-                                        <rect key="frame" x="6" y="23" width="73" height="73"/>
+                                        <rect key="frame" x="6" y="81" width="71" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2047,8 +2036,8 @@ Second Line</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mso-1A-GcC" userLabel="Social View">
-                                        <rect key="frame" x="0.0" y="303" width="320" height="30"/>
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mso-1A-GcC" userLabel="Social View">
+                                        <rect key="frame" x="0.0" y="281" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdu-eT-8AK">
@@ -2103,7 +2092,7 @@ Second Line</string>
                                         <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbr-lh-jdh">
-                                        <rect key="frame" x="6" y="131" width="44" height="47"/>
+                                        <rect key="frame" x="6" y="136" width="44" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asG-hw-mOy">
@@ -2139,14 +2128,14 @@ Second Line</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8A-eu-jq4">
-                                        <rect key="frame" x="13" y="201" width="57" height="21"/>
+                                        <rect key="frame" x="13" y="191" width="57" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz3-QB-uLv">
-                                        <rect key="frame" x="79" y="197" width="30" height="30"/>
+                                        <rect key="frame" x="79" y="187" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2159,7 +2148,7 @@ Second Line</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB5-xz-c5D">
-                                        <rect key="frame" x="109" y="197" width="30" height="30"/>
+                                        <rect key="frame" x="109" y="187" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2172,7 +2161,7 @@ Second Line</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SI7-4t-HXU">
-                                        <rect key="frame" x="139" y="197" width="30" height="30"/>
+                                        <rect key="frame" x="139" y="187" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2185,7 +2174,7 @@ Second Line</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abP-Bt-6s7">
-                                        <rect key="frame" x="169" y="197" width="30" height="30"/>
+                                        <rect key="frame" x="169" y="187" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2198,7 +2187,7 @@ Second Line</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFr-pr-NRY">
-                                        <rect key="frame" x="199" y="197" width="30" height="30"/>
+                                        <rect key="frame" x="199" y="187" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="award_line.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2211,21 +2200,21 @@ Second Line</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbI-eZ-eH4">
-                                        <rect key="frame" x="7" y="254" width="57" height="21"/>
+                                        <rect key="frame" x="6" y="234" width="57" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Some Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlO-5g-eMJ">
-                                        <rect key="frame" x="126" y="254" width="188" height="21"/>
+                                        <rect key="frame" x="126" y="234" width="188" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgQ-hg-N55">
-                                        <rect key="frame" x="74" y="241" width="44" height="47"/>
+                                        <rect key="frame" x="74" y="221" width="44" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-ah-Uvl" userLabel="Button - Done Small">
@@ -2246,7 +2235,7 @@ Second Line</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzL-4K-uWL">
-                                        <rect key="frame" x="63" y="234" width="252" height="61"/>
+                                        <rect key="frame" x="63" y="214" width="252" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2283,11 +2272,13 @@ Second Line</string>
                     <size key="freeformSize" width="320" height="469"/>
                     <connections>
                         <outlet property="contentView" destination="GZL-VF-HfA" id="auh-zH-dMn"/>
+                        <outlet property="imgStats" destination="tbr-lh-jdh" id="x1A-5x-IJA"/>
                         <outlet property="lblDueDate" destination="5BZ-p7-dqG" id="Ihf-zr-3ok"/>
                         <outlet property="lblNotes" destination="DlO-5g-eMJ" id="d6S-DQ-cCE"/>
                         <outlet property="lblRepeatTimes" destination="hb3-u1-9Yj" id="46r-V3-Phc"/>
                         <outlet property="lblStats" destination="Psb-aK-Wj6" id="50e-5A-zqw"/>
                         <outlet property="lblTitle" destination="pHN-Ce-zn0" id="JRG-tQ-SFk"/>
+                        <outlet property="socialView" destination="mso-1A-GcC" id="qJa-ld-nd7"/>
                         <outlet property="thumbImageButton" destination="37S-dZ-xf7" id="hsq-Hm-slO"/>
                         <outlet property="view" destination="6Qf-ex-GKg" id="HOt-n5-MKi"/>
                         <outletCollection property="ratingButtons" destination="lz3-QB-uLv" id="RlX-MR-YrE"/>
@@ -3804,6 +3795,6 @@ Missed:     Hit:</string>
     <inferredMetricsTieBreakers>
         <segue reference="18u-i4-12Z"/>
         <segue reference="CDg-je-7pN"/>
-        <segue reference="cP6-Z1-CA9"/>
+        <segue reference="JJL-Ml-AgY"/>
     </inferredMetricsTieBreakers>
 </document>

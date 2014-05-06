@@ -10,6 +10,7 @@
 #import "SWTableViewCell.h"
 #import "MediaModel.h"
 #import "StatsModel.h"
+#import "UsersModel.h"
 #import "DeviceDetector.h"
 #import "StatsViewCell.h"
 #import "NSDate+Reporting.h"
@@ -101,7 +102,7 @@
     
     statsView.awardDate.text = [NSDate timePassedSince:[awardDictionary objectForKey:@"day"]];
     
-    
+    cell.cellScrollView.scrollEnabled = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
     return cell;
 }
 

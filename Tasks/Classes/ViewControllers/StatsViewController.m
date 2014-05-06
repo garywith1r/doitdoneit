@@ -12,6 +12,7 @@
 #import "StatsModel.h"
 #import "DeviceDetector.h"
 #import "StatsViewCell.h"
+#import "UsersModel.h"
 
 @interface StatsViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate> {
     IBOutlet UITableView* table;
@@ -132,6 +133,10 @@
     } else {
         statsView.image.image = [UIImage imageNamed:@"face_sad.png"];
     }
+    
+    BOOL privateAccount = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
+    
+    cell.cellScrollView.scrollEnabled = privateAccount;
     
     return cell;
 }

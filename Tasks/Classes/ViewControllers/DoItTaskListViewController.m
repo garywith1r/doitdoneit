@@ -145,7 +145,7 @@
     
     cellView.lblTitle.text = task.title;
     
-    cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cellView.thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     if (task.thumbImagePath && ![@"" isEqualToString: task.thumbImagePath])
         [cellView.thumbImageButton setImage:task.thumbImage forState:UIControlStateNormal];
     else
@@ -166,7 +166,7 @@
     int timesDoneIt = [task.timesDoneIt[task.currentRepetition - 1] intValue];
     int timesMissedIt = [task.timesMissedIt[task.currentRepetition - 1] intValue];
     
-    cellView.lblStats.text = [NSString stringWithFormat:@"Points: %ld Done: %d\nMissed: %d Hit: %.2f", (long)task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
+    cellView.lblStats.text = [NSString stringWithFormat:@"Points:%ld done:%dx\nmissed:%dx Hit: %.1f%%", (long)task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
     
     cellView.lblDescription.dataDetectorTypes = UIDataDetectorTypeAll;
     cellView.lblDescription.highlightedTextColor = YELLOW_COLOR;

@@ -14,6 +14,7 @@
 #import "Constants.h"
 #import "DeviceDetector.h"
 #import "NotePopUpViewController.h"
+#import "UsersModel.h"
 
 @interface CompleteTaskViewController () <PopUpDelegate>{
     IBOutlet UILabel* lblTitle;
@@ -22,6 +23,8 @@
     IBOutlet UILabel* lblRepeatTimes;
     IBOutlet UILabel* lblNotes;
     IBOutlet UIButton* thumbImageButton;
+    IBOutlet UIView* socialView;
+    IBOutlet UIImageView* imgStats;
     
     
     IBOutletCollection(UIButton) NSArray* ratingButtons;
@@ -45,9 +48,17 @@
     
     lblTitle.text = self.task.title;
     
-    thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [thumbImageButton setImage:self.task.thumbImage forState:UIControlStateNormal];
+    thumbImageButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    if (self.task.thumbImagePath && ![@"" isEqualToString: self.task.thumbImagePath])
+        [thumbImageButton setImage:self.task.thumbImage forState:UIControlStateNormal];
+    else
+        [thumbImageButton setImage:DEFAULT_TASK_IMAGE forState:UIControlStateNormal];
+    thumbImageButton.layer.borderColor = YELLOW_COLOR.CGColor;
+    thumbImageButton.layer.borderWidth = 2.0;
+    thumbImageButton.layer.cornerRadius = 4;
+    thumbImageButton.layer.masksToBounds = YES;
     
+    imgStats.image = [self.task getHitRateImage];
     
     if (self.task.repeatTimes != 1) {
         lblRepeatTimes.text = [NSString stringWithFormat:@"%d of %d", (int)self.task.currentRepetition, (int)self.task.repeatTimes];
@@ -66,11 +77,14 @@
     int timesDoneIt = [self.task.timesDoneIt[self.task.currentRepetition - 1] intValue];
     int timesMissedIt = [self.task.timesMissedIt[self.task.currentRepetition - 1] intValue];
     
-    lblStats.text = [NSString stringWithFormat:@"Points: %ld Done: %d\nMissed: %d Hit: %.2f", (long)self.task.taskPoints, timesDoneIt, timesMissedIt, self.task.hitRate];
+    lblStats.text = [NSString stringWithFormat:@"Points:%ld done:%dx missed:%dx Hit: %.1f%%", (long)self.task.taskPoints, timesDoneIt, timesMissedIt, self.task.hitRate];
+    
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    socialView.hidden = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
     lblNotes.text = self.task.notes;
 }
 
