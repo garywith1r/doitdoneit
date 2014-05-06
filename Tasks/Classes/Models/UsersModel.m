@@ -136,7 +136,7 @@ UsersModel* userModelInstance;
 
 - (void) removeAdsUpgradePurchased {
     purchasedAddsFree = YES;
-    TabBarController* tabBar = (TabBarController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    TabBarController* tabBar = (TabBarController*)[(UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController] viewControllers][0];
     [tabBar removeAdds];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"purchasedAddsFree"];
     [[NSUserDefaults standardUserDefaults] synchronize];

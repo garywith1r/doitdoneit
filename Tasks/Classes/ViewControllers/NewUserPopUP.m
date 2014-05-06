@@ -35,12 +35,11 @@
     [txtName becomeFirstResponder];
     
     if (self.usersDictionary) {
-        NSLog(@"%@",[self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY]);
         txtName.text = [self.usersDictionary objectForKey:LOGGED_USER_NAME_KEY];
         NSString* imagePath = [self.usersDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
         btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
         
-        if (imagePath) {
+        if (imagePath && ![@"" isEqualToString:imagePath]) {
             image = [EGOFileManager getImageFromPath:imagePath];
             [btnImage setTitle:@"" forState:UIControlStateNormal];
             [btnImage setImage:image forState:UIControlStateNormal];

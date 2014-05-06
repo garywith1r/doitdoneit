@@ -74,6 +74,8 @@
 		5CA722321917B5FA0074D005 /* face_sad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA7222A1917B5FA0074D005 /* face_sad.png */; };
 		5CA722331917B5FA0074D005 /* face_sad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA7222B1917B5FA0074D005 /* face_sad@2x.png */; };
 		5CA722361917BB9C0074D005 /* StatsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA722351917BB9C0074D005 /* StatsViewCell.m */; };
+		5CA72239191892990074D005 /* SettingSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA72238191892990074D005 /* SettingSwitchTableViewCell.m */; };
+		5CA7223C191897200074D005 /* SettingSegueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */; };
 		5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1E9E818BD379C0018955E /* DeviceDetector.m */; };
 		5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EA18BD3B240018955E /* Copy@2x.png */; };
 		5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EB18BD3B240018955E /* Delete@2x.png */; };
@@ -328,6 +330,10 @@
 		5CA7222B1917B5FA0074D005 /* face_sad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face_sad@2x.png"; sourceTree = "<group>"; };
 		5CA722341917BB9C0074D005 /* StatsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewCell.h; sourceTree = "<group>"; };
 		5CA722351917BB9C0074D005 /* StatsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewCell.m; sourceTree = "<group>"; };
+		5CA72237191892990074D005 /* SettingSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingSwitchTableViewCell.h; sourceTree = "<group>"; };
+		5CA72238191892990074D005 /* SettingSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingSwitchTableViewCell.m; sourceTree = "<group>"; };
+		5CA7223A191897200074D005 /* SettingSegueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingSegueTableViewCell.h; sourceTree = "<group>"; };
+		5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingSegueTableViewCell.m; sourceTree = "<group>"; };
 		5CC1E9E718BD379C0018955E /* DeviceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetector.h; sourceTree = "<group>"; };
 		5CC1E9E818BD379C0018955E /* DeviceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetector.m; sourceTree = "<group>"; };
 		5CC1E9EA18BD3B240018955E /* Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Copy@2x.png"; sourceTree = "<group>"; };
@@ -556,6 +562,10 @@
 				5CC608E619110FAA0039ACA8 /* RemindersViewController.m */,
 				5CC608E81911157B0039ACA8 /* SettingsTableViewController.h */,
 				5CC608E91911157B0039ACA8 /* SettingsTableViewController.m */,
+				5CA72237191892990074D005 /* SettingSwitchTableViewCell.h */,
+				5CA72238191892990074D005 /* SettingSwitchTableViewCell.m */,
+				5CA7223A191897200074D005 /* SettingSegueTableViewCell.h */,
+				5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1335,6 +1345,7 @@
 				5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */,
 				5CE9A53E190B0B5A00E74951 /* TopLeftLabel.m in Sources */,
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
+				5CA72239191892990074D005 /* SettingSwitchTableViewCell.m in Sources */,
 				5C88D0F9190563600059ADFD /* MOOPullGestureRecognizer.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,
 				5CEA32C318FEE69C00B85322 /* SetUpParentsPinCodeViewController.m in Sources */,
@@ -1343,6 +1354,7 @@
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
 				5CEC458D190AF4FD007AA425 /* UpgradeTableViewCell.m in Sources */,
 				5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */,
+				5CA7223C191897200074D005 /* SettingSegueTableViewCell.m in Sources */,
 				5CC608EA1911157B0039ACA8 /* SettingsTableViewController.m in Sources */,
 				5C9B63CC18A1632B0091C1D2 /* TasksListViewController.m in Sources */,
 				5C35A14518F5F5A50067959F /* NSMutableDictionary+NumbersStoring.m in Sources */,
