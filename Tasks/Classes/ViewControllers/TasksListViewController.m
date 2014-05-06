@@ -40,14 +40,13 @@
 
 
 - (void) viewDidLoad {
-    selectedRow = -1;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name: UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadContentData];
+    selectedRow = -1;
     [table layoutIfNeeded];
     [table reloadData];
 }
