@@ -134,9 +134,7 @@
         statsView.image.image = [UIImage imageNamed:@"face_sad.png"];
     }
     
-    BOOL privateAccount = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
-    
-    cell.cellScrollView.scrollEnabled = privateAccount;
+    cell.cellScrollView.scrollEnabled = ![[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
     
     return cell;
 }

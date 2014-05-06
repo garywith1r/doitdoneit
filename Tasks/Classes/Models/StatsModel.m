@@ -124,6 +124,14 @@ StatsModel* statsInstance;
         
     }
     
+    //AWARD
+    if (totalPoints >= [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_GOAL_KEY]) {
+        NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:[[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_GOAL_KEY]],
+                              @"type":[NSNumber numberWithInteger:UserGoalAward],
+                              @"day":[NSDate date]};
+        [self addAward:dic];
+    }
+    
     [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
@@ -448,7 +456,23 @@ StatsModel* statsInstance;
     
     self.awards = [NSArray arrayWithArray:tempArray];
     [[UsersModel sharedInstance].logedUserData setObject:awards forKey:@"AwardsArray"];
-             
+}
+
+- (void) addUserGoal:(NSDictionary*)awardDic {
+    BOOL alreadySuppered = NO;
+    
+    for (NSDictionary* award in awards) {
+        if (([[award objectForKey:@"type"] integerValue] == UserGoalAward) &&
+            ([[award objectForKey:@"amount"] integerValue] == [[awardDic objectForKey:@"amount"] integerValue])){
+            alreadySuppered = YES;
+            break;
+        }
+    }
+    
+    if (!alreadySuppered) {
+        [self addAward:awardDic];
+    }
+
 }
 
 @end

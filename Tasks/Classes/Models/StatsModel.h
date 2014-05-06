@@ -14,7 +14,8 @@ enum AwardType {
     HighestHitRateAward,
     HighestDailyPointsAward,
     HighestWeeklyPointsAward,
-    HighestMonthlyPointsAward
+    HighestMonthlyPointsAward,
+    UserGoalAward
 };
 
 @interface StatsModel : NSObject

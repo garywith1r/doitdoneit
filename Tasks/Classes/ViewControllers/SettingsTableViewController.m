@@ -95,6 +95,8 @@
     if ([UsersModel sharedInstance].purchasedWeeklyReview)
         [tempArray addObject:@{@"Text":@"Review Recipients",@"Segue":@"ReviewRecipientsSegue"}];
     
+    [tempArray addObject:@{@"Text":@"Set Goal",@"Segue":@"SetGoalSegue"}];
+    
     [tempArray addObject:@{@"Text":@"Account is Private",@"Type":@"PrivateAccount"}];
     
     if ([UsersModel sharedInstance].purchasedParentsMode)
