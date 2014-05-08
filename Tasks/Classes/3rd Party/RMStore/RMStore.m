@@ -441,6 +441,8 @@ typedef void (^RMStoreSuccessBlock)();
     {
         [self.receiptVerificator verifyTransaction:transaction success:^{
             [self paymentQueue:queue verifiedTransaction:transaction];
+            if ([self.transactionRestoreDelegate respondsToSelector:@selector(didRestoreTransaction:)])
+                [self.transactionRestoreDelegate didRestoreTransaction:transaction];
             [self notifyRestoreTransactionFinishedIfApplicableAfterTransaction:transaction];
         } failure:^(NSError *error) {
             [self paymentQueue:queue failedTransaction:transaction error:error];
@@ -451,6 +453,8 @@ typedef void (^RMStoreSuccessBlock)();
     {
         RMStoreLog(@"WARNING: no receipt verification");
         [self paymentQueue:queue verifiedTransaction:transaction];
+        if ([self.transactionRestoreDelegate respondsToSelector:@selector(didRestoreTransaction:)])
+            [self.transactionRestoreDelegate didRestoreTransaction:transaction];
         [self notifyRestoreTransactionFinishedIfApplicableAfterTransaction:transaction];
     }
 }

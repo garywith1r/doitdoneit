@@ -14,6 +14,7 @@
 #import "UserCellViewController.h"
 #import "EGOFileManager.h"
 #import "Constants.h"
+#import "StatsModel.h"
 
 @interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate, PopUpDelegate> {
     NSArray* usersArray;
@@ -139,9 +140,16 @@
         [newUser presentOnViewController:self];
         
     } else if (self.isChangingUser) {
+        
         [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row - [UsersModel sharedInstance].purchasedMultiUser];
+        
         [[TaskListModel sharedInstance] loadFullData];
+        [[TaskListModel sharedInstance] evaluateMissedTasks];
         [[TaskListModel sharedInstance] forceRecalculateTasks];
+        
+        [[StatsModel sharedInstance] loadData];
+        [[StatsModel sharedInstance] recalculateVolatileStats];
+        
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         NewUserPopUP* newUser = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserPopUp"];

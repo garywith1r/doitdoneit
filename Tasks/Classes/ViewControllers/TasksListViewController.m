@@ -47,6 +47,7 @@
     [super viewWillAppear:animated];
     [self reloadContentData];
     selectedRow = -1;
+    table.scrollEnabled = YES;
     [table layoutIfNeeded];
     [table reloadData];
 }

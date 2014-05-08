@@ -11,8 +11,9 @@
 #import "InAppPurhcaseViewController.h"
 #import <StoreKit/StoreKit.h>
 #import "RMStore.h"
+#import "UsersModel.h"
 
-@interface UpgradeTableViewController () {
+@interface UpgradeTableViewController () <TransactionRestoreDelegate, UITableViewDataSource, UITableViewDelegate> {
     NSArray* inAppPurchasesDictionaries;
     NSInteger selectedItem;
     SKProductsRequest *request;
@@ -73,6 +74,37 @@
     } failure:^(NSError *error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
+}
+
+
+
+- (IBAction) restorePurchases {
+    [RMStore defaultStore].transactionRestoreDelegate = self;
+    [[RMStore defaultStore] restoreTransactions];
+}
+
+#pragma mark - TransactionRestoreDelegate Methods
+- (void) didRestoreTransaction:(SKPaymentTransaction *)transaction {
+    NSString* productId = transaction.originalTransaction.payment.productIdentifier;
+    for (NSDictionary* inAppDic in inAppPurchasesDictionaries) {
+        if ([productId isEqualToString:[inAppDic objectForKey:@"ProductId"]]) {
+            NSInteger code = [[inAppDic objectForKey:@"Code"] integerValue];
+            
+            switch (code) {
+                case 0: //Pro
+                case 1: { //Family
+                    [[UsersModel sharedInstance] familyUpgradePurchased];
+                    [self performSegueWithIdentifier:@"SetUpParentsPincode" sender:nil];
+                }
+                case 2: //Multiuser
+                    [[UsersModel sharedInstance] multiuserUpgradePurchased];
+                case 3: //Weekly Review
+                    [[UsersModel sharedInstance] weeklyReviewUpgradePurchased];
+                case 4: //Remove Ads
+                    [[UsersModel sharedInstance] removeAdsUpgradePurchased];
+            }
+        }
+    }
 }
 
 @end

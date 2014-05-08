@@ -125,7 +125,7 @@ StatsModel* statsInstance;
     }
     
     //AWARD
-    if (totalPoints >= [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_GOAL_KEY]) {
+    if (([[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_GOAL_KEY] != 0) && (totalPoints >= [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_GOAL_KEY])) {
         NSDictionary* dic = @{@"amount":[NSNumber numberWithInteger:[[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_GOAL_KEY]],
                               @"type":[NSNumber numberWithInteger:UserGoalAward],
                               @"day":[NSDate date]};

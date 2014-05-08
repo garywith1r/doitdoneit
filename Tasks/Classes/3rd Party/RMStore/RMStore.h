@@ -21,6 +21,13 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
+@protocol TransactionRestoreDelegate <NSObject>
+
+@optional
+- (void) didRestoreTransaction:(SKPaymentTransaction *)transaction;
+
+@end
+
 @protocol RMStoreReceiptVerificator;
 @protocol RMStoreTransactionPersistor;
 @protocol RMStoreObserver;
@@ -32,6 +39,7 @@ extern NSInteger const RMStoreErrorCodeUnableToCompleteVerification;
 /** A StoreKit wrapper that adds blocks and notifications, plus optional receipt verification and purchase management.
  */
 @interface RMStore : NSObject<SKPaymentTransactionObserver>
+@property (nonatomic, weak) NSObject <TransactionRestoreDelegate>* transactionRestoreDelegate;
 
 ///---------------------------------------------
 /// @name Getting the Store

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TaskListModel.h"
 #import "UsersModel.h"
+#import "RMStore.h"
 
 @implementation AppDelegate
 

@@ -9,6 +9,7 @@
 #import "UsersModel.h"
 #import "EGOFileManager.h"
 #import "TabBarController.h"
+#import "StatsModel.h"
 
 #define LOGGED_USER_PATH_KEY @"UsersDataPath"
 
@@ -122,6 +123,7 @@ UsersModel* userModelInstance;
     logedUserIndex = index;
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:logedUserIndex] forKey:@"logedUserIndex"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 - (BOOL) currentUserCanCreateTasks {
