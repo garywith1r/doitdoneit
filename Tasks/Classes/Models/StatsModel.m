@@ -132,7 +132,7 @@ StatsModel* statsInstance;
         [self addAward:dic];
     }
     
-    [[UsersModel sharedInstance] saveCurrentUserData];
+//    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 
@@ -221,7 +221,7 @@ StatsModel* statsInstance;
     [userData setInteger:lastWeekMissed forKey:@"lastWeekMissed"];
     [userData setInteger:totalMissed forKey:@"totalMissed"];
     
-    [[UsersModel sharedInstance] saveCurrentUserData];
+//    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 
@@ -282,7 +282,7 @@ StatsModel* statsInstance;
         [userData setInteger:thisMonthMissed forKey:@"thisMonthMissed"];
         [userData setInteger:totalMissed forKey:@"totalMissed"];
         
-        [[UsersModel sharedInstance] saveCurrentUserData];
+//        [[UsersModel sharedInstance] saveCurrentUserData];
     }
 }
 
@@ -321,7 +321,7 @@ StatsModel* statsInstance;
     bestMontlyCompletedTaskAmount = [userData floatForKey:@"bestMontly"];
     
     awards = [userData objectForKey:@"AwardsArray"];
-    [[UsersModel sharedInstance] saveCurrentUserData];
+//    [[UsersModel sharedInstance] saveCurrentUserData];
 }
 
 - (void) evaluateDay {
@@ -436,7 +436,7 @@ StatsModel* statsInstance;
         [[UsersModel sharedInstance].logedUserData setObject:today forKey:@"storedToday"];
     }
     
-    [[UsersModel sharedInstance] saveCurrentUserData];
+//    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 

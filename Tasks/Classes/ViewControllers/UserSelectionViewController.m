@@ -141,7 +141,11 @@
         
     } else if (self.isChangingUser) {
         
+        //add reminders for current user and save all changes done.
         [[UsersModel sharedInstance] addRemindersForMainTask];
+        [[UsersModel sharedInstance] saveCurrentUserData];
+        
+        
         [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row - [UsersModel sharedInstance].purchasedMultiUser];
         
         [[TaskListModel sharedInstance] loadFullData];

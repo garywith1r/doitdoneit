@@ -221,7 +221,7 @@ UsersModel* userModelInstance;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotif2];
             
             [self.logedUserData setObject:@[localNotif, localNotif2] forKey:@"LocalNotifications"];
-            [self saveCurrentUserData];
+//            [self saveCurrentUserData];
         }
     }
 }

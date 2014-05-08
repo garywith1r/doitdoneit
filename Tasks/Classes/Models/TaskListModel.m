@@ -91,7 +91,7 @@ TaskListModel* instance;
     }
     
     [[UsersModel sharedInstance].logedUserData setObject:[NSArray arrayWithArray:storeArray] forKey:key];
-    [[UsersModel sharedInstance] saveCurrentUserData];
+//    [[UsersModel sharedInstance] saveCurrentUserData];
     
 }
 

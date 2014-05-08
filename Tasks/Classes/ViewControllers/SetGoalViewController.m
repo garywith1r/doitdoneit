@@ -38,7 +38,7 @@
 
 - (IBAction) doneButtonPressed {
     [[UsersModel sharedInstance].logedUserData setInteger:[goalTextField.text integerValue] forKey:LOGGED_USER_GOAL_KEY];
-    [[UsersModel sharedInstance] saveCurrentUserData];
+//    [[UsersModel sharedInstance] saveCurrentUserData];
     [self cancelButtonPressed];
 }
 
