@@ -15,6 +15,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UsersModel sharedInstance] addRemindersForMainTask];
+    
     // Override point for customization after application launch.
     [[TaskListModel sharedInstance] evaluateMissedTasks];
     [[TaskListModel sharedInstance] forceRecalculateTasks];
@@ -31,6 +33,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     [UsersModel sharedInstance].parentsModeActive = NO;
+    [[UsersModel sharedInstance] addRemindersForMainTask];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -40,6 +43,7 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [[TaskListModel sharedInstance] evaluateMissedTasks];
     [[TaskListModel sharedInstance] forceRecalculateTasks];
+    [[UsersModel sharedInstance] removeTodaysReminders];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

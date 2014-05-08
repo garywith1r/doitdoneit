@@ -141,6 +141,7 @@
         
     } else if (self.isChangingUser) {
         
+        [[UsersModel sharedInstance] addRemindersForMainTask];
         [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row - [UsersModel sharedInstance].purchasedMultiUser];
         
         [[TaskListModel sharedInstance] loadFullData];
@@ -149,6 +150,7 @@
         
         [[StatsModel sharedInstance] loadData];
         [[StatsModel sharedInstance] recalculateVolatileStats];
+        [[UsersModel sharedInstance] removeTodaysReminders];
         
         [self.navigationController popViewControllerAnimated:YES];
     } else {

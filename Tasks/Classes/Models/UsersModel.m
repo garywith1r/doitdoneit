@@ -10,6 +10,9 @@
 #import "EGOFileManager.h"
 #import "TabBarController.h"
 #import "StatsModel.h"
+#import "NSDate+Reporting.h"
+#import "Constants.h"
+#import "TaskDTO.h"
 
 #define LOGGED_USER_PATH_KEY @"UsersDataPath"
 
@@ -174,5 +177,62 @@ UsersModel* userModelInstance;
     return parentsModeEnabled;
 }
 
+- (void) addRemindersForMainTask {
+    if ([self.logedUserData objectForKey:LOGGED_USER_REMINDERS_KEY]) {
+        TaskDTO* firstTask = [[self.logedUserData objectForKey:@""] objectAtIndex:0];
+        if (firstTask) {
+            UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+            if (localNotif == nil)
+                return;
+            
+            NSString* alertBody = @"Hey ";
+            
+            if (purchasedMultiUser)
+                alertBody = [alertBody stringByAppendingString:[self.logedUser objectForKey:LOGGED_USER_NAME_KEY]];
+            else
+                alertBody = [alertBody stringByAppendingString:@"there"];
+            
+            TaskDTO* firstTask = [[self.logedUserData objectForKey:@""] objectAtIndex:0];
+            
+            alertBody = [alertBody stringByAppendingString:[NSString stringWithFormat:@". Time to do %@",firstTask.title]];
+            
+            
+            localNotif.fireDate = [[NSDate midnightTomorrow] dateByAddingTimeInterval:FIRST_ALARM_TIME];
+            localNotif.repeatInterval = kCFCalendarUnitDay;
+            localNotif.timeZone = [NSTimeZone defaultTimeZone];
+            localNotif.soundName = UILocalNotificationDefaultSoundName;
+            localNotif.alertBody = alertBody;
+            localNotif.applicationIconBadgeNumber = 0;
+            
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+            
+            UILocalNotification* localNotif2 = [[UILocalNotification alloc] init];
+            
+            alertBody = [alertBody stringByAppendingString:[NSString stringWithFormat:@". Time to do %@",firstTask]];
+            
+            
+            localNotif2.fireDate = [[NSDate midnightTomorrow] dateByAddingTimeInterval:SECOND_ALARM_TIME];
+            localNotif2.repeatInterval = kCFCalendarUnitDay;
+            localNotif2.timeZone = [NSTimeZone defaultTimeZone];
+            localNotif2.soundName = UILocalNotificationDefaultSoundName;
+            localNotif2.alertBody = alertBody;
+            localNotif2.applicationIconBadgeNumber = 0;
+            
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotif2];
+            
+            [self.logedUserData setObject:@[localNotif, localNotif2] forKey:@"LocalNotifications"];
+            [self saveCurrentUserData];
+        }
+    }
+}
 
+- (void) removeTodaysReminders {
+    NSArray* userNotifications = [self.logedUserData objectForKey:@"LocalNotifications"];
+    
+    UIApplication* sharedApp = [UIApplication sharedApplication];
+    
+    for (UILocalNotification* notification in userNotifications) {
+        [sharedApp cancelLocalNotification:notification];
+    }
+}
 @end

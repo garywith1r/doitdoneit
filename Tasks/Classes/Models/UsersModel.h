@@ -37,6 +37,9 @@
 - (void) multiuserUpgradePurchased;
 - (void) familyUpgradePurchased;
 
+- (void) addRemindersForMainTask;
+- (void) removeTodaysReminders;
+
 @property (nonatomic, readonly) NSDictionary* logedUser;
 @property (nonatomic, readonly) NSMutableDictionary* logedUserData;
 

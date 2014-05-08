@@ -27,3 +27,7 @@
 
 #define DEFAULT_USER_IMAGE [UIImage imageNamed:@"default_user.jpg"]
 #define DEFAULT_TASK_IMAGE [UIImage imageNamed:@"default_task.jpg"]
+
+
+#define FIRST_ALARM_TIME 10  * 360
+#define SECOND_ALARM_TIME 16  * 360
