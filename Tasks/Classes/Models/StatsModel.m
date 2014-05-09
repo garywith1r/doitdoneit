@@ -452,7 +452,32 @@ StatsModel* statsInstance;
              [tempArray addObject:award];
     }
     
-    [tempArray insertObject:awardDic atIndex:0];
+    NSMutableDictionary* newAwardDic = [[NSMutableDictionary alloc] initWithDictionary:awardDic];
+    switch ([[awardDic objectForKey:@"type"] intValue]) {
+        case ConsecutiveDaysAward:
+            [newAwardDic setObject:[NSString stringWithFormat:@"%d consecutiveDays",[[awardDic objectForKey:@"amount"] intValue]] forKey:@"text"];
+            break;
+        case HighestHitRateAward:
+            [newAwardDic setObject:[NSString stringWithFormat:@"Highest hit rate %.2f%%",[[awardDic objectForKey:@"amount"] floatValue]] forKey:@"text"];
+            break;
+        case HighestDailyPointsAward:
+            [newAwardDic setObject:[NSString stringWithFormat:@"Highest daily tasks %d",[[awardDic objectForKey:@"amount"] intValue]] forKey:@"text"];
+            break;
+        case HighestWeeklyPointsAward:
+            [newAwardDic setObject:[NSString stringWithFormat:@"Highest weekly tasks %d",[[awardDic objectForKey:@"amount"] intValue]] forKey:@"text"];
+            break;
+        case HighestMonthlyPointsAward:
+            [newAwardDic setObject:[NSString stringWithFormat:@"Highest monthly tasks %d",[[awardDic objectForKey:@"amount"] intValue]] forKey:@"text"];
+            break;
+        case UserGoalAward: {
+            [newAwardDic setObject:[NSString stringWithFormat:@"Personal Goal Achived: %d points",[[awardDic objectForKey:@"amount"] intValue]] forKey:@"text"];
+        }
+        default:
+            break;
+    }
+    
+    
+    [tempArray insertObject:[NSDictionary dictionaryWithDictionary:newAwardDic] atIndex:0];
     
     self.awards = [NSArray arrayWithArray:tempArray];
     [[UsersModel sharedInstance].logedUserData setObject:awards forKey:@"AwardsArray"];

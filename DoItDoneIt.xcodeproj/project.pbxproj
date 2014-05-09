@@ -213,6 +213,8 @@
 		5CF76F3619171AAB002E84ED /* Doneit_stats_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F3219171AAB002E84ED /* Doneit_stats_off@2x.png */; };
 		5CF76F3719171AAB002E84ED /* Doneit_stats_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F3319171AAB002E84ED /* Doneit_stats_on.png */; };
 		5CF76F3819171AAB002E84ED /* Doneit_stats_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF76F3419171AAB002E84ED /* Doneit_stats_on@2x.png */; };
+		5CF7721B191CFA5D00AA5C98 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7721A191CFA5D00AA5C98 /* HomeViewController.m */; };
+		5CF7721D191D0A8400AA5C98 /* Quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CF7721C191D0A8400AA5C98 /* Quotes.plist */; };
 		5CFB2B01190F18E6003D539D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFB2B00190F18E6003D539D /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -514,6 +516,9 @@
 		5CF76F3219171AAB002E84ED /* Doneit_stats_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Doneit_stats_off@2x.png"; sourceTree = "<group>"; };
 		5CF76F3319171AAB002E84ED /* Doneit_stats_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doneit_stats_on.png; sourceTree = "<group>"; };
 		5CF76F3419171AAB002E84ED /* Doneit_stats_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Doneit_stats_on@2x.png"; sourceTree = "<group>"; };
+		5CF77219191CFA5D00AA5C98 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		5CF7721A191CFA5D00AA5C98 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		5CF7721C191D0A8400AA5C98 /* Quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Quotes.plist; sourceTree = "<group>"; };
 		5CFB2AFF190F18E4003D539D /* Do It Done It.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Do It Done It.entitlements"; sourceTree = "<group>"; };
 		5CFB2B00190F18E6003D539D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -745,6 +750,7 @@
 				5C9B63AA18A151C90091C1D2 /* Images */,
 				5C9B637818A14A350091C1D2 /* Supporting Files */,
 				5CEC458E190AF980007AA425 /* InAppPurchases.plist */,
+				5CF7721C191D0A8400AA5C98 /* Quotes.plist */,
 			);
 			name = Resurces;
 			path = Tasks/Resurces;
@@ -898,6 +904,8 @@
 				5C05E51419106B2C0000AE50 /* PopViewController.m */,
 				5CA722341917BB9C0074D005 /* StatsViewCell.h */,
 				5CA722351917BB9C0074D005 /* StatsViewCell.m */,
+				5CF77219191CFA5D00AA5C98 /* HomeViewController.h */,
+				5CF7721A191CFA5D00AA5C98 /* HomeViewController.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -1272,6 +1280,7 @@
 				5CDAF0EF190D9D8800634437 /* settings_upgrades_off.png in Resources */,
 				5C2D0556190F2B2A00F0C56F /* photo_profile@2x.png in Resources */,
 				5CA285011912B7C100315F44 /* Default.png in Resources */,
+				5CF7721D191D0A8400AA5C98 /* Quotes.plist in Resources */,
 				5CD63EA7190A070000017304 /* task_add.png in Resources */,
 				5CD63EA2190A070000017304 /* tabbar_task@2x.png in Resources */,
 				5C30E54118BC5F450083FF23 /* Copy.png in Resources */,
@@ -1345,6 +1354,7 @@
 				5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */,
 				5CE9A53E190B0B5A00E74951 /* TopLeftLabel.m in Sources */,
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
+				5CF7721B191CFA5D00AA5C98 /* HomeViewController.m in Sources */,
 				5CA72239191892990074D005 /* SettingSwitchTableViewCell.m in Sources */,
 				5C88D0F9190563600059ADFD /* MOOPullGestureRecognizer.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,

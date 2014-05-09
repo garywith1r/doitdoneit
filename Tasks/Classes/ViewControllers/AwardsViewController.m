@@ -79,29 +79,7 @@
     [cell setContentView:statsView.view];
     NSDictionary* awardDictionary = [stats.awards objectAtIndex:indexPath.row];
     
-    switch ([[awardDictionary objectForKey:@"type"] intValue]) {
-        case ConsecutiveDaysAward:
-            statsView.awardLabel.text = [NSString stringWithFormat:@"%d consecutiveDays",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-        case HighestHitRateAward:
-            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest hit rate %.2f%%",[[awardDictionary objectForKey:@"amount"] floatValue]];
-            break;
-        case HighestDailyPointsAward:
-            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest daily tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-        case HighestWeeklyPointsAward:
-            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest weekly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-        case HighestMonthlyPointsAward:
-            statsView.awardLabel.text = [NSString stringWithFormat:@"Highest monthly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-        case UserGoalAward: {
-            statsView.awardLabel.text = [NSString stringWithFormat:@"Personal Goal Achived: %d points",[[awardDictionary objectForKey:@"amount"] intValue]];
-            }
-        default:
-            break;
-    }
-    
+    statsView.awardLabel.text = [awardDictionary objectForKey:@"text"];
     statsView.awardDate.text = [NSDate timePassedSince:[awardDictionary objectForKey:@"day"]];
     
     cell.cellScrollView.scrollEnabled = ![[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
@@ -129,28 +107,7 @@
     StatsModel* stats = [StatsModel sharedInstance];
     NSDictionary* awardDictionary = [stats.awards objectAtIndex:index];
     
-    switch ([[awardDictionary objectForKey:@"type"]intValue]) {
-        case ConsecutiveDaysAward:
-            return [NSString stringWithFormat:@"%d consecutiveDays",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-        case HighestHitRateAward:
-            return [NSString stringWithFormat:@"Highest hit rate %.2f%%",[[awardDictionary objectForKey:@"amount"] floatValue]];
-            break;
-        case HighestDailyPointsAward:
-            return [NSString stringWithFormat:@"Highest daily tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-        case HighestWeeklyPointsAward:
-            return [NSString stringWithFormat:@"Highest weekly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-        case HighestMonthlyPointsAward:
-            return [NSString stringWithFormat:@"Highest monthly tasks %d",[[awardDictionary objectForKey:@"amount"] intValue]];
-            break;
-            
-        default:
-            break;
-    }
-    
-    return @"";
+    return [awardDictionary objectForKey:@"text"];
 }
 
 @end

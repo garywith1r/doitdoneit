@@ -16,6 +16,7 @@
 #define LOGGED_USER_GOAL_KEY @"loggedUserGoal"
 #define LOGGED_USER_REMINDERS_KEY @"loggedUserReminder"
 #define LOGGED_USER_PRIVATE_KEY @"loggedUserHasPrivatedAccount"
+#define LOGGED_USER_LAST_LOGGIN @"loggedUserLastLoggin"
 
 @interface UsersModel : NSObject
 
