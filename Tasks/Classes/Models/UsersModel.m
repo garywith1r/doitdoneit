@@ -55,6 +55,10 @@ UsersModel* userModelInstance;
         
         parentsModeEnabled = [userDefaults boolForKey:@"parentsModeEnabled"];
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
+        
+        
+#warning TEST
+        purchasedWeeklyReview = YES;
     }
     
     return self;

@@ -17,6 +17,7 @@
 #define LOGGED_USER_REMINDERS_KEY @"loggedUserReminder"
 #define LOGGED_USER_PRIVATE_KEY @"loggedUserHasPrivatedAccount"
 #define LOGGED_USER_LAST_LOGGIN @"loggedUserLastLoggin"
+#define LOGGED_USER_RECIPIENTS_LIST @"loggedUserWeeklyRecipients"
 
 @interface UsersModel : NSObject
 

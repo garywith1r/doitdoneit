@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5C05E51519106B2C0000AE50 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C05E51419106B2C0000AE50 /* PopViewController.m */; };
 		5C05EA1618BB0C3E00BE92F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */; };
+		5C077D26191E672300872D69 /* AddEmailPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C077D25191E672300872D69 /* AddEmailPopUpViewController.m */; };
+		5C077D29191E6B2700872D69 /* AddEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C077D28191E6B2700872D69 /* AddEmailViewController.m */; };
+		5C077D2D191E76B700872D69 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C077D2C191E76B700872D69 /* NSString+Utilities.m */; };
 		5C0F8F62191087CA00B7A0AF /* SetGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */; };
 		5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */; };
 		5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0818F3C53D002C2A3F /* UsersModel.m */; };
@@ -222,6 +225,12 @@
 		5C05E51319106B2C0000AE50 /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
 		5C05E51419106B2C0000AE50 /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
 		5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5C077D24191E672300872D69 /* AddEmailPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEmailPopUpViewController.h; sourceTree = "<group>"; };
+		5C077D25191E672300872D69 /* AddEmailPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmailPopUpViewController.m; sourceTree = "<group>"; };
+		5C077D27191E6B2700872D69 /* AddEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEmailViewController.h; sourceTree = "<group>"; };
+		5C077D28191E6B2700872D69 /* AddEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmailViewController.m; sourceTree = "<group>"; };
+		5C077D2B191E76B700872D69 /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
+		5C077D2C191E76B700872D69 /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
 		5C0F8F60191087CA00B7A0AF /* SetGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGoalViewController.h; sourceTree = "<group>"; };
 		5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGoalViewController.m; sourceTree = "<group>"; };
 		5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectionViewController.h; sourceTree = "<group>"; };
@@ -542,6 +551,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C077D2A191E76B700872D69 /* NSString+Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5C077D2B191E76B700872D69 /* NSString+Utilities.h */,
+				5C077D2C191E76B700872D69 /* NSString+Utilities.m */,
+			);
+			path = "NSString+Utilities";
+			sourceTree = "<group>";
+		};
 		5C105C0018F3C173002C2A3F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +589,8 @@
 				5CA72238191892990074D005 /* SettingSwitchTableViewCell.m */,
 				5CA7223A191897200074D005 /* SettingSegueTableViewCell.h */,
 				5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */,
+				5C077D27191E6B2700872D69 /* AddEmailViewController.h */,
+				5C077D28191E6B2700872D69 /* AddEmailViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -590,6 +610,7 @@
 				5C2652E118BBF5FD007F8A0C /* SWTableViewCell */,
 				5CE9A53B190B0B5A00E74951 /* TopLeftLabel */,
 				5CF76F1A1916F073002E84ED /* TTTAttributedLabel */,
+				5C077D2A191E76B700872D69 /* NSString+Utilities */,
 			);
 			name = "3rd Party";
 			path = "Classes/3rd Party";
@@ -646,6 +667,8 @@
 		5C6CDDF9190F23B7004A0612 /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
+				5C077D24191E672300872D69 /* AddEmailPopUpViewController.h */,
+				5C077D25191E672300872D69 /* AddEmailPopUpViewController.m */,
 				5C6CDDFA190F23DF004A0612 /* PopUpViewController.h */,
 				5C6CDDFB190F23DF004A0612 /* PopUpViewController.m */,
 				5C4A0F9F190834E6003062E2 /* SelectRepeatTimesViewController.h */,
@@ -1304,10 +1327,12 @@
 				5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */,
 				5CD882F018E9840D003DD93F /* SVWebViewController.m in Sources */,
 				5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */,
+				5C077D29191E6B2700872D69 /* AddEmailViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
 				5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */,
 				5CE04AC2190C331E00083225 /* MNFastDateEnumeration.m in Sources */,
 				5CE9A5AC190B0C5200E74951 /* RMStore.m in Sources */,
+				5C077D2D191E76B700872D69 /* NSString+Utilities.m in Sources */,
 				5CA1222B18F72A2100F32CCF /* MHTabBarSegue.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
 				5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */,
@@ -1349,6 +1374,7 @@
 				5C9B63CD18A1632B0091C1D2 /* AddEditTaskViewController.m in Sources */,
 				5CDB775618BF0DC5000A4C04 /* StatsViewController.m in Sources */,
 				5C05E51519106B2C0000AE50 /* PopViewController.m in Sources */,
+				5C077D26191E672300872D69 /* AddEmailPopUpViewController.m in Sources */,
 				5C88D0F8190563600059ADFD /* MOOCreateView.m in Sources */,
 				5C9B63D318A1635C0091C1D2 /* TaskListModel.m in Sources */,
 				5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */,

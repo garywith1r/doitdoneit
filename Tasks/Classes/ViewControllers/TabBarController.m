@@ -49,4 +49,6 @@
     }
 }
 
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {}
+
 @end
