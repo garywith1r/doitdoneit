@@ -27,8 +27,8 @@
     iAdsViewHeightValue = iAdsViewHeight.constant;
     iAdsViewHeight.constant = 0;
     iAdsView.hidden = YES;
-//    if ([UsersModel sharedInstance].purchasedAddsFree)
-//        [self performSelector:@selector(removeAdds) withObject:nil afterDelay:0.1];
+    if ([UsersModel sharedInstance].purchasedAddsFree)
+        [self performSelector:@selector(removeAdds) withObject:nil afterDelay:0.1];
 }
 
 - (void) removeAdds {

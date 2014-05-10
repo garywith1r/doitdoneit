@@ -57,8 +57,8 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     selectedItem = indexPath.row;
     [self performSegueWithIdentifier:@"PurchaseItemSegue" sender:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 
 - (void) requestProductData {

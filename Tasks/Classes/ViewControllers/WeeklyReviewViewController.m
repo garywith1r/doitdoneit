@@ -41,6 +41,11 @@
     [self showReviewForWeekStartingOn:currentFirstDate];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [self showReviewForWeekStartingOn:currentFirstDate];
+}
+
 - (IBAction) prevWeek {
     currentFirstDate = [currentFirstDate dateByAddingTimeInterval:-ONE_DAY*7];
     [self showReviewForWeekStartingOn:currentFirstDate];
@@ -122,7 +127,7 @@
         }
         
         for (TaskDTO* task in dayArray) {
-            body = [body stringByAppendingString:[NSString stringWithFormat:@"%@ %ld Stars\n",task.title, task.rating]];
+            body = [body stringByAppendingString:[NSString stringWithFormat:@"%@ %ld Stars\n",task.title, (long)task.rating]];
             if (task.notes && ![@"" isEqualToString:task.notes]) {
                 body = [body stringByAppendingString:[NSString stringWithFormat:@"%@\n",task.notes]];
             }
@@ -197,7 +202,7 @@
     TaskDTO* task = currentWeekArray[indexPath.section][indexPath.row];
     cell.taskTitle.text = task.title;
     cell.taskNote.text = task.notes;
-    cell.taskStars.text = [NSString stringWithFormat:@"%ld Stars",task.rating];
+    cell.taskStars.text = [NSString stringWithFormat:@"%ld Stars",(long)task.rating];
     
     return cell;
     

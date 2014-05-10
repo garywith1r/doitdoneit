@@ -119,8 +119,10 @@ TaskListModel* instance;
 - (NSMutableArray*) sortTaskArraysByDueDate:(NSMutableArray*)originalArray {
     return  [NSMutableArray arrayWithArray:[originalArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         //sort by dueDate and priorityPoints
-        NSDate *first = [(TaskDTO*) a dueDate];
-        NSDate *second = [(TaskDTO*)b dueDate];
+        int aRept = [(TaskDTO*) a repeatTimes] - [(TaskDTO*) a currentRepetition];
+        int bRept = [(TaskDTO*) b repeatTimes] - [(TaskDTO*) b currentRepetition];
+        NSDate *first = [[(TaskDTO*) a dueDate] dateByAddingTimeInterval:-ONE_DAY*aRept];
+        NSDate *second = [[(TaskDTO*)b dueDate] dateByAddingTimeInterval:-ONE_DAY*bRept];
         NSComparisonResult comparisonResult = [first compare:second];
         
         if (comparisonResult == NSOrderedSame) {
@@ -387,7 +389,6 @@ TaskListModel* instance;
                 [dayArray addObject:task];
             }
             completedIndex++;
-            
         }
         
         if (missedIndex < missedTasks.count)
