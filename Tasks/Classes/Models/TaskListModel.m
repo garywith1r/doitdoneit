@@ -405,7 +405,7 @@ TaskListModel* instance;
         [weeklyArray addObject:[self sortTaskArraysByCompletitionDate:dayArray]];
     }
     
-    return [NSArray arrayWithArray:weeklyArray];
+    return [NSArray arrayWithObjects:weeklyArray[6],weeklyArray[5],weeklyArray[4],weeklyArray[3],weeklyArray[2],weeklyArray[1],weeklyArray[0],nil];
 }
 
 
