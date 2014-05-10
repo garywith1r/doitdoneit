@@ -21,7 +21,7 @@
 
 #define PARENTS_CODE_DIGITS 4
 
-#define FEEDBACK_EMAIL_RECIPIENT @"doitdoneit@gmail.com"
+#define FEEDBACK_EMAIL_RECIPIENT @"support@doitdoneitapp.com"
 #define FEEDBACK_EMAIL_SUBJECT @"Do It Done It Feedback"
 #define FEEDBACK_EMAIL_BODY @""
 
