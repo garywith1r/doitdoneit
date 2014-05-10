@@ -365,6 +365,49 @@ TaskListModel* instance;
 }
 
 
+- (NSArray*) getWeeksArrayFrom:(NSDate*)startDate {
+    NSMutableArray* weeklyArray = [[NSMutableArray alloc] initWithCapacity:7];
+    
+    int completedIndex = 0;
+    int missedIndex = 0;
+    
+    for (int x = 6; x >= 0; x --) {
+        NSMutableArray* dayArray = [[NSMutableArray alloc] init];
+        NSDate* currentDate = [startDate dateByAddingTimeInterval:ONE_DAY * x];
+        
+        TaskDTO* task;
+        if (completedIndex < completedTasks.count)
+            task = completedTasks[completedIndex];
+        //Tasks are sorted by completitionDate;
+        
+        //if the time pased since currentDate is < 0, then the task was completed before the currentDate
+        while ((completedIndex < completedTasks.count) && ([task.completitionDate timeIntervalSinceDate:currentDate] >= 0)) {
+            task = completedTasks[completedIndex];
+            if ([task.completitionDate timeIntervalSinceDate:currentDate] < ONE_DAY) {
+                [dayArray addObject:task];
+            }
+            completedIndex++;
+            
+        }
+        
+        if (missedIndex < missedTasks.count)
+            task = missedTasks[missedIndex];
+        
+        //if the time pased since currentDate is < 0, then the task was completed before the currentDate
+        while ((missedIndex < missedTasks.count) && ([task.completitionDate timeIntervalSinceDate:currentDate] >= 0)) {
+            task = missedTasks[missedIndex];
+            if ([task.completitionDate timeIntervalSinceDate:currentDate] < ONE_DAY) {
+                [dayArray addObject:task];
+            }
+            missedIndex++;
+        }
+        
+        [weeklyArray addObject:[self sortTaskArraysByCompletitionDate:dayArray]];
+    }
+    
+    return [NSArray arrayWithArray:weeklyArray];
+}
+
 
 
 #pragma mark - File Managment methods

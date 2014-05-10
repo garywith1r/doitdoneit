@@ -60,7 +60,7 @@ enum TaskRepeatPeriod {
 - (void) incrementMissedItBy:(int)increment;
 - (double) hitRate;
 - (UIImage*) getHitRateImage;
-
++ (UIImage*) getImageForHitRate: (double) hitRate;
 
 - (NSString*) repeatTimesDisplayText;
 @end

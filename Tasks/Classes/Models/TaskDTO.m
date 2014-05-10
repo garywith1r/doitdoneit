@@ -329,8 +329,13 @@
 
 
 - (UIImage*) getHitRateImage {
-    double hitRate = [self hitRate];
+    return [TaskDTO getImageForHitRate:[self hitRate]];
     
+    
+    
+}
+
++ (UIImage*) getImageForHitRate: (double) hitRate {
     if (hitRate >= 65) {
         return [UIImage imageNamed:@"face_happy.png"];
     } else if (hitRate >= 45) {
@@ -340,7 +345,6 @@
     } else {
         return [UIImage imageNamed:@"face_sad.png"];
     }
-    
 }
 
 

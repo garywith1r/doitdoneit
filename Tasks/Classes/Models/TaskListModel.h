@@ -30,7 +30,7 @@
 - (NSArray*) getDoneTasks;
 - (void) evaluateMissedTasks;
 
-
+- (NSArray*) getWeeksArrayFrom:(NSDate*)startDate;
 
 
 - (void) checkIfImagePathIsStillInUse:(NSString*) path;

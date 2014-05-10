@@ -12,6 +12,9 @@
 		5C077D26191E672300872D69 /* AddEmailPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C077D25191E672300872D69 /* AddEmailPopUpViewController.m */; };
 		5C077D29191E6B2700872D69 /* AddEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C077D28191E6B2700872D69 /* AddEmailViewController.m */; };
 		5C077D2D191E76B700872D69 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C077D2C191E76B700872D69 /* NSString+Utilities.m */; };
+		5C077D30191EA1C000872D69 /* WeeklyReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C077D2F191EA1C000872D69 /* WeeklyReviewViewController.m */; };
+		5C077D33191EA95100872D69 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C077D31191EA95100872D69 /* back.png */; };
+		5C077D34191EA95100872D69 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C077D32191EA95100872D69 /* back@2x.png */; };
 		5C0F8F62191087CA00B7A0AF /* SetGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */; };
 		5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */; };
 		5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0818F3C53D002C2A3F /* UsersModel.m */; };
@@ -79,6 +82,7 @@
 		5CA722361917BB9C0074D005 /* StatsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA722351917BB9C0074D005 /* StatsViewCell.m */; };
 		5CA72239191892990074D005 /* SettingSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA72238191892990074D005 /* SettingSwitchTableViewCell.m */; };
 		5CA7223C191897200074D005 /* SettingSegueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */; };
+		5CAF6D62191EB80A00D5762F /* WeeklyReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF6D61191EB80A00D5762F /* WeeklyReviewTableViewCell.m */; };
 		5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1E9E818BD379C0018955E /* DeviceDetector.m */; };
 		5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EA18BD3B240018955E /* Copy@2x.png */; };
 		5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EB18BD3B240018955E /* Delete@2x.png */; };
@@ -231,6 +235,10 @@
 		5C077D28191E6B2700872D69 /* AddEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmailViewController.m; sourceTree = "<group>"; };
 		5C077D2B191E76B700872D69 /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
 		5C077D2C191E76B700872D69 /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
+		5C077D2E191EA1C000872D69 /* WeeklyReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyReviewViewController.h; sourceTree = "<group>"; };
+		5C077D2F191EA1C000872D69 /* WeeklyReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyReviewViewController.m; sourceTree = "<group>"; };
+		5C077D31191EA95100872D69 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		5C077D32191EA95100872D69 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		5C0F8F60191087CA00B7A0AF /* SetGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGoalViewController.h; sourceTree = "<group>"; };
 		5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGoalViewController.m; sourceTree = "<group>"; };
 		5C105C0118F3C1A5002C2A3F /* UserSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectionViewController.h; sourceTree = "<group>"; };
@@ -345,6 +353,8 @@
 		5CA72238191892990074D005 /* SettingSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingSwitchTableViewCell.m; sourceTree = "<group>"; };
 		5CA7223A191897200074D005 /* SettingSegueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingSegueTableViewCell.h; sourceTree = "<group>"; };
 		5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingSegueTableViewCell.m; sourceTree = "<group>"; };
+		5CAF6D60191EB80A00D5762F /* WeeklyReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyReviewTableViewCell.h; sourceTree = "<group>"; };
+		5CAF6D61191EB80A00D5762F /* WeeklyReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyReviewTableViewCell.m; sourceTree = "<group>"; };
 		5CC1E9E718BD379C0018955E /* DeviceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetector.h; sourceTree = "<group>"; };
 		5CC1E9E818BD379C0018955E /* DeviceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetector.m; sourceTree = "<group>"; };
 		5CC1E9EA18BD3B240018955E /* Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Copy@2x.png"; sourceTree = "<group>"; };
@@ -929,6 +939,10 @@
 				5CA722351917BB9C0074D005 /* StatsViewCell.m */,
 				5CF77219191CFA5D00AA5C98 /* HomeViewController.h */,
 				5CF7721A191CFA5D00AA5C98 /* HomeViewController.m */,
+				5C077D2E191EA1C000872D69 /* WeeklyReviewViewController.h */,
+				5C077D2F191EA1C000872D69 /* WeeklyReviewViewController.m */,
+				5CAF6D60191EB80A00D5762F /* WeeklyReviewTableViewCell.h */,
+				5CAF6D61191EB80A00D5762F /* WeeklyReviewTableViewCell.m */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -1090,6 +1104,8 @@
 				5CEC4575190AB4F2007AA425 /* award@2x.png */,
 				5CEC4576190AB4F2007AA425 /* award_line.png */,
 				5CEC4577190AB4F2007AA425 /* award_line@2x.png */,
+				5C077D31191EA95100872D69 /* back.png */,
+				5C077D32191EA95100872D69 /* back@2x.png */,
 				5CEC4578190AB4F2007AA425 /* calendar.png */,
 				5CEC4579190AB4F2007AA425 /* calendar@2x.png */,
 				5CEC457A190AB4F2007AA425 /* go.png */,
@@ -1223,6 +1239,7 @@
 				5C30E54318BC5F450083FF23 /* Calendar.png in Resources */,
 				5CD63E9C190A070000017304 /* tabbar_home_on@2x.png in Resources */,
 				5CD63EA1190A070000017304 /* tabbar_task.png in Resources */,
+				5C077D33191EA95100872D69 /* back.png in Resources */,
 				5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */,
 				5CD63E81190A070000017304 /* repeat1_week_on.png in Resources */,
 				5CD63E80190A070000017304 /* repeat_number@2x.png in Resources */,
@@ -1308,6 +1325,7 @@
 				5CD63EA2190A070000017304 /* tabbar_task@2x.png in Resources */,
 				5C30E54118BC5F450083FF23 /* Copy.png in Resources */,
 				5CA7222F1917B5FA0074D005 /* face_indifferent@2x.png in Resources */,
+				5C077D34191EA95100872D69 /* back@2x.png in Resources */,
 				5CDAF0EE190D9D8800634437 /* settings_settings_on.png in Resources */,
 				5CF76F3819171AAB002E84ED /* Doneit_stats_on@2x.png in Resources */,
 				5CD63E84190A070000017304 /* repeat1_week@2x.png in Resources */,
@@ -1326,6 +1344,7 @@
 			files = (
 				5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */,
 				5CD882F018E9840D003DD93F /* SVWebViewController.m in Sources */,
+				5C077D30191EA1C000872D69 /* WeeklyReviewViewController.m in Sources */,
 				5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */,
 				5C077D29191E6B2700872D69 /* AddEmailViewController.m in Sources */,
 				5CDB774F18BF05B7000A4C04 /* MediaModel.m in Sources */,
@@ -1383,6 +1402,7 @@
 				5CF7721B191CFA5D00AA5C98 /* HomeViewController.m in Sources */,
 				5CA72239191892990074D005 /* SettingSwitchTableViewCell.m in Sources */,
 				5C88D0F9190563600059ADFD /* MOOPullGestureRecognizer.m in Sources */,
+				5CAF6D62191EB80A00D5762F /* WeeklyReviewTableViewCell.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,
 				5CEA32C318FEE69C00B85322 /* SetUpParentsPinCodeViewController.m in Sources */,
 				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
