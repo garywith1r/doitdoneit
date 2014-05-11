@@ -83,6 +83,9 @@
 		5CA72239191892990074D005 /* SettingSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA72238191892990074D005 /* SettingSwitchTableViewCell.m */; };
 		5CA7223C191897200074D005 /* SettingSegueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */; };
 		5CAF6D62191EB80A00D5762F /* WeeklyReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF6D61191EB80A00D5762F /* WeeklyReviewTableViewCell.m */; };
+		5CAF6D6B191EF35100D5762F /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF6D66191EF35100D5762F /* UIImage+Alpha.m */; };
+		5CAF6D6C191EF35100D5762F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF6D68191EF35100D5762F /* UIImage+Resize.m */; };
+		5CAF6D6D191EF35100D5762F /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF6D6A191EF35100D5762F /* UIImage+RoundedCorner.m */; };
 		5CC1E9E918BD379C0018955E /* DeviceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1E9E818BD379C0018955E /* DeviceDetector.m */; };
 		5CC1E9ED18BD3B240018955E /* Copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EA18BD3B240018955E /* Copy@2x.png */; };
 		5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1E9EB18BD3B240018955E /* Delete@2x.png */; };
@@ -355,6 +358,12 @@
 		5CA7223B191897200074D005 /* SettingSegueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingSegueTableViewCell.m; sourceTree = "<group>"; };
 		5CAF6D60191EB80A00D5762F /* WeeklyReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyReviewTableViewCell.h; sourceTree = "<group>"; };
 		5CAF6D61191EB80A00D5762F /* WeeklyReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyReviewTableViewCell.m; sourceTree = "<group>"; };
+		5CAF6D65191EF35100D5762F /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		5CAF6D66191EF35100D5762F /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		5CAF6D67191EF35100D5762F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		5CAF6D68191EF35100D5762F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		5CAF6D69191EF35100D5762F /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		5CAF6D6A191EF35100D5762F /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		5CC1E9E718BD379C0018955E /* DeviceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetector.h; sourceTree = "<group>"; };
 		5CC1E9E818BD379C0018955E /* DeviceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetector.m; sourceTree = "<group>"; };
 		5CC1E9EA18BD3B240018955E /* Copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Copy@2x.png"; sourceTree = "<group>"; };
@@ -620,6 +629,7 @@
 				5C2652E118BBF5FD007F8A0C /* SWTableViewCell */,
 				5CE9A53B190B0B5A00E74951 /* TopLeftLabel */,
 				5CF76F1A1916F073002E84ED /* TTTAttributedLabel */,
+				5CAF6D64191EF35100D5762F /* UIImageUtilities */,
 				5C077D2A191E76B700872D69 /* NSString+Utilities */,
 			);
 			name = "3rd Party";
@@ -972,6 +982,19 @@
 				5CA7222B1917B5FA0074D005 /* face_sad@2x.png */,
 			);
 			path = faces;
+			sourceTree = "<group>";
+		};
+		5CAF6D64191EF35100D5762F /* UIImageUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF6D65191EF35100D5762F /* UIImage+Alpha.h */,
+				5CAF6D66191EF35100D5762F /* UIImage+Alpha.m */,
+				5CAF6D67191EF35100D5762F /* UIImage+Resize.h */,
+				5CAF6D68191EF35100D5762F /* UIImage+Resize.m */,
+				5CAF6D69191EF35100D5762F /* UIImage+RoundedCorner.h */,
+				5CAF6D6A191EF35100D5762F /* UIImage+RoundedCorner.m */,
+			);
+			path = UIImageUtilities;
 			sourceTree = "<group>";
 		};
 		5CC1E9E618BD379C0018955E /* DeviceDetector */ = {
@@ -1344,6 +1367,7 @@
 			files = (
 				5CDB775D18BF1191000A4C04 /* StatsModel.m in Sources */,
 				5CD882F018E9840D003DD93F /* SVWebViewController.m in Sources */,
+				5CAF6D6B191EF35100D5762F /* UIImage+Alpha.m in Sources */,
 				5C077D30191EA1C000872D69 /* WeeklyReviewViewController.m in Sources */,
 				5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */,
 				5C077D29191E6B2700872D69 /* AddEmailViewController.m in Sources */,
@@ -1401,6 +1425,7 @@
 				5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */,
 				5CF7721B191CFA5D00AA5C98 /* HomeViewController.m in Sources */,
 				5CA72239191892990074D005 /* SettingSwitchTableViewCell.m in Sources */,
+				5CAF6D6D191EF35100D5762F /* UIImage+RoundedCorner.m in Sources */,
 				5C88D0F9190563600059ADFD /* MOOPullGestureRecognizer.m in Sources */,
 				5CAF6D62191EB80A00D5762F /* WeeklyReviewTableViewCell.m in Sources */,
 				5C9B63D018A163420091C1D2 /* TaskDTO.m in Sources */,
@@ -1408,6 +1433,7 @@
 				5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */,
 				5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */,
 				5C9B637E18A14A350091C1D2 /* main.m in Sources */,
+				5CAF6D6C191EF35100D5762F /* UIImage+Resize.m in Sources */,
 				5CEC458D190AF4FD007AA425 /* UpgradeTableViewCell.m in Sources */,
 				5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */,
 				5CA7223C191897200074D005 /* SettingSegueTableViewCell.m in Sources */,

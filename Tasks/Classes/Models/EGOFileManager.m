@@ -17,12 +17,12 @@
         EGOCache* cache = [EGOCache globalCache];
         UIImage* image = [cache imageForKey:path];
         
-        if (image) //cache hit.
-            return image;
+        if (image)
+            return image; //cache hit.
         
         image = [UIImage imageWithData:[[NSFileManager defaultManager] contentsAtPath:path]];
         if (image)
-            [cache setObject:image forKey:path];
+            [cache setImage:image forKey:path];
         
         return image;
     } else {
@@ -76,7 +76,7 @@
     NSString* filePath = @"";
     
     do {
-        NSString* completeFileName = [NSString stringWithFormat:@"%u.MOV",arc4random()];
+        NSString* completeFileName = [NSString stringWithFormat:@"%u",arc4random()];
         filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:completeFileName];
     } while ([[NSFileManager defaultManager] fileExistsAtPath:filePath]);
     

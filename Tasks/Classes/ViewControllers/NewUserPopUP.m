@@ -10,6 +10,7 @@
 #import "EGOFileManager.h"
 #import "UsersModel.h"
 #import "Constants.h"
+#import "UIImage+Resize.h"
 
 @interface NewUserPopUP () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     UIImagePickerController* _imagePickerController;
@@ -65,6 +66,8 @@
     if (image) {
         NSString* imagePath = [EGOFileManager storeImage:image];
         [newUserDictionary setObject:imagePath forKey:LOGGED_USER_IMAGE_KEY];
+    } else {
+        [newUserDictionary setObject:@"" forKey:LOGGED_USER_IMAGE_KEY];
     }
     
     [[UsersModel sharedInstance] addUser:[NSDictionary dictionaryWithDictionary:newUserDictionary]];
@@ -87,7 +90,7 @@
                                                         cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
                                                    destructiveButtonTitle:nil
                                                         otherButtonTitles:NSLocalizedString(@"Take Photo", nil),
-                                      NSLocalizedString(@"Choose Existing Photo", nil), nil];
+                                      NSLocalizedString(@"Choose Existing Photo", nil), NSLocalizedString(@"Clear", nil), nil];
         
         actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
         
@@ -149,6 +152,7 @@
 - (void) clearPicture {
     [btnImage setImage:nil forState:UIControlStateNormal];
     [btnImage setImage:DEFAULT_USER_IMAGE forState:UIControlStateNormal];
+    image = nil;
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -156,6 +160,7 @@
     
     UIImage* thumbImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
+    [thumbImage resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(150,150) interpolationQuality:kCGInterpolationDefault];
     
     if (thumbImage) {
         [btnImage setTitle:@"" forState:UIControlStateNormal];
@@ -171,7 +176,6 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
     if (popoverController) {
         [popoverController dismissPopoverAnimated:YES];
         popoverController = nil;

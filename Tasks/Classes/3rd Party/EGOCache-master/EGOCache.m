@@ -241,6 +241,7 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 	
 	dispatch_async(_diskQueue, ^{
 		[data writeToFile:cachePath atomically:YES];
+        NSLog(@"writed data!");
 	});
 	
 	[self setCacheTimeoutInterval:timeoutInterval forKey:key];
@@ -293,9 +294,10 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 	UIImage* image = nil;
 	
 	@try {
-		image = [NSKeyedUnarchiver unarchiveObjectWithFile:cachePathForKey(_directory, key)];
+		image = [NSKeyedUnarchiver unarchiveObjectWithData:[self dataForKey:key]];
 	} @catch (NSException* e) {
 		// Surpress any unarchiving exceptions and continue with nil
+        NSLog(@"%@",e);
 	}
 	
 	return image;
@@ -311,6 +313,7 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 		[self setData:[NSKeyedArchiver archivedDataWithRootObject:anImage] forKey:key withTimeoutInterval:timeoutInterval];
 	} @catch (NSException* e) {
 		// Something went wrong, but we'll fail silently.
+        NSLog(@"%@",e);
 	}
 }
 
