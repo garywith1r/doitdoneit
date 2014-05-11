@@ -37,6 +37,7 @@
     // Do any additional setup after loading the view.
     quoteDate = [NSDate midnightToday];
     [self newQuote];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name: UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 
@@ -47,12 +48,18 @@
     NSDate* lastTimeShowedAwards = [[UsersModel sharedInstance].logedUserData objectForKey:LOGGED_USER_LAST_LOGGIN];
     
     NSArray* allAwards = [StatsModel sharedInstance].awards;
-    NSMutableArray* tempAwards = [[NSMutableArray alloc] initWithCapacity:allAwards.count];
-    for (NSDictionary* awardDic in allAwards) {
-        NSDate* awardDate = [awardDic objectForKey:@"day"];
-        if ([awardDate timeIntervalSinceDate:lastTimeShowedAwards] >= 0) {
-            [tempAwards addObject:awardDic];
+    
+    if (lastTimeShowedAwards) {
+        NSMutableArray* tempAwards = [[NSMutableArray alloc] initWithCapacity:allAwards.count];
+        for (NSDictionary* awardDic in allAwards) {
+            NSDate* awardDate = [awardDic objectForKey:@"day"];
+            if ([awardDate timeIntervalSinceDate:lastTimeShowedAwards] >= 0) {
+                [tempAwards addObject:awardDic];
+            }
         }
+        awardsToShow = [NSArray arrayWithArray:tempAwards];
+    } else {
+        awardsToShow = allAwards;
     }
     
     if ([[NSDate midnightToday] timeIntervalSinceDate:quoteDate] != 0) {
@@ -135,7 +142,7 @@
     
     if (indexPath.section == 0) { //awards section
         cell = [tableView dequeueReusableCellWithIdentifier:@"HomeAwardCell"];
-        [(UILabel*)cell.editingAccessoryView setText:[awardsToShow[indexPath.row] objectForKey:@"text"]];
+        [cell.lblText setText:[awardsToShow[indexPath.row] objectForKey:@"text"]];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"HomeCommonCell"];
         if (indexPath.section == 1)

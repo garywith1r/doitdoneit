@@ -96,7 +96,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="303" translatesAutoresizingMaskIntoConstraints="NO" id="En6-PV-3qg">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Some Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="303" translatesAutoresizingMaskIntoConstraints="NO" id="En6-PV-3qg">
                                                     <rect key="frame" x="10" y="5" width="303" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -104,12 +104,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="En6-PV-3qg" firstAttribute="leading" secondItem="Yii-BP-8re" secondAttribute="leading" constant="10" id="U6E-P7-cpf"/>
-                                                <constraint firstAttribute="trailing" secondItem="En6-PV-3qg" secondAttribute="trailing" constant="7" id="fan-Dc-WY7"/>
-                                                <constraint firstAttribute="bottom" secondItem="En6-PV-3qg" secondAttribute="bottom" constant="6" id="jzD-bt-799"/>
-                                                <constraint firstItem="En6-PV-3qg" firstAttribute="top" secondItem="Yii-BP-8re" secondAttribute="top" constant="5" id="nq8-yl-Dlo"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -4388,7 +4382,7 @@ Missed:     Hit:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="1LB-Vq-7l6"/>
+        <segue reference="C0B-bW-EP2"/>
         <segue reference="6Yu-eP-KEr"/>
     </inferredMetricsTieBreakers>
 </document>
