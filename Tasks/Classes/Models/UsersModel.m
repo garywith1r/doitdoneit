@@ -13,6 +13,7 @@
 #import "NSDate+Reporting.h"
 #import "Constants.h"
 #import "TaskDTO.h"
+#import "TaskListModel.h"
 
 #define LOGGED_USER_PATH_KEY @"UsersDataPath"
 
@@ -46,7 +47,16 @@ UsersModel* userModelInstance;
 - (id) init {
     if (self = [super init]) {
         logedUserIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"logedUserIndex"] integerValue];
-        [self changeToUserAtIndex:logedUserIndex];
+        
+        logedUser = [[self getUsers] objectAtIndex:logedUserIndex];
+        NSData* data = [CacheFileManager getDataFromPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
+        if (data) {
+            logedUserData = [NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+        } else {
+            logedUserData = [[NSMutableDictionary alloc] init];
+        }
+        
+        
         NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
         purchasedParentsMode = [userDefaults boolForKey:@"purchasedParentsMode"];
         purchasedMultiUser = [userDefaults boolForKey:@"purchasedMultiUser"];
@@ -105,8 +115,66 @@ UsersModel* userModelInstance;
     logedUser = storedUsers[logedUserIndex];
 }
 
+- (void) deleteUserAtIndex:(NSInteger)index {
+    
+    NSDictionary* userToDelete = [storedUsers objectAtIndex:index];
+    NSMutableDictionary* selectedUserData = logedUserData;
+    
+    NSData* data = [CacheFileManager getDataFromPath:[userToDelete objectForKey:LOGGED_USER_PATH_KEY]];
+    logedUserData = [NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    
+    
+    //First we delete all tasks from the user
+    [[TaskListModel sharedInstance] loadFullData];
+    [[TaskListModel sharedInstance] forceRecalculateTasks];
+    [[TaskListModel sharedInstance] deleteAllTasks];
+    
+    BOOL hasToRest = index < logedUserIndex;
+    
+    //If it's deleting current user, we need to switch to another.
+    if (index == logedUserIndex) {
+        
+        if (storedUsers.count == 1) {
+            [self addUser:DEFAULT_USER];
+            [self changeToUserAtIndex:1];
+            hasToRest = YES;
+        } else if (index == 0) {
+            [self changeToUserAtIndex:1];
+            hasToRest = YES;
+        } else {
+            [self changeToUserAtIndex:index - 1];
+        }
+        
+        
+        //Need to remove the notifications added for the deleting user when we change the user.
+        
+        NSArray* userNotifications = [selectedUserData objectForKey:@"LocalNotifications"];
+        
+        UIApplication* sharedApp = [UIApplication sharedApplication];
+        
+        for (UILocalNotification* notification in userNotifications) {
+            [sharedApp cancelLocalNotification:notification];
+        }
+    } else {
+        logedUserData = selectedUserData;
+    }
+    
+    logedUserIndex -= hasToRest;
+    [[TaskListModel sharedInstance] loadFullData];
+    [[TaskListModel sharedInstance] forceRecalculateTasks];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:logedUserIndex] forKey:@"logedUserIndex"];
+    
+    //Finaly we delete User's data, and it's entrance in storedUsers.
+    [CacheFileManager deleteContentAtPath:[userToDelete objectForKey:LOGGED_USER_PATH_KEY]];
+    NSMutableArray* tempArray = [NSMutableArray arrayWithArray:storedUsers];
+    [tempArray removeObjectAtIndex:index];
+    storedUsers = [NSArray arrayWithArray:tempArray];
+    [self saveUsersArray];
+}
+
 - (void) saveUsersArray {
     [[NSUserDefaults standardUserDefaults] setObject:storedUsers forKey:@"storedUsersArray"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) saveCurrentUserData {
@@ -115,18 +183,26 @@ UsersModel* userModelInstance;
 }
 
 - (void) changeToUserAtIndex:(NSInteger)index {
-    // we won't save currents user data cause each single change is stored when performed.
     
-    logedUser = [[self getUsers] objectAtIndex:index];
+    logedUserIndex = index;
+    logedUser = [[self getUsers] objectAtIndex:logedUserIndex];
     NSData* data = [CacheFileManager getDataFromPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
     if (data) {
         logedUserData = [NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
     } else {
         logedUserData = [[NSMutableDictionary alloc] init];
     }
-    logedUserIndex = index;
+    
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:logedUserIndex] forKey:@"logedUserIndex"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[TaskListModel sharedInstance] loadFullData];
+    [[TaskListModel sharedInstance] evaluateMissedTasks];
+    [[TaskListModel sharedInstance] forceRecalculateTasks];
+    
+    [[StatsModel sharedInstance] loadData];
+    [[StatsModel sharedInstance] recalculateVolatileStats];
+    [[UsersModel sharedInstance] removeTodaysReminders];
     
 }
 

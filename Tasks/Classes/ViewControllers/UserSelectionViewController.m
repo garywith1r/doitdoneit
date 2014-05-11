@@ -16,6 +16,8 @@
 #import "Constants.h"
 #import "StatsModel.h"
 
+#define DELETE_TASK_ALERT_TAG 125
+
 @interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate, PopUpDelegate> {
     NSArray* usersArray;
     IBOutlet UITableView* table;
@@ -23,6 +25,8 @@
     
     IBOutlet UIView* footerView;
     IBOutlet UISwitch* parentModeSwitch;
+    
+    NSInteger userIndexToDelete;
     
 }
 
@@ -109,6 +113,8 @@
                                   rightUtilityButtons:rightUtilityButtons];
         
         cell.delegate = self;
+        cell.cellScrollView.scrollEnabled = !self.isChangingUser;
+        cell.tag = indexPath.row - [UsersModel sharedInstance].purchasedMultiUser;
     }
     
     NSDictionary* usersDict = [usersArray objectAtIndex:row];
@@ -129,7 +135,6 @@
     cellView.statsLabel.hidden = !self.isChangingUser;
     
     
-    
     return cell;
 }
 
@@ -148,14 +153,6 @@
         
         [[UsersModel sharedInstance] changeToUserAtIndex:indexPath.row - [UsersModel sharedInstance].purchasedMultiUser];
         
-        [[TaskListModel sharedInstance] loadFullData];
-        [[TaskListModel sharedInstance] evaluateMissedTasks];
-        [[TaskListModel sharedInstance] forceRecalculateTasks];
-        
-        [[StatsModel sharedInstance] loadData];
-        [[StatsModel sharedInstance] recalculateVolatileStats];
-        [[UsersModel sharedInstance] removeTodaysReminders];
-        
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         NewUserPopUP* newUser = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserPopUp"];
@@ -164,6 +161,34 @@
         [newUser presentOnViewController:self];     
     }
 }
+
+
+#pragma mark - SWTableViewDelegate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:{ // Delete
+            userIndexToDelete = cell.tag;
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Are you sure you want to completely delete this user?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+            alert.tag = DELETE_TASK_ALERT_TAG;
+            [alert show];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+#pragma mark - UIAlertViewDelegate Methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == DELETE_TASK_ALERT_TAG) {
+        if (buttonIndex == 1) {
+            [[UsersModel sharedInstance] deleteUserAtIndex:userIndexToDelete];
+            [self viewWillAppear:NO];
+        }
+    }
+}
+
 
 #pragma pragma mark - PopUpDelegate
 - (void) popUpWillClose {

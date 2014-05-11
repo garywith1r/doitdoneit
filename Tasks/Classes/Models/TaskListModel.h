@@ -21,10 +21,11 @@
 
 - (TaskDTO*) taskAtIndex:(int)index;
 - (void) addTask:(TaskDTO*) task;
-- (void) deleteTask:(TaskDTO*) task;
 - (void) completeTask:(TaskDTO*) task;
 - (void) completeTaskAtIndex:(int) index;
 - (void) missTask:(TaskDTO*) task;
+- (void) deleteTask:(TaskDTO*) task;
+- (void) deleteAllTasks;
 
 - (NSArray*) getToDoTasks;
 - (NSArray*) getDoneTasks;

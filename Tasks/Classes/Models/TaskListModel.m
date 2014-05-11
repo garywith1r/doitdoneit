@@ -119,8 +119,8 @@ TaskListModel* instance;
 - (NSMutableArray*) sortTaskArraysByDueDate:(NSMutableArray*)originalArray {
     return  [NSMutableArray arrayWithArray:[originalArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         //sort by dueDate and priorityPoints
-        int aRept = [(TaskDTO*) a repeatTimes] - [(TaskDTO*) a currentRepetition];
-        int bRept = [(TaskDTO*) b repeatTimes] - [(TaskDTO*) b currentRepetition];
+        NSInteger aRept = [(TaskDTO*) a repeatTimes] - [(TaskDTO*) a currentRepetition];
+        NSInteger bRept = [(TaskDTO*) b repeatTimes] - [(TaskDTO*) b currentRepetition];
         NSDate *first = [[(TaskDTO*) a dueDate] dateByAddingTimeInterval:-ONE_DAY*aRept];
         NSDate *second = [[(TaskDTO*)b dueDate] dateByAddingTimeInterval:-ONE_DAY*bRept];
         NSComparisonResult comparisonResult = [first compare:second];
@@ -192,6 +192,15 @@ TaskListModel* instance;
     deletingTask.videoUrl = nil;
     
     [[StatsModel sharedInstance] contabilizeDeletedTask:deletingTask];
+}
+
+- (void) deleteAllTasks {
+    NSMutableArray* tempArray = [NSMutableArray arrayWithArray:[self getDoneTasks]];
+    [tempArray addObjectsFromArray:[self getToDoTasks]];
+    
+    for (TaskDTO* task in tempArray) {
+        [self deleteTask:task];
+    }
 }
 
 - (TaskDTO*) taskAtIndex:(int)index {

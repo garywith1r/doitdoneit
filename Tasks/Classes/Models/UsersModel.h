@@ -26,6 +26,7 @@
 - (NSArray*) getUsers;
 
 - (void) addUser:(NSDictionary*)userData;
+- (void) deleteUserAtIndex:(NSInteger)index;
 - (void) saveUsersArray;
 - (void) saveCurrentUserData;
 

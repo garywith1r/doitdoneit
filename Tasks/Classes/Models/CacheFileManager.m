@@ -10,6 +10,8 @@
 #import "EGOCache.h"
 #import "SDImageCache.h"
 
+#define DELETE_TASK_ALERT_TAG 125
+
 @implementation CacheFileManager
 
 

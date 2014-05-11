@@ -3700,11 +3700,12 @@ Missed:     Hit:</string>
                     <navigationItem key="navigationItem" id="0s6-d8-3b6"/>
                     <connections>
                         <segue destination="44k-ky-JKV" kind="push" identifier="PurchaseItemSegue" id="dod-iZ-wfa"/>
+                        <segue destination="8En-7t-hlC" kind="push" identifier="SetUpParentsPincode" id="6Yu-eP-KEr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5R-0w-xLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1131" y="2184"/>
+            <point key="canvasLocation" x="1126" y="2184"/>
         </scene>
         <!--In App Purhcase View Controller-->
         <scene sceneID="mMD-AW-lRj">
@@ -4388,6 +4389,6 @@ Missed:     Hit:</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="1LB-Vq-7l6"/>
-        <segue reference="JJL-Ml-AgY"/>
+        <segue reference="6Yu-eP-KEr"/>
     </inferredMetricsTieBreakers>
 </document>
