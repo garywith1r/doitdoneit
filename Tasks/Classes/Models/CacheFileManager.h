@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EGOFileManager : NSObject
+@interface CacheFileManager : NSObject
 
 + (UIImage*) getImageFromPath:(NSString*)path;
 + (NSData*) getDataFromPath:(NSString*)path;

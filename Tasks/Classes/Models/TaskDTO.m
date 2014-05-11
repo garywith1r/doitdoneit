@@ -8,7 +8,7 @@
 
 #import "TaskDTO.h"
 #import "NSDate+Reporting.h"
-#import "EGOFileManager.h"
+#import "CacheFileManager.h"
 #import "TaskListModel.h"
 
 #define DEFAULT_TIME_FOR_TASK 604800 //one week
@@ -272,7 +272,7 @@
     if (thumb)
         return thumb;
     
-    thumb = [EGOFileManager getImageFromPath:self.thumbImagePath];
+    thumb = [CacheFileManager getImageFromPath:self.thumbImagePath];
     
     return thumb;
 }
@@ -282,7 +282,7 @@
     NSString* oldPath = self.thumbImagePath;
     thumb = thumbImage;
     if (thumbImage)
-        self.thumbImagePath = [EGOFileManager storeImage:thumbImage];
+        self.thumbImagePath = [CacheFileManager storeImage:thumbImage];
     else
         self.thumbImagePath = nil;
     

@@ -6,23 +6,24 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import "EGOFileManager.h"
+#import "CacheFileManager.h"
 #import "EGOCache.h"
+#import "SDImageCache.h"
 
-@implementation EGOFileManager
+@implementation CacheFileManager
 
 
 + (UIImage*) getImageFromPath:(NSString*)path {
     if (path && ![@"" isEqualToString:path]) {
-        EGOCache* cache = [EGOCache globalCache];
-        UIImage* image = [cache imageForKey:path];
+        SDImageCache* cache = [SDImageCache sharedImageCache];
+        UIImage* image = [cache imageFromDiskCacheForKey:path];
         
         if (image)
             return image; //cache hit.
         
         image = [UIImage imageWithData:[[NSFileManager defaultManager] contentsAtPath:path]];
         if (image)
-            [cache setImage:image forKey:path];
+            [cache storeImage:image forKey:path];
         
         return image;
     } else {
@@ -50,7 +51,7 @@
 + (NSString*) storeImage:(UIImage*)image {
     if (image) {
         NSData *dataForPNGFile = UIImagePNGRepresentation(image);
-        return [EGOFileManager storeData:dataForPNGFile];
+        return [CacheFileManager storeData:dataForPNGFile];
     } else {
         return nil;
     }
@@ -58,7 +59,7 @@
 
 + (NSString*) storeData:(NSData*)data {
     if (data) {
-        NSString* path = [EGOFileManager getAvailablePath];
+        NSString* path = [CacheFileManager getAvailablePath];
         [self storeData:data onPath:path];
         return path;
     } else {
@@ -76,7 +77,7 @@
     NSString* filePath = @"";
     
     do {
-        NSString* completeFileName = [NSString stringWithFormat:@"%u",arc4random()];
+        NSString* completeFileName = [NSString stringWithFormat:@"%u.MOV",arc4random()];
         filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:completeFileName];
     } while ([[NSFileManager defaultManager] fileExistsAtPath:filePath]);
     

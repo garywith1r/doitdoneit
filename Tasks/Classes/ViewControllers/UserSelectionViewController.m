@@ -12,7 +12,7 @@
 #import "TaskListModel.h"
 #import "NewUserPopUP.h"
 #import "UserCellViewController.h"
-#import "EGOFileManager.h"
+#import "CacheFileManager.h"
 #import "Constants.h"
 #import "StatsModel.h"
 
@@ -120,7 +120,7 @@
     NSString* imagePath = [usersDict objectForKey:LOGGED_USER_IMAGE_KEY];
     
     if (imagePath && ![@"" isEqualToString:imagePath]) {
-        cellView.avatarImage.image = [EGOFileManager getImageFromPath:imagePath];
+        cellView.avatarImage.image = [CacheFileManager getImageFromPath:imagePath];
     } else {
         cellView.avatarImage.image = DEFAULT_USER_IMAGE;
     }

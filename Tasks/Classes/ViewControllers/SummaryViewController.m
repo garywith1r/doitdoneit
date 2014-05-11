@@ -9,7 +9,7 @@
 #import "SummaryViewController.h"
 #import "UsersModel.h"
 #import "StatsModel.h"
-#import "EGOFileManager.h"
+#import "CacheFileManager.h"
 #import "TabBarController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Constants.h"
@@ -44,7 +44,7 @@
     
     nameLabel.text = [currentUser objectForKey:LOGGED_USER_NAME_KEY];
     statsLabel.text = [NSString stringWithFormat:@"%ld Done today, %ld this\nweek. Hit rate %.1f%%",(long)statsModel.todayCompleted, (long)statsModel.thisWeekCompleted, [statsModel thisWeekHitRate]];
-    UIImage* image = [EGOFileManager getImageFromPath:[currentUser objectForKey:LOGGED_USER_IMAGE_KEY]];
+    UIImage* image = [CacheFileManager getImageFromPath:[currentUser objectForKey:LOGGED_USER_IMAGE_KEY]];
     
     if (image) {
         [btnImage setImage:image forState:UIControlStateNormal];

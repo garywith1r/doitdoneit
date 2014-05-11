@@ -10,7 +10,7 @@
 #import "NSDate+Reporting.h"
 #import "StatsModel.h"
 #import "Constants.h"
-#import "EGOFileManager.h"
+#import "CacheFileManager.h"
 #import "UsersModel.h"
 
 #define TASKS_ARRAY_KEY @"tasksList"
@@ -429,7 +429,7 @@ TaskListModel* instance;
         }
         
         if (!stillInUse)
-            [EGOFileManager deleteContentAtPath:path];
+            [CacheFileManager deleteContentAtPath:path];
     }
 }
 
@@ -449,7 +449,7 @@ TaskListModel* instance;
         }
         
         if (!stillInUse)
-            [EGOFileManager deleteContentAtPath:path];
+            [CacheFileManager deleteContentAtPath:path];
     }
 }
 @end

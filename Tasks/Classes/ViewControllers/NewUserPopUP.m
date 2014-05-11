@@ -7,7 +7,7 @@
 //
 
 #import "NewUserPopUP.h"
-#import "EGOFileManager.h"
+#import "CacheFileManager.h"
 #import "UsersModel.h"
 #import "Constants.h"
 #import "UIImage+Resize.h"
@@ -41,7 +41,7 @@
         btnImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
         
         if (imagePath && ![@"" isEqualToString:imagePath]) {
-            image = [EGOFileManager getImageFromPath:imagePath];
+            image = [CacheFileManager getImageFromPath:imagePath];
             [btnImage setTitle:@"" forState:UIControlStateNormal];
             [btnImage setImage:image forState:UIControlStateNormal];
         } else {
@@ -60,11 +60,11 @@
     
     NSString* imagePath = [newUserDictionary objectForKey:LOGGED_USER_IMAGE_KEY];
     if (imagePath && ![@"" isEqualToString:imagePath])
-        [EGOFileManager deleteContentAtPath:imagePath];
+        [CacheFileManager deleteContentAtPath:imagePath];
     [newUserDictionary removeObjectForKey:LOGGED_USER_IMAGE_KEY];
     
     if (image) {
-        NSString* imagePath = [EGOFileManager storeImage:image];
+        NSString* imagePath = [CacheFileManager storeImage:image];
         [newUserDictionary setObject:imagePath forKey:LOGGED_USER_IMAGE_KEY];
     } else {
         [newUserDictionary setObject:@"" forKey:LOGGED_USER_IMAGE_KEY];

@@ -7,7 +7,7 @@
 //
 
 #import "UsersModel.h"
-#import "EGOFileManager.h"
+#import "CacheFileManager.h"
 #import "TabBarController.h"
 #import "StatsModel.h"
 #import "NSDate+Reporting.h"
@@ -81,7 +81,7 @@ UsersModel* userModelInstance;
     NSMutableArray* tempArray = [NSMutableArray arrayWithArray:storedUsers];
     
     if (!path || [path isEqualToString:@""]) {
-        path = [EGOFileManager getAvailablePath];
+        path = [CacheFileManager getAvailablePath];
         [newUserDictionary setObject:path forKey:LOGGED_USER_PATH_KEY];
         [tempArray addObject:newUserDictionary];
         
@@ -111,14 +111,14 @@ UsersModel* userModelInstance;
 
 - (void) saveCurrentUserData {
     NSData * encodedData = [NSKeyedArchiver archivedDataWithRootObject:logedUserData];
-    [EGOFileManager storeData:encodedData onPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
+    [CacheFileManager storeData:encodedData onPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
 }
 
 - (void) changeToUserAtIndex:(NSInteger)index {
     // we won't save currents user data cause each single change is stored when performed.
     
     logedUser = [[self getUsers] objectAtIndex:index];
-    NSData* data = [EGOFileManager getDataFromPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
+    NSData* data = [CacheFileManager getDataFromPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
     if (data) {
         logedUserData = [NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
     } else {
