@@ -17,6 +17,7 @@
     NSArray* inAppPurchasesDictionaries;
     NSInteger selectedItem;
     SKProductsRequest *request;
+    IBOutlet UITableView* table;
 }
 
 @end
@@ -50,6 +51,26 @@
     NSDictionary* inAppDictionary = inAppPurchasesDictionaries[indexPath.row];
     
     cell.titleLabel.text = [inAppDictionary objectForKey:@"Name"];
+    
+    BOOL unlocked = NO;
+    
+    switch (indexPath.row) {
+        case 1: { //Family
+            unlocked = [[UsersModel sharedInstance] purchasedParentsMode];
+        }
+        case 2: //Multiuser
+            unlocked = [[UsersModel sharedInstance] purchasedMultiUser];
+        case 3: //Weekly Review
+            unlocked = [[UsersModel sharedInstance] purchasedWeeklyReview];
+        case 4: //Remove Ads
+            unlocked = [[UsersModel sharedInstance] purchasedAddsFree];
+    }
+    
+    if (unlocked)
+        cell.image.image = [UIImage imageNamed:@"abierto"];
+    else
+        cell.image.image = [UIImage imageNamed:@"Cerrado"];
+    
     
     return cell;
 }
@@ -105,6 +126,7 @@
             }
         }
     }
+    [table reloadData];
 }
 
 @end

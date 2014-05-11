@@ -28,11 +28,14 @@
                                 <rect key="frame" x="0.0" y="68" width="320" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WB-4U-CYh">
-                                        <rect key="frame" x="174" y="0.0" width="146" height="34"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WB-4U-CYh">
+                                        <rect key="frame" x="165" y="6" width="147" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Weekly Review >">
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="141" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Weekly Review" image="weeklyrev.png">
                                             <color key="titleColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -141,6 +144,27 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWh-hw-BQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Qne-6Q-bTJ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7f-s7-Qfa">
+                            <rect key="frame" x="95" y="-2" width="131" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="120" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Personal Goal" image="goal.png">
+                                <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <segue destination="PpN-Dw-0Yx" kind="push" id="abT-RF-pXv"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" id="BU4-Z5-zfc">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,22 +176,6 @@
                             <color key="textColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="highlightedColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" id="Qne-6Q-bTJ">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7f-s7-Qfa">
-                            <rect key="frame" x="115" y="-2" width="91" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="Personal Goal">
-                                <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -823,7 +831,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAf-MQ-2Gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="1430"/>
+            <point key="canvasLocation" x="1950" y="1416"/>
         </scene>
         <!--Reminders View Controller-->
         <scene sceneID="ObB-A4-s0r">
@@ -871,12 +879,17 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                                     <action selector="switchValueChanged" destination="NrM-Dd-Byv" eventType="valueChanged" id="fBs-z6-8oq"/>
                                 </connections>
                             </switch>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdX-wY-QlW" userLabel="BorderView">
+                                <rect key="frame" x="10" y="58" width="294" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="289" translatesAutoresizingMaskIntoConstraints="NO" id="DJT-6Z-G0B">
                                 <rect key="frame" x="16" y="58" width="289" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="We'll send you ">
+                                    <fragment content="      We'll send you ">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -924,11 +937,10 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                 <color key="textColor" red="0.22352941179999999" green="0.76078431369999999" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdX-wY-QlW" userLabel="BorderView">
-                                <rect key="frame" x="10" y="58" width="294" height="130"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reminder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cqc-ZD-g3B">
+                                <rect key="frame" x="21" y="63" width="15" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1741,7 +1753,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                         <action selector="textFieldDidFinish:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="z3W-X8-H9z"/>
                                                     </connections>
                                                 </textField>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_task.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="v7Y-MJ-nkK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_task_bordered.png" translatesAutoresizingMaskIntoConstraints="NO" id="v7Y-MJ-nkK">
                                                     <rect key="frame" x="10" y="45" width="71" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
@@ -2549,8 +2561,8 @@ Second Line</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgQ-hg-N55">
-                                        <rect key="frame" x="74" y="221" width="44" height="47"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notes.png" translatesAutoresizingMaskIntoConstraints="NO" id="cgQ-hg-N55">
+                                        <rect key="frame" x="79" y="229" width="31" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-ah-Uvl" userLabel="Button - Done Small">
@@ -3641,11 +3653,16 @@ Missed:     Hit:</string>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHt-Ja-Nkf">
+                                                    <rect key="frame" x="219" y="1" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="image" destination="pHt-Ja-Nkf" id="yhb-pL-5fm"/>
                                             <outlet property="titleLabel" destination="nPx-6O-Rpf" id="Q71-ed-mqH"/>
                                         </connections>
                                     </tableViewCell>
@@ -3906,7 +3923,7 @@ Missed:     Hit:</string>
                         <viewControllerLayoutGuide type="bottom" id="fak-6q-PCG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AXC-1d-eWB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SLh-oP-ri6">
@@ -4337,11 +4354,14 @@ Missed:     Hit:</string>
         <image name="award_line.png" width="21" height="21"/>
         <image name="back.png" width="10" height="14"/>
         <image name="calendar.png" width="29" height="23"/>
-        <image name="default_task.jpg" width="71" height="45"/>
+        <image name="default_task_bordered.png" width="71" height="45"/>
         <image name="default_user.jpg" width="75" height="75"/>
         <image name="go.png" width="10" height="14"/>
+        <image name="goal.png" width="11" height="16"/>
+        <image name="notes.png" width="31" height="31"/>
         <image name="photo_add.png" width="71" height="45"/>
         <image name="photo_profile.png" width="75" height="75"/>
+        <image name="reminder.png" width="15" height="20"/>
         <image name="repeat1_week.png" width="117" height="39"/>
         <image name="repeat1_week_on.png" width="117" height="40"/>
         <image name="repeat2_month.png" width="117" height="40"/>
@@ -4375,6 +4395,7 @@ Missed:     Hit:</string>
         <image name="task_add_big.png" width="34" height="34"/>
         <image name="task_ok.png" width="23" height="23"/>
         <image name="task_ok_off.png" width="23" height="23"/>
+        <image name="weeklyrev.png" width="12" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -4382,6 +4403,7 @@ Missed:     Hit:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="abT-RF-pXv"/>
         <segue reference="C0B-bW-EP2"/>
         <segue reference="6Yu-eP-KEr"/>
     </inferredMetricsTieBreakers>

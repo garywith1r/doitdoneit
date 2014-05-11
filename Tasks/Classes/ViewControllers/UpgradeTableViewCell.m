@@ -10,6 +10,7 @@
 
 @implementation UpgradeTableViewCell
 @synthesize titleLabel;
+@synthesize image;
 
 
 @end

@@ -312,4 +312,11 @@ UsersModel* userModelInstance;
         [sharedApp cancelLocalNotification:notification];
     }
 }
+
+- (void) prepareForBackground {
+    [UsersModel sharedInstance].parentsModeActive = NO;
+    [[UsersModel sharedInstance] addRemindersForMainTask];
+    [[UsersModel sharedInstance] saveCurrentUserData];
+    [[UsersModel sharedInstance].logedUserData setObject:[NSDate date] forKey:LOGGED_USER_LAST_LOGGIN];
+}
 @end

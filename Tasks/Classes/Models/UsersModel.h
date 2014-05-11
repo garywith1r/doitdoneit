@@ -43,6 +43,8 @@
 - (void) addRemindersForMainTask;
 - (void) removeTodaysReminders;
 
+- (void) prepareForBackground;
+
 @property (nonatomic, readonly) NSDictionary* logedUser;
 @property (nonatomic, readonly) NSMutableDictionary* logedUserData;
 

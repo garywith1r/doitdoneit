@@ -11,5 +11,6 @@
 @interface UpgradeTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel* titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView* image;
 
 @end

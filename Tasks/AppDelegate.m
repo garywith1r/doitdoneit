@@ -32,10 +32,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [UsersModel sharedInstance].parentsModeActive = NO;
-    [[UsersModel sharedInstance] addRemindersForMainTask];
-    [[UsersModel sharedInstance] saveCurrentUserData];
-    [[UsersModel sharedInstance].logedUserData setObject:[NSDate date] forKey:LOGGED_USER_LAST_LOGGIN];
+    [[UsersModel sharedInstance] prepareForBackground];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
