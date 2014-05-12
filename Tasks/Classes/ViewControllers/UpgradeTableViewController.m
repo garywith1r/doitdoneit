@@ -55,21 +55,24 @@
     BOOL unlocked = NO;
     
     switch (indexPath.row) {
-        case 1: { //Family
+        case 3: //Family
             unlocked = [[UsersModel sharedInstance] purchasedParentsMode];
-        }
+            break;
         case 2: //Multiuser
             unlocked = [[UsersModel sharedInstance] purchasedMultiUser];
-        case 3: //Weekly Review
+            break;
+        case 1: //Weekly Review
             unlocked = [[UsersModel sharedInstance] purchasedWeeklyReview];
-        case 4: //Remove Ads
+            break;
+        case 0: //Remove Ads
             unlocked = [[UsersModel sharedInstance] purchasedAddsFree];
+            break;
     }
     
     if (unlocked)
-        cell.image.image = [UIImage imageNamed:@"abierto"];
+        cell.lockImage.image = [UIImage imageNamed:@"unlocked.png"];
     else
-        cell.image.image = [UIImage imageNamed:@"Cerrado"];
+        cell.lockImage.image = [UIImage imageNamed:@"locked.png"];
     
     
     return cell;

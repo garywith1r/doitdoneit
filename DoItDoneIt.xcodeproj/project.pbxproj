@@ -66,6 +66,10 @@
 		5C2948C919203DAB00BFC4C0 /* reminder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2948B019203DAB00BFC4C0 /* reminder@2x.png */; };
 		5C2948CA19203DAB00BFC4C0 /* weeklyrev.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2948B119203DAB00BFC4C0 /* weeklyrev.png */; };
 		5C2948CB19203DAB00BFC4C0 /* weeklyrev@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2948B219203DAB00BFC4C0 /* weeklyrev@2x.png */; };
+		5C2948D019204F1700BFC4C0 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2948CC19204F1700BFC4C0 /* locked.png */; };
+		5C2948D119204F1700BFC4C0 /* locked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2948CD19204F1700BFC4C0 /* locked@2x.png */; };
+		5C2948D219204F1700BFC4C0 /* unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2948CE19204F1700BFC4C0 /* unlocked.png */; };
+		5C2948D319204F1700BFC4C0 /* unlocked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2948CF19204F1700BFC4C0 /* unlocked@2x.png */; };
 		5C2D0555190F2B2A00F0C56F /* photo_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2D0553190F2B2A00F0C56F /* photo_profile.png */; };
 		5C2D0556190F2B2A00F0C56F /* photo_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2D0554190F2B2A00F0C56F /* photo_profile@2x.png */; };
 		5C2D0559190F2D3100F0C56F /* NewUserPopUP.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D0558190F2D3100F0C56F /* NewUserPopUP.m */; };
@@ -360,6 +364,10 @@
 		5C2948B019203DAB00BFC4C0 /* reminder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reminder@2x.png"; sourceTree = "<group>"; };
 		5C2948B119203DAB00BFC4C0 /* weeklyrev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weeklyrev.png; sourceTree = "<group>"; };
 		5C2948B219203DAB00BFC4C0 /* weeklyrev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weeklyrev@2x.png"; sourceTree = "<group>"; };
+		5C2948CC19204F1700BFC4C0 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locked.png; path = ../../../../../../../Desktop/assets/locked.png; sourceTree = "<group>"; };
+		5C2948CD19204F1700BFC4C0 /* locked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "locked@2x.png"; path = "../../../../../../../Desktop/assets/locked@2x.png"; sourceTree = "<group>"; };
+		5C2948CE19204F1700BFC4C0 /* unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unlocked.png; path = ../../../../../../../Desktop/assets/unlocked.png; sourceTree = "<group>"; };
+		5C2948CF19204F1700BFC4C0 /* unlocked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unlocked@2x.png"; path = "../../../../../../../Desktop/assets/unlocked@2x.png"; sourceTree = "<group>"; };
 		5C2D0553190F2B2A00F0C56F /* photo_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_profile.png; sourceTree = "<group>"; };
 		5C2D0554190F2B2A00F0C56F /* photo_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_profile@2x.png"; sourceTree = "<group>"; };
 		5C2D0557190F2D3100F0C56F /* NewUserPopUP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserPopUP.h; sourceTree = "<group>"; };
@@ -963,6 +971,10 @@
 				5CEC4573190AB4F2007AA425 /* TaskScreen */,
 				5CD63E55190A070000017304 /* Tabbar Icons */,
 				5CA722231917B5FA0074D005 /* faces */,
+				5C2948CC19204F1700BFC4C0 /* locked.png */,
+				5C2948CD19204F1700BFC4C0 /* locked@2x.png */,
+				5C2948CE19204F1700BFC4C0 /* unlocked.png */,
+				5C2948CF19204F1700BFC4C0 /* unlocked@2x.png */,
 				5C29489919203DAB00BFC4C0 /* default_task_bordered.png */,
 				5C29489A19203DAB00BFC4C0 /* default_task_bordered@2x.png */,
 				5C29489B19203DAB00BFC4C0 /* goal.png */,
@@ -1443,6 +1455,7 @@
 				5CEC458F190AF980007AA425 /* InAppPurchases.plist in Resources */,
 				5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */,
 				5C2948B619203DAB00BFC4C0 /* goal@2x.png in Resources */,
+				5C2948D219204F1700BFC4C0 /* unlocked.png in Resources */,
 				5C2948B519203DAB00BFC4C0 /* goal.png in Resources */,
 				5CD63E8B190A070000017304 /* repeat3_fort.png in Resources */,
 				5CD63EA4190A070000017304 /* tabbar_task_on@2x.png in Resources */,
@@ -1530,15 +1543,18 @@
 				5CD63E9A190A070000017304 /* tabbar_home@2x.png in Resources */,
 				5CD63E7C190A070000017304 /* repeat_more_on@2x.png in Resources */,
 				5CDAF0EF190D9D8800634437 /* settings_upgrades_off.png in Resources */,
+				5C2948D119204F1700BFC4C0 /* locked@2x.png in Resources */,
 				5C2D0556190F2B2A00F0C56F /* photo_profile@2x.png in Resources */,
 				5CA285011912B7C100315F44 /* Default.png in Resources */,
 				5C2948CB19203DAB00BFC4C0 /* weeklyrev@2x.png in Resources */,
 				5CF7721D191D0A8400AA5C98 /* Quotes.plist in Resources */,
+				5C2948D019204F1700BFC4C0 /* locked.png in Resources */,
 				5CD63EA7190A070000017304 /* task_add.png in Resources */,
 				5C2948BF19203DAB00BFC4C0 /* icon_50.png in Resources */,
 				5CD63EA2190A070000017304 /* tabbar_task@2x.png in Resources */,
 				5C30E54118BC5F450083FF23 /* Copy.png in Resources */,
 				5C2948C019203DAB00BFC4C0 /* icon_512.png in Resources */,
+				5C2948D319204F1700BFC4C0 /* unlocked@2x.png in Resources */,
 				5CA7222F1917B5FA0074D005 /* face_indifferent@2x.png in Resources */,
 				5C077D34191EA95100872D69 /* back@2x.png in Resources */,
 				5CDAF0EE190D9D8800634437 /* settings_settings_on.png in Resources */,

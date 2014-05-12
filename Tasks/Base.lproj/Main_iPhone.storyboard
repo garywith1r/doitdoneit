@@ -3664,8 +3664,8 @@ Missed:     Hit:</string>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHt-Ja-Nkf">
-                                                    <rect key="frame" x="219" y="1" width="40" height="40"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="locked.png" translatesAutoresizingMaskIntoConstraints="NO" id="pHt-Ja-Nkf">
+                                                    <rect key="frame" x="242" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -3673,7 +3673,7 @@ Missed:     Hit:</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="image" destination="pHt-Ja-Nkf" id="yhb-pL-5fm"/>
+                                            <outlet property="lockImage" destination="pHt-Ja-Nkf" id="t2z-Z5-29T"/>
                                             <outlet property="titleLabel" destination="nPx-6O-Rpf" id="Q71-ed-mqH"/>
                                         </connections>
                                     </tableViewCell>
@@ -3727,7 +3727,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5R-0w-xLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="2184"/>
+            <point key="canvasLocation" x="1106" y="2184"/>
         </scene>
         <!--In App Purhcase View Controller-->
         <scene sceneID="mMD-AW-lRj">
@@ -4357,6 +4357,7 @@ Missed:     Hit:</string>
         <image name="default_user.jpg" width="75" height="75"/>
         <image name="go.png" width="10" height="14"/>
         <image name="goal.png" width="11" height="16"/>
+        <image name="locked.png" width="25" height="25"/>
         <image name="notes.png" width="31" height="31"/>
         <image name="photo_add.png" width="71" height="45"/>
         <image name="photo_profile.png" width="75" height="75"/>
