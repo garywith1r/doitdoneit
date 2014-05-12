@@ -15,6 +15,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    if (![[UsersModel sharedInstance].logedUserData objectForKey:LOGGED_USER_REMINDERS_KEY])
+        [[UsersModel sharedInstance].logedUserData setInteger:TRUE forKey:LOGGED_USER_REMINDERS_KEY];
+    
     [[UsersModel sharedInstance] removeTodaysReminders];
     
     // Override point for customization after application launch.
@@ -37,8 +41,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+- (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [[TaskListModel sharedInstance] evaluateMissedTasks];
     [[TaskListModel sharedInstance] forceRecalculateTasks];

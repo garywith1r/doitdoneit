@@ -131,7 +131,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
-        return [motivationalQuote sizeWithFont:sampleLabel.font constrainedToSize:CGSizeMake(sampleLabel.frame.size.width - 20, 999999) lineBreakMode:NSLineBreakByCharWrapping].height;
+        return [motivationalQuote sizeWithFont:sampleLabel.font constrainedToSize:CGSizeMake(sampleLabel.frame.size.width - 20, 999999) lineBreakMode:NSLineBreakByCharWrapping].height + 20;
     } else {
         return tableView.rowHeight;
     }

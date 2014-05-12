@@ -63,7 +63,7 @@
         weekLbl.text = @"Weekly Review ● This week";
     } else {
         NSDateFormatter* dateFormater = [[NSDateFormatter alloc] init];
-        [dateFormater setDateFormat:@"MMM, dd"];
+        [dateFormater setDateFormat:@"MMM dd"];
         weekLbl.text = [NSString stringWithFormat:@"Weekly Review ● %@ - %@",[dateFormater stringFromDate:date],[dateFormater stringFromDate:[date dateByAddingTimeInterval:ONE_DAY*6]]];
         nextWeekButton.enabled = YES;
     }
