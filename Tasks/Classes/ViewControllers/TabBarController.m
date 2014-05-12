@@ -33,11 +33,16 @@
 
 - (void) removeAdds {
     iAdsViewHeight.constant = 0;
-    [UIView animateWithDuration:0.3 animations:^{[self.view layoutIfNeeded];}];
+    [self removeAddsFromView:self.view];
     iAdsView.hidden = YES;
-    
 }
 
+- (void) removeAddsFromView:(UIView*)view {
+    [UIView animateWithDuration:0.3 animations:^{[view layoutIfNeeded];}];
+    for (UIView* subView in view.subviews) {
+        [self removeAddsFromView:subView];
+    }
+}
 
 #pragma mark - ADBannerViewDelegate Methods
 
@@ -49,6 +54,8 @@
     }
 }
 
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {}
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    NSLog(@"%@",error);
+}
 
 @end
