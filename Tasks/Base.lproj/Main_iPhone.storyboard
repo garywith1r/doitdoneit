@@ -3938,7 +3938,7 @@ Missed:     Hit:</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SLh-oP-ri6">
-                                <rect key="frame" x="0.0" y="14" width="320" height="25"/>
+                                <rect key="frame" x="0.0" y="7" width="320" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glf-k1-WEU">
@@ -3951,8 +3951,8 @@ Missed:     Hit:</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter your decired goal" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eis-GL-Crf">
-                                <rect key="frame" x="20" y="68" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Define your decired goal" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eis-GL-Crf">
+                                <rect key="frame" x="12" y="41" width="297" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3961,10 +3961,14 @@ Missed:     Hit:</string>
                                     <outlet property="delegate" destination="PpN-Dw-0Yx" id="YeM-ec-ebH"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahs-5z-bga">
-                                <rect key="frame" x="12" y="155" width="139" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahs-5z-bga">
+                                <rect key="frame" x="12" y="409" width="139" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="I1r-oL-Rzy"/>
+                                    <constraint firstAttribute="height" constant="38" id="J8t-Rc-jyL"/>
+                                </constraints>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3973,10 +3977,14 @@ Missed:     Hit:</string>
                                     <action selector="cancelButtonPressed" destination="PpN-Dw-0Yx" eventType="touchUpInside" id="McW-BV-xrM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gD-DR-f4z">
-                                <rect key="frame" x="170" y="155" width="139" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gD-DR-f4z">
+                                <rect key="frame" x="170" y="409" width="139" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="50K-Cd-XC7"/>
+                                    <constraint firstAttribute="height" constant="38" id="bgc-bD-wA8"/>
+                                </constraints>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3985,11 +3993,45 @@ Missed:     Hit:</string>
                                     <action selector="doneButtonPressed" destination="PpN-Dw-0Yx" eventType="touchUpInside" id="sDW-SH-ZE0"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTf-c2-fdi" userLabel="Description Border View">
+                                <rect key="frame" x="12" y="80" width="297" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="357-3S-ZsA" userLabel="Description Text View">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="PpN-Dw-0Yx" id="M0u-4Z-YCj"/>
+                                        </connections>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a description for your Goal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8K-8T-Pkn">
+                                        <rect key="frame" x="0.0" y="6" width="253" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ahs-5z-bga" firstAttribute="leading" secondItem="AXC-1d-eWB" secondAttribute="leading" constant="12" id="1rm-8e-n60"/>
+                            <constraint firstAttribute="bottom" secondItem="ahs-5z-bga" secondAttribute="bottom" constant="121" id="GBd-e7-D8v"/>
+                            <constraint firstAttribute="bottom" secondItem="6gD-DR-f4z" secondAttribute="bottom" constant="121" id="iZo-6p-tEJ"/>
+                            <constraint firstItem="6gD-DR-f4z" firstAttribute="leading" secondItem="AXC-1d-eWB" secondAttribute="leading" constant="170" id="uhP-tn-Wh7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cA5-12-IeN"/>
                     <connections>
+                        <outlet property="goalDescriptionBorderView" destination="QTf-c2-fdi" id="iDc-A0-seM"/>
+                        <outlet property="goalDescriptionPlaceholderLabel" destination="A8K-8T-Pkn" id="ZoR-h6-2Wh"/>
+                        <outlet property="goalDescriptionTextView" destination="357-3S-ZsA" id="6S7-g9-jnA"/>
                         <outlet property="goalTextField" destination="eis-GL-Crf" id="Cvo-r4-AUk"/>
                     </connections>
                 </viewController>

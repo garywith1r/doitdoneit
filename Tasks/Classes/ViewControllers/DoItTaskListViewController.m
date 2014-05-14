@@ -262,6 +262,23 @@
         [scrollView.pullGestureRecognizer resetPullState];
 }
 
+#pragma mark - UITextField Methods
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString* newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (textField == quickAddTitle) {
+        if ( newText.length <= TASK_TITLE_MAX_CHARACTERS) {
+            quickAddDto.title = [textField.text stringByReplacingCharactersInRange:range withString:string];
+            return YES;
+        } else {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 #pragma mark - QuickAdd Methods
 
 - (void) hideQuickAddCell {
@@ -292,12 +309,6 @@
     [vc setInitialTimes:quickAddDto.repeatTimes andInitialTimeInterval:quickAddDto.repeatPeriod];
     vc.delegate = self;
     [vc presentOnViewController:self];
-}
-
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    quickAddDto.title = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    return YES;
 }
 
 
