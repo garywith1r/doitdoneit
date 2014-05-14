@@ -9,6 +9,6 @@
 #import "SettingSegueTableViewCell.h"
 
 @implementation SettingSegueTableViewCell
-@synthesize lblText;
+@synthesize lblText, lblText2;
 
 @end

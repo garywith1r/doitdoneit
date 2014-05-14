@@ -22,6 +22,7 @@
     IBOutlet UILabel* sampleLabel;
     
     NSString* personalGoalText;
+    NSString* personalGoalDescription;
     NSString* motivationalQuote;
     NSArray* awardsToShow;
     NSDate* quoteDate;
@@ -67,10 +68,16 @@
     }
     
     NSInteger goalPoints = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_GOAL_KEY];
-    if (goalPoints)
-        personalGoalText = [NSString stringWithFormat:@"%ld Points",(long)goalPoints];
-    else
+    if (goalPoints) {
+        personalGoalText = [NSString stringWithFormat:@"%ld Points, Currently %ld points",(long)goalPoints,(long)[StatsModel sharedInstance].totalPoints];
+    } else {
         personalGoalText = @"You haven't set a personal goal yet";
+    }
+    
+    personalGoalDescription = [[UsersModel sharedInstance].logedUserData objectForKey:LOGGED_USER_GOAL_DESCRIPTION_KEY];
+    
+    if (!personalGoalDescription)
+        personalGoalDescription = @"";
     
     
     
@@ -130,7 +137,9 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
+        return [personalGoalDescription sizeWithFont:sampleLabel.font constrainedToSize:CGSizeMake(sampleLabel.frame.size.width - 20, 999999) lineBreakMode:NSLineBreakByCharWrapping].height + 43;
+    } else if (indexPath.section == 2) {
         return [motivationalQuote sizeWithFont:sampleLabel.font constrainedToSize:CGSizeMake(sampleLabel.frame.size.width - 20, 999999) lineBreakMode:NSLineBreakByCharWrapping].height + 20;
     } else {
         return tableView.rowHeight;
@@ -143,12 +152,13 @@
     if (indexPath.section == 0) { //awards section
         cell = [tableView dequeueReusableCellWithIdentifier:@"HomeAwardCell"];
         [cell.lblText setText:[awardsToShow[indexPath.row] objectForKey:@"text"]];
+    } else if (indexPath.section == 1) { //Goal section
+        cell = [tableView dequeueReusableCellWithIdentifier:@"HomeGoalCell"];
+        [cell.lblText setText:personalGoalDescription];
+        [cell.lblText2 setText:personalGoalText];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"HomeCommonCell"];
-        if (indexPath.section == 1)
-            [cell.lblText setText:personalGoalText];
-        else
-            [cell.lblText setText:motivationalQuote];
+        [cell.lblText setText:motivationalQuote];
     }
     
     return cell;

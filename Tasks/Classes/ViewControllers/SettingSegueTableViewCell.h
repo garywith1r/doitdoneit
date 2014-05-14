@@ -10,4 +10,5 @@
 
 @interface SettingSegueTableViewCell : UITableViewCell
 @property (nonatomic, weak) IBOutlet UILabel* lblText;
+@property (nonatomic, weak) IBOutlet UILabel* lblText2;
 @end
