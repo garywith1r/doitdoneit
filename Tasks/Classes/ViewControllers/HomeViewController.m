@@ -21,6 +21,8 @@
     
     IBOutlet UILabel* sampleLabel;
     
+    IBOutlet NSLayoutConstraint* weeklyButtonHeightContrait;
+    
     NSString* personalGoalText;
     NSString* personalGoalDescription;
     NSString* motivationalQuote;
@@ -44,7 +46,14 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    weeklyReview.hidden = ![UsersModel sharedInstance].purchasedWeeklyReview;
+    if ([UsersModel sharedInstance].purchasedWeeklyReview) {
+        weeklyReview.hidden = NO;
+        weeklyButtonHeightContrait.constant = 25;
+    } else {
+        weeklyReview.hidden = YES;
+        weeklyButtonHeightContrait.constant = 0;
+    }
+    
     
     NSDate* lastTimeShowedAwards = [[UsersModel sharedInstance].logedUserData objectForKey:LOGGED_USER_LAST_LOGGIN];
     
