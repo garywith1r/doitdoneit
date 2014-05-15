@@ -16,6 +16,8 @@
 #import "NotePopUpViewController.h"
 #import "UsersModel.h"
 
+#define SAHRE_TEXT [NSString stringWithFormat:@"Done it. %@. %@",self.task.title, self.task.notes]
+
 @interface CompleteTaskViewController () <PopUpDelegate>{
     IBOutlet UILabel* lblTitle;
     IBOutlet UILabel* lblStats;
@@ -122,11 +124,11 @@
 }
 
 - (IBAction) shareOnFacebook {
-    [MediaModel postMessageToFacebook:[NSString stringWithFormat:@"I Just completed %@",self.task.title]];
+    [MediaModel postMessageToFacebook:SAHRE_TEXT];
 }
 
 - (IBAction) shareOnTwitter {
-    [MediaModel postMessageToTwitter:[NSString stringWithFormat:@"I Just completed %@",self.task.title]];
+    [MediaModel postMessageToTwitter:SAHRE_TEXT];
 }
 
 - (IBAction) notesButtonPressed {
