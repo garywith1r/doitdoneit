@@ -127,7 +127,11 @@
         }
         
         for (TaskDTO* task in dayArray) {
-            body = [body stringByAppendingString:[NSString stringWithFormat:@"%@ %ld Stars\n",task.title, (long)task.rating]];
+            NSString* taskTitle = task.title;
+            if (task.status == TaskStatusMissed)
+                taskTitle = [taskTitle stringByAppendingString:@" (missed)"];
+            
+            body = [body stringByAppendingString:[NSString stringWithFormat:@"%@ %ld Stars\n",taskTitle, (long)task.rating]];
             if (task.notes && ![@"" isEqualToString:task.notes]) {
                 body = [body stringByAppendingString:[NSString stringWithFormat:@"%@\n",task.notes]];
             }
@@ -200,7 +204,11 @@
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WeeklyReviewTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"WeeklyReviewTableViewCell"];
     TaskDTO* task = currentWeekArray[indexPath.section][indexPath.row];
-    cell.taskTitle.text = task.title;
+    NSString* taskTitle = task.title;
+    if (task.status == TaskStatusMissed)
+        taskTitle = [taskTitle stringByAppendingString:@" (missed)"];
+        
+    cell.taskTitle.text = taskTitle;
     cell.taskNote.text = task.notes;
     cell.taskStars.text = [NSString stringWithFormat:@"%ld Stars",(long)task.rating];
     
