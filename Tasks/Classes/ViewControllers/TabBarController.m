@@ -33,15 +33,7 @@
 
 - (void) removeAdds {
     iAdsViewHeight.constant = 0;
-    [self removeAddsFromView:self.view];
     iAdsView.hidden = YES;
-}
-
-- (void) removeAddsFromView:(UIView*)view {
-    [UIView animateWithDuration:0.3 animations:^{[view layoutIfNeeded];}];
-    for (UIView* subView in view.subviews) {
-        [self removeAddsFromView:subView];
-    }
 }
 
 #pragma mark - ADBannerViewDelegate Methods

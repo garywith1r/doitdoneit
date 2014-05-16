@@ -544,7 +544,7 @@
                                         </state>
                                         <state key="selected" image="tabbar_settings_on.png"/>
                                         <connections>
-                                            <segue destination="eP6-fl-o8e" kind="custom" identifier="viewController4" customClass="MHTabBarSegue" id="BbT-0G-7lx"/>
+                                            <segue destination="KLM-wW-hrD" kind="custom" identifier="viewController4" customClass="MHTabBarSegue" id="RFt-ab-rKd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -608,7 +608,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dx0-2F-w02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-510" y="13"/>
+            <point key="canvasLocation" x="-522" y="13"/>
         </scene>
         <!--Navigation Controller - Done It-->
         <scene sceneID="xT7-ZA-ZNH">
@@ -734,7 +734,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BI3-1B-DhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="1484"/>
+            <point key="canvasLocation" x="1106" y="1460"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="PPv-x2-c9m">
@@ -820,7 +820,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHJ-oD-GKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="1484"/>
+            <point key="canvasLocation" x="1626" y="1460"/>
         </scene>
         <!--Pop View Controller-->
         <scene sceneID="agB-8y-3IZ">
@@ -879,7 +879,7 @@ Once you have momentum keep it up. Your stats will show you where you’re at so
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAf-MQ-2Gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="1416"/>
+            <point key="canvasLocation" x="2426" y="1460"/>
         </scene>
         <!--Reminders View Controller-->
         <scene sceneID="ObB-A4-s0r">
@@ -1000,7 +1000,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0L1-oU-pvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="1484"/>
+            <point key="canvasLocation" x="3698" y="1460"/>
         </scene>
         <!--Enter Parents Pin View Controller-->
         <scene sceneID="rl1-M8-AnS">
@@ -1196,7 +1196,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                     <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2552" y="1542"/>
+            <point key="canvasLocation" x="3016" y="1460"/>
         </scene>
         <!--Set Up Parents Pin Code View Controller-->
         <scene sceneID="F6F-Jl-JfT">
@@ -2825,7 +2825,7 @@ Second Line</string>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="3198" y="2085"/>
+            <point key="canvasLocation" x="3698" y="2061"/>
         </scene>
         <!--Select Repeat Times View Controller-->
         <scene sceneID="2lT-T4-XcZ">
@@ -3569,10 +3569,29 @@ Missed:     Hit:</string>
             </objects>
             <point key="canvasLocation" x="2022" y="-765"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jlR-pF-nKn">
+            <objects>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="KLM-wW-hrD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2Wu-wr-DoT"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="469"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DCH-8I-tM2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eP6-fl-o8e" kind="relationship" relationship="rootViewController" id="B2H-5l-6wg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t0f-xu-AxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="67" y="1431"/>
+        </scene>
         <!--Settings Tab Bar Controller-->
         <scene sceneID="yaX-mi-Cs0">
             <objects>
-                <viewController storyboardIdentifier="SettingsTabBarController" id="eP6-fl-o8e" customClass="SettingsTabBarController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsTabBarController" definesPresentationContext="YES" id="eP6-fl-o8e" customClass="SettingsTabBarController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cTR-qb-yNq"/>
                         <viewControllerLayoutGuide type="bottom" id="4yP-uW-sit"/>
@@ -3637,9 +3656,6 @@ Missed:     Hit:</string>
                     </view>
                     <navigationItem key="navigationItem" id="N8b-hg-MQu"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="469"/>
                     <connections>
                         <outlet property="container" destination="cAH-pQ-Va6" id="zzr-bu-tnU"/>
@@ -3649,7 +3665,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njp-Nj-GAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="1447"/>
+            <point key="canvasLocation" x="605" y="1431"/>
         </scene>
         <!--Navigation Controller - Settings-->
         <scene sceneID="SSE-aw-eD1">
@@ -3671,7 +3687,7 @@ Missed:     Hit:</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWw-z5-CIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="2184"/>
+            <point key="canvasLocation" x="1106" y="2160"/>
         </scene>
         <!--Upgrade Table View Controller-->
         <scene sceneID="adR-g9-1Wd">
@@ -3769,7 +3785,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5R-0w-xLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="2184"/>
+            <point key="canvasLocation" x="1614" y="2176"/>
         </scene>
         <!--In App Purhcase View Controller-->
         <scene sceneID="mMD-AW-lRj">
@@ -3866,7 +3882,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsr-Y6-aQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1618" y="2184"/>
+            <point key="canvasLocation" x="2098" y="2168"/>
         </scene>
         <!--New User PopUP-->
         <scene sceneID="39f-hw-Ocv">
@@ -3976,7 +3992,7 @@ Missed:     Hit:</string>
                         <viewControllerLayoutGuide type="bottom" id="fak-6q-PCG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AXC-1d-eWB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SLh-oP-ri6">
@@ -4065,7 +4081,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htN-vm-cmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="2638"/>
+            <point key="canvasLocation" x="3698" y="2614"/>
         </scene>
         <!--Note Pop Up View Controller-->
         <scene sceneID="GTu-5h-xt5">
@@ -4473,8 +4489,8 @@ Missed:     Hit:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="abT-RF-pXv"/>
+        <segue reference="aR1-64-oMu"/>
+        <segue reference="cP6-Z1-CA9"/>
         <segue reference="C0B-bW-EP2"/>
-        <segue reference="6Yu-eP-KEr"/>
     </inferredMetricsTieBreakers>
 </document>
