@@ -38,12 +38,15 @@
     IBOutlet UILabel* dueDate;
     IBOutlet UIButton* btnImage;
     IBOutlet TTTAttributedLabel* lblDetails;
+    IBOutletCollection(UIImageView) NSArray* newTaskGoImages;
     
     IBOutlet UIView* completeTaskDetailsView;
     IBOutletCollection(UIButton) NSArray* ratingButtons;
     IBOutlet UILabel* lblNotes;
     IBOutlet UILabel* doneDate;
     IBOutlet UILabel* lblInfo;
+
+    
     
     IBOutlet UIView* buttonsView;
     
@@ -100,9 +103,6 @@
     } else {
         newTaskDetailsView.userInteractionEnabled = NO;
         
-        txtTitle.hidden = YES;
-        lblRepeatTimes.hidden = NO;
-        
         [self setRating:(int)self.task.rating];
         lblNotes.text = self.task.notes;
         
@@ -113,6 +113,10 @@
         int timesMissedIt = [task.timesMissedIt[task.currentRepetition - 1] intValue];
         
         lblInfo.text = [NSString stringWithFormat:@"Created: %@ Done: %dx\nMissed: %dx Hit: %.1f%%",[formatter stringFromDate:task.creationDate], timesDoneIt, timesMissedIt, [task hitRate]];
+        
+        for (UIImageView* image in newTaskGoImages) {
+            image.hidden = YES;
+        }
     }
     
     dueDateTemp = self.task.dueDate;

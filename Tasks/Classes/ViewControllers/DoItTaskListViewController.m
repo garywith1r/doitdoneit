@@ -286,6 +286,7 @@
     showingQuickAddCell = NO;
     [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
     quickAddDto = nil;
+    [quickAddTitle resignFirstResponder];
 }
 
 - (IBAction) quickAddButtonPressed {

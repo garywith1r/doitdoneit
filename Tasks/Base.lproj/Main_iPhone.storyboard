@@ -2379,6 +2379,9 @@ Second Line</string>
                         <outletCollection property="ratingButtons" destination="ywL-g9-njF" id="z7q-wZ-gT2"/>
                         <outletCollection property="ratingButtons" destination="1Zb-I2-Px8" id="LD5-Wn-8UE"/>
                         <outletCollection property="ratingButtons" destination="HDt-hI-Rl9" id="Rtz-WW-xPB"/>
+                        <outletCollection property="newTaskGoImages" destination="KdY-uJ-3Nz" id="bfD-lR-EsD"/>
+                        <outletCollection property="newTaskGoImages" destination="P3D-oR-r79" id="NeK-Zj-bFr"/>
+                        <outletCollection property="newTaskGoImages" destination="y61-M2-gUH" id="VAo-Y6-79R"/>
                         <segue destination="HJk-38-YcT" kind="push" identifier="SelectDatesSegue" id="wkv-Zn-k2w"/>
                     </connections>
                 </viewController>
