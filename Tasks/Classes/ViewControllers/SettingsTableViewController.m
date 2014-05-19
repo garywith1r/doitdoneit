@@ -35,6 +35,13 @@
 }
 
 - (IBAction) parentsModeFeatureSwitchChange {
+    if ([UsersModel sharedInstance].parentsModeEnabled) {
+        if (![UsersModel sharedInstance].parentsModeActive) {
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"Please enable Parent mode on user selection screen in order to switch it off" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            parentsModeFeature.on = YES;
+            return;
+        }
+    }
     [UsersModel sharedInstance].parentsModeEnabled = parentsModeFeature.on;
 }
 
@@ -100,7 +107,7 @@
     [tempArray addObject:@{@"Text":@"Account is Private",@"Type":@"PrivateAccount"}];
     
     if ([UsersModel sharedInstance].purchasedParentsMode)
-        [tempArray addObject:@{@"Text":@"Enabled Parents Mode",@"Type":@"EnableParentsMode"}];
+        [tempArray addObject:@{@"Text":@"Family Mode Enabled",@"Type":@"EnableParentsMode"}];
     
     contentArray = [NSArray arrayWithArray:tempArray];
 }

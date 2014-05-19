@@ -65,6 +65,9 @@ UsersModel* userModelInstance;
         
         parentsModeEnabled = [userDefaults boolForKey:@"parentsModeEnabled"];
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
+        
+//#warning Testing
+//        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
 
     }
     
