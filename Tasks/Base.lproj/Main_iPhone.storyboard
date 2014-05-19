@@ -1800,7 +1800,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <connections>
                                                         <action selector="textFieldDidFinish:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="4uJ-ho-9O5"/>
                                                         <action selector="textFieldDidFinish:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="z3W-X8-H9z"/>
@@ -4489,8 +4489,8 @@ Missed:     Hit:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aR1-64-oMu"/>
         <segue reference="cP6-Z1-CA9"/>
-        <segue reference="C0B-bW-EP2"/>
+        <segue reference="aR1-64-oMu"/>
+        <segue reference="Pq2-NZ-kzj"/>
     </inferredMetricsTieBreakers>
 </document>

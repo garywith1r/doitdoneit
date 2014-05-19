@@ -108,6 +108,7 @@
             QuickAddTaskCell* cell = (QuickAddTaskCell*)[table dequeueReusableCellWithIdentifier:@"QuickAddTaskCell"];
             quickAddRepeatTimes = cell.lblRepeatTiems;
             quickAddTitle = cell.txtTitle;
+            [quickAddTitle becomeFirstResponder];
             quickAddTitle.delegate = self;
             return cell;
         } else {
