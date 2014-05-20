@@ -76,15 +76,15 @@
 - (UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (self.isChangingUser && [UsersModel sharedInstance].parentsModeEnabled)
         return footerView;
-    else
-        return nil;
+    else {
+        UIView* view = [[UIView alloc] initWithFrame:footerView.frame];
+        view.backgroundColor = [UIColor clearColor];
+        return view;
+    }
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (self.isChangingUser && [UsersModel sharedInstance].parentsModeEnabled)
         return footerView.frame.size.height;
-    else
-        return 0.0;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
