@@ -16,7 +16,7 @@
 #import "NotePopUpViewController.h"
 #import "UsersModel.h"
 
-#define SAHRE_TEXT [NSString stringWithFormat:@"Done it. %@. %@",self.task.title, self.task.notes]
+#define SAHRE_TEXT [NSString stringWithFormat:@"#doitdoneit Done it. %@. %@",self.task.title, self.task.notes?self.task.notes:@""]
 
 @interface CompleteTaskViewController () <PopUpDelegate>{
     IBOutlet UILabel* lblTitle;
