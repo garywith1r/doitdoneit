@@ -29,6 +29,12 @@
     iAdsView.hidden = YES;
     if ([UsersModel sharedInstance].purchasedAddsFree)
         [self performSelector:@selector(removeAdds) withObject:nil afterDelay:0.1];
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"AlreadyShowedAbout"]) {
+        [self performSegueWithIdentifier:@"AboutSegue" sender:nil];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AlreadyShowedAbout"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void) removeAdds {

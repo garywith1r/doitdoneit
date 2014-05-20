@@ -604,6 +604,7 @@
                         <outletCollection property="buttons" destination="Hua-kb-Lvx" id="JXo-5w-8hz"/>
                         <outletCollection property="buttons" destination="LwQ-zR-DQ6" id="ooB-55-FOe"/>
                         <outletCollection property="buttons" destination="Qmt-VT-JhR" id="rWX-co-5uj"/>
+                        <segue destination="aNK-Kp-nbz" kind="modal" identifier="AboutSegue" id="kQQ-bD-WcM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dx0-2F-w02" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -831,7 +832,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XcI-oh-v22"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pxv-79-x5v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="oxW-Is-ZD6">
@@ -4492,8 +4493,9 @@ Missed:     Hit:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="kQQ-bD-WcM"/>
+        <segue reference="Pq2-NZ-kzj"/>
         <segue reference="cP6-Z1-CA9"/>
         <segue reference="aR1-64-oMu"/>
-        <segue reference="Pq2-NZ-kzj"/>
     </inferredMetricsTieBreakers>
 </document>

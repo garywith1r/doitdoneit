@@ -15,7 +15,11 @@
 @implementation PopViewController
 
 - (IBAction) popViewController {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if ([viewControllers containsObject:self])
+        [self.navigationController popViewControllerAnimated:YES];
+    else
+        [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

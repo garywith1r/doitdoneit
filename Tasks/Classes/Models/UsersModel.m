@@ -14,6 +14,8 @@
 #import "Constants.h"
 #import "TaskDTO.h"
 #import "TaskListModel.h"
+#import "EditDetailsViewController.h"
+#import <CoreText/CTStringAttributes.h>
 
 #define LOGGED_USER_PATH_KEY @"UsersDataPath"
 
@@ -130,15 +132,15 @@ UsersModel* userModelInstance;
     
     TaskDTO* task1 = [[TaskDTO alloc] init];
     task1.title = DEFAULT_TASK_1_TITLE;
-    task1.detailsText = [[NSAttributedString alloc] initWithString:DEFAULT_TASK_1_DESCRIPTION];
+    task1.detailsText = [self attributedStringForDetails:DEFAULT_TASK_1_DESCRIPTION];
     
     TaskDTO* task2 = [[TaskDTO alloc] init];
     task2.title = DEFAULT_TASK_2_TITLE;
-    task2.detailsText = [[NSAttributedString alloc] initWithString:DEFAULT_TASK_2_DESCRIPTION];
+    task2.detailsText = [self attributedStringForDetails:DEFAULT_TASK_2_DESCRIPTION];
     
     TaskDTO* task3 = [[TaskDTO alloc] init];
     task3.title = DEFAULT_TASK_3_TITLE;
-    task3.detailsText = [[NSAttributedString alloc] initWithString:DEFAULT_TASK_3_DESCRIPTION];
+    task3.detailsText = [self attributedStringForDetails:DEFAULT_TASK_3_DESCRIPTION];
     
     [defaultData setObject:@[[task1 convertToDictionary],[task2 convertToDictionary],[task3 convertToDictionary]] forKey:TASKS_ARRAY_KEY];
     
@@ -348,5 +350,54 @@ UsersModel* userModelInstance;
     [[UsersModel sharedInstance] addRemindersForMainTask];
     [[UsersModel sharedInstance] saveCurrentUserData];
     [[UsersModel sharedInstance].logedUserData setObject:[NSDate date] forKey:LOGGED_USER_LAST_LOGGIN];
+}
+
+
+- (NSAttributedString*) attributedStringForDetails:(NSString*)text {
+    NSError* error;
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:HIPERLINKS_REGEX options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
+    
+    //Iterate through the matches and highlight them
+    NSMutableArray* attributesArray = [[NSMutableArray alloc] initWithCapacity:matches.count * 2];
+    for (int x = 0; x < matches.count; x++)
+    {
+        NSRange matchRange = ((NSTextCheckingResult*)matches[x]).range;
+        
+        NSNumber* location = [NSNumber numberWithInteger:matchRange.location];
+        NSNumber* lenght = [NSNumber numberWithInteger:matchRange.length];
+        
+        [attributesArray addObject:@{@"attribute":NSForegroundColorAttributeName,@"value":YELLOW_COLOR,@"location":location,@"length":lenght}];
+        
+    }
+    
+    NSMutableAttributedString* attrText = [[NSMutableAttributedString alloc] initWithString:text];
+    [attrText beginEditing];
+    
+    //add default font.
+    [attrText addAttribute:(id)kCTFontAttributeName
+                     value:[UIFont systemFontOfSize:14]
+                     range:NSMakeRange(0, attrText.length)];
+    
+    //set white text
+    [attrText addAttribute:(id)NSForegroundColorAttributeName
+                     value:[UIColor whiteColor]
+                     range:NSMakeRange(0, attrText.length)];
+    
+    //add attributes to the links
+    for (NSDictionary* attributeDicc in attributesArray) {
+        
+        [attrText addAttribute:[attributeDicc objectForKey:@"attribute"]
+                         value:[attributeDicc objectForKey:@"value"]
+                         range:NSMakeRange([[attributeDicc objectForKey:@"location"] intValue], [[attributeDicc objectForKey:@"length"] intValue])];
+    }
+    
+    
+    
+    [attrText endEditing];
+    
+    return attrText;
 }
 @end

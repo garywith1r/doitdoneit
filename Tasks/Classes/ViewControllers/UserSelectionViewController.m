@@ -16,6 +16,7 @@
 #import "Constants.h"
 #import "StatsModel.h"
 
+
 #define DELETE_TASK_ALERT_TAG 125
 
 @interface UserSelectionViewController () <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate, PopUpDelegate> {
@@ -194,5 +195,6 @@
 - (void) popUpWillClose {
     [self viewWillAppear:NO];
 }
+
 
 @end
