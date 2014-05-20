@@ -10,6 +10,7 @@
 #import "NSDate+Reporting.h"
 #import "CacheFileManager.h"
 #import "TaskListModel.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define DEFAULT_TIME_FOR_TASK 604800 //one week
 
@@ -22,7 +23,7 @@
 @implementation TaskDTO
 
 @synthesize title, currentRepetition, repeatTimes, repeatPeriod, taskPoints;
-@synthesize detailsText, detailsLinksArray;
+@synthesize detailsText;
 @synthesize notes, status, rating;
 @synthesize creationDate, showingDate, dueDate, completitionDate;
 @synthesize timesDoneIt, timesMissedIt;
@@ -42,7 +43,6 @@
         self.thumbImage = nil;
         self.videoUrl = nil;
         self.detailsText = nil;
-        self.detailsLinksArray = nil;
     }
     return self;
 }
@@ -58,7 +58,6 @@
     newTask.thumbImagePath = self.thumbImagePath;
     newTask.videoUrl = self.videoUrl;
     newTask.detailsText = self.detailsText;
-    newTask.detailsLinksArray = self.detailsLinksArray;
     newTask.creationDate = self.creationDate;
     newTask.showingDate = self.showingDate;
     newTask.dueDate = self.dueDate;
@@ -78,7 +77,7 @@
     newTask.taskPoints = self.taskPoints;
     newTask.thumbImage = self.thumbImage;
     newTask.detailsText = self.detailsText;
-    newTask.detailsLinksArray = self.detailsLinksArray;
+
     
     
     if (self.videoUrl) {
@@ -168,8 +167,6 @@
         NSData *detailsData = [NSKeyedArchiver archivedDataWithRootObject:self.detailsText];
         [dic setObject:detailsData forKey:@"detailsWithLinks"];
     }
-    if (self.detailsLinksArray)
-        [dic setObject:self.detailsLinksArray forKey:@"detailsLinks"];
 
     
     if (self.notes)
@@ -196,7 +193,6 @@
     
     NSString* tempString;
     NSData* tempData;
-    NSArray* tempArray;
     
     tempString = [dicctionary objectForKey:@"title"];
     if (tempString)
@@ -226,11 +222,6 @@
     tempData = [dicctionary objectForKey:@"detailsWithLinks"];
     if (tempData)
         dto.detailsText = [NSKeyedUnarchiver unarchiveObjectWithData:tempData];
-
-    
-    tempArray = [dicctionary objectForKey:@"detailsLinks"];
-    if (tempArray)
-        dto.detailsLinksArray = tempArray;
     
     
     
@@ -288,6 +279,23 @@
     
     if (oldPath && ![@"" isEqualToString:oldPath])
         [[TaskListModel sharedInstance] checkIfImagePathIsStillInUse:oldPath];
+}
+
+- (void) addVideoFromUrl:(NSURL *)url {
+    //get thumbnail image
+    UIImage* thumbImage;
+    
+    MPMoviePlayerController *theMovie = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    theMovie.view.frame = [UIScreen mainScreen].bounds;
+    theMovie.controlStyle = MPMovieControlStyleNone;
+    theMovie.shouldAutoplay=NO;
+    thumbImage = [theMovie thumbnailImageAtTime:0 timeOption:MPMovieTimeOptionExact];
+    
+    
+    //save video to app's directory.
+    NSData *videoData = [NSData dataWithContentsOfURL:url];
+    [[NSFileManager defaultManager] createFileAtPath:[self forceVideoUrl] contents:videoData attributes:nil];
+    [self setThumbImage:thumbImage];
 }
 
 - (void) setVideoUrl:(NSString *)videoUrl {

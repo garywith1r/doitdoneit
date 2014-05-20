@@ -20,7 +20,6 @@
 
 
 #import <MobileCoreServices/UTCoreTypes.h>
-#import <MediaPlayer/MediaPlayer.h>
 
 
 
@@ -346,17 +345,8 @@
         NSURL* url = [info objectForKey:UIImagePickerControllerMediaURL];
         
         
-        //get thumbnail image
-        MPMoviePlayerController *theMovie = [[MPMoviePlayerController alloc] initWithContentURL:url];
-        theMovie.view.frame = self.view.bounds;
-        theMovie.controlStyle = MPMovieControlStyleNone;
-        theMovie.shouldAutoplay=NO;
-        thumbImage = [theMovie thumbnailImageAtTime:0 timeOption:MPMovieTimeOptionExact];
-        
-        
-        //save video to app's directory.
-        NSData *videoData = [NSData dataWithContentsOfURL:url];
-        [[NSFileManager defaultManager] createFileAtPath:[task forceVideoUrl] contents:videoData attributes:nil];
+        [task addVideoFromUrl:url];
+        thumbImage = task.thumbImage;
         
     } else {
         thumbImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];

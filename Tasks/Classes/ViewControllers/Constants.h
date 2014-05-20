@@ -41,4 +41,4 @@
 #define DEFAULT_TASK_2_TITLE @"Sample Task 2"
 #define DEFAULT_TASK_2_DESCRIPTION @"Slide the row from the right to left to show the 3 actions: copy, edit and delete. You can practice on this task."
 #define DEFAULT_TASK_3_TITLE @"Sample Task 3"
-#define DEFAULT_TASK_3_DESCRIPTION @"This task contains a short video. You can change this to one of your own. (Include a short 3 sec video for this task)"
+#define DEFAULT_TASK_3_DESCRIPTION @"This task contains a short video. You can change this to one of your own."

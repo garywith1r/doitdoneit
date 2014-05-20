@@ -68,8 +68,8 @@ UsersModel* userModelInstance;
         parentsModeEnabled = [userDefaults boolForKey:@"parentsModeEnabled"];
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
         
-#warning Testing
-        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
+//#warning Testing
+//        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
 
     }
     
@@ -141,6 +141,8 @@ UsersModel* userModelInstance;
     TaskDTO* task3 = [[TaskDTO alloc] init];
     task3.title = DEFAULT_TASK_3_TITLE;
     task3.detailsText = [self attributedStringForDetails:DEFAULT_TASK_3_DESCRIPTION];
+    NSString* moviePath = [[NSBundle mainBundle] pathForResource:@"SampleVideo" ofType:@"mp4"];
+    [task3 addVideoFromUrl:[NSURL fileURLWithPath:moviePath]];
     
     [defaultData setObject:@[[task1 convertToDictionary],[task2 convertToDictionary],[task3 convertToDictionary]] forKey:TASKS_ARRAY_KEY];
     

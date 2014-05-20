@@ -18,8 +18,6 @@
 @interface EditDetailsViewController () <UITextViewDelegate> {
     IBOutlet UITextView* detailsTextView;
     IBOutlet UILabel* tipsLabel;
-    
-    NSMutableArray* linksOnText;
 }
 
 @end
@@ -33,11 +31,6 @@
     
     [detailsTextView becomeFirstResponder];
     
-    if (dto.detailsLinksArray)
-        linksOnText = [[NSMutableArray alloc] initWithArray:dto.detailsLinksArray];
-    else
-        linksOnText = [[NSMutableArray alloc] init];
-    
     detailsTextView.attributedText = dto.detailsText;
     
     tipsLabel.layer.borderColor = YELLOW_COLOR.CGColor;
@@ -48,7 +41,6 @@
 - (IBAction) doneButtonPressed {
     
     dto.detailsText = detailsTextView.attributedText;
-    dto.detailsLinksArray = [NSArray arrayWithArray:linksOnText];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -60,17 +52,16 @@
 
 - (void) searchTextForHiperlinks {
     
-    NSRange range = detailsTextView.selectedRange;
+    
     
     NSString* text = detailsTextView.text;
+    
     
     NSError* error;
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:HIPERLINKS_REGEX options:NSRegularExpressionCaseInsensitive error:&error];
     
     NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
-    
-    [linksOnText removeAllObjects];
     
     if (matches.count) {
         
@@ -115,8 +106,8 @@
         
         
         detailsTextView.attributedText = attrText;
-        detailsTextView.selectedRange = range;
         
+    
     }
 }
 
@@ -125,8 +116,10 @@
 #pragma mark UITextViewDelegate Methods
 - (void)textViewDidChange:(UITextView *)textView {
     
+    NSRange range = detailsTextView.selectedRange;
     textView.text = [textView.text stringByReplacingOccurrencesOfString:BULLET_TEXT withString:BULLET_CODE];
     [self searchTextForHiperlinks];
+    detailsTextView.selectedRange = range;
 }
 
 @end

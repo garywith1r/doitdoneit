@@ -36,7 +36,6 @@ enum TaskRepeatPeriod {
 @property (nonatomic, strong) NSString* videoUrl;
 
 @property (nonatomic, strong) NSAttributedString* detailsText;
-@property (nonatomic, strong) NSArray* detailsLinksArray;
 
 @property (nonatomic, strong) NSString* notes;
 @property (nonatomic) enum TaskStatus status;
@@ -63,4 +62,6 @@ enum TaskRepeatPeriod {
 + (UIImage*) getImageForHitRate: (double) hitRate;
 
 - (NSString*) repeatTimesDisplayText;
+
+- (void) addVideoFromUrl:(NSURL*)url;
 @end

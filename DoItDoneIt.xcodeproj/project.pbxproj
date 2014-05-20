@@ -108,6 +108,7 @@
 		5C9B63DB18A192BA0091C1D2 /* CompleteTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B63DA18A192BA0091C1D2 /* CompleteTaskViewController.m */; };
 		5CA1222A18F72A2100F32CCF /* MHCustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1222718F72A2100F32CCF /* MHCustomTabBarController.m */; };
 		5CA1222B18F72A2100F32CCF /* MHTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */; };
+		5CA1B40E192BAB87001597A0 /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5CA1B40D192BAB87001597A0 /* SampleVideo.mp4 */; };
 		5CA284FD1912B09300315F44 /* default_task.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FB1912B09300315F44 /* default_task.jpg */; };
 		5CA284FE1912B09300315F44 /* default_task@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FC1912B09300315F44 /* default_task@2x.jpg */; };
 		5CA285011912B7C100315F44 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FF1912B7C100315F44 /* Default.png */; };
@@ -435,6 +436,7 @@
 		5CA1222718F72A2100F32CCF /* MHCustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHCustomTabBarController.m; sourceTree = "<group>"; };
 		5CA1222818F72A2100F32CCF /* MHTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTabBarSegue.h; sourceTree = "<group>"; };
 		5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTabBarSegue.m; sourceTree = "<group>"; };
+		5CA1B40D192BAB87001597A0 /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 		5CA284FB1912B09300315F44 /* default_task.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_task.jpg; sourceTree = "<group>"; };
 		5CA284FC1912B09300315F44 /* default_task@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default_task@2x.jpg"; sourceTree = "<group>"; };
 		5CA284FF1912B7C100315F44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -957,6 +959,7 @@
 				5C9B638318A14A350091C1D2 /* Main_iPhone.storyboard */,
 				5C9B63AA18A151C90091C1D2 /* Images */,
 				5C9B637818A14A350091C1D2 /* Supporting Files */,
+				5CA1B40D192BAB87001597A0 /* SampleVideo.mp4 */,
 				5CEC458E190AF980007AA425 /* InAppPurchases.plist */,
 				5CF7721C191D0A8400AA5C98 /* Quotes.plist */,
 			);
@@ -1547,6 +1550,7 @@
 				5C2D0556190F2B2A00F0C56F /* photo_profile@2x.png in Resources */,
 				5CA285011912B7C100315F44 /* Default.png in Resources */,
 				5C2948CB19203DAB00BFC4C0 /* weeklyrev@2x.png in Resources */,
+				5CA1B40E192BAB87001597A0 /* SampleVideo.mp4 in Resources */,
 				5CF7721D191D0A8400AA5C98 /* Quotes.plist in Resources */,
 				5CD63EA7190A070000017304 /* task_add.png in Resources */,
 				5C2948BF19203DAB00BFC4C0 /* icon_50.png in Resources */,
