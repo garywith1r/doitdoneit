@@ -36,3 +36,9 @@
 
 #define DEFAULT_GOAL_POINTS 100
 #define DEFAULT_GOAL_TEXT @"Climb every mountain,\nFord every stream,\nFollow every rainbow,\n'Till you find your dream."
+#define DEFAULT_TASK_1_TITLE @"Sample Task 1"
+#define DEFAULT_TASK_1_DESCRIPTION @"Every task has a title (limited to x characters) and a long description which can include links to websites (e.g. http://google.com), bullet points and in future other formatting capabilities. Clicking the links will bring up a browser. You can also attach an image or video from your media library. Tapping on the image from the 'Do It' list will enlarge the picture or play the video. Here are 3 more links to play with:\n\n● http://bing.com\n● http://ebay.com\n● http://apple.com"
+#define DEFAULT_TASK_2_TITLE @"Sample Task 2"
+#define DEFAULT_TASK_2_DESCRIPTION @"Slide the row from the right to left to show the 3 actions: copy, edit and delete. You can practice on this task."
+#define DEFAULT_TASK_3_TITLE @"Sample Task 3"
+#define DEFAULT_TASK_3_DESCRIPTION @"This task contains a short video. You can change this to one of your own. (Include a short 3 sec video for this task)"

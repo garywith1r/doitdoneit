@@ -13,10 +13,6 @@
 #import "CacheFileManager.h"
 #import "UsersModel.h"
 
-#define TASKS_ARRAY_KEY @"tasksList"
-#define COMPLETED_TASKS_ARRAY_KEY @"completedTasksList"
-#define MISSED_TASKS_ARRAY_KEY  @"missedTasksList"
-
 @interface TaskListModel () {
     NSMutableArray* tasks;
     NSMutableArray* completedTasks;

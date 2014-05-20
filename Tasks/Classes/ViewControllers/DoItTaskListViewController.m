@@ -170,6 +170,7 @@
     cellView.lblStats.text = [NSString stringWithFormat:@"Points:%ld done:%dx\nmissed:%dx Hit: %.1f%%", (long)task.taskPoints, timesDoneIt, timesMissedIt, task.hitRate];
     
     cellView.lblDescription.dataDetectorTypes = UIDataDetectorTypeAll;
+    cellView.lblDescription.numberOfLines = 0;
     cellView.lblDescription.highlightedTextColor = YELLOW_COLOR;
     cellView.lblDescription.text = task.detailsText;
     cellView.lblDescriptionHeightConstrait.constant = [cellView.lblDescription getPreferredHeight];

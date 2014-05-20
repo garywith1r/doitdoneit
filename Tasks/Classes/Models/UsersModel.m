@@ -128,6 +128,20 @@ UsersModel* userModelInstance;
     [defaultData setInteger:DEFAULT_GOAL_POINTS forKey:LOGGED_USER_GOAL_KEY];
     [defaultData setObject:DEFAULT_GOAL_TEXT forKey:LOGGED_USER_GOAL_DESCRIPTION_KEY];
     
+    TaskDTO* task1 = [[TaskDTO alloc] init];
+    task1.title = DEFAULT_TASK_1_TITLE;
+    task1.detailsText = [[NSAttributedString alloc] initWithString:DEFAULT_TASK_1_DESCRIPTION];
+    
+    TaskDTO* task2 = [[TaskDTO alloc] init];
+    task2.title = DEFAULT_TASK_2_TITLE;
+    task2.detailsText = [[NSAttributedString alloc] initWithString:DEFAULT_TASK_2_DESCRIPTION];
+    
+    TaskDTO* task3 = [[TaskDTO alloc] init];
+    task3.title = DEFAULT_TASK_3_TITLE;
+    task3.detailsText = [[NSAttributedString alloc] initWithString:DEFAULT_TASK_3_DESCRIPTION];
+    
+    [defaultData setObject:@[[task1 convertToDictionary],[task2 convertToDictionary],[task3 convertToDictionary]] forKey:TASKS_ARRAY_KEY];
+    
     return [NSDictionary dictionaryWithDictionary:defaultData];
 }
 
