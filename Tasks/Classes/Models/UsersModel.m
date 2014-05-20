@@ -96,6 +96,11 @@ UsersModel* userModelInstance;
     if (!path || [path isEqualToString:@""]) {
         path = [CacheFileManager getAvailablePath];
         [newUserDictionary setObject:path forKey:LOGGED_USER_PATH_KEY];
+        //add default values
+        NSDictionary* newUserDataDictionary = [self defaultUserData];
+        NSData * encodedData = [NSKeyedArchiver archivedDataWithRootObject:newUserDataDictionary];
+        [CacheFileManager storeData:encodedData onPath:path];
+        
         [tempArray addObject:newUserDictionary];
         
     } else {
@@ -116,6 +121,14 @@ UsersModel* userModelInstance;
     storedUsers = [NSArray arrayWithArray:tempArray];
     [self saveUsersArray];
     logedUser = storedUsers[logedUserIndex];
+}
+
+- (NSDictionary*) defaultUserData {
+    NSMutableDictionary* defaultData = [[NSMutableDictionary alloc] init];
+    [defaultData setInteger:DEFAULT_GOAL_POINTS forKey:LOGGED_USER_GOAL_KEY];
+    [defaultData setObject:DEFAULT_GOAL_TEXT forKey:LOGGED_USER_GOAL_DESCRIPTION_KEY];
+    
+    return [NSDictionary dictionaryWithDictionary:defaultData];
 }
 
 - (void) deleteUserAtIndex:(NSInteger)index {

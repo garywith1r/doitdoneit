@@ -32,3 +32,7 @@
 
 #define FIRST_ALARM_TIME 10  * 360
 #define SECOND_ALARM_TIME 16  * 360
+
+
+#define DEFAULT_GOAL_POINTS 100
+#define DEFAULT_GOAL_TEXT @"Climb every mountain,\nFord every stream,\nFollow every rainbow,\n'Till you find your dream."
