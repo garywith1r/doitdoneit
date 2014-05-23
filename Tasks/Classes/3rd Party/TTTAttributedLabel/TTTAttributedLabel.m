@@ -607,4 +607,8 @@ static inline NSAttributedString * NSAttributedStringByScalingFontSize(NSAttribu
     return CGSizeMake(inWidth, suggestedSize.height);
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
 @end

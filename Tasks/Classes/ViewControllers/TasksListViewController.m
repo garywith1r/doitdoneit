@@ -132,6 +132,7 @@
                                   rightUtilityButtons:rightUtilityButtons];
         
         cell.delegate = self;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     cell.height = [self getExpandedCellHeightForTask:contentDataArray[indexPath.row]];
