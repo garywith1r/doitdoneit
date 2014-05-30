@@ -30,8 +30,8 @@
 #define DEFAULT_TASK_IMAGE [UIImage imageNamed:@"default_task.jpg"]
 
 
-#define FIRST_ALARM_TIME 10  * 360
-#define SECOND_ALARM_TIME 16  * 360
+#define FIRST_ALARM_TIME 10  * 3600
+#define SECOND_ALARM_TIME 14  * 3600
 
 
 #define DEFAULT_GOAL_POINTS 100

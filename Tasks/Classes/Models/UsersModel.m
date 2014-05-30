@@ -290,7 +290,7 @@ UsersModel* userModelInstance;
 
 - (void) addRemindersForMainTask {
     if ([self.logedUserData objectForKey:LOGGED_USER_REMINDERS_KEY]) {
-        TaskDTO* firstTask = [[self.logedUserData objectForKey:@""] objectAtIndex:0];
+        TaskDTO* firstTask = [[self.logedUserData objectForKey:TASKS_ARRAY_KEY] objectAtIndex:0];
         if (firstTask) {
             UILocalNotification *localNotif = [[UILocalNotification alloc] init];
             if (localNotif == nil)
@@ -303,10 +303,7 @@ UsersModel* userModelInstance;
             else
                 alertBody = [alertBody stringByAppendingString:@"there"];
             
-            TaskDTO* firstTask = [[self.logedUserData objectForKey:@""] objectAtIndex:0];
-            
-            alertBody = [alertBody stringByAppendingString:[NSString stringWithFormat:@". Time to do %@",firstTask.title]];
-            
+            alertBody = [alertBody stringByAppendingString:[NSString stringWithFormat:@". Time to do %@",[(NSDictionary*)firstTask objectForKey:@"title"]]];
             
             localNotif.fireDate = [[NSDate midnightTomorrow] dateByAddingTimeInterval:FIRST_ALARM_TIME];
             localNotif.repeatInterval = kCFCalendarUnitDay;
@@ -318,8 +315,6 @@ UsersModel* userModelInstance;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             
             UILocalNotification* localNotif2 = [[UILocalNotification alloc] init];
-            
-            alertBody = [alertBody stringByAppendingString:[NSString stringWithFormat:@". Time to do %@",firstTask]];
             
             
             localNotif2.fireDate = [[NSDate midnightTomorrow] dateByAddingTimeInterval:SECOND_ALARM_TIME];
