@@ -1980,7 +1980,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                 <connections>
                                                     <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEnd" id="9UW-VU-Ffd"/>
                                                     <action selector="textEditingEnd" destination="oME-Fa-l65" eventType="editingDidEndOnExit" id="ydO-Fz-CQp"/>

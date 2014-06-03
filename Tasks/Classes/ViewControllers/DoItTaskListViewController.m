@@ -108,7 +108,7 @@
             QuickAddTaskCell* cell = (QuickAddTaskCell*)[table dequeueReusableCellWithIdentifier:@"QuickAddTaskCell"];
             quickAddRepeatTimes = cell.lblRepeatTiems;
             quickAddTitle = cell.txtTitle;
-            [quickAddTitle becomeFirstResponder];
+            [quickAddTitle performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.001];
             quickAddTitle.delegate = self;
             return cell;
         } else {
@@ -242,6 +242,7 @@
         quickAddDto = [[TaskDTO alloc] init];
         quickAddTitle.text = quickAddDto.title;
         quickAddRepeatTimes.text = [quickAddDto repeatTimesDisplayText];
+//        [quickAddTitle becomeFirstResponder];
         [table reloadData];
     }
 }
@@ -288,6 +289,8 @@
     [table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
     quickAddDto = nil;
     [quickAddTitle resignFirstResponder];
+    [table becomeFirstResponder];
+    quickAddTitle = nil;
 }
 
 - (IBAction) quickAddButtonPressed {

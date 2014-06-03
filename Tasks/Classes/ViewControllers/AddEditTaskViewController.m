@@ -120,6 +120,8 @@
     
     dueDateTemp = self.task.dueDate;
     completitionDateTemp = self.task.completitionDate;
+    
+    [txtTitle becomeFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
