@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pF8-Cm-6m4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pF8-Cm-6m4">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -2442,7 +2442,7 @@ Second Line</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mso-1A-GcC" userLabel="Social View">
-                                        <rect key="frame" x="0.0" y="281" width="320" height="30"/>
+                                        <rect key="frame" x="0.0" y="268" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdu-eT-8AK">
@@ -2501,12 +2501,12 @@ Second Line</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asG-hw-mOy">
-                                        <rect key="frame" x="6" y="425" width="96" height="34"/>
+                                        <rect key="frame" x="7" y="422" width="146" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="F3i-cd-Hmb"/>
-                                            <constraint firstAttribute="height" constant="34" id="ddU-W8-v6W"/>
+                                            <constraint firstAttribute="width" constant="146" id="F3i-cd-Hmb"/>
+                                            <constraint firstAttribute="height" constant="38" id="ddU-W8-v6W"/>
                                         </constraints>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2514,22 +2514,6 @@ Second Line</string>
                                         </state>
                                         <connections>
                                             <action selector="cancel" destination="vUr-RC-gJ1" eventType="touchUpInside" id="kDx-FF-vFa"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho8-GL-2sT">
-                                        <rect key="frame" x="113" y="425" width="96" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="iWO-yH-pee"/>
-                                            <constraint firstAttribute="height" constant="34" id="kpu-GU-Uuk"/>
-                                        </constraints>
-                                        <state key="normal" title="Skip It">
-                                            <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="skipTask" destination="vUr-RC-gJ1" eventType="touchUpInside" id="CUA-kf-CZh"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8A-eu-jq4">
@@ -2623,12 +2607,12 @@ Second Line</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-ah-Uvl" userLabel="Button - Done Small">
-                                        <rect key="frame" x="219" y="425" width="96" height="34"/>
+                                        <rect key="frame" x="167" y="422" width="146" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="BDY-b8-hF5"/>
-                                            <constraint firstAttribute="width" constant="96" id="sZX-n8-HrZ"/>
+                                            <constraint firstAttribute="height" constant="38" id="BDY-b8-hF5"/>
+                                            <constraint firstAttribute="width" constant="146" id="sZX-n8-HrZ"/>
                                         </constraints>
                                         <state key="normal" title="Done It">
                                             <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2652,13 +2636,11 @@ Second Line</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Onb-ah-Uvl" firstAttribute="leading" secondItem="GZL-VF-HfA" secondAttribute="leading" constant="219" id="7WQ-2b-zCI"/>
-                                    <constraint firstAttribute="bottom" secondItem="Onb-ah-Uvl" secondAttribute="bottom" constant="10" id="9RH-yV-DgY"/>
-                                    <constraint firstItem="asG-hw-mOy" firstAttribute="leading" secondItem="GZL-VF-HfA" secondAttribute="leading" constant="6" id="A1n-Sx-4gQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="ho8-GL-2sT" secondAttribute="bottom" constant="10" id="ETS-IX-4iZ"/>
+                                    <constraint firstItem="Onb-ah-Uvl" firstAttribute="leading" secondItem="GZL-VF-HfA" secondAttribute="leading" constant="167" id="7WQ-2b-zCI"/>
+                                    <constraint firstAttribute="bottom" secondItem="Onb-ah-Uvl" secondAttribute="bottom" constant="9" id="9RH-yV-DgY"/>
+                                    <constraint firstItem="asG-hw-mOy" firstAttribute="leading" secondItem="GZL-VF-HfA" secondAttribute="leading" constant="7" id="A1n-Sx-4gQ"/>
                                     <constraint firstItem="LaF-It-sDw" firstAttribute="leading" secondItem="GZL-VF-HfA" secondAttribute="leading" id="Izz-4z-Tlp"/>
-                                    <constraint firstAttribute="bottom" secondItem="asG-hw-mOy" secondAttribute="bottom" constant="10" id="QkE-wg-46G"/>
-                                    <constraint firstItem="ho8-GL-2sT" firstAttribute="leading" secondItem="GZL-VF-HfA" secondAttribute="leading" constant="113" id="YaF-JR-kg0"/>
+                                    <constraint firstAttribute="bottom" secondItem="asG-hw-mOy" secondAttribute="bottom" constant="9" id="QkE-wg-46G"/>
                                     <constraint firstItem="LaF-It-sDw" firstAttribute="top" secondItem="GZL-VF-HfA" secondAttribute="top" id="iHe-mg-3ey"/>
                                 </constraints>
                             </view>
@@ -4494,7 +4476,7 @@ Missed:     Hit:</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kQQ-bD-WcM"/>
-        <segue reference="Pq2-NZ-kzj"/>
+        <segue reference="CDg-je-7pN"/>
         <segue reference="cP6-Z1-CA9"/>
         <segue reference="abT-RF-pXv"/>
     </inferredMetricsTieBreakers>
