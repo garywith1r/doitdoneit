@@ -63,6 +63,7 @@
         SettingSwitchTableViewCell* tempCell = (SettingSwitchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SettingSwitchSegue"];
         tempCell.lblText.text = [settingDicc objectForKey:@"Text"];
         privateAccountMode = tempCell.swtCell;
+        privateAccountMode.on = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
         [privateAccountMode addTarget:self action:@selector(privateAccountSwitchChanged) forControlEvents:UIControlEventValueChanged];
         cell = tempCell;
         
@@ -71,6 +72,7 @@
         tempCell.lblText.text = [settingDicc objectForKey:@"Text"];
         parentsModeFeature = tempCell.swtCell;
         [parentsModeFeature addTarget:self action:@selector(parentsModeFeatureSwitchChange) forControlEvents:UIControlEventValueChanged];
+        parentsModeFeature.on = [UsersModel sharedInstance].parentsModeEnabled;
         cell = tempCell;
     }
     
