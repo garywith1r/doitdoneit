@@ -314,7 +314,10 @@
     SelectRepeatTimesViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectRepeatTimesViewController"];
     [vc setInitialTimes:quickAddDto.repeatTimes andInitialTimeInterval:quickAddDto.repeatPeriod];
     vc.delegate = self;
-    [vc presentOnViewController:self];
+    
+    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [vc presentOnViewController:mainVC];
+    [quickAddTitle resignFirstResponder];
 }
 
 

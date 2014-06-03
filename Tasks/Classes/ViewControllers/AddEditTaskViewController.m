@@ -99,6 +99,7 @@
     
     if (self.task.status == TaskStatusIncomplete) {
         completeTaskDetailsView.hidden = YES;
+        [txtTitle becomeFirstResponder];
     } else {
         newTaskDetailsView.userInteractionEnabled = NO;
         
@@ -120,8 +121,6 @@
     
     dueDateTemp = self.task.dueDate;
     completitionDateTemp = self.task.completitionDate;
-    
-    [txtTitle becomeFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -151,7 +150,10 @@
     SelectRepeatTimesViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectRepeatTimesViewController"];
     [vc setInitialTimes:self.task.repeatTimes andInitialTimeInterval:self.task.repeatPeriod];
     vc.delegate = self;
-    [vc presentOnViewController:self];
+    
+    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [vc presentOnViewController:mainVC];
+    [txtTitle resignFirstResponder];
 }
 
 - (IBAction) saveButtonPressed {

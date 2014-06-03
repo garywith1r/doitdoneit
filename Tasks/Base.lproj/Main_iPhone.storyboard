@@ -2826,7 +2826,7 @@ Second Line</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gwj-hQ-0xS">
-                                <rect key="frame" x="15" y="116" width="290" height="336"/>
+                                <rect key="frame" x="15" y="70" width="290" height="336"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="repeat_number.png" translatesAutoresizingMaskIntoConstraints="NO" id="7iv-lh-vAe">
@@ -2980,7 +2980,7 @@ Second Line</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Gwj-hQ-0xS" secondAttribute="centerY" id="OTC-K1-IX0"/>
+                            <constraint firstAttribute="centerY" secondItem="Gwj-hQ-0xS" secondAttribute="centerY" constant="46" id="OTC-K1-IX0"/>
                             <constraint firstAttribute="centerX" secondItem="Gwj-hQ-0xS" secondAttribute="centerX" id="oDu-7u-4iQ"/>
                         </constraints>
                     </view>
