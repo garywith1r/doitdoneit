@@ -378,30 +378,33 @@ TaskListModel* instance;
     int completedIndex = 0;
     int missedIndex = 0;
     
+    NSMutableArray* completedTasksSorted = [self sortTaskArraysByCompletitionDate:completedTasks];
+    NSMutableArray* missedTasksSorted = [self sortTaskArraysByCompletitionDate:missedTasks];
+    
     for (int x = 6; x >= 0; x --) {
         NSMutableArray* dayArray = [[NSMutableArray alloc] init];
         NSDate* currentDate = [startDate dateByAddingTimeInterval:ONE_DAY * x];
         
         TaskDTO* task;
         if (completedIndex < completedTasks.count)
-            task = completedTasks[completedIndex];
+            task = completedTasksSorted[completedIndex];
         //Tasks are sorted by completitionDate;
         
         //if the time pased since currentDate is < 0, then the task was completed before the currentDate
-        while ((completedIndex < completedTasks.count) && ([task.completitionDate timeIntervalSinceDate:currentDate] >= 0)) {
-            task = completedTasks[completedIndex];
+        while ((completedIndex < completedTasksSorted.count) && ([task.completitionDate timeIntervalSinceDate:currentDate] >= 0)) {
+            task = completedTasksSorted[completedIndex];
             if ([task.completitionDate timeIntervalSinceDate:currentDate] < ONE_DAY) {
                 [dayArray addObject:task];
+                completedIndex++;
             }
-            completedIndex++;
         }
         
         if (missedIndex < missedTasks.count)
-            task = missedTasks[missedIndex];
+            task = missedTasksSorted[missedIndex];
         
         //if the time pased since currentDate is < 0, then the task was completed before the currentDate
-        while ((missedIndex < missedTasks.count) && ([task.completitionDate timeIntervalSinceDate:currentDate] >= 0)) {
-            task = missedTasks[missedIndex];
+        while ((missedIndex < missedTasksSorted.count) && ([task.completitionDate timeIntervalSinceDate:currentDate] >= 0)) {
+            task = missedTasksSorted[missedIndex];
             if ([task.completitionDate timeIntervalSinceDate:currentDate] < ONE_DAY) {
                 [dayArray addObject:task];
             }
@@ -411,6 +414,7 @@ TaskListModel* instance;
         [weeklyArray addObject:[self sortTaskArraysByCompletitionDate:dayArray]];
     }
     
+    //since we're added the days from saturday to sunday, we have to invert array's order.
     return [NSArray arrayWithObjects:weeklyArray[6],weeklyArray[5],weeklyArray[4],weeklyArray[3],weeklyArray[2],weeklyArray[1],weeklyArray[0],nil];
 }
 
