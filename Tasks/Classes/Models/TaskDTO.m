@@ -31,6 +31,7 @@
 
 - (id) init {
     if (self = [super init]) {
+        self.title = @"";
         self.currentRepetition = 1;
         self.repeatTimes = 2;
         self.repeatPeriod = Weekly;

@@ -110,6 +110,12 @@
             quickAddTitle = cell.txtTitle;
             [quickAddTitle performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.001];
             quickAddTitle.delegate = self;
+            
+            if (quickAddDto) {
+                quickAddRepeatTimes.text = [quickAddDto repeatTimesDisplayText];
+                quickAddTitle.text = quickAddDto.title;
+            }
+            
             return cell;
         } else {
             row--;
@@ -242,7 +248,6 @@
         quickAddDto = [[TaskDTO alloc] init];
         quickAddTitle.text = quickAddDto.title;
         quickAddRepeatTimes.text = [quickAddDto repeatTimesDisplayText];
-//        [quickAddTitle becomeFirstResponder];
         [table reloadData];
     }
 }
