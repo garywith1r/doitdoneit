@@ -271,6 +271,9 @@
                                     <constraint firstAttribute="width" constant="320" id="Bel-jA-Yvz"/>
                                     <constraint firstAttribute="height" constant="75" id="VNr-ax-0dN"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="QkO-4e-38n" kind="embed" id="wYm-ua-Wqv"/>
+                                </connections>
                             </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="76" sectionHeaderHeight="25" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Lh-e2-OPN">
                                 <rect key="frame" x="0.0" y="140" width="320" height="384"/>
@@ -393,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJB-xH-iqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2233" y="-3340"/>
+            <point key="canvasLocation" x="1545" y="-3548"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u9k-qc-cUl">
@@ -1925,6 +1928,9 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="Wch-cg-uOH"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="QkO-4e-38n" kind="embed" id="iFF-5x-wlu"/>
+                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2512,6 +2518,9 @@ Second Line</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="lWT-lL-7WK"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="QkO-4e-38n" kind="embed" id="MZR-Lb-0bp"/>
+                                        </connections>
                                     </containerView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ng-vM-VSe" userLabel="Line">
                                         <rect key="frame" x="61" y="253" width="219" height="1"/>
@@ -4435,6 +4444,7 @@ Missed:     Hit:</string>
                                 <color key="backgroundColor" red="0.22352941179999999" green="0.76078431369999999" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TZ1-z4-8yf"/>
+                                    <constraint firstAttribute="width" constant="197" id="hpu-D3-WBA"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="-19" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="183" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -4448,7 +4458,6 @@ Missed:     Hit:</string>
                         <constraints>
                             <constraint firstItem="4Ff-dT-oCU" firstAttribute="top" secondItem="1rK-1I-BUV" secondAttribute="top" constant="41" id="0bh-hh-5NN"/>
                             <constraint firstItem="eWe-vv-ZLr" firstAttribute="top" secondItem="mgq-eT-F4e" secondAttribute="bottom" constant="12" id="0qn-bR-QJH"/>
-                            <constraint firstAttribute="trailing" secondItem="yDG-d1-LuQ" secondAttribute="trailing" constant="297" id="EGf-4w-7PS"/>
                             <constraint firstAttribute="trailing" secondItem="kS3-9p-L9R" secondAttribute="trailing" constant="58" id="I4O-dW-CWu"/>
                             <constraint firstItem="yDG-d1-LuQ" firstAttribute="top" secondItem="1rK-1I-BUV" secondAttribute="top" constant="88" id="LIG-1Z-M9D"/>
                             <constraint firstItem="kS3-9p-L9R" firstAttribute="top" secondItem="1rK-1I-BUV" secondAttribute="top" constant="22" id="Lv3-rE-ZRH"/>
@@ -4469,7 +4478,7 @@ Missed:     Hit:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xol-p8-hmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1243" y="-2698"/>
+            <point key="canvasLocation" x="2972" y="-3077"/>
         </scene>
     </scenes>
     <resources>
@@ -4539,5 +4548,6 @@ Missed:     Hit:</string>
         <segue reference="kQQ-bD-WcM"/>
         <segue reference="cP6-Z1-CA9"/>
         <segue reference="abT-RF-pXv"/>
+        <segue reference="wYm-ua-Wqv"/>
     </inferredMetricsTieBreakers>
 </document>
