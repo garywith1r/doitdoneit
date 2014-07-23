@@ -26,6 +26,7 @@
 		5C2652F218BBF5FD007F8A0C /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652EA18BBF5FD007F8A0C /* SWTableViewCell.m */; };
 		5C2652F318BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652EC18BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m */; };
 		5C2652F418BBF5FD007F8A0C /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652EE18BBF5FD007F8A0C /* SWUtilityButtonView.m */; };
+		5C2671F119800A8E00B4E5D1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2671EF19800A8E00B4E5D1 /* Main_iPad.storyboard */; };
 		5C29486C191FC6B900BFC4C0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C29486B191FC6B900BFC4C0 /* ImageIO.framework */; };
 		5C29488B191FDA8300BFC4C0 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C29486F191FDA8300BFC4C0 /* MKAnnotationView+WebCache.m */; };
 		5C29488C191FDA8300BFC4C0 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C294871191FDA8300BFC4C0 /* NSData+ImageContentType.m */; };
@@ -310,6 +311,7 @@
 		5C2652EC18BBF5FD007F8A0C /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
 		5C2652ED18BBF5FD007F8A0C /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		5C2652EE18BBF5FD007F8A0C /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		5C2671F019800A8E00B4E5D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Tasks/Base.lproj/Main_iPad.storyboard; sourceTree = SOURCE_ROOT; };
 		5C29486B191FC6B900BFC4C0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5C29486E191FDA8300BFC4C0 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		5C29486F191FDA8300BFC4C0 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
@@ -772,6 +774,13 @@
 			path = SWTableViewCell;
 			sourceTree = "<group>";
 		};
+		5C2671EE198009AB00B4E5D1 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		5C29486D191FDA8300BFC4C0 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +902,7 @@
 		5C9B636518A14A350091C1D2 = {
 			isa = PBXGroup;
 			children = (
+				5C2671EE198009AB00B4E5D1 /* iPad */,
 				5CFB2AFF190F18E4003D539D /* Do It Done It.entitlements */,
 				5C9B637718A14A350091C1D2 /* Classes */,
 				5C9B63A918A151C90091C1D2 /* Resurces */,
@@ -957,6 +967,7 @@
 			isa = PBXGroup;
 			children = (
 				5C9B638318A14A350091C1D2 /* Main_iPhone.storyboard */,
+				5C2671EF19800A8E00B4E5D1 /* Main_iPad.storyboard */,
 				5C9B63AA18A151C90091C1D2 /* Images */,
 				5C9B637818A14A350091C1D2 /* Supporting Files */,
 				5CA1B40D192BAB87001597A0 /* SampleVideo.mp4 */,
@@ -1440,6 +1451,7 @@
 				5CDB775918BF0F79000A4C04 /* FacebookIcon@2x.png in Resources */,
 				5CD63EA3190A070000017304 /* tabbar_task_on.png in Resources */,
 				5CA284FD1912B09300315F44 /* default_task.jpg in Resources */,
+				5C2671F119800A8E00B4E5D1 /* Main_iPad.storyboard in Resources */,
 				5CD63EAB190A070000017304 /* task_ok.png in Resources */,
 				5CD63E7A190A070000017304 /* repeat_less@2x.png in Resources */,
 				5CD63E71190A070000017304 /* arrow2@2x.png in Resources */,
@@ -1681,6 +1693,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5C2671EF19800A8E00B4E5D1 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C2671F019800A8E00B4E5D1 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
 		5C9B637A18A14A350091C1D2 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1799,11 +1819,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/DoItDoneIt-Prefix.pch";
 				INFOPLIST_FILE = "Tasks/DoItDoneIt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "Do It Done It";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1817,11 +1837,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/DoItDoneIt-Prefix.pch";
 				INFOPLIST_FILE = "Tasks/DoItDoneIt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "Do It Done It";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
