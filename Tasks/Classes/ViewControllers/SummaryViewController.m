@@ -14,6 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Constants.h"
 #import "UserSelectionViewController.h"
+#import "DeviceDetector.h"
 
 @interface SummaryViewController () {
     IBOutlet UIButton* btnImage;
@@ -43,7 +44,13 @@
     StatsModel* statsModel = [StatsModel sharedInstance];
     
     nameLabel.text = [currentUser objectForKey:LOGGED_USER_NAME_KEY];
-    statsLabel.text = [NSString stringWithFormat:@"%ld Done today, %ld this\nweek. Hit rate %.1f%%",(long)statsModel.todayCompleted, (long)statsModel.thisWeekCompleted, [statsModel thisWeekHitRate]];
+    NSString* baseText = nil;
+    if ([DeviceDetector isPad])
+        baseText = @"%ld Done today, %ld this week. Hit rate %.1f%%";
+    else
+        baseText = @"%ld Done today, %ld this\nweek. Hit rate %.1f%%";
+    
+    statsLabel.text = [NSString stringWithFormat:baseText,(long)statsModel.todayCompleted, (long)statsModel.thisWeekCompleted, [statsModel thisWeekHitRate]];
     UIImage* image = [CacheFileManager getImageFromPath:[currentUser objectForKey:LOGGED_USER_IMAGE_KEY]];
     
     if (image) {

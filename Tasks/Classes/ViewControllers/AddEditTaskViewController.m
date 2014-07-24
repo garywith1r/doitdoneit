@@ -308,7 +308,7 @@
             
             
             UIViewController *containerController = [[UIViewController alloc] init];
-            containerController.contentSizeForViewInPopover = CGSizeMake(768, 1000);
+            containerController.preferredContentSize = CGSizeMake(768, 1000);
             
             [containerController.view addSubview:_imagePickerController.view];
             

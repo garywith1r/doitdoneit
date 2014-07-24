@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pF8-Cm-6m4">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -77,7 +77,7 @@
                                             <outlet property="lblText" destination="yq2-a9-SzT" id="iVD-Q3-b6B"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeGoalCell" rowHeight="91" id="tDg-2i-7RA" customClass="SettingSegueTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeGoalCell" rowHeight="91" id="tDg-2i-7RA" customClass="SettingSegueTableViewCell">
                                         <rect key="frame" x="0.0" y="66" width="688" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tDg-2i-7RA" id="Yii-BP-8re">
@@ -102,6 +102,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="kVF-Xb-YJz" firstAttribute="leading" secondItem="Yii-BP-8re" secondAttribute="leading" constant="9" id="4HB-Kj-yRj"/>
                                                 <constraint firstItem="En6-PV-3qg" firstAttribute="leading" secondItem="Yii-BP-8re" secondAttribute="leading" constant="10" id="Bzp-QB-tLf"/>
@@ -112,7 +113,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="En6-PV-3qg" secondAttribute="bottom" constant="31" id="ylt-Ay-qbS"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="lblText" destination="En6-PV-3qg" id="kWs-cG-rQa"/>
                                             <outlet property="lblText2" destination="kVF-Xb-YJz" id="jyd-6i-oCx"/>
@@ -140,7 +141,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="BEH-Pv-7ck" secondAttribute="bottom" constant="6" id="mAa-uJ-38Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.76078431369999999" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="lblText" destination="BEH-Pv-7ck" id="cOc-Ls-FhE"/>
                                         </connections>
@@ -215,7 +216,7 @@
         <!--Weekly Review View Controller-->
         <scene sceneID="udn-tQ-S9P">
             <objects>
-                <viewController id="mie-P5-Nnb" customClass="WeeklyReviewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="I-LOVE-THE-SIMS" id="mie-P5-Nnb" customClass="WeeklyReviewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lus-Vo-ylQ"/>
                         <viewControllerLayoutGuide type="bottom" id="JwS-la-ZUm"/>
@@ -662,10 +663,10 @@
             </objects>
             <point key="canvasLocation" x="-1573" y="1252"/>
         </scene>
-        <!--Historical View Controller-->
+        <!--Segmented Custom Tab Bar View Controller-->
         <scene sceneID="ghD-cA-Kvw">
             <objects>
-                <viewController storyboardIdentifier="HistoricalViewController" id="x45-cF-kcS" customClass="HistoricalViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoricalViewController" id="x45-cF-kcS" customClass="MHSegmentedCustomTabBarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bni-gI-SPU"/>
                         <viewControllerLayoutGuide type="bottom" id="LtX-9g-ffl"/>
@@ -686,33 +687,54 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUD-mN-bef">
                                         <rect key="frame" x="12" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="DoneIt_doneit_off.png">
+                                        <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Done It">
+                                            <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="DoneIt_doneit_on.png"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
+                                            <action selector="buttonSelected:" destination="x45-cF-kcS" eventType="touchUpInside" id="6xw-Zd-HSG"/>
                                             <segue destination="Mov-xi-9Ik" kind="custom" identifier="viewController1" customClass="MHTabBarSegue" id="tF7-tV-qbY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9Z-kY-Je0">
-                                        <rect key="frame" x="111" y="5" width="99" height="28"/>
+                                        <rect key="frame" x="134" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="DoneIt_awards_off.png">
+                                        <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Awards">
+                                            <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="DoneIt_awards_on.png"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
+                                            <action selector="buttonSelected:" destination="x45-cF-kcS" eventType="touchUpInside" id="Qfk-TR-aOG"/>
                                             <segue destination="Rbp-AC-itX" kind="custom" identifier="viewController2" customClass="MHTabBarSegue" id="zS8-TP-GDg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmA-MX-kCp">
-                                        <rect key="frame" x="210" y="5" width="99" height="28"/>
+                                        <rect key="frame" x="269" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Doneit_stats_off.png">
+                                        <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Stats">
+                                            <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="Doneit_stats_on.png"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
+                                            <action selector="buttonSelected:" destination="x45-cF-kcS" eventType="touchUpInside" id="COm-E3-BWO"/>
                                             <segue destination="3gI-0e-III" kind="custom" identifier="viewController3" customClass="MHTabBarSegue" id="qKr-Ac-PXf"/>
                                         </connections>
                                     </button>
@@ -723,7 +745,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="60r-ef-hlr" firstAttribute="leading" secondItem="gbg-cM-82X" secondAttribute="leading" id="6Js-Dz-RT5"/>
                             <constraint firstAttribute="trailing" secondItem="60r-ef-hlr" secondAttribute="trailing" id="O7d-ae-qim"/>
@@ -1253,13 +1275,9 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter old pin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-AE-8DU">
-                                <rect key="frame" x="20" y="2" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter old pin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-AE-8DU">
+                                <rect key="frame" x="87" y="57" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="4Zy-xG-eJN"/>
-                                    <constraint firstAttribute="width" constant="280" id="ZVn-oX-oQZ"/>
-                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
@@ -1380,7 +1398,6 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                             <constraint firstItem="mgc-xH-LQY" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="84e-Ox-SiS"/>
                             <constraint firstItem="Rm0-2v-507" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="26" id="8Vn-yy-fLL"/>
                             <constraint firstItem="iPX-8Y-0jK" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="12" id="91I-sp-pFn"/>
-                            <constraint firstItem="kzU-AE-8DU" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="97p-Ax-VL5"/>
                             <constraint firstItem="274-Se-Z0W" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="170" id="BNW-uT-oJZ"/>
                             <constraint firstItem="4E2-S6-hZ9" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="35" id="DiX-rz-vss"/>
                             <constraint firstItem="iPX-8Y-0jK" firstAttribute="top" secondItem="mgc-xH-LQY" secondAttribute="bottom" constant="31" id="FbQ-E7-hiJ"/>
@@ -1392,9 +1409,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                             <constraint firstItem="q51-KE-keF" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="6" id="fVL-yQ-BqL"/>
                             <constraint firstItem="q51-KE-keF" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="20" id="u8m-OM-7xT"/>
                             <constraint firstItem="NyC-m0-1nF" firstAttribute="leading" secondItem="bPy-Fp-7AS" secondAttribute="leading" constant="48" id="wD9-yg-MpF"/>
-                            <constraint firstAttribute="trailing" secondItem="q51-KE-keF" secondAttribute="trailing" constant="20" id="wVa-z7-rtl"/>
                             <constraint firstItem="mgc-xH-LQY" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="103" id="xeG-gE-dlX"/>
-                            <constraint firstItem="kzU-AE-8DU" firstAttribute="top" secondItem="bPy-Fp-7AS" secondAttribute="top" constant="2" id="zRI-sr-x9F"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yJQ-fz-Fyi"/>
@@ -1619,8 +1634,8 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inh-Q2-j8i">
-                                <rect key="frame" x="10" y="70" width="301" height="0.0"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inh-Q2-j8i">
+                                <rect key="frame" x="10" y="70" width="301" height="672"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1675,8 +1690,8 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                     <action selector="cancelButtonPressed" destination="jSK-Vy-bff" eventType="touchUpInside" id="6nF-84-0Uh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjd-XK-X1a">
-                                <rect key="frame" x="166" y="86" width="139" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjd-XK-X1a">
+                                <rect key="frame" x="166" y="758" width="139" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1788,7 +1803,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                                 <action selector="fullAddButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5sE-uD-Qxs"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgc-0E-dgU" userLabel="Done Button">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgc-0E-dgU" userLabel="Done Button">
                                                             <rect key="frame" x="662" y="2" width="23" height="23"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <constraints>
@@ -1803,7 +1818,7 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                                 <action selector="quickAddButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZRi-MQ-BgK"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Task" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-ez-tug" userLabel="New Task Lbl">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Task" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-ez-tug" userLabel="New Task Lbl">
                                                             <rect key="frame" x="302" y="3" width="84" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <constraints>
@@ -1817,12 +1832,12 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="118" id="2Zl-sd-jtH"/>
+                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="302" id="2Zl-sd-jtH"/>
                                                         <constraint firstItem="Tgc-0E-dgU" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="2" id="FwK-z5-1K9"/>
-                                                        <constraint firstItem="Tgc-0E-dgU" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="293" id="Tnx-Tk-SRm"/>
+                                                        <constraint firstItem="Tgc-0E-dgU" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="662" id="Tnx-Tk-SRm"/>
                                                         <constraint firstItem="NCe-lm-5MJ" firstAttribute="leading" secondItem="nfS-jx-8Wt" secondAttribute="leading" constant="3" id="WPm-X2-TZ2"/>
                                                         <constraint firstItem="NCe-lm-5MJ" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="2" id="ecm-74-Bf6"/>
-                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="1" id="vav-U6-IKY"/>
+                                                        <constraint firstItem="Jcn-ez-tug" firstAttribute="top" secondItem="nfS-jx-8Wt" secondAttribute="top" constant="3" id="vav-U6-IKY"/>
                                                     </constraints>
                                                 </view>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-VD-PXh" userLabel="Title TextField">
@@ -1858,8 +1873,8 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                     <color key="textColor" red="1" green="0.95686274509803915" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2 times per week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8f-mP-JCa" userLabel="Repeat times label">
-                                                    <rect key="frame" x="156" y="74" width="157" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 times per week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8f-mP-JCa" userLabel="Repeat times label">
+                                                    <rect key="frame" x="156" y="74" width="525" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -3170,7 +3185,7 @@ Missed:     Hit:</string>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="2LL-wc-f3T" firstAttribute="leading" secondItem="01f-mv-sxi" secondAttribute="leading" constant="6" id="5TU-qN-2h5"/>
                                     <constraint firstItem="mkg-T2-lUP" firstAttribute="top" secondItem="01f-mv-sxi" secondAttribute="top" constant="89" id="5do-vy-Shm"/>
@@ -4482,12 +4497,6 @@ Missed:     Hit:</string>
         </scene>
     </scenes>
     <resources>
-        <image name="DoneIt_awards_off.png" width="99" height="28"/>
-        <image name="DoneIt_awards_on.png" width="99" height="28"/>
-        <image name="DoneIt_doneit_off.png" width="99" height="28"/>
-        <image name="DoneIt_doneit_on.png" width="99" height="28"/>
-        <image name="Doneit_stats_off.png" width="99" height="28"/>
-        <image name="Doneit_stats_on.png" width="99" height="28"/>
         <image name="FacebookIcon.png" width="15" height="30"/>
         <image name="TwitterIcon.png" width="36" height="30"/>
         <image name="arrow1.png" width="22" height="13"/>
@@ -4546,8 +4555,8 @@ Missed:     Hit:</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kQQ-bD-WcM"/>
+        <segue reference="iFF-5x-wlu"/>
         <segue reference="cP6-Z1-CA9"/>
         <segue reference="abT-RF-pXv"/>
-        <segue reference="wYm-ua-Wqv"/>
     </inferredMetricsTieBreakers>
 </document>

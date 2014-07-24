@@ -18,6 +18,7 @@
 		5C0F8F62191087CA00B7A0AF /* SetGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F8F61191087CA00B7A0AF /* SetGoalViewController.m */; };
 		5C105C0318F3C1A5002C2A3F /* UserSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */; };
 		5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0818F3C53D002C2A3F /* UsersModel.m */; };
+		5C148A9D198169D900941489 /* MHSegmentedCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C148A9C198169D900941489 /* MHSegmentedCustomTabBarViewController.m */; };
 		5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C238D1818E3369A008F764F /* ZoomImageViewController.m */; };
 		5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652DC18BBA461007F8A0C /* NSDate+Reporting.m */; };
 		5C2652EF18BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652E318BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m */; };
@@ -115,7 +116,6 @@
 		5CA285011912B7C100315F44 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA284FF1912B7C100315F44 /* Default.png */; };
 		5CA285021912B7C100315F44 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA285001912B7C100315F44 /* Default@2x.png */; };
 		5CA285051912E3A800315F44 /* NotePopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA285041912E3A800315F44 /* NotePopUpViewController.m */; };
-		5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */; };
 		5CA7093718EEE7BD00D3B55F /* AwardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7093618EEE7BD00D3B55F /* AwardsViewController.m */; };
 		5CA7222C1917B5FA0074D005 /* face_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA722241917B5FA0074D005 /* face_happy.png */; };
 		5CA7222D1917B5FA0074D005 /* face_happy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA722251917B5FA0074D005 /* face_happy@2x.png */; };
@@ -294,6 +294,8 @@
 		5C105C0218F3C1A5002C2A3F /* UserSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectionViewController.m; sourceTree = "<group>"; };
 		5C105C0718F3C53D002C2A3F /* UsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersModel.h; sourceTree = "<group>"; };
 		5C105C0818F3C53D002C2A3F /* UsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersModel.m; sourceTree = "<group>"; };
+		5C148A9B198169D900941489 /* MHSegmentedCustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHSegmentedCustomTabBarViewController.h; sourceTree = "<group>"; };
+		5C148A9C198169D900941489 /* MHSegmentedCustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHSegmentedCustomTabBarViewController.m; sourceTree = "<group>"; };
 		5C238D1718E3369A008F764F /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageViewController.h; sourceTree = "<group>"; };
 		5C238D1818E3369A008F764F /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageViewController.m; sourceTree = "<group>"; };
 		5C2652DB18BBA461007F8A0C /* NSDate+Reporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Reporting.h"; sourceTree = "<group>"; };
@@ -445,8 +447,6 @@
 		5CA285001912B7C100315F44 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5CA285031912E3A800315F44 /* NotePopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotePopUpViewController.h; sourceTree = "<group>"; };
 		5CA285041912E3A800315F44 /* NotePopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotePopUpViewController.m; sourceTree = "<group>"; };
-		5CA2DED318EC771D00F55BC0 /* HistoricalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalViewController.h; sourceTree = "<group>"; };
-		5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricalViewController.m; sourceTree = "<group>"; };
 		5CA7093518EEE7BD00D3B55F /* AwardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardsViewController.h; sourceTree = "<group>"; };
 		5CA7093618EEE7BD00D3B55F /* AwardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardsViewController.m; sourceTree = "<group>"; };
 		5CA722241917B5FA0074D005 /* face_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face_happy.png; sourceTree = "<group>"; };
@@ -774,13 +774,6 @@
 			path = SWTableViewCell;
 			sourceTree = "<group>";
 		};
-		5C2671EE198009AB00B4E5D1 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
 		5C29486D191FDA8300BFC4C0 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,7 +895,6 @@
 		5C9B636518A14A350091C1D2 = {
 			isa = PBXGroup;
 			children = (
-				5C2671EE198009AB00B4E5D1 /* iPad */,
 				5CFB2AFF190F18E4003D539D /* Do It Done It.entitlements */,
 				5C9B637718A14A350091C1D2 /* Classes */,
 				5C9B63A918A151C90091C1D2 /* Resurces */,
@@ -1129,8 +1121,6 @@
 				5CDB775518BF0DC5000A4C04 /* StatsViewController.m */,
 				5C238D1718E3369A008F764F /* ZoomImageViewController.h */,
 				5C238D1818E3369A008F764F /* ZoomImageViewController.m */,
-				5CA2DED318EC771D00F55BC0 /* HistoricalViewController.h */,
-				5CA2DED418EC771D00F55BC0 /* HistoricalViewController.m */,
 				5C35A13618F5E47A0067959F /* SummaryViewController.h */,
 				5C35A13718F5E47A0067959F /* SummaryViewController.m */,
 				5C88D0DB190540730059ADFD /* TabBarController.h */,
@@ -1159,6 +1149,8 @@
 				5CA1222718F72A2100F32CCF /* MHCustomTabBarController.m */,
 				5CA1222818F72A2100F32CCF /* MHTabBarSegue.h */,
 				5CA1222918F72A2100F32CCF /* MHTabBarSegue.m */,
+				5C148A9B198169D900941489 /* MHSegmentedCustomTabBarViewController.h */,
+				5C148A9C198169D900941489 /* MHSegmentedCustomTabBarViewController.m */,
 			);
 			path = MHCustomTabBarController;
 			sourceTree = "<group>";
@@ -1604,13 +1596,13 @@
 				5C077D2D191E76B700872D69 /* NSString+Utilities.m in Sources */,
 				5CA1222B18F72A2100F32CCF /* MHTabBarSegue.m in Sources */,
 				5C2652F118BBF5FD007F8A0C /* SWLongPressGestureRecognizer.m in Sources */,
-				5CA2DED518EC771D00F55BC0 /* HistoricalViewController.m in Sources */,
 				5C559B7E18F3819D0092AAE3 /* CacheFileManager.m in Sources */,
 				5CA285051912E3A800315F44 /* NotePopUpViewController.m in Sources */,
 				5CC608E719110FAA0039ACA8 /* RemindersViewController.m in Sources */,
 				5CEC4595190B0274007AA425 /* InAppPurhcaseViewController.m in Sources */,
 				5CE04ABF190C331E00083225 /* MNCalendarViewDayCell.m in Sources */,
 				5CE04AC3190C331E00083225 /* NSDate+MNAdditions.m in Sources */,
+				5C148A9D198169D900941489 /* MHSegmentedCustomTabBarViewController.m in Sources */,
 				5CD882F318E9840D003DD93F /* SVWebViewControllerActivityChrome.m in Sources */,
 				5C294896191FDA8300BFC4C0 /* UIImage+MultiFormat.m in Sources */,
 				5C9B638218A14A350091C1D2 /* AppDelegate.m in Sources */,
@@ -1819,7 +1811,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/DoItDoneIt-Prefix.pch";
 				INFOPLIST_FILE = "Tasks/DoItDoneIt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "Do It Done It";
 				PROVISIONING_PROFILE = "";
@@ -1837,7 +1829,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tasks/DoItDoneIt-Prefix.pch";
 				INFOPLIST_FILE = "Tasks/DoItDoneIt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "Do It Done It";
 				PROVISIONING_PROFILE = "";
