@@ -10,12 +10,32 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "Constants.h"
 
-@interface SettingsTabBarController () <MFMailComposeViewControllerDelegate>
+@interface SettingsTabBarController () <MFMailComposeViewControllerDelegate> {
+    IBOutlet UIButton* feedbackButton;
+}
 
 @end
 
 @implementation SettingsTabBarController
 
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    [feedbackButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [feedbackButton addTarget:self action:@selector(buttonReleased:) forControlEvents:UIControlEventTouchUpInside];
+    [feedbackButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchDown];
+    [feedbackButton addTarget:self action:@selector(sendFeedbadck) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (IBAction)buttonTapped:(UIButton*) button {
+    [button setBackgroundColor:YELLOW_COLOR];
+}
+
+- (IBAction)buttonReleased:(UIButton*) button {
+    [button setBackgroundColor:[UIColor clearColor]];
+}
 
 - (IBAction) sendFeedbadck {
     if ([MFMailComposeViewController canSendMail]) {

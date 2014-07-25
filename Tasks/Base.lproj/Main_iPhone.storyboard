@@ -653,7 +653,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUD-mN-bef">
-                                        <rect key="frame" x="12" y="5" width="99" height="28"/>
+                                        <rect key="frame" x="13" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Done It">
@@ -682,7 +682,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmA-MX-kCp">
-                                        <rect key="frame" x="210" y="5" width="99" height="28"/>
+                                        <rect key="frame" x="209" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Stats">
                                             <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3606,34 +3606,48 @@ Missed:     Hit:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2i-Vr-Cdv">
-                                        <rect key="frame" x="12" y="5" width="99" height="28"/>
+                                        <rect key="frame" x="15" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="settings_settings_off.png">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="settings_settings_on.png"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Wlr-B9-gQr" kind="custom" identifier="viewController1" customClass="MHTabBarSegue" id="Mzv-2J-1Ua"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh6-87-txZ">
-                                        <rect key="frame" x="111" y="5" width="99" height="28"/>
+                                        <rect key="frame" x="110" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="settings_upgrades_off.png">
+                                        <state key="normal" title="Upgrades">
+                                            <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="settings_upgrades_on.png"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="FH4-A9-Bsx" kind="custom" identifier="viewController2" customClass="MHTabBarSegue" id="ZEn-PW-7pt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-Mh-pI1">
-                                        <rect key="frame" x="210" y="5" width="99" height="28"/>
+                                        <rect key="frame" x="207" y="5" width="99" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="settings_feedback_off.png">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Feedback">
+                                            <color key="titleColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="highlighted" image="settings_feedback_on.png"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="sendFeedbadck" destination="eP6-fl-o8e" eventType="touchUpInside" id="doz-ek-c7X"/>
                                         </connections>
@@ -3655,8 +3669,10 @@ Missed:     Hit:</string>
                     <size key="freeformSize" width="320" height="469"/>
                     <connections>
                         <outlet property="container" destination="cAH-pQ-Va6" id="zzr-bu-tnU"/>
+                        <outlet property="feedbackButton" destination="Ser-Mh-pI1" id="PMl-EL-sRx"/>
                         <outletCollection property="buttons" destination="U2i-Vr-Cdv" id="sgy-G3-9oe"/>
                         <outletCollection property="buttons" destination="gh6-87-txZ" id="Bd9-n7-j8t"/>
+                        <outletCollection property="buttons" destination="Ser-Mh-pI1" id="WY7-Lr-USw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njp-Nj-GAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4453,12 +4469,6 @@ Missed:     Hit:</string>
         <image name="repeat_more.png" width="23" height="23"/>
         <image name="repeat_more_on.png" width="23" height="23"/>
         <image name="repeat_number.png" width="33" height="33"/>
-        <image name="settings_feedback_off.png" width="99" height="28"/>
-        <image name="settings_feedback_on.png" width="99" height="28"/>
-        <image name="settings_settings_off.png" width="99" height="28"/>
-        <image name="settings_settings_on.png" width="99" height="28"/>
-        <image name="settings_upgrades_off.png" width="99" height="28"/>
-        <image name="settings_upgrades_on.png" width="99" height="28"/>
         <image name="tabbar_awards.png" width="49" height="49"/>
         <image name="tabbar_awards_on.png" width="49" height="49"/>
         <image name="tabbar_home.png" width="49" height="49"/>

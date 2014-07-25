@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
-#import "MHCustomTabBarController.h"
+#import "MHSegmentedCustomTabBarViewController.h"
 
-@interface SettingsTabBarController : MHCustomTabBarController
+@interface SettingsTabBarController : MHSegmentedCustomTabBarViewController
 
 @end
