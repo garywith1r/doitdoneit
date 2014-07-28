@@ -17,10 +17,13 @@
 #import "UsersModel.h"
 #import "QuickAddTaskCell.h"
 #import "SelectRepeatTimesViewController.h"
+#import "DeviceDetector.h"
 
 #import "MOOPullGestureRecognizer.h"
 #import "MOOCreateView.h"
 
+
+#define IPAD_CELL_EXTRA_HEIGHT 177
 
 
 @interface DoItTaskListViewController () <PopUpDelegate, SelectRepeatTimesDelegate, UITextFieldDelegate> {
@@ -189,7 +192,7 @@
     cellView.lblDescription.delegate = self;
     
     
-    cellView.lblDescriptionScrollViewHeightConstrait.constant = table.frame.size.height - CELL_ITEMS_HEIGHT;
+    cellView.lblDescriptionScrollViewHeightConstrait.constant = [self getExpandedCellHeightForTask:task] - CELL_ITEMS_HEIGHT;
     
     cellView.doneButton.tag = indexPath.row;
     [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
@@ -205,7 +208,16 @@
 }
 
 - (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task {
-    return table.frame.size.height;
+    
+    if ([DeviceDetector isPad]) {
+        TTTAttributedLabel* label = [[TTTAttributedLabel alloc] init];
+        label.numberOfLines = 0;
+        label.text = task.detailsText;
+        
+        return [label getPreferredHeight] + IPAD_CELL_EXTRA_HEIGHT;
+    } else {
+        return table.frame.size.height;
+    }
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -214,6 +214,46 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
     
     [self.scrollViewContentView addSubview:contentView];
     
+    NSLayoutConstraint *width =[NSLayoutConstraint
+                                constraintWithItem:contentView
+                                attribute:NSLayoutAttributeTrailing
+                                relatedBy:NSLayoutRelationEqual
+                                toItem:self.scrollViewContentView
+                                attribute:NSLayoutAttributeTrailing
+                                multiplier:1.0f
+                                constant:0.f];
+    NSLayoutConstraint *height =[NSLayoutConstraint
+                                 constraintWithItem:contentView
+                                 attribute:NSLayoutAttributeBottom
+                                 relatedBy:NSLayoutRelationEqual
+                                 toItem:self.scrollViewContentView
+                                 attribute:NSLayoutAttributeBottom
+                                 multiplier:1.0f
+                                 constant:0.f];
+    NSLayoutConstraint *top = [NSLayoutConstraint
+                               constraintWithItem:contentView
+                               attribute:NSLayoutAttributeTop
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.scrollViewContentView
+                               attribute:NSLayoutAttributeTop
+                               multiplier:1.0f
+                               constant:0.f];
+    NSLayoutConstraint *leading = [NSLayoutConstraint
+                                   constraintWithItem:contentView
+                                   attribute:NSLayoutAttributeLeading
+                                   relatedBy:NSLayoutRelationEqual
+                                   toItem:self.scrollViewContentView
+                                   attribute:NSLayoutAttributeLeading
+                                   multiplier:1.0f
+                                   constant:0.f];
+    
+    [self.scrollViewContentView addConstraint:width];
+    [self.scrollViewContentView addConstraint:height];
+    [self.scrollViewContentView addConstraint:top];
+    [self.scrollViewContentView addConstraint:leading];
+    
+    self.scrollViewContentView.backgroundColor = [UIColor redColor];
+    
 }
 
 #pragma mark Selection
