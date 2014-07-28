@@ -47,5 +47,7 @@
 
 -  (void) presentEditTaskControllerForTask:(TaskDTO*)task beingNewTask:(BOOL)newTask;
 
+- (CGFloat) getExpandedCellHeightForTask:(TaskDTO*)task;
+
 
 @end

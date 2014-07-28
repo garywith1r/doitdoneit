@@ -141,9 +141,14 @@
 
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     TaskDTO* task = contentDataArray[indexPath.row];
+    CGFloat expandedRowHeight = [self getExpandedCellHeightForTask:task];
     
     TasksViewCell* cellView = [self.storyboard instantiateViewControllerWithIdentifier:@"DoItTasksViewCell"];
     
+    CGRect frame = cellView.view.frame;
+    frame.size.width = table.frame.size.width;
+    frame.size.height = expandedRowHeight;
+    cellView.view.frame = frame;
     
     [cell setContentView:cellView.view];
     
@@ -192,7 +197,7 @@
     cellView.lblDescription.delegate = self;
     
     
-    cellView.lblDescriptionScrollViewHeightConstrait.constant = [self getExpandedCellHeightForTask:task] - CELL_ITEMS_HEIGHT;
+    cellView.lblDescriptionScrollViewHeightConstrait.constant = expandedRowHeight - CELL_ITEMS_HEIGHT;
     
     cellView.doneButton.tag = indexPath.row;
     [cellView.doneButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];

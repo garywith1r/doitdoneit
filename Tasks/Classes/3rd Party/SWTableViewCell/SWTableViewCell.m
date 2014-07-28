@@ -211,52 +211,55 @@ static NSString * const kTableViewCellContentView = @"UITableViewCellContentView
         [contentView removeFromSuperview];
     
     contentView = view;
-    
     [self.scrollViewContentView addSubview:contentView];
+//    [self addConstraitsForView:contentView equalsToView:self.scrollViewContentView];
     
+    
+    
+    
+}
+
+- (void) addConstraitsForView:(UIView*) view equalsToView:(UIView*) _contentView {
     NSLayoutConstraint *width =[NSLayoutConstraint
-                                constraintWithItem:contentView
+                                constraintWithItem:view
                                 attribute:NSLayoutAttributeTrailing
                                 relatedBy:NSLayoutRelationEqual
-                                toItem:self.scrollViewContentView
+                                toItem:_contentView
                                 attribute:NSLayoutAttributeTrailing
                                 multiplier:1.0f
                                 constant:0.f];
     NSLayoutConstraint *height =[NSLayoutConstraint
-                                 constraintWithItem:contentView
+                                 constraintWithItem:view
                                  attribute:NSLayoutAttributeBottom
                                  relatedBy:NSLayoutRelationEqual
-                                 toItem:self.scrollViewContentView
+                                 toItem:_contentView
                                  attribute:NSLayoutAttributeBottom
                                  multiplier:1.0f
                                  constant:0.f];
     NSLayoutConstraint *top = [NSLayoutConstraint
-                               constraintWithItem:contentView
+                               constraintWithItem:view
                                attribute:NSLayoutAttributeTop
                                relatedBy:NSLayoutRelationEqual
-                               toItem:self.scrollViewContentView
+                               toItem:_contentView
                                attribute:NSLayoutAttributeTop
                                multiplier:1.0f
                                constant:0.f];
     NSLayoutConstraint *leading = [NSLayoutConstraint
-                                   constraintWithItem:contentView
+                                   constraintWithItem:view
                                    attribute:NSLayoutAttributeLeading
                                    relatedBy:NSLayoutRelationEqual
-                                   toItem:self.scrollViewContentView
+                                   toItem:_contentView
                                    attribute:NSLayoutAttributeLeading
                                    multiplier:1.0f
                                    constant:0.f];
     
-    [self.scrollViewContentView addConstraint:width];
-    [self.scrollViewContentView addConstraint:height];
-    [self.scrollViewContentView addConstraint:top];
-    [self.scrollViewContentView addConstraint:leading];
-    
-    self.scrollViewContentView.backgroundColor = [UIColor redColor];
-    
+    [_contentView addConstraint:width];
+    [_contentView addConstraint:height];
+    [_contentView addConstraint:top];
+    [_contentView addConstraint:leading];
 }
 
-#pragma mark Selection
+#pragma mark - Selection
 
 - (void)scrollViewPressed:(id)sender
 {

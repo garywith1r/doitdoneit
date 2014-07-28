@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 GoNXaS. All rights reserved.
 //
 
+#import "DeviceDetector.h"
+
 #define TASK_TITLE_MAX_CHARACTERS 140
 #define TASK_NOTE_MAX_CHARACTERS 100
 #define GOAL_DESCRIPTION_MAX_CHARACTERS 140
@@ -18,7 +20,7 @@
 
 #define YELLOW_COLOR [UIColor colorWithRed:255/255.0 green:244/255.0 blue:0/255.0 alpha:1]
 #define DARK_GRAY_COLOR [UIColor colorWithRed:44/255.0 green:44/255.0 blue:44/255.0 alpha:1]
-#define GRAY_COLOR [UIColor colorWithRed:99/255.0 green:99/255.0 blue:99/255.0 alpha:1]
+#define GRAY_COLOR [DeviceDetector isPad]?[UIColor colorWithRed:79/255.0 green:79/255.0 blue:79/255.0 alpha:1]:[UIColor colorWithRed:99/255.0 green:99/255.0 blue:99/255.0 alpha:1]
 
 #define PARENTS_CODE_DIGITS 4
 

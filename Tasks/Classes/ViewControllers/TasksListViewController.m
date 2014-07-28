@@ -41,6 +41,8 @@
 
 - (void) viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name: UIApplicationWillEnterForegroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:[UIDevice currentDevice]];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -59,6 +61,10 @@
         taskController.isNewTask = taskToShowIsNewCopy;
         taskToShowIsNewCopy = NO;
     }
+}
+
+- (void) orientationChanged:(NSNotification *)note {
+    [table reloadData];
 }
 
 - (void) reloadContentData {}

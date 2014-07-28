@@ -24,6 +24,8 @@
     // Override point for customization after application launch.
     [[TaskListModel sharedInstance] evaluateMissedTasks];
     [[TaskListModel sharedInstance] forceRecalculateTasks];
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     return YES;
 }
 							
