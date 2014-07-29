@@ -3252,10 +3252,10 @@ Second Line</string>
             </objects>
             <point key="canvasLocation" x="1956" y="5721"/>
         </scene>
-        <!--View Controller-->
+        <!--Tasks View Cell-->
         <scene sceneID="oZe-Uk-28b">
             <objects>
-                <viewController storyboardIdentifier="DoItTasksViewCell" id="lZu-MJ-Mee" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DoItTasksViewCell" id="lZu-MJ-Mee" customClass="TasksViewCell" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wk0-mL-zPB"/>
                         <viewControllerLayoutGuide type="bottom" id="tOI-ro-scz"/>
