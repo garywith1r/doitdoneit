@@ -28,7 +28,7 @@
 - (void) setCellViewForCell:(SWTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     TaskDTO* task = contentDataArray[indexPath.row];
     
-    TasksViewCell* cellView = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:NULL] instantiateViewControllerWithIdentifier:@"DoneItTasksViewCell"];
+    TasksViewCell* cellView = [self.storyboard instantiateViewControllerWithIdentifier:@"DoneItTasksViewCell"];
     
     CGRect frame = cellView.view.frame;
     frame.size.width = table.frame.size.width;
