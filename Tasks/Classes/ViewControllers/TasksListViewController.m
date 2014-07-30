@@ -50,8 +50,11 @@
     [self reloadContentData];
     selectedRow = -1;
     table.scrollEnabled = YES;
-    [table layoutIfNeeded];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
     [table reloadData];
+    [table layoutIfNeeded];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

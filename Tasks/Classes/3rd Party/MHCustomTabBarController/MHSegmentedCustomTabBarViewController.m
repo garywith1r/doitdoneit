@@ -11,7 +11,10 @@
 #define BORDER_COLOR [UIColor colorWithRed:255/255.0 green:244/255.0 blue:0/255.0 alpha:1]
 #define SELECTED_BACKGROUND_COLOR [UIColor colorWithRed:255/255.0 green:244/255.0 blue:0/255.0 alpha:1]
 
-@interface MHSegmentedCustomTabBarViewController ()
+@interface MHSegmentedCustomTabBarViewController () {
+    NSMutableArray* layersArray;
+    UIButton* selectedButton;
+}
 
 @end
 
@@ -22,6 +25,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    layersArray = [[NSMutableArray alloc] initWithCapacity:self.buttons.count];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:[UIDevice currentDevice]];
+    
+    for (UIButton* button in self.buttons)
+        [button addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if (self.buttons.count)
+        [self buttonSelected:self.buttons[0]];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [self.destinationViewController.view setNeedsDisplay];
+    [super viewDidAppear:animated];
+    [self orientationChanged:nil];
+}
+
+- (void) orientationChanged:(NSNotification *)note {
+    [self maskButtons];
+    [self buttonSelected:selectedButton];
+}
+
+- (void) maskButtons {
+    for (CAShapeLayer* layer in layersArray) {
+        [layer removeFromSuperlayer];
+    }
+    
+    [layersArray removeAllObjects];
+    
     for (int x = 0; x< self.buttons.count; x++) {
         
         UIButton* button = self.buttons[x];
@@ -30,11 +62,10 @@
         // Create your mask first
         //
         UIRectCorner corners = 0;
-        if (x == 0) {
+        if (x == 0)
             corners = UIRectCornerBottomLeft|UIRectCornerTopLeft;
-            [self buttonSelected:button];
-        
-        } else if (x == self.buttons.count-1)
+            
+        else if (x == self.buttons.count-1)
             corners = UIRectCornerBottomRight|UIRectCornerTopRight;
         
         
@@ -57,8 +88,7 @@
         shape.fillColor = [UIColor clearColor].CGColor;
         shape.strokeColor = BORDER_COLOR.CGColor;
         [button.layer addSublayer:shape];
-        
-        [button addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
+        [layersArray addObject:shape];
     }
 }
 
@@ -69,5 +99,7 @@
         else
             [button setBackgroundColor:[UIColor clearColor]];
     }
+    
+    selectedButton = pressedButton;
 }
 @end
