@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tasks/Classes/ViewControllers/DoItTaskListViewController.m"
-            timestampString = "428288977.404214"
+            timestampString = "428526852.077297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-setCellViewForCell:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>

@@ -164,6 +164,11 @@
     return [currentWeekArray[section] count];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor clearColor]];
+}
+
+
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, 280, 21)];

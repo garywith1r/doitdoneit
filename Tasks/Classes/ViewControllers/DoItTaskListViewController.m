@@ -35,6 +35,8 @@
     UILabel* quickAddRepeatTimes;
     TaskDTO* quickAddDto;
     MOOCreateView *createView;
+    
+    IBOutlet UIButton* weeklyReview;
 }
 
 @end
@@ -76,6 +78,12 @@
     quickAddDto = nil;
     [createView hideCreateView:![[UsersModel sharedInstance] currentUserCanCreateTasks]];
     [table reloadData];
+    
+    if ([UsersModel sharedInstance].purchasedWeeklyReview) {
+        weeklyReview.hidden = NO;
+    } else {
+        weeklyReview.hidden = YES;
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -25,8 +25,10 @@
     IBOutlet UILabel* lblRepeatTimes;
     IBOutlet UILabel* lblNotes;
     IBOutlet UIButton* thumbImageButton;
+    IBOutlet UIButton* weeklyReview;
     IBOutlet UIView* socialView;
     IBOutlet UIImageView* imgStats;
+    
     
     
     IBOutletCollection(UIButton) NSArray* ratingButtons;
@@ -88,6 +90,12 @@
     [super viewWillAppear:animated];
     socialView.hidden = [[UsersModel sharedInstance].logedUserData integerForKey:LOGGED_USER_PRIVATE_KEY];
     lblNotes.text = self.task.notes;
+    
+    if ([UsersModel sharedInstance].purchasedWeeklyReview) {
+        weeklyReview.hidden = NO;
+    } else {
+        weeklyReview.hidden = YES;
+    }
 }
 
 

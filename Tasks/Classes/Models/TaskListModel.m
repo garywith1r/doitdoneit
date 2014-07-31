@@ -395,8 +395,8 @@ TaskListModel* instance;
             task = completedTasksSorted[completedIndex];
             if ([task.completitionDate timeIntervalSinceDate:currentDate] < ONE_DAY) {
                 [dayArray addObject:task];
-                completedIndex++;
             }
+            completedIndex++;
         }
         
         if (missedIndex < missedTasks.count)
