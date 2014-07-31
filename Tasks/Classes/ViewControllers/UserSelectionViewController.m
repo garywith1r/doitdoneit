@@ -65,6 +65,10 @@
     return usersArray.count + [UsersModel sharedInstance].purchasedMultiUser;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor clearColor]];
+}
+
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return headersView;
 }
@@ -120,6 +124,11 @@
     
     NSDictionary* usersDict = [usersArray objectAtIndex:row];
     UserCellViewController* cellView = [self.storyboard instantiateViewControllerWithIdentifier:@"UserCellViewController"];
+    
+    CGRect frame = cellView.view.frame;
+    frame.size.width = table.frame.size.width;
+    frame.size.height = tableView.rowHeight;
+    cellView.view.frame = frame;
     
     [cell setContentView:cellView.view];
 
