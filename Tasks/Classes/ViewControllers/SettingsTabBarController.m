@@ -22,7 +22,6 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    
     [feedbackButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     [feedbackButton addTarget:self action:@selector(buttonReleased:) forControlEvents:UIControlEventTouchUpInside];
     [feedbackButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchDown];
