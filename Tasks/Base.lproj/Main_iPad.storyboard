@@ -3183,7 +3183,7 @@ Second Line</string>
                         <rect key="frame" x="0.0" y="0.0" width="688" height="809"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Clx-cl-04U">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Clx-cl-04U">
                                 <rect key="frame" x="0.0" y="39" width="688" height="770"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3286,11 +3286,15 @@ Second Line</string>
                             <constraint firstItem="Go0-Hm-yS2" firstAttribute="top" secondItem="vNA-xD-tIP" secondAttribute="bottom" constant="63" id="ESt-Dk-daz"/>
                             <constraint firstItem="vNA-xD-tIP" firstAttribute="leading" secondItem="xeB-lA-jgT" secondAttribute="leading" constant="29" id="Gbf-pM-Anv"/>
                             <constraint firstAttribute="trailing" secondItem="Go0-Hm-yS2" secondAttribute="trailing" constant="29" id="Is2-IF-KSr"/>
+                            <constraint firstItem="Clx-cl-04U" firstAttribute="leading" secondItem="xeB-lA-jgT" secondAttribute="leading" id="Ka0-oQ-XRL"/>
+                            <constraint firstAttribute="trailing" secondItem="Clx-cl-04U" secondAttribute="trailing" id="SKV-6N-zTS"/>
                             <constraint firstAttribute="trailing" secondItem="vNA-xD-tIP" secondAttribute="trailing" constant="29" id="ena-nL-xIk"/>
                             <constraint firstItem="BhB-gY-Mod" firstAttribute="leading" secondItem="xeB-lA-jgT" secondAttribute="leading" id="gpm-xM-1Ex"/>
+                            <constraint firstItem="Clx-cl-04U" firstAttribute="top" secondItem="SQR-kh-tz8" secondAttribute="bottom" constant="39" id="kn8-AQ-PW6"/>
                             <constraint firstAttribute="trailing" secondItem="BhB-gY-Mod" secondAttribute="trailing" id="pCO-aY-IhR"/>
                             <constraint firstItem="Go0-Hm-yS2" firstAttribute="leading" secondItem="xeB-lA-jgT" secondAttribute="leading" constant="29" id="pc6-JC-4WV"/>
                             <constraint firstItem="vNA-xD-tIP" firstAttribute="top" secondItem="BhB-gY-Mod" secondAttribute="bottom" constant="38" id="ptr-6l-3iI"/>
+                            <constraint firstItem="UUw-1Y-MRu" firstAttribute="top" secondItem="Clx-cl-04U" secondAttribute="bottom" id="xjq-X2-tMm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Re6-fl-QV7"/>

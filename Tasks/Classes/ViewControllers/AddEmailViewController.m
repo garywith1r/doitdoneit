@@ -48,6 +48,12 @@
     
     table.hidden = !hasEmails;
     noEmailsView.hidden = noEmailsButton.hidden = hasEmails;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:[UIDevice currentDevice]];
+}
+
+- (void) orientationChanged:(NSNotification *)note {
+    [table reloadData];
 }
 
 - (IBAction) addEmail {
@@ -119,6 +125,12 @@
     }
     
     StatsViewCell* statsView = [self.storyboard instantiateViewControllerWithIdentifier:@"EmailViewCell"];
+    
+    CGRect frame = statsView.view.frame;
+    frame.size.width = table.frame.size.width;
+    frame.size.height = tableView.rowHeight;
+    statsView.view.frame = frame;
+    
     [cell setContentView:statsView.view];
     
     statsView.awardLabel.text = emails[indexPath.row];    

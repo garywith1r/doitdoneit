@@ -117,6 +117,12 @@
     [cell setBackgroundColor:[UIColor clearColor]];
 }
 
+- (UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, table.frame.size.width, 10)];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         static NSString *cellIdentifier = @"Cell";
         
