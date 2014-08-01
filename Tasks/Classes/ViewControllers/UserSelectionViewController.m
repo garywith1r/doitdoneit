@@ -39,6 +39,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:[UIDevice currentDevice]];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -46,6 +48,10 @@
     usersArray = [[UsersModel sharedInstance] getUsers];
     [table reloadData];
     parentModeSwitch.on = [UsersModel sharedInstance].parentsModeActive;
+}
+
+- (void) orientationChanged:(NSNotification *)note {
+    [table reloadData];
 }
 
 - (IBAction) backButtonPressed {
@@ -152,7 +158,10 @@
     if ([UsersModel sharedInstance].purchasedMultiUser && (indexPath.row == 0) ) {
         NewUserPopUP* newUser = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserPopUp"];
         newUser.delegate = self;
-        [newUser presentOnViewController:self];
+        if ([DeviceDetector isPad])
+            [newUser presentOnMainWindow];
+        else
+            [newUser presentOnViewController:self];
         
     } else if (self.isChangingUser) {
         
@@ -168,7 +177,10 @@
         NewUserPopUP* newUser = [self.storyboard instantiateViewControllerWithIdentifier:@"NewUserPopUp"];
         newUser.usersDictionary = [usersArray objectAtIndex:(indexPath.row - [UsersModel sharedInstance].purchasedMultiUser)];
         newUser.delegate = self;
-        [newUser presentOnViewController:self];     
+        if ([DeviceDetector isPad])
+            [newUser presentOnMainWindow];
+        else
+            [newUser presentOnViewController:self];
     }
 }
 

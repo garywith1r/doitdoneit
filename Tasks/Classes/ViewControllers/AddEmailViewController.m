@@ -58,7 +58,10 @@
     AddEmailPopUpViewController* popUP = [self.storyboard instantiateViewControllerWithIdentifier:@"AddEmailPopUpViewController"];
     popUP.email = email;
     popUP.delegate = self;
-    [popUP presentOnViewController:self];
+    if ([DeviceDetector isPad])
+        [popUP presentOnMainWindow];
+    else
+        [popUP presentOnViewController:self];
 }
 
 - (void) removeEmailAtIndex:(NSInteger)index {

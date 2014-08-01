@@ -345,8 +345,7 @@
     [vc setInitialTimes:quickAddDto.repeatTimes andInitialTimeInterval:quickAddDto.repeatPeriod];
     vc.delegate = self;
     
-    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
-    [vc presentOnViewController:mainVC];
+    [vc presentOnMainWindow];
     [quickAddTitle resignFirstResponder];
 }
 

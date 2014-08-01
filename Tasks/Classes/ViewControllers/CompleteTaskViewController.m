@@ -143,7 +143,10 @@
     NotePopUpViewController* noteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NotePopUpViewController"];
     noteVC.delegate = self;
     noteVC.task = self.task;
-    [noteVC presentOnViewController:self];
+    if ([DeviceDetector isPad])
+        [noteVC presentOnMainWindow];
+    else
+        [noteVC presentOnViewController:self];
 }
 
 #pragma mark - UITextField Methods

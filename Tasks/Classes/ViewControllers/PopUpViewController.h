@@ -20,6 +20,7 @@
 
 @property (nonatomic, weak) NSObject <PopUpDelegate>* delegate;
 
+- (void) presentOnMainWindow;
 - (void) presentOnViewController:(UIViewController*)viewController;
 - (IBAction) doneButtonPressed;
 - (IBAction) closeButtonPressed;

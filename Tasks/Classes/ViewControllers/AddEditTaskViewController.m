@@ -150,9 +150,7 @@
     SelectRepeatTimesViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectRepeatTimesViewController"];
     [vc setInitialTimes:self.task.repeatTimes andInitialTimeInterval:self.task.repeatPeriod];
     vc.delegate = self;
-    
-    UINavigationController* mainVC = (UINavigationController*)[[[UIApplication sharedApplication] keyWindow] rootViewController];
-    [vc presentOnViewController:mainVC];
+    [vc presentOnMainWindow];
     [txtTitle resignFirstResponder];
 }
 
@@ -208,6 +206,9 @@
     NotePopUpViewController* noteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NotePopUpViewController"];
     noteVC.delegate = self;
     noteVC.task = task;
+    if ([DeviceDetector isPad])
+        [noteVC presentOnMainWindow];
+    else
     [noteVC presentOnViewController:self];
 }
 

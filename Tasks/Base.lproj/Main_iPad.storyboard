@@ -4422,7 +4422,7 @@ Missed:     Hit:</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.38823529410000002" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="z8j-St-LHN" secondAttribute="bottom" constant="83" id="1OT-8r-NrO"/>
                             <constraint firstItem="WZp-eB-I6E" firstAttribute="leading" secondItem="9hH-nm-ccV" secondAttribute="leading" constant="29" id="4id-XU-vtX"/>
@@ -5240,10 +5240,10 @@ Missed:     Hit:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="T27-Pk-YCe"/>
         <segue reference="kQQ-bD-WcM"/>
-        <segue reference="cP6-Z1-CA9"/>
-        <segue reference="aR1-64-oMu"/>
+        <segue reference="T27-Pk-YCe"/>
         <segue reference="wYm-ua-Wqv"/>
+        <segue reference="aR1-64-oMu"/>
+        <segue reference="JJL-Ml-AgY"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -34,6 +34,10 @@
     [UIView commitAnimations];
 }
 
+- (void) presentOnMainWindow {
+    [self presentOnViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
 - (IBAction) doneButtonPressed {
     [self closeButtonPressed];
 }
