@@ -11,10 +11,19 @@
 #import "UsersModel.h"
 #import "RMStore.h"
 
+#define NOT_APP_FIRST_LOAD @"has_loaded_some_time"
+
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:NOT_APP_FIRST_LOAD]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:NOT_APP_FIRST_LOAD];
+        UIApplication* sharedApp = [UIApplication sharedApplication];
+        for (UILocalNotification* notification in sharedApp.scheduledLocalNotifications) {
+            [sharedApp cancelLocalNotification:notification];
+        }
+    }
     
     if (![[UsersModel sharedInstance].logedUserData objectForKey:LOGGED_USER_REMINDERS_KEY])
         [[UsersModel sharedInstance].logedUserData setInteger:TRUE forKey:LOGGED_USER_REMINDERS_KEY];

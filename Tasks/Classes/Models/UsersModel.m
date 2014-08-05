@@ -289,7 +289,7 @@ UsersModel* userModelInstance;
 }
 
 - (void) addRemindersForMainTask {
-    if ([self.logedUserData objectForKey:LOGGED_USER_REMINDERS_KEY]) {
+    if ([self.logedUserData integerForKey:LOGGED_USER_REMINDERS_KEY]) {
         TaskDTO* firstTask = [[self.logedUserData objectForKey:TASKS_ARRAY_KEY] objectAtIndex:0];
         if (firstTask) {
             UILocalNotification *localNotif = [[UILocalNotification alloc] init];
@@ -328,6 +328,8 @@ UsersModel* userModelInstance;
             
             [self.logedUserData setObject:@[localNotif, localNotif2] forKey:@"LocalNotifications"];
 //            [self saveCurrentUserData];
+            
+            NSLog(@"%@",[UIApplication sharedApplication].scheduledLocalNotifications);
         }
     }
 }
@@ -340,6 +342,10 @@ UsersModel* userModelInstance;
     for (UILocalNotification* notification in userNotifications) {
         [sharedApp cancelLocalNotification:notification];
     }
+    
+    [self.logedUserData removeObjectForKey:@"LocalNotifications"];
+    
+    NSLog(@"%@",sharedApp.scheduledLocalNotifications);
 }
 
 - (void) prepareForBackground {
