@@ -68,8 +68,8 @@ UsersModel* userModelInstance;
         parentsModeEnabled = [userDefaults boolForKey:@"parentsModeEnabled"];
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
         
-#warning Testing
-        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
+//#warning Testing
+//        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
 
     }
     
@@ -328,8 +328,6 @@ UsersModel* userModelInstance;
             
             [self.logedUserData setObject:@[localNotif, localNotif2] forKey:@"LocalNotifications"];
 //            [self saveCurrentUserData];
-            
-            NSLog(@"%@",[UIApplication sharedApplication].scheduledLocalNotifications);
         }
     }
 }
@@ -344,8 +342,6 @@ UsersModel* userModelInstance;
     }
     
     [self.logedUserData removeObjectForKey:@"LocalNotifications"];
-    
-    NSLog(@"%@",sharedApp.scheduledLocalNotifications);
 }
 
 - (void) prepareForBackground {
