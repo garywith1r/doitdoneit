@@ -52,6 +52,7 @@
     UITableViewCell* cell = [table dequeueReusableCellWithIdentifier:@"QuickAddTaskCell"];
     
     createView = [[MOOCreateView alloc] initWithCell:cell];
+    
     createView.hidden = YES;
     createView.configurationBlock = ^(MOOCreateView *view, UITableViewCell *cell, MOOPullState state){
         if (![cell isKindOfClass:[UITableViewCell class]])

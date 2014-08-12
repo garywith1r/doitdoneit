@@ -34,6 +34,8 @@
 
 @property (nonatomic, weak) UINavigationController* navController;
 
+- (void) orientationChanged:(NSNotification *)note;
+
 - (void) deleteTaskOnMarkedPosition;
 - (NSAttributedString*) stringWithBoldPart:(NSString*)boldPart andNormalPart:(NSString*)normalPart;
 
