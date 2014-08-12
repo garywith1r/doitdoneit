@@ -50,7 +50,9 @@ NSString *const MHCustomTabBarControllerViewControllerAlreadyVisibleNotification
     self.destinationViewController.view.frame = self.container.bounds;
 }
 
-
+- (void) selectTabAtIndex:(NSInteger)index {
+    [self performSegueWithIdentifier:[NSString stringWithFormat:@"viewController%li",(long)index] sender:nil];
+}
 
 #pragma mark - Segue
 

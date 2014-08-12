@@ -10,8 +10,15 @@
 #import "TaskListModel.h"
 #import "UsersModel.h"
 #import "RMStore.h"
+#import "MHCustomTabBarController.h"
 
 #define NOT_APP_FIRST_LOAD @"has_loaded_some_time"
+
+@interface AppDelegate () {
+    MHCustomTabBarController* mainTabBarController;
+}
+
+@end
 
 @implementation AppDelegate
 
@@ -38,6 +45,9 @@
     // Override point for customization after application launch.
     [[TaskListModel sharedInstance] evaluateMissedTasks];
     [[TaskListModel sharedInstance] forceRecalculateTasks];
+    
+    
+    
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     return YES;
@@ -82,6 +92,15 @@
 
 - (void) didAwakeFromNotificationWithUserIndex:(NSInteger)userIndex {
     [[UsersModel sharedInstance] changeToUserAtIndex:userIndex];
+    
+    if (!mainTabBarController) {
+        if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UINavigationController class]])
+            mainTabBarController = (MHCustomTabBarController*)((UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController).topViewController;
+        else
+            mainTabBarController = (MHCustomTabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+    }
+    
+    [mainTabBarController selectTabAtIndex:2];
 }
 
 @end
