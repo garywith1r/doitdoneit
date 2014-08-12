@@ -2075,10 +2075,13 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                                         <action selector="repeatTimesButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SjJ-0y-Naj"/>
                                                     </connections>
                                                 </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JtW-7c-83Q" userLabel="Separator Line">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JtW-7c-83Q" userLabel="Separator Line">
                                                     <rect key="frame" x="90" y="67" width="598" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.95686274510000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="OYU-Od-xSD"/>
+                                                    </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7b-l7-gur" userLabel="Separator Line">
                                                     <rect key="frame" x="90" y="28" width="1" height="81"/>
@@ -2088,12 +2091,15 @@ If it feels like we're nagging you then you can turn them off, but we're only tr
                                             </subviews>
                                             <color key="backgroundColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="JtW-7c-83Q" secondAttribute="trailing" id="126-aK-JSk"/>
                                                 <constraint firstItem="q8f-mP-JCa" firstAttribute="leading" secondItem="v7Y-MJ-nkK" secondAttribute="trailing" constant="76" id="2SA-BI-cqZ"/>
                                                 <constraint firstItem="ibf-VD-PXh" firstAttribute="leading" secondItem="v7Y-MJ-nkK" secondAttribute="trailing" constant="19" id="30C-YN-f42"/>
                                                 <constraint firstAttribute="trailing" secondItem="q8f-mP-JCa" secondAttribute="trailing" constant="7" id="3KW-If-uMa"/>
+                                                <constraint firstItem="JtW-7c-83Q" firstAttribute="leading" secondItem="zdo-YE-7eB" secondAttribute="leading" constant="90" id="Ddd-xT-5Be"/>
                                                 <constraint firstItem="q8f-mP-JCa" firstAttribute="top" secondItem="ibf-VD-PXh" secondAttribute="bottom" constant="8" symbolic="YES" id="FwA-XK-tWW"/>
                                                 <constraint firstItem="upI-2n-29K" firstAttribute="trailing" secondItem="ibf-VD-PXh" secondAttribute="trailing" constant="10" id="Gbb-sf-vXv"/>
                                                 <constraint firstItem="upI-2n-29K" firstAttribute="top" secondItem="ibf-VD-PXh" secondAttribute="bottom" constant="5" id="L3B-cL-4Pl"/>
+                                                <constraint firstItem="JtW-7c-83Q" firstAttribute="top" secondItem="zdo-YE-7eB" secondAttribute="top" constant="67" id="L3W-TC-QHa"/>
                                                 <constraint firstAttribute="trailing" secondItem="ibf-VD-PXh" secondAttribute="trailing" constant="20" id="PFr-hf-Vlx"/>
                                                 <constraint firstAttribute="trailing" secondItem="nfS-jx-8Wt" secondAttribute="trailing" id="PJf-Qu-h8b"/>
                                                 <constraint firstItem="q8f-mP-JCa" firstAttribute="baseline" secondItem="oWP-7z-ajg" secondAttribute="baseline" id="R3l-7A-Ogo"/>
@@ -5251,9 +5257,9 @@ Missed:     Hit:</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kQQ-bD-WcM"/>
-        <segue reference="MZR-Lb-0bp"/>
-        <segue reference="Pml-3l-uqn"/>
         <segue reference="aR1-64-oMu"/>
         <segue reference="JJL-Ml-AgY"/>
+        <segue reference="iFF-5x-wlu"/>
+        <segue reference="eN4-4q-gQk"/>
     </inferredMetricsTieBreakers>
 </document>

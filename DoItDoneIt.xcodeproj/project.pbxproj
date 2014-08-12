@@ -20,6 +20,14 @@
 		5C105C0918F3C53D002C2A3F /* UsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C105C0818F3C53D002C2A3F /* UsersModel.m */; };
 		5C148A9D198169D900941489 /* MHSegmentedCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C148A9C198169D900941489 /* MHSegmentedCustomTabBarViewController.m */; };
 		5C238D1918E3369A008F764F /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C238D1818E3369A008F764F /* ZoomImageViewController.m */; };
+		5C23C440199A5E2800B2A876 /* Default_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C43C199A5E2800B2A876 /* Default_iPad.png */; };
+		5C23C441199A5E2800B2A876 /* Default_iPad_Land.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C43D199A5E2800B2A876 /* Default_iPad_Land.png */; };
+		5C23C442199A5E2800B2A876 /* Default_iPad_Land@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C43E199A5E2800B2A876 /* Default_iPad_Land@2x.png */; };
+		5C23C443199A5E2800B2A876 /* Default_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C43F199A5E2800B2A876 /* Default_iPad@2x.png */; };
+		5C23C446199A609D00B2A876 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C444199A609D00B2A876 /* Default-Portrait~ipad.png */; };
+		5C23C447199A609D00B2A876 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C445199A609D00B2A876 /* Default~ipad.png */; };
+		5C23C449199A618800B2A876 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C448199A618800B2A876 /* Default-Landscape@2x~ipad.png */; };
+		5C23C44B199A61DF00B2A876 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C23C44A199A61DF00B2A876 /* Default-Landscape~ipad.png */; };
 		5C2652DF18BBA461007F8A0C /* NSDate+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652DC18BBA461007F8A0C /* NSDate+Reporting.m */; };
 		5C2652EF18BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652E318BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.m */; };
 		5C2652F018BBF5FD007F8A0C /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2652E518BBF5FD007F8A0C /* SWCellScrollView.m */; };
@@ -298,6 +306,14 @@
 		5C148A9C198169D900941489 /* MHSegmentedCustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHSegmentedCustomTabBarViewController.m; sourceTree = "<group>"; };
 		5C238D1718E3369A008F764F /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageViewController.h; sourceTree = "<group>"; };
 		5C238D1818E3369A008F764F /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageViewController.m; sourceTree = "<group>"; };
+		5C23C43C199A5E2800B2A876 /* Default_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default_iPad.png; sourceTree = "<group>"; };
+		5C23C43D199A5E2800B2A876 /* Default_iPad_Land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default_iPad_Land.png; sourceTree = "<group>"; };
+		5C23C43E199A5E2800B2A876 /* Default_iPad_Land@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default_iPad_Land@2x.png"; sourceTree = "<group>"; };
+		5C23C43F199A5E2800B2A876 /* Default_iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default_iPad@2x.png"; sourceTree = "<group>"; };
+		5C23C444199A609D00B2A876 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		5C23C445199A609D00B2A876 /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = "<group>"; };
+		5C23C448199A618800B2A876 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		5C23C44A199A61DF00B2A876 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		5C2652DB18BBA461007F8A0C /* NSDate+Reporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Reporting.h"; sourceTree = "<group>"; };
 		5C2652DC18BBA461007F8A0C /* NSDate+Reporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Reporting.m"; sourceTree = "<group>"; };
 		5C2652E218BBF5FD007F8A0C /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
@@ -1070,6 +1086,14 @@
 				5CA284FF1912B7C100315F44 /* Default.png */,
 				5CA285001912B7C100315F44 /* Default@2x.png */,
 				5C05EA1518BB0C3E00BE92F4 /* Default-568h@2x.png */,
+				5C23C43C199A5E2800B2A876 /* Default_iPad.png */,
+				5C23C43F199A5E2800B2A876 /* Default_iPad@2x.png */,
+				5C23C43D199A5E2800B2A876 /* Default_iPad_Land.png */,
+				5C23C43E199A5E2800B2A876 /* Default_iPad_Land@2x.png */,
+				5C23C444199A609D00B2A876 /* Default-Portrait~ipad.png */,
+				5C23C445199A609D00B2A876 /* Default~ipad.png */,
+				5C23C44A199A61DF00B2A876 /* Default-Landscape~ipad.png */,
+				5C23C448199A618800B2A876 /* Default-Landscape@2x~ipad.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1422,6 +1446,7 @@
 				5CA722311917B5FA0074D005 /* face_perplexed@2x.png in Resources */,
 				5CF76F29191719B4002E84ED /* DoneIt_awards_off.png in Resources */,
 				5CD63E7B190A070000017304 /* repeat_more_on.png in Resources */,
+				5C23C447199A609D00B2A876 /* Default~ipad.png in Resources */,
 				5CD63E7F190A070000017304 /* repeat_number.png in Resources */,
 				5CD63E94190A070000017304 /* repeat5_year@2x.png in Resources */,
 				5CF76F2F191719B4002E84ED /* DoneIt_doneit_on.png in Resources */,
@@ -1451,6 +1476,7 @@
 				5CF76F2A191719B4002E84ED /* DoneIt_awards_off@2x.png in Resources */,
 				5CF76F2D191719B4002E84ED /* DoneIt_doneit_off.png in Resources */,
 				5CDB775A18BF0F79000A4C04 /* TwitterIcon@2x.png in Resources */,
+				5C23C44B199A61DF00B2A876 /* Default-Landscape~ipad.png in Resources */,
 				5C30E54318BC5F450083FF23 /* Calendar.png in Resources */,
 				5CD63E9C190A070000017304 /* tabbar_home_on@2x.png in Resources */,
 				5CD63EA1190A070000017304 /* tabbar_task.png in Resources */,
@@ -1462,6 +1488,7 @@
 				5CEC458F190AF980007AA425 /* InAppPurchases.plist in Resources */,
 				5C932EA5192055570044B916 /* unlocked@2x.png in Resources */,
 				5CC1E9EE18BD3B240018955E /* Delete@2x.png in Resources */,
+				5C23C449199A618800B2A876 /* Default-Landscape@2x~ipad.png in Resources */,
 				5C2948B619203DAB00BFC4C0 /* goal@2x.png in Resources */,
 				5C2948B519203DAB00BFC4C0 /* goal.png in Resources */,
 				5CD63E8B190A070000017304 /* repeat3_fort.png in Resources */,
@@ -1481,6 +1508,7 @@
 				5CD63E78190A070000017304 /* repeat_less_on@2x.png in Resources */,
 				5CF76F2B191719B4002E84ED /* DoneIt_awards_on.png in Resources */,
 				5CD63EAC190A070000017304 /* task_ok@2x.png in Resources */,
+				5C23C446199A609D00B2A876 /* Default-Portrait~ipad.png in Resources */,
 				5C9B638518A14A350091C1D2 /* Main_iPhone.storyboard in Resources */,
 				5C2948C319203DAB00BFC4C0 /* icon_72.png in Resources */,
 				5CF76F2E191719B4002E84ED /* DoneIt_doneit_off@2x.png in Resources */,
@@ -1510,6 +1538,7 @@
 				5C9B637C18A14A350091C1D2 /* InfoPlist.strings in Resources */,
 				5CF76F3719171AAB002E84ED /* Doneit_stats_on.png in Resources */,
 				5CD63E70190A070000017304 /* arrow2.png in Resources */,
+				5C23C442199A5E2800B2A876 /* Default_iPad_Land@2x.png in Resources */,
 				5CD63E8F190A070000017304 /* repeat4_quarter.png in Resources */,
 				5C30E54218BC5F450083FF23 /* Delete.png in Resources */,
 				5CF76F3519171AAB002E84ED /* Doneit_stats_off.png in Resources */,
@@ -1534,12 +1563,14 @@
 				5C30E54418BC5F450083FF23 /* Edit.png in Resources */,
 				5CD882ED18E9840D003DD93F /* SVWebViewController.strings in Resources */,
 				5C2948C119203DAB00BFC4C0 /* icon_57.png in Resources */,
+				5C23C443199A5E2800B2A876 /* Default_iPad@2x.png in Resources */,
 				5CD63E92190A070000017304 /* repeat5_year_on@2x.png in Resources */,
 				5CDB774818BEBE7F000A4C04 /* FacebookIcon.png in Resources */,
 				5C2948B419203DAB00BFC4C0 /* default_task_bordered@2x.png in Resources */,
 				5CD63E91190A070000017304 /* repeat5_year_on.png in Resources */,
 				5CD882F418E9840D003DD93F /* SVWebViewControllerActivityChrome@2x.png in Resources */,
 				5CD63EA6190A070000017304 /* task_add_big@2x.png in Resources */,
+				5C23C440199A5E2800B2A876 /* Default_iPad.png in Resources */,
 				5C2948B819203DAB00BFC4C0 /* icon_1024.png in Resources */,
 				5CD63E8D190A070000017304 /* repeat4_quarter_on.png in Resources */,
 				5CD63E79190A070000017304 /* repeat_less.png in Resources */,
@@ -1551,6 +1582,7 @@
 				5CD63E9A190A070000017304 /* tabbar_home@2x.png in Resources */,
 				5CD63E7C190A070000017304 /* repeat_more_on@2x.png in Resources */,
 				5CDAF0EF190D9D8800634437 /* settings_upgrades_off.png in Resources */,
+				5C23C441199A5E2800B2A876 /* Default_iPad_Land.png in Resources */,
 				5C2D0556190F2B2A00F0C56F /* photo_profile@2x.png in Resources */,
 				5CA285011912B7C100315F44 /* Default.png in Resources */,
 				5C2948CB19203DAB00BFC4C0 /* weeklyrev@2x.png in Resources */,
