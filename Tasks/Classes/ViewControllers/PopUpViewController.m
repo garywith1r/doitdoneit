@@ -28,6 +28,8 @@
     [viewController.view addSubview:self.view];
     [viewController addChildViewController:self];
     
+    self.view.frame = viewController.view.frame;
+    
     [UIView beginAnimations:NULL context:nil];
     [UIView setAnimationDuration:0.3];
     self.view.alpha = 1;
@@ -35,7 +37,11 @@
 }
 
 - (void) presentOnMainWindow {
-    [self presentOnViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    
+    if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UINavigationController class]])
+        [self presentOnViewController:((UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController).topViewController];
+    else
+        [self presentOnViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
 }
 
 - (IBAction) doneButtonPressed {

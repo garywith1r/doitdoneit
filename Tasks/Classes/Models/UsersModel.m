@@ -68,8 +68,8 @@ UsersModel* userModelInstance;
         parentsModeEnabled = [userDefaults boolForKey:@"parentsModeEnabled"];
         parentsPinCode = [userDefaults objectForKey:@"parentsPinCode"];
         
-//#warning Testing
-//        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
+#warning Testing
+        purchasedParentsMode = purchasedMultiUser = purchasedAddsFree = purchasedWeeklyReview = YES;
 
     }
     
@@ -129,6 +129,7 @@ UsersModel* userModelInstance;
     NSMutableDictionary* defaultData = [[NSMutableDictionary alloc] init];
     [defaultData setInteger:DEFAULT_GOAL_POINTS forKey:LOGGED_USER_GOAL_KEY];
     [defaultData setObject:DEFAULT_GOAL_TEXT forKey:LOGGED_USER_GOAL_DESCRIPTION_KEY];
+    [defaultData setInteger:YES forKey:LOGGED_USER_REMINDERS_KEY];
     
     TaskDTO* task1 = [[TaskDTO alloc] init];
     task1.title = DEFAULT_TASK_1_TITLE;
@@ -217,26 +218,29 @@ UsersModel* userModelInstance;
 }
 
 - (void) changeToUserAtIndex:(NSInteger)index {
-    
-    logedUserIndex = index;
-    logedUser = [[self getUsers] objectAtIndex:logedUserIndex];
-    NSData* data = [CacheFileManager getDataFromPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
-    if (data) {
-        logedUserData = [NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
-    } else {
-        logedUserData = [[NSMutableDictionary alloc] init];
+    if (logedUserIndex != index) {
+        [[UsersModel sharedInstance] addRemindersForMainTask];
+        logedUserIndex = index;
+        logedUser = [[self getUsers] objectAtIndex:logedUserIndex];
+        NSData* data = [CacheFileManager getDataFromPath:[logedUser objectForKey:LOGGED_USER_PATH_KEY]];
+        if (data) {
+            logedUserData = [NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+        } else {
+            logedUserData = [[NSMutableDictionary alloc] init];
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:logedUserIndex] forKey:@"logedUserIndex"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[TaskListModel sharedInstance] loadFullData];
+        [[TaskListModel sharedInstance] evaluateMissedTasks];
+        [[TaskListModel sharedInstance] forceRecalculateTasks];
+        
+        [[StatsModel sharedInstance] loadData];
+        [[StatsModel sharedInstance] recalculateVolatileStats];
+        [[UsersModel sharedInstance] removeTodaysReminders];
+        
     }
-    
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:logedUserIndex] forKey:@"logedUserIndex"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [[TaskListModel sharedInstance] loadFullData];
-    [[TaskListModel sharedInstance] evaluateMissedTasks];
-    [[TaskListModel sharedInstance] forceRecalculateTasks];
-    
-    [[StatsModel sharedInstance] loadData];
-    [[StatsModel sharedInstance] recalculateVolatileStats];
-    [[UsersModel sharedInstance] removeTodaysReminders];
     
 }
 
@@ -289,8 +293,9 @@ UsersModel* userModelInstance;
 }
 
 - (void) addRemindersForMainTask {
-    if ([self.logedUserData integerForKey:LOGGED_USER_REMINDERS_KEY]) {
+    if ([self.logedUserData integerForKey:LOGGED_USER_REMINDERS_KEY] && ![self.logedUserData objectForKey:@"LocalNotifications"]) {
         TaskDTO* firstTask = [[self.logedUserData objectForKey:TASKS_ARRAY_KEY] objectAtIndex:0];
+        
         if (firstTask) {
             UILocalNotification *localNotif = [[UILocalNotification alloc] init];
             if (localNotif == nil)
@@ -311,6 +316,7 @@ UsersModel* userModelInstance;
             localNotif.soundName = UILocalNotificationDefaultSoundName;
             localNotif.alertBody = alertBody;
             localNotif.applicationIconBadgeNumber = 0;
+            localNotif.userInfo = @{@"LoggedUserIndex":[NSNumber numberWithInteger:logedUserIndex]};
             
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
             
@@ -323,6 +329,7 @@ UsersModel* userModelInstance;
             localNotif2.soundName = UILocalNotificationDefaultSoundName;
             localNotif2.alertBody = alertBody;
             localNotif2.applicationIconBadgeNumber = 0;
+            localNotif2.userInfo = @{@"LoggedUserIndex":[NSNumber numberWithInteger:logedUserIndex]};
             
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotif2];
             

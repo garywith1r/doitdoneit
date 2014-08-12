@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    UILocalNotification *launchNote = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (launchNote){
+        // I recieved a notification while not running
+        NSInteger noteUserIndex = [[launchNote.userInfo objectForKey:@"LoggedUserIndex"] integerValue];
+        [self didAwakeFromNotificationWithUserIndex:noteUserIndex];
+    }
+    
     if (![[NSUserDefaults standardUserDefaults] objectForKey:NOT_APP_FIRST_LOAD]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:NOT_APP_FIRST_LOAD];
         UIApplication* sharedApp = [UIApplication sharedApplication];
@@ -24,9 +32,6 @@
             [sharedApp cancelLocalNotification:notification];
         }
     }
-    
-    if (![[UsersModel sharedInstance].logedUserData objectForKey:LOGGED_USER_REMINDERS_KEY])
-        [[UsersModel sharedInstance].logedUserData setInteger:TRUE forKey:LOGGED_USER_REMINDERS_KEY];
     
     [[UsersModel sharedInstance] removeTodaysReminders];
     
@@ -37,7 +42,13 @@
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     return YES;
 }
-							
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    // I recieved a notification
+    NSInteger noteUserIndex = [[notification.userInfo objectForKey:@"LoggedUserIndex"] integerValue];
+    [self didAwakeFromNotificationWithUserIndex:noteUserIndex];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     [UsersModel sharedInstance].parentsModeActive = NO;
@@ -67,6 +78,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void) didAwakeFromNotificationWithUserIndex:(NSInteger)userIndex {
+    [[UsersModel sharedInstance] changeToUserAtIndex:userIndex];
 }
 
 @end
